@@ -1,5 +1,7 @@
 package com.flexi.profile.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final JwtTokenProvider jwtTokenProvider;
     private final TokenBlacklist tokenBlacklist;
@@ -24,33 +28,32 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String token = resolveToken(request);
-        System.out.println("JwtAuthenticationFilter - Request URL: " + request.getRequestURL());
-        System.out.println("JwtAuthenticationFilter - Token: " + (token != null ? "Present" : "Not present"));
+        logger.debug("Request URL: {}", request.getRequestURL());
+        logger.debug("Token: {}", (token != null ? "Present" : "Not present"));
         
         try {
             if (token != null) {
-                System.out.println("JwtAuthenticationFilter - Validating token...");
+                logger.debug("Validating token...");
                 
                 // Check if token is blacklisted
                 if (tokenBlacklist.isBlacklisted(token)) {
-                    System.out.println("JwtAuthenticationFilter - Token is blacklisted");
+                    logger.info("Token is blacklisted");
                     SecurityContextHolder.clearContext();
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token has been invalidated");
                     return;
                 }
                 
                 boolean isValid = jwtTokenProvider.validateToken(token);
-                System.out.println("JwtAuthenticationFilter - Token validation result: " + isValid);
+                logger.debug("Token validation result: {}", isValid);
                 
                 if (isValid) {
                     Authentication auth = jwtTokenProvider.getAuthentication(token);
                     SecurityContextHolder.getContext().setAuthentication(auth);
-                    System.out.println("JwtAuthenticationFilter - Authentication set in SecurityContext");
+                    logger.debug("Authentication set in SecurityContext");
                 }
             }
         } catch (Exception ex) {
-            System.err.println("JwtAuthenticationFilter - Error processing token: " + ex.getMessage());
-            ex.printStackTrace();
+            logger.error("Error processing token: {}", ex.getMessage(), ex);
             SecurityContextHolder.clearContext();
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token: " + ex.getMessage());
             return;

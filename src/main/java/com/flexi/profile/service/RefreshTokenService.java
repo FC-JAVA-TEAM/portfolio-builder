@@ -4,6 +4,8 @@ import com.flexi.profile.model.RefreshToken;
 import com.flexi.profile.model.User;
 import com.flexi.profile.repository.RefreshTokenRepository;
 import com.flexi.profile.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.UUID;
 @Service
 @Transactional
 public class RefreshTokenService {
+    private static final Logger logger = LoggerFactory.getLogger(RefreshTokenService.class);
 
     @Value("${jwt.refresh.expiration.default}")
     private Long refreshTokenDurationMs;
@@ -31,6 +34,7 @@ public class RefreshTokenService {
     private UserRepository userRepository;
 
     public RefreshToken createRefreshToken(User user) {
+        logger.debug("Creating refresh token for user: {}", user.getEmail());
         String family = UUID.randomUUID().toString();
         return createRefreshTokenInFamily(user, "", family);
     }
@@ -41,6 +45,7 @@ public class RefreshTokenService {
     }
 
     private RefreshToken createRefreshTokenInFamily(User user, String deviceInfo, String family) {
+        logger.debug("Creating refresh token in family {} for user: {}", family, user.getEmail());
         RefreshToken refreshToken = new RefreshToken();
         refreshToken.setUser(user);
         refreshToken.setToken(UUID.randomUUID().toString());
@@ -49,10 +54,12 @@ public class RefreshTokenService {
         refreshToken.setRevoked(false);
         refreshToken.setFamily(family);
 
-        // Revoke all other tokens for this user on this device
+        logger.debug("Revoking all existing tokens for user {} on device {}", user.getEmail(), deviceInfo);
         refreshTokenRepository.revokeAllUserTokensOnDevice(user, deviceInfo, 0L);
 
+        logger.debug("Saving new refresh token to database");
         RefreshToken savedToken = refreshTokenRepository.save(refreshToken);
+        logger.info("Created new refresh token for user: {}", user.getEmail());
         auditService.logTokenAction("CREATE", user.getEmail(), savedToken.getToken(), "Created new refresh token");
         return savedToken;
     }
@@ -70,26 +77,38 @@ public class RefreshTokenService {
 
     @Transactional
     public RefreshToken verifyExpiration(RefreshToken token) {
+        logger.debug("Verifying expiration for token: {}", token.getToken());
         if (token.getExpiryDate().compareTo(Instant.now()) < 0 || token.isRevoked()) {
+            logger.info("Token expired or revoked for user: {}", token.getUserId());
             refreshTokenRepository.delete(token);
             auditService.logTokenAction("EXPIRE", token.getUserId(), token.getToken(), "Token expired or revoked");
             throw new RuntimeException("Refresh token was expired or revoked. Please make a new login request");
         }
+        logger.debug("Token is valid and not expired");
         return token;
     }
 
     @Transactional
     public RefreshToken rotateRefreshToken(RefreshToken oldToken) {
-        // Invalidate all tokens in the family
+        logger.debug("Rotating refresh token for family: {}", oldToken.getFamily());
+        
+        logger.debug("Revoking all tokens in family: {}", oldToken.getFamily());
         refreshTokenRepository.revokeAllTokensInFamily(oldToken.getFamily());
+        
         User user = oldToken.getUser();
         if (user == null) {
+            logger.debug("User object not found in token, fetching by email: {}", oldToken.getUserId());
             user = userRepository.findByEmail(oldToken.getUserId())
-                .orElseThrow(() -> new RuntimeException("User not found with email: " + oldToken.getUserId()));
+                .orElseThrow(() -> {
+                    logger.warn("User not found with email: {}", oldToken.getUserId());
+                    return new RuntimeException("User not found with email: " + oldToken.getUserId());
+                });
         }
+        
         auditService.logTokenAction("ROTATE", user.getEmail(), oldToken.getToken(), "Rotated refresh token");
-        // Create new token with new family
+        
         String family = UUID.randomUUID().toString();
+        logger.info("Rotating token for user: {} with new family: {}", user.getEmail(), family);
         return createRefreshTokenInFamily(user, oldToken.getDeviceInfo(), family);
     }
 
@@ -114,17 +133,25 @@ public class RefreshTokenService {
 
     @Transactional
     public void revokeAllUserTokens(User user) {
+        logger.debug("Revoking all tokens for user: {}", user.getEmail());
         List<RefreshToken> userTokens = refreshTokenRepository.findByUser(user);
+        logger.debug("Found {} tokens to revoke", userTokens.size());
+        
         for (RefreshToken token : userTokens) {
+            logger.debug("Revoking token: {}", token.getToken());
             token.setRevoked(true);
             refreshTokenRepository.save(token);
             auditService.logTokenAction("REVOKE", user.getEmail(), token.getToken(), "Token revoked during user logout");
         }
+        
+        logger.info("Successfully revoked {} tokens for user: {}", userTokens.size(), user.getEmail());
     }
 
     @Transactional
     public void cleanupExpiredTokens() {
+        logger.debug("Starting cleanup of expired tokens");
         refreshTokenRepository.deleteAllExpiredTokens(Instant.now());
+        logger.info("Cleaned up expired tokens");
         auditService.logTokenAction("CLEANUP", "SYSTEM", null, "Cleaned up expired tokens");
     }
 

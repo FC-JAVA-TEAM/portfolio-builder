@@ -26,13 +26,16 @@ public class AdminController {
 
     @PostMapping("/tokens/revoke/{userId}")
     public ResponseEntity<?> revokeUserTokens(@PathVariable String userId) {
+        logger.debug("Received request to revoke all tokens for user: {}", userId);
         LogUtil.logMethodEntry(logger, "revokeUserTokens", userId);
         try {
             refreshTokenService.deleteByUserId(userId);
             ApiResponse response = new ApiResponse(true, "All tokens revoked for user: " + userId);
+            logger.info("Successfully revoked all tokens for user: {}", userId);
             LogUtil.logMethodExit(logger, "revokeUserTokens", response);
             return ResponseEntity.ok().body(response);
         } catch (Exception e) {
+            logger.error("Failed to revoke tokens for user: {}", userId, e);
             LogUtil.logError(logger, "Error revoking user tokens", e);
             throw e;
         }
@@ -40,19 +43,23 @@ public class AdminController {
 
     @PostMapping("/tokens/revoke-all")
     public ResponseEntity<?> revokeAllTokens() {
+        logger.debug("Received request to revoke all tokens in the system");
         LogUtil.logMethodEntry(logger, "revokeAllTokens");
         try {
             // First, log this administrative action
             auditService.logTokenAction("REVOKE_ALL", "ADMIN", null, "Admin revoked all tokens in the system");
             LogUtil.logInfo(logger, "Admin initiated revocation of all tokens");
+            logger.debug("Initiating system-wide token revocation");
             
             // Get all active tokens and revoke them
             refreshTokenService.revokeAllTokens();
             
             ApiResponse response = new ApiResponse(true, "All tokens in the system have been revoked");
+            logger.info("Successfully revoked all tokens in the system");
             LogUtil.logMethodExit(logger, "revokeAllTokens", response);
             return ResponseEntity.ok().body(response);
         } catch (Exception e) {
+            logger.error("Failed to revoke all tokens in the system", e);
             LogUtil.logError(logger, "Error revoking all tokens", e);
             throw e;
         }
@@ -60,13 +67,16 @@ public class AdminController {
 
     @GetMapping("/tokens/cleanup")
     public ResponseEntity<?> cleanupExpiredTokens() {
+        logger.debug("Received request to cleanup expired tokens");
         LogUtil.logMethodEntry(logger, "cleanupExpiredTokens");
         try {
             refreshTokenService.cleanupExpiredTokens();
             ApiResponse response = new ApiResponse(true, "Expired tokens have been cleaned up");
+            logger.info("Successfully completed expired tokens cleanup");
             LogUtil.logMethodExit(logger, "cleanupExpiredTokens", response);
             return ResponseEntity.ok().body(response);
         } catch (Exception e) {
+            logger.error("Failed to cleanup expired tokens", e);
             LogUtil.logError(logger, "Error cleaning up expired tokens", e);
             throw e;
         }

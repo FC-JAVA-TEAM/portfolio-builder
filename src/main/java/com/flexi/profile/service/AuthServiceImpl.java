@@ -48,14 +48,18 @@ public class AuthServiceImpl implements AuthService {
     public void logout(String token) {
         LogUtil.logMethodEntry(logger, "logout", token);
         try {
+            logger.debug("Invalidating token");
             jwtTokenProvider.invalidateToken(token);
             String email = jwtTokenProvider.getEmailFromToken(token);
+            logger.debug("Fetching user for email: {}", email);
             User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+            logger.debug("Revoking all refresh tokens for user: {}", email);
             refreshTokenService.revokeAllUserTokens(user);
-            LogUtil.logInfo(logger, "Successfully logged out user: " + email);
+            logger.info("Successfully logged out user: {}", email);
             LogUtil.logMethodExit(logger, "logout");
         } catch (Exception e) {
+            logger.error("Error during logout for token: {}", token, e);
             LogUtil.logError(logger, "Error during logout", e);
             throw e;
         }
@@ -65,31 +69,41 @@ public class AuthServiceImpl implements AuthService {
     public AuthResponse refreshToken(String refreshToken) {
         LogUtil.logMethodEntry(logger, "refreshToken", refreshToken);
         try {
+            logger.debug("Finding refresh token in database");
             AuthResponse response = refreshTokenService.findByToken(refreshToken)
                     .map(token -> {
-                        LogUtil.logDebug(logger, "Found refresh token for user: " + token.getUser().getEmail());
+                        logger.debug("Found refresh token for user: {}", token.getUser().getEmail());
                         return verifyExpiration(token);
                     })
                     .map(RefreshToken::getUser)
                     .map(user -> {
+                        logger.debug("Creating new access token for user: {}", user.getEmail());
                         String accessToken = createAccessToken(user);
-                        LogUtil.logDebug(logger, "Created new access token for user: " + user.getEmail());
+                        logger.debug("Revoking all existing refresh tokens for user: {}", user.getEmail());
                         refreshTokenService.revokeAllUserTokens(user);
+                        logger.debug("Creating new refresh token for user: {}", user.getEmail());
                         RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user);
+                        boolean isAdminUser = isAdmin(user);
+                        logger.debug("User {} is admin: {}", user.getEmail(), isAdminUser);
                         return new AuthResponse(
                             accessToken,
                             newRefreshToken.getToken(),
                             String.valueOf(user.getId()),
                             user.getFirstName(),
                             user.getEmail(),
-                            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin(user)),
-                            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin(user))
+                            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdminUser),
+                            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdminUser)
                         );
                     })
-                    .orElseThrow(() -> new RuntimeException("Refresh token not found in database"));
+                    .orElseThrow(() -> {
+                        logger.warn("Refresh token not found in database: {}", refreshToken);
+                        return new RuntimeException("Refresh token not found in database");
+                    });
+            logger.info("Successfully refreshed token for user: {}", response.getUserId());
             LogUtil.logMethodExit(logger, "refreshToken", response);
             return response;
         } catch (Exception e) {
+            logger.error("Error during token refresh for token: {}", refreshToken, e);
             LogUtil.logError(logger, "Error during token refresh", e);
             throw e;
         }
@@ -132,33 +146,42 @@ public class AuthServiceImpl implements AuthService {
     public AuthResponse registerUser(AuthRequest authRequest) {
         LogUtil.logMethodEntry(logger, "registerUser", authRequest);
         try {
+            logger.debug("Checking if user already exists: {}", authRequest.getEmail());
             if (userRepository.existsByEmail(authRequest.getEmail())) {
-                LogUtil.logInfo(logger, "Registration failed: User already exists: " + authRequest.getEmail());
+                logger.info("Registration failed: User already exists: {}", authRequest.getEmail());
                 throw new RuntimeException("User already exists");
             }
 
+            logger.debug("Creating new user: {}", authRequest.getEmail());
             User user = new User();
             user.setEmail(authRequest.getEmail());
             user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
             user.setFirstName(authRequest.getFirstName());
             user.setLastName(authRequest.getLastName());
             
+            logger.debug("Adding default role to user: {}", authRequest.getEmail());
             UserRole defaultRole = new UserRole(user, User.DEFAULT_ROLE);
             user.addRole(defaultRole);
             
             user = userRepository.save(user);
-            LogUtil.logDebug(logger, "Created new user: " + user.getEmail());
+            logger.info("Created new user: {}", user.getEmail());
 
+            logger.debug("Creating initial profile for user: {}", user.getEmail());
             Profile profile = new Profile();
             profile.setName(authRequest.getFirstName() + " " + authRequest.getLastName());
             profile.setBio("");
             profile.setIsPublic(false);
             user.addProfile(profile);
             profileRepository.save(profile);
-            LogUtil.logDebug(logger, "Created initial profile for user: " + user.getEmail());
+            logger.info("Created initial profile for user: {}", user.getEmail());
 
             boolean isAdmin = isAdmin(user);
+            logger.debug("User {} is admin: {}", user.getEmail(), isAdmin);
+            
+            logger.debug("Creating access token for user: {}", user.getEmail());
             String accessToken = createAccessToken(user);
+            
+            logger.debug("Creating refresh token for user: {}", user.getEmail());
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
 
             AuthResponse response = new AuthResponse(
@@ -170,9 +193,11 @@ public class AuthServiceImpl implements AuthService {
                 jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
                 jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
             );
+            logger.info("User registered successfully: {}", user.getEmail());
             LogUtil.logMethodExit(logger, "registerUser", response);
             return response;
         } catch (Exception e) {
+            logger.error("Error during user registration for email: {}", authRequest.getEmail(), e);
             LogUtil.logError(logger, "Error during user registration", e);
             throw e;
         }

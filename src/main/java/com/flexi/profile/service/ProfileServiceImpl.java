@@ -45,22 +45,30 @@ public class ProfileServiceImpl implements ProfileService {
     public ProfileDTO createProfile(ProfileDTO profileDTO, String userEmail) {
         LogUtil.logMethodEntry(logger, "createProfile", profileDTO, userEmail);
         try {
+            logger.debug("Finding user with email: {}", userEmail);
             User user = userRepository.findByEmail(userEmail)
-                    .orElseThrow(() -> new ProfileNotFoundException("User not found with email: " + userEmail));
+                    .orElseThrow(() -> {
+                        logger.warn("User not found with email: {}", userEmail);
+                        return new ProfileNotFoundException("User not found with email: " + userEmail);
+                    });
 
+            logger.debug("Creating new profile for user: {}", userEmail);
             Profile profile = new Profile();
             profile.setName(profileDTO.getName());
             profile.setBio(profileDTO.getBio());
             profile.setIsPublic(profileDTO.getIsPublic());
             profile.setUser(user);
 
+            logger.debug("Saving new profile to database");
             Profile savedProfile = profileRepository.save(profile);
-            LogUtil.logDebug(logger, "Created new profile with ID: " + savedProfile.getId());
+            logger.info("Created new profile with ID: {} for user: {}", savedProfile.getId(), userEmail);
             
+            logger.debug("Converting profile to DTO");
             ProfileDTO result = convertToDTO(savedProfile);
             LogUtil.logMethodExit(logger, "createProfile", result);
             return result;
         } catch (Exception e) {
+            logger.error("Error creating profile for user: {}", userEmail, e);
             LogUtil.logError(logger, "Error creating profile", e);
             throw e;
         }
@@ -70,12 +78,19 @@ public class ProfileServiceImpl implements ProfileService {
     public ProfileDTO getProfile(Long profileId) {
         LogUtil.logMethodEntry(logger, "getProfile", profileId);
         try {
+            logger.debug("Fetching profile with ID: {}", profileId);
             Profile profile = profileRepository.findById(profileId)
-                    .orElseThrow(() -> new ProfileNotFoundException("Profile not found with id: " + profileId));
+                    .orElseThrow(() -> {
+                        logger.warn("Profile not found with ID: {}", profileId);
+                        return new ProfileNotFoundException("Profile not found with id: " + profileId);
+                    });
+            logger.debug("Converting profile to DTO");
             ProfileDTO result = convertToDTO(profile);
+            logger.info("Successfully retrieved profile with ID: {}", profileId);
             LogUtil.logMethodExit(logger, "getProfile", result);
             return result;
         } catch (Exception e) {
+            logger.error("Error fetching profile with ID: {}", profileId, e);
             LogUtil.logError(logger, "Error fetching profile", e);
             throw e;
         }
@@ -85,11 +100,15 @@ public class ProfileServiceImpl implements ProfileService {
     public List<ProfileDTO> getAllProfiles() {
         LogUtil.logMethodEntry(logger, "getAllProfiles");
         try {
+            logger.debug("Fetching all profiles from database");
             List<Profile> profiles = profileRepository.findAll();
+            logger.debug("Converting {} profiles to DTOs", profiles.size());
             List<ProfileDTO> result = profiles.stream().map(this::convertToDTO).collect(Collectors.toList());
+            logger.info("Successfully retrieved {} profiles", result.size());
             LogUtil.logMethodExit(logger, "getAllProfiles", result);
             return result;
         } catch (Exception e) {
+            logger.error("Error fetching all profiles", e);
             LogUtil.logError(logger, "Error fetching all profiles", e);
             throw e;
         }
@@ -131,20 +150,28 @@ public class ProfileServiceImpl implements ProfileService {
     public ProfileDTO updateProfile(Long profileId, ProfileDTO profileDTO) {
         LogUtil.logMethodEntry(logger, "updateProfile", profileId, profileDTO);
         try {
+            logger.debug("Fetching profile with ID: {}", profileId);
             Profile profile = profileRepository.findById(profileId)
-                    .orElseThrow(() -> new ProfileNotFoundException("Profile not found with id: " + profileId));
+                    .orElseThrow(() -> {
+                        logger.warn("Profile not found with ID: {}", profileId);
+                        return new ProfileNotFoundException("Profile not found with id: " + profileId);
+                    });
 
+            logger.debug("Updating profile details");
             profile.setName(profileDTO.getName());
             profile.setBio(profileDTO.getBio());
             profile.setIsPublic(profileDTO.getIsPublic());
 
+            logger.debug("Saving updated profile to database");
             Profile updatedProfile = profileRepository.save(profile);
-            LogUtil.logDebug(logger, "Updated profile with ID: " + profileId);
+            logger.info("Successfully updated profile with ID: {}", profileId);
             
+            logger.debug("Converting updated profile to DTO");
             ProfileDTO result = convertToDTO(updatedProfile);
             LogUtil.logMethodExit(logger, "updateProfile", result);
             return result;
         } catch (Exception e) {
+            logger.error("Error updating profile with ID: {}", profileId, e);
             LogUtil.logError(logger, "Error updating profile", e);
             throw e;
         }
@@ -154,10 +181,12 @@ public class ProfileServiceImpl implements ProfileService {
     public void deleteProfile(Long profileId) {
         LogUtil.logMethodEntry(logger, "deleteProfile", profileId);
         try {
+            logger.debug("Deleting profile with ID: {}", profileId);
             profileRepository.deleteById(profileId);
-            LogUtil.logDebug(logger, "Deleted profile with ID: " + profileId);
+            logger.info("Successfully deleted profile with ID: {}", profileId);
             LogUtil.logMethodExit(logger, "deleteProfile");
         } catch (Exception e) {
+            logger.error("Error deleting profile with ID: {}", profileId, e);
             LogUtil.logError(logger, "Error deleting profile", e);
             throw e;
         }
