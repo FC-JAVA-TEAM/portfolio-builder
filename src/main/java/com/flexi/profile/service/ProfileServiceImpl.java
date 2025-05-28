@@ -22,17 +22,25 @@ public class ProfileServiceImpl implements ProfileService {
     @Autowired
     private SectionRepository sectionRepository;
 
-    @Override
-    public ProfileDTO createProfile(ProfileDTO profileDTO) {
-        Profile profile = new Profile();
+@Override
+public ProfileDTO createProfile(ProfileDTO profileDTO) {
+    List<Profile> existingProfiles = profileRepository.findByUserId(profileDTO.getUserId());
+    Profile profile;
+    
+    if (!existingProfiles.isEmpty()) {
+        profile = existingProfiles.get(0);
+    } else {
+        profile = new Profile();
         profile.setUserId(profileDTO.getUserId());
-        profile.setName(profileDTO.getName());
-        profile.setBio(profileDTO.getBio());
-        profile.setIsPublic(profileDTO.getIsPublic());
-        
-        Profile savedProfile = profileRepository.save(profile);
-        return convertToDTO(savedProfile);
     }
+    
+    profile.setName(profileDTO.getName());
+    profile.setBio(profileDTO.getBio());
+    profile.setIsPublic(profileDTO.getIsPublic());
+    
+    Profile savedProfile = profileRepository.save(profile);
+    return convertToDTO(savedProfile);
+}
 
     @Override
     public ProfileDTO getProfile(Long profileId) {
@@ -70,7 +78,9 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public void deleteProfile(Long profileId) {
-        profileRepository.deleteById(profileId);
+        Profile profile = profileRepository.findById(profileId)
+            .orElseThrow(() -> new RuntimeException("Profile not found"));
+        profileRepository.delete(profile);
     }
 
     @Override

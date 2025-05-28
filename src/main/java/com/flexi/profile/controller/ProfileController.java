@@ -24,8 +24,12 @@ public class ProfileController {
 
     @GetMapping("/{profileId}")
     public ResponseEntity<ProfileDTO> getProfile(@PathVariable Long profileId) {
-        ProfileDTO profile = profileService.getProfile(profileId);
-        return ResponseEntity.ok(profile);
+        try {
+            ProfileDTO profile = profileService.getProfile(profileId);
+            return ResponseEntity.ok(profile);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping
@@ -50,8 +54,12 @@ public class ProfileController {
 
     @DeleteMapping("/{profileId}")
     public ResponseEntity<Void> deleteProfile(@PathVariable Long profileId) {
-        profileService.deleteProfile(profileId);
-        return ResponseEntity.noContent().build();
+        try {
+            profileService.deleteProfile(profileId);
+            return ResponseEntity.noContent().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/public")
