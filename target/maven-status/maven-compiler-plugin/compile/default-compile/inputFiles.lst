@@ -3,10 +3,13 @@
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/model/SubSection.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/service/AuditService.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/security/JwtAuthenticationFilter.java
+/Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/model/UserRole.java
+/Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/model/User.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/service/RefreshTokenService.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/config/WebConfig.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/dto/SubSectionDTO.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/repository/SubSectionRepository.java
+/Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/controller/HealthController.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/repository/ProfileRepository.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/controller/SectionController.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/security/TokenCleanupTask.java
@@ -16,6 +19,7 @@
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/service/AuthServiceImpl.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/service/ProfileServiceImpl.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/dto/ProfileDTO.java
+/Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/repository/UserRepository.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/controller/AdminController.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/model/Section.java
 /Users/shaikhjalil/Documents/git-portfolio/portfolio-builder/src/main/java/com/flexi/profile/repository/AuditLogRepository.java

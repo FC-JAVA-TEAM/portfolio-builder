@@ -1,6 +1,7 @@
 package com.flexi.profile.security;
 
 import io.jsonwebtoken.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,6 +29,9 @@ public class JwtTokenProvider {
 
     @Value("${jwt.refresh.expiration.admin}")
     private long adminRefreshTokenValidityInMilliseconds;
+
+    @Autowired
+    private TokenBlacklist tokenBlacklist;
 
     @PostConstruct
     protected void init() {
@@ -65,7 +69,7 @@ public class JwtTokenProvider {
     public boolean validateToken(String token) {
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            return !claims.getBody().getExpiration().before(new Date());
+            return !claims.getBody().getExpiration().before(new Date()) && !tokenBlacklist.isBlacklisted(token);
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }
@@ -82,5 +86,13 @@ public class JwtTokenProvider {
 
     public long getRefreshTokenValidityInMilliseconds(boolean isAdmin) {
         return isAdmin ? adminRefreshTokenValidityInMilliseconds : defaultRefreshTokenValidityInMilliseconds;
+    }
+
+    public void invalidateToken(String token) {
+        tokenBlacklist.addToBlacklist(token);
+    }
+
+    public String getEmailFromToken(String token) {
+        return getUsername(token);
     }
 }

@@ -2,10 +2,17 @@ package com.flexi.profile.service;
 
 import com.flexi.profile.dto.ProfileDTO;
 import com.flexi.profile.dto.SectionDTO;
+import com.flexi.profile.dto.SubSectionDTO;
 import com.flexi.profile.model.Profile;
 import com.flexi.profile.model.Section;
+import com.flexi.profile.model.SubSection;
+import com.flexi.profile.model.User;
 import com.flexi.profile.repository.ProfileRepository;
 import com.flexi.profile.repository.SectionRepository;
+import com.flexi.profile.repository.SubSectionRepository;
+import com.flexi.profile.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,31 +23,51 @@ import java.util.stream.Collectors;
 @Service
 public class ProfileServiceImpl implements ProfileService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProfileServiceImpl.class);
+
     @Autowired
     private ProfileRepository profileRepository;
 
     @Autowired
     private SectionRepository sectionRepository;
 
-@Override
-public ProfileDTO createProfile(ProfileDTO profileDTO) {
-    List<Profile> existingProfiles = profileRepository.findByUserId(profileDTO.getUserId());
-    Profile profile;
-    
-    if (!existingProfiles.isEmpty()) {
-        profile = existingProfiles.get(0);
-    } else {
-        profile = new Profile();
-        profile.setUserId(profileDTO.getUserId());
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private SubSectionRepository subSectionRepository;
+
+    @Override
+    public ProfileDTO createProfile(ProfileDTO profileDTO) {
+        User user = userRepository.findByEmail(profileDTO.getUserEmail())
+            .orElseThrow(() -> new RuntimeException("User not found"));
+            
+        Profile profile = new Profile();
+        profile.setUser(user);
+        profile.setName(profileDTO.getName());
+        profile.setBio(profileDTO.getBio());
+        profile.setIsPublic(profileDTO.getIsPublic());
+        
+        Profile savedProfile = profileRepository.save(profile);
+        logger.info("Created new profile for user: {}", user.getEmail());
+        return convertToDTO(savedProfile);
     }
-    
-    profile.setName(profileDTO.getName());
-    profile.setBio(profileDTO.getBio());
-    profile.setIsPublic(profileDTO.getIsPublic());
-    
-    Profile savedProfile = profileRepository.save(profile);
-    return convertToDTO(savedProfile);
-}
+
+    private ProfileDTO convertToDTO(Profile profile) {
+        ProfileDTO dto = new ProfileDTO();
+        dto.setId(profile.getId());
+        dto.setUserId(profile.getUser().getId().toString());
+        dto.setUserEmail(profile.getUser().getEmail());
+        dto.setName(profile.getName());
+        dto.setBio(profile.getBio());
+        dto.setIsPublic(profile.getIsPublic());
+        if (profile.getSections() != null) {
+            dto.setSections(profile.getSections().stream()
+                .map(this::convertToSectionDTO)
+                .collect(Collectors.toList()));
+        }
+        return dto;
+    }
 
     @Override
     public ProfileDTO getProfile(Long profileId) {
@@ -58,7 +85,9 @@ public ProfileDTO createProfile(ProfileDTO profileDTO) {
 
     @Override
     public List<ProfileDTO> getProfilesByUserId(String userId) {
-        return profileRepository.findByUserId(userId).stream()
+        User user = userRepository.findByEmail(userId)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        return profileRepository.findByUser(user).stream()
             .map(this::convertToDTO)
             .collect(Collectors.toList());
     }
@@ -151,17 +180,22 @@ public ProfileDTO createProfile(ProfileDTO profileDTO) {
             .collect(Collectors.toList());
     }
 
-    // Helper methods
-    private ProfileDTO convertToDTO(Profile profile) {
-        ProfileDTO dto = new ProfileDTO();
-        dto.setId(profile.getId());
-        dto.setUserId(profile.getUserId());
-        dto.setName(profile.getName());
-        dto.setBio(profile.getBio());
-        dto.setIsPublic(profile.getIsPublic());
-        return dto;
+    @Override
+    public SubSectionDTO createSubSection(Long sectionId, SubSectionDTO subSectionDTO) {
+        Section section = sectionRepository.findById(sectionId)
+            .orElseThrow(() -> new RuntimeException("Section not found"));
+
+        SubSection subSection = new SubSection();
+        subSection.setTitle(subSectionDTO.getTitle());
+        subSection.setContent(subSectionDTO.getContent());
+        subSection.setDisplayOrder(subSectionDTO.getOrder());
+        subSection.setSection(section);
+
+        SubSection savedSubSection = subSectionRepository.save(subSection);
+        return convertToSubSectionDTO(savedSubSection);
     }
 
+    // Helper methods
     private SectionDTO convertToSectionDTO(Section section) {
         SectionDTO dto = new SectionDTO();
         dto.setId(section.getId());
@@ -170,6 +204,21 @@ public ProfileDTO createProfile(ProfileDTO profileDTO) {
         dto.setTitle(section.getTitle());
         dto.setOrder(section.getDisplayOrder());
         dto.setBackgroundUrl(section.getBackgroundUrl());
+        if (section.getSubsections() != null) {
+            dto.setSubsections(section.getSubsections().stream()
+                .map(this::convertToSubSectionDTO)
+                .collect(Collectors.toList()));
+        }
+        return dto;
+    }
+
+    private SubSectionDTO convertToSubSectionDTO(SubSection subSection) {
+        SubSectionDTO dto = new SubSectionDTO();
+        dto.setId(subSection.getId());
+        dto.setSectionId(subSection.getSection().getId());
+        dto.setTitle(subSection.getTitle());
+        dto.setContent(subSection.getContent());
+        dto.setOrder(subSection.getDisplayOrder());
         return dto;
     }
 }

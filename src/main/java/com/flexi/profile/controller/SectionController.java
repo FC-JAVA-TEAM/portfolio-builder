@@ -1,6 +1,7 @@
 package com.flexi.profile.controller;
 
 import com.flexi.profile.dto.SectionDTO;
+import com.flexi.profile.dto.SubSectionDTO;
 import com.flexi.profile.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,12 @@ public class SectionController {
     public ResponseEntity<SectionDTO> createSection(@RequestBody SectionDTO sectionDTO) {
         SectionDTO createdSection = profileService.createSection(sectionDTO);
         return ResponseEntity.ok(createdSection);
+    }
+
+    @PostMapping("/{sectionId}/subsections")
+    public ResponseEntity<SubSectionDTO> createSubSection(@PathVariable Long sectionId, @RequestBody SubSectionDTO subSectionDTO) {
+        SubSectionDTO createdSubSection = profileService.createSubSection(sectionId, subSectionDTO);
+        return ResponseEntity.ok(createdSubSection);
     }
 
     @GetMapping("/{sectionId}")

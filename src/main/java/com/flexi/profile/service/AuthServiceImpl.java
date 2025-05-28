@@ -4,7 +4,9 @@ import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
 import com.flexi.profile.model.Profile;
 import com.flexi.profile.model.RefreshToken;
+import com.flexi.profile.model.User;
 import com.flexi.profile.repository.ProfileRepository;
+import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -27,21 +30,8 @@ public class AuthServiceImpl implements AuthService {
     private static final String TEST_USER_EMAIL = "test@example.com";
     private static final String TEST_USER_PASSWORD = "password123";
 
-    @PostConstruct
-    public void init() {
-        createTestUserIfNotExist();
-    }
-
-    private void createTestUserIfNotExist() {
-        if (profileRepository.findByUserId(TEST_USER_EMAIL).isEmpty()) {
-            AuthRequest testUser = new AuthRequest();
-            testUser.setEmail(TEST_USER_EMAIL);
-            testUser.setPassword(TEST_USER_PASSWORD);
-            testUser.setName("Test User");
-            registerUser(testUser);
-            logger.info("Test user created: {}", TEST_USER_EMAIL);
-        }
-    }
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private ProfileRepository profileRepository;
@@ -55,14 +45,70 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private RefreshTokenService refreshTokenService;
 
-    private boolean isAdmin(String userId) {
-        // TODO: Implement proper role-based check
-        return false;
+    @PostConstruct
+    public void init() {
+        createTestUserIfNotExist();
     }
 
     @Override
-    public String createAccessToken(String userId) {
-        return jwtTokenProvider.createAccessToken(userId, isAdmin(userId));
+    public void logout(String token) {
+        jwtTokenProvider.invalidateToken(token);
+        String email = jwtTokenProvider.getEmailFromToken(token);
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        refreshTokenService.revokeAllUserTokens(user);
+        logger.info("User logged out: {}", email);
+    }
+
+    @Override
+    public AuthResponse refreshToken(String refreshToken) {
+        return refreshTokenService.findByToken(refreshToken)
+                .map(this::verifyExpiration)
+                .map(RefreshToken::getUser)
+                .map(user -> {
+                    String accessToken = createAccessToken(user);
+                    refreshTokenService.revokeAllUserTokens(user);
+                    RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user);
+                    return new AuthResponse(
+                        accessToken,
+                        newRefreshToken.getToken(),
+                        String.valueOf(user.getId()),
+                        user.getFirstName(),
+                        user.getEmail(),
+                        jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin(user)),
+                        jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin(user))
+                    );
+                })
+                .orElseThrow(() -> new RuntimeException("Refresh token not found in database"));
+    }
+
+    private RefreshToken verifyExpiration(RefreshToken token) {
+        if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
+            refreshTokenService.revokeAllUserTokens(token.getUser());
+            throw new RuntimeException("Refresh token was expired. Please make a new signin request");
+        }
+        return token;
+    }
+
+    private void createTestUserIfNotExist() {
+        if (!userRepository.existsByEmail(TEST_USER_EMAIL)) {
+            AuthRequest testUser = new AuthRequest();
+            testUser.setEmail(TEST_USER_EMAIL);
+            testUser.setPassword(TEST_USER_PASSWORD);
+            testUser.setFirstName("Test");
+            testUser.setLastName("User");
+            registerUser(testUser);
+            logger.info("Test user created: {}", TEST_USER_EMAIL);
+        }
+    }
+
+    private boolean isAdmin(User user) {
+        return user.getRoles().stream().anyMatch(role -> role.getRole().equals("ROLE_ADMIN"));
+    }
+
+    @Override
+    public String createAccessToken(User user) {
+        return jwtTokenProvider.createAccessToken(user.getEmail(), isAdmin(user));
     }
 
     @Override
@@ -77,35 +123,36 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse registerUser(AuthRequest authRequest) {
-        // Check if user already exists
-        if (!profileRepository.findByUserId(authRequest.getEmail()).isEmpty()) {
+        if (userRepository.existsByEmail(authRequest.getEmail())) {
             throw new RuntimeException("User already exists");
         }
 
-        // Create new profile
+        User user = new User();
+        user.setEmail(authRequest.getEmail());
+        user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
+        user.setFirstName(authRequest.getFirstName());
+        user.setLastName(authRequest.getLastName());
+        user = userRepository.save(user);
+
         Profile profile = new Profile();
-        profile.setUserId(authRequest.getEmail());
-        profile.setName(authRequest.getName());
-        profile.setPassword(passwordEncoder.encode(authRequest.getPassword()));
+        profile.setUser(user);
+        profile.setName(authRequest.getFirstName() + " " + authRequest.getLastName());
         profile.setBio("");
         profile.setIsPublic(false);
-        
-        // Save profile
-        Profile savedProfile = profileRepository.save(profile);
-        logger.info("New user registered: {}", savedProfile.getUserId());
-        
-        // Generate JWT tokens
-        boolean isAdmin = isAdmin(savedProfile.getUserId());
-        String accessToken = jwtTokenProvider.createAccessToken(savedProfile.getUserId(), isAdmin);
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(savedProfile.getUserId(), "");
+        profileRepository.save(profile);
 
-        // Create response
+        logger.info("New user registered: {}", user.getEmail());
+
+        boolean isAdmin = isAdmin(user);
+        String accessToken = createAccessToken(user);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+
         return new AuthResponse(
             accessToken,
             refreshToken.getToken(),
-            String.valueOf(savedProfile.getId()),
-            savedProfile.getName(),
-            savedProfile.getUserId(),
+            String.valueOf(user.getId()),
+            user.getFirstName(),
+            user.getEmail(),
             jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
             jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );
@@ -115,36 +162,29 @@ public class AuthServiceImpl implements AuthService {
     public AuthResponse loginUser(AuthRequest authRequest) {
         logger.info("Login attempt for user: {}", authRequest.getEmail());
 
-        // Find user by email
-        List<Profile> profiles = profileRepository.findByUserId(authRequest.getEmail());
-        
-        if (profiles.isEmpty()) {
-            logger.warn("Login failed: User not found for email: {}", authRequest.getEmail());
-            throw new RuntimeException("Invalid credentials");
-        }
+        User user = userRepository.findByEmail(authRequest.getEmail())
+            .orElseThrow(() -> {
+                logger.warn("Login failed: User not found for email: {}", authRequest.getEmail());
+                return new RuntimeException("Invalid credentials");
+            });
 
-        Profile profile = profiles.get(0);
-        
-        // Verify password
-        if (!passwordEncoder.matches(authRequest.getPassword(), profile.getPassword())) {
+        if (!passwordEncoder.matches(authRequest.getPassword(), user.getPassword())) {
             logger.warn("Login failed: Invalid password for user: {}", authRequest.getEmail());
             throw new RuntimeException("Invalid credentials");
         }
 
-        logger.info("User logged in successfully: {}", profile.getUserId());
-        
-        // Generate JWT tokens
-        boolean isAdmin = isAdmin(profile.getUserId());
-        String accessToken = jwtTokenProvider.createAccessToken(profile.getUserId(), isAdmin);
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(profile.getUserId(), "");
+        logger.info("User logged in successfully: {}", user.getEmail());
 
-        // Create response
+        boolean isAdmin = isAdmin(user);
+        String accessToken = createAccessToken(user);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+
         return new AuthResponse(
             accessToken,
             refreshToken.getToken(),
-            String.valueOf(profile.getId()),
-            profile.getName(),
-            profile.getUserId(),
+            String.valueOf(user.getId()),
+            user.getFirstName(),
+            user.getEmail(),
             jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
             jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );
@@ -152,33 +192,31 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse getCurrentUser(Authentication authentication) {
-        String userId = authentication.getName();
-        logger.info("Getting current user for: {}", userId);
-        
-        if ("anonymousUser".equals(userId)) {
+        String email = authentication.getName();
+        logger.info("Getting current user for: {}", email);
+
+        if ("anonymousUser".equals(email)) {
             logger.info("Anonymous user detected, returning null");
             return null;
         }
-        
-        List<Profile> profiles = profileRepository.findByUserId(userId);
-        
-        if (profiles.isEmpty()) {
-            logger.warn("User not found for authenticated user: {}", userId);
-            return null;
-        }
 
-        Profile profile = profiles.get(0);
-        boolean isAdmin = isAdmin(profile.getUserId());
-        String accessToken = jwtTokenProvider.createAccessToken(profile.getUserId(), isAdmin);
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(profile.getUserId(), "");
-        logger.info("Successfully retrieved user profile for: {}", userId);
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> {
+                logger.warn("User not found for authenticated user: {}", email);
+                return new RuntimeException("User not found");
+            });
+
+        boolean isAdmin = isAdmin(user);
+        String accessToken = createAccessToken(user);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+        logger.info("Successfully retrieved user profile for: {}", email);
 
         return new AuthResponse(
             accessToken,
             refreshToken.getToken(),
-            String.valueOf(profile.getId()),
-            profile.getName(),
-            profile.getUserId(),
+            String.valueOf(user.getId()),
+            user.getFirstName(),
+            user.getEmail(),
             jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
             jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );

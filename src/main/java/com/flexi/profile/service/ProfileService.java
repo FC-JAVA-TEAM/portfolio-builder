@@ -2,6 +2,7 @@ package com.flexi.profile.service;
 
 import com.flexi.profile.dto.ProfileDTO;
 import com.flexi.profile.dto.SectionDTO;
+import com.flexi.profile.dto.SubSectionDTO;
 import java.util.List;
 
 public interface ProfileService {
@@ -20,4 +21,6 @@ public interface ProfileService {
     void deleteSection(Long sectionId);
     void reorderSections(Long profileId, List<Long> sectionIds);
     List<SectionDTO> getSectionsByProfile(Long profileId);
+
+    SubSectionDTO createSubSection(Long sectionId, SubSectionDTO subSectionDTO);
 }

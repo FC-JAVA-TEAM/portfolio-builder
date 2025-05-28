@@ -2,7 +2,9 @@ package com.flexi.profile.service;
 
 import com.flexi.profile.dto.ProfileDTO;
 import com.flexi.profile.model.Profile;
+import com.flexi.profile.model.User;
 import com.flexi.profile.repository.ProfileRepository;
+import com.flexi.profile.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,122 +27,138 @@ public class ProfileServiceTest {
     @Mock
     private ProfileRepository profileRepository;
 
+    @Mock
+    private UserRepository userRepository;
+
     @InjectMocks
     private ProfileServiceImpl profileService;
 
+    private User testUser;
     private Profile testProfile;
     private ProfileDTO testProfileDTO;
 
-    // @BeforeEach
-    // void setUp() {
-    //     testProfile = new Profile();
-    //     testProfile.setId(1L);
-    //     testProfile.setUserId("test@example.com");
-    //     testProfile.setName("Test User");
-    //     testProfile.setBio("Test Bio");
-    //     testProfile.setIsPublic(true);
+    @BeforeEach
+    void setUp() {
+        testUser = new User();
+        testUser.setId(1L);
+        testUser.setEmail("test@example.com");
+        testUser.setFirstName("Test");
+        testUser.setLastName("User");
 
-    //     testProfileDTO = new ProfileDTO();
-    //     testProfileDTO.setId(1L);
-    //     testProfileDTO.setUserId("test@example.com");
-    //     testProfileDTO.setName("Test User");
-    //     testProfileDTO.setBio("Test Bio");
-    //     testProfileDTO.setIsPublic(true);
-    // }
+        testProfile = new Profile();
+        testProfile.setId(1L);
+        testProfile.setUser(testUser);
+        testProfile.setName("Test User");
+        testProfile.setBio("Test Bio");
+        testProfile.setIsPublic(true);
 
-    // @Test
-    // void testCreateProfile() {
-    //     when(profileRepository.save(any(Profile.class))).thenReturn(testProfile);
+        testProfileDTO = new ProfileDTO();
+        testProfileDTO.setId(1L);
+        testProfileDTO.setUserId("1");
+        testProfileDTO.setUserEmail("test@example.com");
+        testProfileDTO.setName("Test User");
+        testProfileDTO.setBio("Test Bio");
+        testProfileDTO.setIsPublic(true);
+    }
 
-    //     ProfileDTO result = profileService.createProfile(testProfileDTO);
+    @Test
+    void testCreateProfile() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(testUser));
+        when(profileRepository.save(any(Profile.class))).thenReturn(testProfile);
 
-    //     assertThat(result.getUserId()).isEqualTo(testProfileDTO.getUserId());
-    //     assertThat(result.getName()).isEqualTo(testProfileDTO.getName());
-    //     assertThat(result.getBio()).isEqualTo(testProfileDTO.getBio());
-    //     assertThat(result.getIsPublic()).isEqualTo(testProfileDTO.getIsPublic());
+        ProfileDTO result = profileService.createProfile(testProfileDTO);
 
-    //     verify(profileRepository, times(1)).save(any(Profile.class));
-    // }
+        assertThat(result.getUserId()).isEqualTo(testProfileDTO.getUserId());
+        assertThat(result.getUserEmail()).isEqualTo(testProfileDTO.getUserEmail());
+        assertThat(result.getName()).isEqualTo(testProfileDTO.getName());
+        assertThat(result.getBio()).isEqualTo(testProfileDTO.getBio());
+        assertThat(result.getIsPublic()).isEqualTo(testProfileDTO.getIsPublic());
 
-    // @Test
-    // void testGetProfile() {
-    //     when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
+        verify(userRepository, times(1)).findById(1L);
+        verify(profileRepository, times(1)).save(any(Profile.class));
+    }
 
-    //     ProfileDTO result = profileService.getProfile(1L);
+    @Test
+    void testGetProfile() {
+        when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
 
-    //     assertThat(result.getId()).isEqualTo(testProfile.getId());
-    //     assertThat(result.getUserId()).isEqualTo(testProfile.getUserId());
-    //     assertThat(result.getName()).isEqualTo(testProfile.getName());
+        ProfileDTO result = profileService.getProfile(1L);
 
-    //     verify(profileRepository, times(1)).findById(1L);
-    // }
+        assertThat(result.getId()).isEqualTo(testProfile.getId());
+        assertThat(result.getUserId()).isEqualTo(testProfile.getUser().getId().toString());
+        assertThat(result.getUserEmail()).isEqualTo(testProfile.getUser().getEmail());
+        assertThat(result.getName()).isEqualTo(testProfile.getName());
 
-    // @Test
-    // void testGetProfilesByUserId() {
-    //     when(profileRepository.findByUserId("test@example.com"))
-    //         .thenReturn(Arrays.asList(testProfile));
+        verify(profileRepository, times(1)).findById(1L);
+    }
 
-    //     List<ProfileDTO> results = profileService.getProfilesByUserId("test@example.com");
+    @Test
+    void testGetProfilesByUserId() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(testUser));
+        when(profileRepository.findByUser(testUser)).thenReturn(Arrays.asList(testProfile));
 
-    //     assertThat(results).hasSize(1);
-    //     assertThat(results.get(0).getUserId()).isEqualTo(testProfile.getUserId());
+        List<ProfileDTO> results = profileService.getProfilesByUserId("1");
 
-    //     verify(profileRepository, times(1)).findByUserId("test@example.com");
-    // }
+        assertThat(results).hasSize(1);
+        assertThat(results.get(0).getUserId()).isEqualTo("1");
+        assertThat(results.get(0).getUserEmail()).isEqualTo("test@example.com");
 
-    // @Test
-    // void testUpdateProfile() {
-    //     when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
-    //     when(profileRepository.save(any(Profile.class))).thenReturn(testProfile);
+        verify(userRepository, times(1)).findById(1L);
+        verify(profileRepository, times(1)).findByUser(testUser);
+    }
 
-    //     ProfileDTO updatedDTO = new ProfileDTO();
-    //     updatedDTO.setName("Updated Name");
-    //     updatedDTO.setBio("Updated Bio");
-    //     updatedDTO.setIsPublic(false);
+    @Test
+    void testUpdateProfile() {
+        when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
+        when(profileRepository.save(any(Profile.class))).thenReturn(testProfile);
 
-    //     ProfileDTO result = profileService.updateProfile(1L, updatedDTO);
+        ProfileDTO updatedDTO = new ProfileDTO();
+        updatedDTO.setName("Updated Name");
+        updatedDTO.setBio("Updated Bio");
+        updatedDTO.setIsPublic(false);
 
-    //     assertThat(result.getName()).isEqualTo(updatedDTO.getName());
-    //     assertThat(result.getBio()).isEqualTo(updatedDTO.getBio());
-    //     assertThat(result.getIsPublic()).isEqualTo(updatedDTO.getIsPublic());
+        ProfileDTO result = profileService.updateProfile(1L, updatedDTO);
 
-    //     verify(profileRepository, times(1)).findById(1L);
-    //     verify(profileRepository, times(1)).save(any(Profile.class));
-    // }
+        assertThat(result.getName()).isEqualTo(updatedDTO.getName());
+        assertThat(result.getBio()).isEqualTo(updatedDTO.getBio());
+        assertThat(result.getIsPublic()).isEqualTo(updatedDTO.getIsPublic());
 
-    // @Test
-    // void testGetPublicProfiles() {
-    //     when(profileRepository.findByIsPublic(true))
-    //         .thenReturn(Arrays.asList(testProfile));
+        verify(profileRepository, times(1)).findById(1L);
+        verify(profileRepository, times(1)).save(any(Profile.class));
+    }
 
-    //     List<ProfileDTO> results = profileService.getPublicProfiles();
+    @Test
+    void testGetPublicProfiles() {
+        when(profileRepository.findByIsPublic(true)).thenReturn(Arrays.asList(testProfile));
 
-    //     assertThat(results).hasSize(1);
-    //     assertThat(results.get(0).getIsPublic()).isTrue();
+        List<ProfileDTO> results = profileService.getPublicProfiles();
 
-    //     verify(profileRepository, times(1)).findByIsPublic(true);
-    // }
+        assertThat(results).hasSize(1);
+        assertThat(results.get(0).getIsPublic()).isTrue();
 
-    // @Test
-    // void testDeleteProfile() {
-    //     when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
-    //     doNothing().when(profileRepository).delete(testProfile);
+        verify(profileRepository, times(1)).findByIsPublic(true);
+    }
 
-    //     profileService.deleteProfile(1L);
+    @Test
+    void testDeleteProfile() {
+        when(profileRepository.findById(1L)).thenReturn(Optional.of(testProfile));
+        doNothing().when(profileRepository).delete(testProfile);
 
-    //     verify(profileRepository, times(1)).findById(1L);
-    //     verify(profileRepository, times(1)).delete(testProfile);
-    // }
+        profileService.deleteProfile(1L);
 
-    // @Test
-    // void testDeleteProfileNotFound() {
-    //     when(profileRepository.findById(1L)).thenReturn(Optional.empty());
+        verify(profileRepository, times(1)).findById(1L);
+        verify(profileRepository, times(1)).delete(testProfile);
+    }
 
-    //     assertThatThrownBy(() -> profileService.deleteProfile(1L))
-    //         .isInstanceOf(RuntimeException.class)
-    //         .hasMessage("Profile not found");
+    @Test
+    void testDeleteProfileNotFound() {
+        when(profileRepository.findById(1L)).thenReturn(Optional.empty());
 
-    //     verify(profileRepository, times(1)).findById(1L);
-    //     verify(profileRepository, never()).delete(any(Profile.class));
-    // }
+        assertThatThrownBy(() -> profileService.deleteProfile(1L))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessage("Profile not found");
+
+        verify(profileRepository, times(1)).findById(1L);
+        verify(profileRepository, never()).delete(any(Profile.class));
+    }
 }

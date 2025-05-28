@@ -10,6 +10,7 @@ import java.util.List;
 public class ProfileDTO {
     private Long id;
     private String userId;
+    private String userEmail;
     private String name;
     private String bio;
     private Boolean isPublic;

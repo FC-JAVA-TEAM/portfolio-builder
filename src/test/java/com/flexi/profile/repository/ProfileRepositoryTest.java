@@ -1,9 +1,12 @@
 package com.flexi.profile.repository;
 
 import com.flexi.profile.model.Profile;
+import com.flexi.profile.model.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
@@ -15,53 +18,73 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProfileRepositoryTest {
 
     @Autowired
+    private TestEntityManager entityManager;
+
+    @Autowired
     private ProfileRepository profileRepository;
+
+    private User testUser;
+    private Profile testProfile;
+
+    @BeforeEach
+    public void setUp() {
+        testUser = new User();
+        testUser.setEmail("test@example.com");
+        testUser.setPassword("password");
+        testUser.setFirstName("Test");
+        testUser.setLastName("User");
+        testUser = entityManager.persist(testUser);
+
+        testProfile = new Profile();
+        testProfile.setUser(testUser);
+        testProfile.setName("Test Profile");
+        testProfile.setBio("Test Bio");
+        testProfile.setIsPublic(true);
+        testProfile = entityManager.persist(testProfile);
+
+        entityManager.flush();
+    }
 
     // @Test
     // public void testSaveProfile() {
-    //     Profile profile = new Profile();
-    //     profile.setUserId("test@example.com");
-    //     profile.setName("Test User");
-    //     profile.setBio("Test Bio");
-    //     profile.setIsPublic(true);
+    //     Profile savedProfile = profileRepository.findById(testProfile.getId()).orElse(null);
 
-    //     Profile savedProfile = profileRepository.save(profile);
-
+    //     assertThat(savedProfile).isNotNull();
     //     assertThat(savedProfile.getId()).isNotNull();
-    //     assertThat(savedProfile.getUserId()).isEqualTo("test@example.com");
-    //     assertThat(savedProfile.getName()).isEqualTo("Test User");
+    //     assertThat(savedProfile.getUser().getId()).isEqualTo(testUser.getId());
+    //     assertThat(savedProfile.getName()).isEqualTo("Test Profile");
     //     assertThat(savedProfile.getBio()).isEqualTo("Test Bio");
     //     assertThat(savedProfile.getIsPublic()).isTrue();
     // }
 
     // @Test
-    // public void testFindByUserId() {
-    //     Profile profile = new Profile();
-    //     profile.setUserId("test@example.com");
-    //     profile.setName("Test User");
-    //     profileRepository.save(profile);
-
-    //     List<Profile> foundProfiles = profileRepository.findByUserId("test@example.com");
+    // public void testFindByUser() {
+    //     List<Profile> foundProfiles = profileRepository.findByUser(testUser);
 
     //     assertThat(foundProfiles).hasSize(1);
-    //     assertThat(foundProfiles.get(0).getName()).isEqualTo("Test User");
+    //     assertThat(foundProfiles.get(0).getName()).isEqualTo("Test Profile");
     // }
 
     // @Test
     // public void testFindByIsPublic() {
-    //     Profile publicProfile = new Profile();
-    //     publicProfile.setUserId("public@example.com");
-    //     publicProfile.setIsPublic(true);
-    //     profileRepository.save(publicProfile);
+    //     User privateUser = new User();
+    //     privateUser.setEmail("private@example.com");
+    //     privateUser.setPassword("password");
+    //     privateUser.setFirstName("Private");
+    //     privateUser.setLastName("User");
+    //     privateUser = entityManager.persist(privateUser);
 
     //     Profile privateProfile = new Profile();
-    //     privateProfile.setUserId("private@example.com");
+    //     privateProfile.setUser(privateUser);
+    //     privateProfile.setName("Private Profile");
     //     privateProfile.setIsPublic(false);
-    //     profileRepository.save(privateProfile);
+    //     entityManager.persist(privateProfile);
+
+    //     entityManager.flush();
 
     //     List<Profile> publicProfiles = profileRepository.findByIsPublic(true);
 
     //     assertThat(publicProfiles).hasSize(1);
-    //     assertThat(publicProfiles.get(0).getUserId()).isEqualTo("public@example.com");
+    //     assertThat(publicProfiles.get(0).getName()).isEqualTo("Test Profile");
     // }
 }
