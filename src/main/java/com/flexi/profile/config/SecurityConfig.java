@@ -50,9 +50,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeRequests()
-            .antMatchers("/api/auth/**", "/api/profiles/public").permitAll()
+            .antMatchers("/api/auth/**", "/api/profiles/public", "/h2-console/**").permitAll()
+            .antMatchers("/api/admin/**").hasRole("ADMIN")
             .antMatchers("/api/**").authenticated()
             .anyRequest().authenticated()
+            .and()
+            .headers().frameOptions().disable()  // Required for H2 console
             .and()
             .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, tokenBlacklist), UsernamePasswordAuthenticationFilter.class);
     }

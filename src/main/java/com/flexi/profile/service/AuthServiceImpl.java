@@ -3,20 +3,24 @@ package com.flexi.profile.service;
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
 import com.flexi.profile.model.Profile;
+import com.flexi.profile.model.RefreshToken;
 import com.flexi.profile.repository.ProfileRepository;
 import com.flexi.profile.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
+@Transactional
 public class AuthServiceImpl implements AuthService {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
@@ -48,6 +52,29 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private RefreshTokenService refreshTokenService;
+
+    private boolean isAdmin(String userId) {
+        // TODO: Implement proper role-based check
+        return false;
+    }
+
+    @Override
+    public String createAccessToken(String userId) {
+        return jwtTokenProvider.createAccessToken(userId, isAdmin(userId));
+    }
+
+    @Override
+    public long getAccessTokenExpirationTime() {
+        return jwtTokenProvider.getAccessTokenValidityInMilliseconds(false);
+    }
+
+    @Override
+    public long getRefreshTokenExpirationTime() {
+        return jwtTokenProvider.getRefreshTokenValidityInMilliseconds(false);
+    }
+
     @Override
     public AuthResponse registerUser(AuthRequest authRequest) {
         // Check if user already exists
@@ -67,15 +94,20 @@ public class AuthServiceImpl implements AuthService {
         Profile savedProfile = profileRepository.save(profile);
         logger.info("New user registered: {}", savedProfile.getUserId());
         
-        // Generate JWT token
-        String token = jwtTokenProvider.createToken(savedProfile.getUserId());
+        // Generate JWT tokens
+        boolean isAdmin = isAdmin(savedProfile.getUserId());
+        String accessToken = jwtTokenProvider.createAccessToken(savedProfile.getUserId(), isAdmin);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(savedProfile.getUserId(), "");
 
         // Create response
         return new AuthResponse(
-            token,
+            accessToken,
+            refreshToken.getToken(),
             String.valueOf(savedProfile.getId()),
             savedProfile.getName(),
-            savedProfile.getUserId()
+            savedProfile.getUserId(),
+            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );
     }
 
@@ -101,15 +133,20 @@ public class AuthServiceImpl implements AuthService {
 
         logger.info("User logged in successfully: {}", profile.getUserId());
         
-        // Generate JWT token
-        String token = jwtTokenProvider.createToken(profile.getUserId());
+        // Generate JWT tokens
+        boolean isAdmin = isAdmin(profile.getUserId());
+        String accessToken = jwtTokenProvider.createAccessToken(profile.getUserId(), isAdmin);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(profile.getUserId(), "");
 
         // Create response
         return new AuthResponse(
-            token,
+            accessToken,
+            refreshToken.getToken(),
             String.valueOf(profile.getId()),
             profile.getName(),
-            profile.getUserId()
+            profile.getUserId(),
+            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );
     }
 
@@ -131,14 +168,19 @@ public class AuthServiceImpl implements AuthService {
         }
 
         Profile profile = profiles.get(0);
-        String token = jwtTokenProvider.createToken(profile.getUserId());
+        boolean isAdmin = isAdmin(profile.getUserId());
+        String accessToken = jwtTokenProvider.createAccessToken(profile.getUserId(), isAdmin);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(profile.getUserId(), "");
         logger.info("Successfully retrieved user profile for: {}", userId);
 
         return new AuthResponse(
-            token,
+            accessToken,
+            refreshToken.getToken(),
             String.valueOf(profile.getId()),
             profile.getName(),
-            profile.getUserId()
+            profile.getUserId(),
+            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
         );
     }
 }

@@ -29,3 +29,13 @@ CREATE TABLE subsections (
     display_order INT,
     FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE CASCADE
 );
+
+CREATE TABLE refresh_tokens (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    token VARCHAR(255) UNIQUE NOT NULL,
+    user_id VARCHAR(255) NOT NULL,
+    expiry_date TIMESTAMP NOT NULL,
+    revoked BOOLEAN NOT NULL DEFAULT FALSE,
+    device_info VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES profiles(user_id) ON DELETE CASCADE
+);

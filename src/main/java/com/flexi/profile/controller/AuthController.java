@@ -2,8 +2,10 @@ package com.flexi.profile.controller;
 
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
+import com.flexi.profile.model.RefreshToken;
 import com.flexi.profile.security.TokenBlacklist;
 import com.flexi.profile.service.AuthService;
+import com.flexi.profile.service.RefreshTokenService;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,31 @@ public class AuthController {
 
     @Autowired
     private TokenBlacklist tokenBlacklist;
+
+    @Autowired
+    private RefreshTokenService refreshTokenService;
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(@RequestBody TokenRefreshRequest request) {
+        String requestRefreshToken = request.getRefreshToken();
+
+        return refreshTokenService.findByToken(requestRefreshToken)
+                .map(refreshTokenService::verifyExpiration)
+                .map(RefreshToken::getUserId)
+                .map(userId -> {
+                    String accessToken = authService.createAccessToken(userId);
+                    return ResponseEntity.ok(new AuthResponse(
+                        accessToken,
+                        requestRefreshToken,
+                        null,
+                        null,
+                        userId,
+                        authService.getAccessTokenExpirationTime(),
+                        authService.getRefreshTokenExpirationTime()
+                    ));
+                })
+                .orElseThrow(() -> new RuntimeException("Refresh token is not in database!"));
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody AuthRequest authRequest) {

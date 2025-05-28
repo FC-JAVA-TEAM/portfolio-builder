@@ -4,7 +4,6 @@ import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -18,15 +17,34 @@ public class JwtTokenProvider {
     @Value("${jwt.secret}")
     private String secretKey;
 
-    @Value("${jwt.expiration}")
-    private long validityInMilliseconds;
+    @Value("${jwt.access.expiration.default}")
+    private long defaultAccessTokenValidityInMilliseconds;
+
+    @Value("${jwt.access.expiration.admin}")
+    private long adminAccessTokenValidityInMilliseconds;
+
+    @Value("${jwt.refresh.expiration.default}")
+    private long defaultRefreshTokenValidityInMilliseconds;
+
+    @Value("${jwt.refresh.expiration.admin}")
+    private long adminRefreshTokenValidityInMilliseconds;
 
     @PostConstruct
     protected void init() {
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
     }
 
-    public String createToken(String username) {
+    public String createAccessToken(String username, boolean isAdmin) {
+        long validity = isAdmin ? adminAccessTokenValidityInMilliseconds : defaultAccessTokenValidityInMilliseconds;
+        return createToken(username, validity);
+    }
+
+    public String createRefreshToken(String username, boolean isAdmin) {
+        long validity = isAdmin ? adminRefreshTokenValidityInMilliseconds : defaultRefreshTokenValidityInMilliseconds;
+        return createToken(username, validity);
+    }
+
+    private String createToken(String username, long validityInMilliseconds) {
         Claims claims = Jwts.claims().setSubject(username);
         
         Date now = new Date();
@@ -46,15 +64,9 @@ public class JwtTokenProvider {
 
     public boolean validateToken(String token) {
         try {
-            System.out.println("JwtTokenProvider - Validating token...");
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            boolean isValid = !claims.getBody().getExpiration().before(new Date());
-            System.out.println("JwtTokenProvider - Token expiration check: " + isValid);
-            System.out.println("JwtTokenProvider - Token claims: " + claims.getBody());
-            return isValid;
+            return !claims.getBody().getExpiration().before(new Date());
         } catch (JwtException | IllegalArgumentException e) {
-            System.err.println("JwtTokenProvider - Token validation failed: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }
@@ -62,5 +74,13 @@ public class JwtTokenProvider {
     public Authentication getAuthentication(String token) {
         String username = getUsername(token);
         return new UsernamePasswordAuthenticationToken(username, "", List.of());
+    }
+
+    public long getAccessTokenValidityInMilliseconds(boolean isAdmin) {
+        return isAdmin ? adminAccessTokenValidityInMilliseconds : defaultAccessTokenValidityInMilliseconds;
+    }
+
+    public long getRefreshTokenValidityInMilliseconds(boolean isAdmin) {
+        return isAdmin ? adminRefreshTokenValidityInMilliseconds : defaultRefreshTokenValidityInMilliseconds;
     }
 }

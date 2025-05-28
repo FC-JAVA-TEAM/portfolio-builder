@@ -8,4 +8,7 @@ public interface AuthService {
     AuthResponse registerUser(AuthRequest authRequest);
     AuthResponse loginUser(AuthRequest authRequest);
     AuthResponse getCurrentUser(Authentication authentication);
+    String createAccessToken(String userId);
+    long getAccessTokenExpirationTime();
+    long getRefreshTokenExpirationTime();
 }
