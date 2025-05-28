@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
     List<Profile> findByUser(User user);
-    List<Profile> findByIsPublic(boolean isPublic);
+    List<Profile> findByIsPublicTrue();
 }

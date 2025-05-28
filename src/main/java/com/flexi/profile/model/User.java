@@ -13,6 +13,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class User {
+    public static final String DEFAULT_ROLE = "ROLE_USER";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,8 +42,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRole> roles = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Profile profile;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Profile> profiles = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RefreshToken> refreshTokens = new ArrayList<>();
@@ -68,9 +70,14 @@ public class User {
         role.setUser(null);
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void addProfile(Profile profile) {
+        profiles.add(profile);
         profile.setUser(this);
+    }
+
+    public void removeProfile(Profile profile) {
+        profiles.remove(profile);
+        profile.setUser(null);
     }
 
     public void addRefreshToken(RefreshToken refreshToken) {

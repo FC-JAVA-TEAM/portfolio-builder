@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,18 +16,27 @@ public class Section {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profile_id")
-    private Profile profile;
-
-    private String type;
     private String title;
     
-    @Column(name = "display_order")
-    private Integer displayOrder;
-    
-    private String backgroundUrl;
-    
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id", nullable = false)
+    private Profile profile;
+
+    private Integer orderIndex;
+
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SubSection> subsections;
+    private List<SubSection> subSections = new ArrayList<>();
+
+    public void addSubSection(SubSection subSection) {
+        subSections.add(subSection);
+        subSection.setSection(this);
+    }
+
+    public void removeSubSection(SubSection subSection) {
+        subSections.remove(subSection);
+        subSection.setSection(null);
+    }
 }

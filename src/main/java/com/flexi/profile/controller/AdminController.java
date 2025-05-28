@@ -2,6 +2,9 @@ package com.flexi.profile.controller;
 
 import com.flexi.profile.service.RefreshTokenService;
 import com.flexi.profile.service.AuditService;
+import com.flexi.profile.util.LogUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "${cors.allowed-origins}")
 public class AdminController {
 
+    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+
     @Autowired
     private RefreshTokenService refreshTokenService;
 
@@ -21,28 +26,50 @@ public class AdminController {
 
     @PostMapping("/tokens/revoke/{userId}")
     public ResponseEntity<?> revokeUserTokens(@PathVariable String userId) {
-        refreshTokenService.deleteByUserId(userId);
-        return ResponseEntity.ok()
-            .body(new ApiResponse(true, "All tokens revoked for user: " + userId));
+        LogUtil.logMethodEntry(logger, "revokeUserTokens", userId);
+        try {
+            refreshTokenService.deleteByUserId(userId);
+            ApiResponse response = new ApiResponse(true, "All tokens revoked for user: " + userId);
+            LogUtil.logMethodExit(logger, "revokeUserTokens", response);
+            return ResponseEntity.ok().body(response);
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error revoking user tokens", e);
+            throw e;
+        }
     }
 
     @PostMapping("/tokens/revoke-all")
     public ResponseEntity<?> revokeAllTokens() {
-        // First, log this administrative action
-        auditService.logTokenAction("REVOKE_ALL", "ADMIN", null, "Admin revoked all tokens in the system");
-        
-        // Get all active tokens and revoke them
-        refreshTokenService.revokeAllTokens();
-        
-        return ResponseEntity.ok()
-            .body(new ApiResponse(true, "All tokens in the system have been revoked"));
+        LogUtil.logMethodEntry(logger, "revokeAllTokens");
+        try {
+            // First, log this administrative action
+            auditService.logTokenAction("REVOKE_ALL", "ADMIN", null, "Admin revoked all tokens in the system");
+            LogUtil.logInfo(logger, "Admin initiated revocation of all tokens");
+            
+            // Get all active tokens and revoke them
+            refreshTokenService.revokeAllTokens();
+            
+            ApiResponse response = new ApiResponse(true, "All tokens in the system have been revoked");
+            LogUtil.logMethodExit(logger, "revokeAllTokens", response);
+            return ResponseEntity.ok().body(response);
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error revoking all tokens", e);
+            throw e;
+        }
     }
 
     @GetMapping("/tokens/cleanup")
     public ResponseEntity<?> cleanupExpiredTokens() {
-        refreshTokenService.cleanupExpiredTokens();
-        return ResponseEntity.ok()
-            .body(new ApiResponse(true, "Expired tokens have been cleaned up"));
+        LogUtil.logMethodEntry(logger, "cleanupExpiredTokens");
+        try {
+            refreshTokenService.cleanupExpiredTokens();
+            ApiResponse response = new ApiResponse(true, "Expired tokens have been cleaned up");
+            LogUtil.logMethodExit(logger, "cleanupExpiredTokens", response);
+            return ResponseEntity.ok().body(response);
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error cleaning up expired tokens", e);
+            throw e;
+        }
     }
 }
 
@@ -69,5 +96,13 @@ class ApiResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiResponse{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

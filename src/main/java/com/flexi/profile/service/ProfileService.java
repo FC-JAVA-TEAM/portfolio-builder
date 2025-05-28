@@ -6,10 +6,11 @@ import com.flexi.profile.dto.SubSectionDTO;
 import java.util.List;
 
 public interface ProfileService {
-    ProfileDTO createProfile(ProfileDTO profileDTO);
+    ProfileDTO createProfile(ProfileDTO profileDTO, String userEmail);
     ProfileDTO getProfile(Long profileId);
     List<ProfileDTO> getAllProfiles();
-    List<ProfileDTO> getProfilesByUserId(String userId);
+    List<ProfileDTO> getProfilesByUserId(Long userId);
+    List<ProfileDTO> getProfilesByUserEmail(String userEmail);
     ProfileDTO updateProfile(Long profileId, ProfileDTO profileDTO);
     void deleteProfile(Long profileId);
     List<ProfileDTO> getPublicProfiles();
