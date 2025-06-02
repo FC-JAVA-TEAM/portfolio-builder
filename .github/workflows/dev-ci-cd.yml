@@ -10,21 +10,19 @@ on:
       - '**.md'
       - 'docs/**'
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-and-test:
     uses: ./.github/workflows/build.yml
-
-  docker-build:
-    needs: build-and-test
-    uses: ./.github/workflows/docker.yml
-    with:
-      tag: ${{ github.ref_name }}-${{ github.sha }}
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    permissions:
+      contents: read
+      packages: write
 
   deploy-to-dev:
-    needs: docker-build
+    needs: build-and-test
     uses: ./.github/workflows/cloud-run-deploy.yml
     with:
       app_version: ${{ github.sha }}
@@ -35,7 +33,7 @@ jobs:
       GCP_PROJECT_ID: ${{ secrets.DEV_GCP_PROJECT_ID }}
       GCP_SA_KEY: ${{ secrets.DEV_GCP_SA_KEY }}
       GCP_REGION: ${{ secrets.DEV_GCP_REGION }}
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
   notify:
     needs: [deploy-to-dev]
