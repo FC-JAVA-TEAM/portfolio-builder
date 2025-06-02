@@ -1,18 +1,28 @@
 name: Production CI/CD
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
     inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - staging
+          - production
       version:
         description: 'Version to deploy (e.g., v1.2.3)'
         required: true
+        type: string
       reason:
         description: 'Reason for manual deployment'
         required: true
         default: 'Manual production deployment'
+        type: string
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build-and-test:
@@ -42,7 +52,7 @@ jobs:
     with:
       app_version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}
       image_name: 'portfolio-builder'
-      environment: 'production'
+      environment: ${{ github.event.inputs.environment || 'production' }}
       service_name: 'portfolio-builder-prod'
     secrets:
       GCP_PROJECT_ID: ${{ secrets.PROD_GCP_PROJECT_ID }}
@@ -60,24 +70,24 @@ jobs:
         run: |
           echo "::group::✅ Production Deployment Success"
           echo "🔷 Version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}"
+          echo "🔷 Environment: ${{ github.event.inputs.environment || 'production' }}"
           echo "🔷 Commit: ${{ github.sha }}"
-          echo "🔷 Trigger: ${{ github.event_name == 'push' && 'Tag Push' || 'Manual' }}"
-          echo "🔷 Reason: ${{ github.event_name == 'push' && 'Tag Release' || github.event.inputs.reason }}"
+          echo "🔷 Trigger: ${{ github.event_name }}"
+          echo "🔷 Reason: ${{ github.event.inputs.reason || 'Tag Release' }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
-          # Add notification commands (e.g., Slack, Email)
       
       - name: Notify Failure
         if: ${{ failure() }}
         run: |
           echo "::group::❌ Production Deployment Failed"
           echo "🔷 Version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}"
+          echo "🔷 Environment: ${{ github.event.inputs.environment || 'production' }}"
           echo "🔷 Commit: ${{ github.sha }}"
-          echo "🔷 Trigger: ${{ github.event_name == 'push' && 'Tag Push' || 'Manual' }}"
-          echo "🔷 Reason: ${{ github.event_name == 'push' && 'Tag Release' || github.event.inputs.reason }}"
+          echo "🔷 Trigger: ${{ github.event_name }}"
+          echo "🔷 Reason: ${{ github.event.inputs.reason || 'Tag Release' }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
-          # Add notification commands (e.g., Slack, Email)
 
   cleanup:
     needs: [deploy-to-production, notify]
@@ -88,5 +98,4 @@ jobs:
         run: |
           echo "::group::🧹 Cleanup"
           echo "Cleaning up temporary files and resources..."
-          # Add cleanup commands if needed
           echo "::endgroup::"

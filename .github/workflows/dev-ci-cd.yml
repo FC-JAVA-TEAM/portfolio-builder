@@ -1,6 +1,21 @@
 name: Development CI/CD
 
 on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - staging
+      reason:
+        description: 'Reason for manual trigger'
+        required: true
+        default: 'Manual deployment'
+        type: string
   push:
     branches:
       - 'feature/**'
@@ -9,12 +24,6 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
-  workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Reason for manual trigger'
-        required: true
-        default: 'Manual deployment'
 
 permissions:
   contents: read
@@ -33,7 +42,7 @@ jobs:
     with:
       app_version: ${{ github.sha }}
       image_name: 'portfolio-builder'
-      environment: 'development'
+      environment: ${{ github.event.inputs.environment || 'development' }}
       service_name: 'portfolio-builder-dev'
     secrets:
       GCP_PROJECT_ID: ${{ secrets.DEV_GCP_PROJECT_ID }}
@@ -52,9 +61,11 @@ jobs:
           echo "::group::✅ Development Deployment Success"
           echo "🔷 Branch: ${{ github.ref_name }}"
           echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Environment: ${{ github.event.inputs.environment || 'development' }}"
+          echo "🔷 Trigger: ${{ github.event_name }}"
+          echo "🔷 Reason: ${{ github.event.inputs.reason || 'Push trigger' }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
-          # Add notification commands (e.g., Slack, Email)
       
       - name: Notify Failure
         if: ${{ failure() }}
@@ -62,6 +73,8 @@ jobs:
           echo "::group::❌ Development Deployment Failed"
           echo "🔷 Branch: ${{ github.ref_name }}"
           echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Environment: ${{ github.event.inputs.environment || 'development' }}"
+          echo "🔷 Trigger: ${{ github.event_name }}"
+          echo "🔷 Reason: ${{ github.event.inputs.reason || 'Push trigger' }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
-          # Add notification commands (e.g., Slack, Email)
