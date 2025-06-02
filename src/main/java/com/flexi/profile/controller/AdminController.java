@@ -30,7 +30,7 @@ public class AdminController {
         LogUtil.logMethodEntry(logger, "revokeUserTokens", userId);
         refreshTokenService.deleteByUserId(userId);
         ApiResponse response = new ApiResponse(true, "All tokens revoked for user: " + userId);
-        logger.info("Successfully revoked all tokens for user: {}", userId);
+        logger.info("Successfully revoked all the tokens for user: {}", userId);
         LogUtil.logMethodExit(logger, "revokeUserTokens", response);
         return ResponseEntity.ok().body(response);
     }
