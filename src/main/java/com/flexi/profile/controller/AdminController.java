@@ -26,7 +26,7 @@ public class AdminController {
 
     @PostMapping("/tokens/revoke/{userId}")
     public ResponseEntity<?> revokeUserTokens(@PathVariable String userId) {
-        logger.debug("Received request to revoke all the tokens for user: {}", userId);
+        logger.debug("Received request to revoke all ttt tokens for user: {}", userId);
         LogUtil.logMethodEntry(logger, "revokeUserTokens", userId);
         refreshTokenService.deleteByUserId(userId);
         ApiResponse response = new ApiResponse(true, "All tokens revoked for user: " + userId);
