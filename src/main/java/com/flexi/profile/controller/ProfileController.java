@@ -35,14 +35,9 @@ public class ProfileController {
     @GetMapping("/{profileId}")
     public ResponseEntity<ProfileDTO> getProfile(@PathVariable Long profileId) {
         LogUtil.logMethodEntry(logger, "getProfile", profileId);
-        try {
-            ProfileDTO profile = profileService.getProfile(profileId);
-            LogUtil.logMethodExit(logger, "getProfile", profile);
-            return ResponseEntity.ok(profile);
-        } catch (RuntimeException e) {
-            LogUtil.logError(logger, "Error fetching profile", e);
-            return ResponseEntity.notFound().build();
-        }
+        ProfileDTO profile = profileService.getProfile(profileId);
+        LogUtil.logMethodExit(logger, "getProfile", profile);
+        return ResponseEntity.ok(profile);
     }
 
     @GetMapping
@@ -83,14 +78,9 @@ public class ProfileController {
     @DeleteMapping("/{profileId}")
     public ResponseEntity<Void> deleteProfile(@PathVariable Long profileId) {
         LogUtil.logMethodEntry(logger, "deleteProfile", profileId);
-        try {
-            profileService.deleteProfile(profileId);
-            LogUtil.logMethodExit(logger, "deleteProfile");
-            return ResponseEntity.noContent().build();
-        } catch (RuntimeException e) {
-            LogUtil.logError(logger, "Error deleting profile", e);
-            return ResponseEntity.notFound().build();
-        }
+        profileService.deleteProfile(profileId);
+        LogUtil.logMethodExit(logger, "deleteProfile");
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/public")

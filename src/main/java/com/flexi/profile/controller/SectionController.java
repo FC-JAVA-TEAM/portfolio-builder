@@ -27,40 +27,25 @@ public class SectionController {
     @PostMapping
     public ResponseEntity<SectionDTO> createSection(@RequestBody SectionDTO sectionDTO) {
         LogUtil.logMethodEntry(logger, "createSection", sectionDTO);
-        try {
-            SectionDTO createdSection = profileService.createSection(sectionDTO);
-            LogUtil.logMethodExit(logger, "createSection", createdSection);
-            return ResponseEntity.ok(createdSection);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error creating section", e);
-            throw e;
-        }
+        SectionDTO createdSection = profileService.createSection(sectionDTO);
+        LogUtil.logMethodExit(logger, "createSection", createdSection);
+        return ResponseEntity.ok(createdSection);
     }
 
     @PostMapping("/{sectionId}/subsections")
     public ResponseEntity<SubSectionDTO> createSubSection(@PathVariable Long sectionId, @RequestBody SubSectionDTO subSectionDTO) {
         LogUtil.logMethodEntry(logger, "createSubSection", sectionId, subSectionDTO);
-        try {
-            SubSectionDTO createdSubSection = profileService.createSubSection(sectionId, subSectionDTO);
-            LogUtil.logMethodExit(logger, "createSubSection", createdSubSection);
-            return ResponseEntity.ok(createdSubSection);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error creating subsection", e);
-            throw e;
-        }
+        SubSectionDTO createdSubSection = profileService.createSubSection(sectionId, subSectionDTO);
+        LogUtil.logMethodExit(logger, "createSubSection", createdSubSection);
+        return ResponseEntity.ok(createdSubSection);
     }
 
     @GetMapping("/{sectionId}")
     public ResponseEntity<SectionDTO> getSection(@PathVariable Long sectionId) {
         LogUtil.logMethodEntry(logger, "getSection", sectionId);
-        try {
-            SectionDTO section = profileService.getSection(sectionId);
-            LogUtil.logMethodExit(logger, "getSection", section);
-            return ResponseEntity.ok(section);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error fetching section", e);
-            throw e;
-        }
+        SectionDTO section = profileService.getSection(sectionId);
+        LogUtil.logMethodExit(logger, "getSection", section);
+        return ResponseEntity.ok(section);
     }
 
     @PutMapping("/{sectionId}")
@@ -68,27 +53,17 @@ public class SectionController {
             @PathVariable Long sectionId,
             @RequestBody SectionDTO sectionDTO) {
         LogUtil.logMethodEntry(logger, "updateSection", sectionId, sectionDTO);
-        try {
-            SectionDTO updatedSection = profileService.updateSection(sectionId, sectionDTO);
-            LogUtil.logMethodExit(logger, "updateSection", updatedSection);
-            return ResponseEntity.ok(updatedSection);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error updating section", e);
-            throw e;
-        }
+        SectionDTO updatedSection = profileService.updateSection(sectionId, sectionDTO);
+        LogUtil.logMethodExit(logger, "updateSection", updatedSection);
+        return ResponseEntity.ok(updatedSection);
     }
 
     @DeleteMapping("/{sectionId}")
     public ResponseEntity<Void> deleteSection(@PathVariable Long sectionId) {
         LogUtil.logMethodEntry(logger, "deleteSection", sectionId);
-        try {
-            profileService.deleteSection(sectionId);
-            LogUtil.logMethodExit(logger, "deleteSection");
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error deleting section", e);
-            throw e;
-        }
+        profileService.deleteSection(sectionId);
+        LogUtil.logMethodExit(logger, "deleteSection");
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/reorder/{profileId}")
@@ -96,27 +71,17 @@ public class SectionController {
             @PathVariable Long profileId,
             @RequestBody List<Long> sectionIds) {
         LogUtil.logMethodEntry(logger, "reorderSections", profileId, sectionIds);
-        try {
-            profileService.reorderSections(profileId, sectionIds);
-            LogUtil.logMethodExit(logger, "reorderSections");
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error reordering sections", e);
-            throw e;
-        }
+        profileService.reorderSections(profileId, sectionIds);
+        LogUtil.logMethodExit(logger, "reorderSections");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/profile/{profileId}")
     public ResponseEntity<List<SectionDTO>> getSectionsByProfile(@PathVariable Long profileId) {
         LogUtil.logMethodEntry(logger, "getSectionsByProfile", profileId);
-        try {
-            List<SectionDTO> sections = profileService.getSectionsByProfile(profileId);
-            LogUtil.logMethodExit(logger, "getSectionsByProfile", sections);
-            return ResponseEntity.ok(sections);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error fetching sections by profile", e);
-            throw e;
-        }
+        List<SectionDTO> sections = profileService.getSectionsByProfile(profileId);
+        LogUtil.logMethodExit(logger, "getSectionsByProfile", sections);
+        return ResponseEntity.ok(sections);
     }
 
     @GetMapping("/{sectionId}/subsections/{subsectionId}")
@@ -124,14 +89,9 @@ public class SectionController {
             @PathVariable Long sectionId,
             @PathVariable Long subsectionId) {
         LogUtil.logMethodEntry(logger, "getSubSection", sectionId, subsectionId);
-        try {
-            SubSectionDTO subSection = profileService.getSubSection(sectionId, subsectionId);
-            LogUtil.logMethodExit(logger, "getSubSection", subSection);
-            return ResponseEntity.ok(subSection);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error fetching subsection", e);
-            throw e;
-        }
+        SubSectionDTO subSection = profileService.getSubSection(sectionId, subsectionId);
+        LogUtil.logMethodExit(logger, "getSubSection", subSection);
+        return ResponseEntity.ok(subSection);
     }
 
     @PutMapping("/{sectionId}/subsections/{subsectionId}")
@@ -140,14 +100,9 @@ public class SectionController {
             @PathVariable Long subsectionId,
             @RequestBody SubSectionDTO subSectionDTO) {
         LogUtil.logMethodEntry(logger, "updateSubSection", sectionId, subsectionId, subSectionDTO);
-        try {
-            SubSectionDTO updatedSubSection = profileService.updateSubSection(sectionId, subsectionId, subSectionDTO);
-            LogUtil.logMethodExit(logger, "updateSubSection", updatedSubSection);
-            return ResponseEntity.ok(updatedSubSection);
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error updating subsection", e);
-            throw e;
-        }
+        SubSectionDTO updatedSubSection = profileService.updateSubSection(sectionId, subsectionId, subSectionDTO);
+        LogUtil.logMethodExit(logger, "updateSubSection", updatedSubSection);
+        return ResponseEntity.ok(updatedSubSection);
     }
 
     @DeleteMapping("/{sectionId}/subsections/{subsectionId}")
@@ -155,13 +110,8 @@ public class SectionController {
             @PathVariable Long sectionId,
             @PathVariable Long subsectionId) {
         LogUtil.logMethodEntry(logger, "deleteSubSection", sectionId, subsectionId);
-        try {
-            profileService.deleteSubSection(sectionId, subsectionId);
-            LogUtil.logMethodExit(logger, "deleteSubSection");
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            LogUtil.logError(logger, "Error deleting subsection", e);
-            throw e;
-        }
+        profileService.deleteSubSection(sectionId, subsectionId);
+        LogUtil.logMethodExit(logger, "deleteSubSection");
+        return ResponseEntity.noContent().build();
     }
 }
