@@ -1,0 +1,63 @@
+name: Development CI/CD
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'develop'
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+jobs:
+  build-and-test:
+    uses: ./.github/workflows/reusable/build.yml
+
+  docker-build:
+    needs: build-and-test
+    uses: ./.github/workflows/reusable/docker.yml
+    with:
+      tag: ${{ github.ref_name }}-${{ github.sha }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+  deploy-to-dev:
+    needs: docker-build
+    uses: ./.github/workflows/reusable/cloud-run-deploy.yml
+    with:
+      app_version: ${{ github.sha }}
+      image_name: 'portfolio-builder'
+      environment: 'development'
+      service_name: 'portfolio-builder-dev'
+    secrets:
+      GCP_PROJECT_ID: ${{ secrets.DEV_GCP_PROJECT_ID }}
+      GCP_SA_KEY: ${{ secrets.DEV_GCP_SA_KEY }}
+      GCP_REGION: ${{ secrets.DEV_GCP_REGION }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+
+  notify:
+    needs: [deploy-to-dev]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Notify Success
+        if: ${{ success() }}
+        run: |
+          echo "::group::✅ Development Deployment Success"
+          echo "🔷 Branch: ${{ github.ref_name }}"
+          echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Timestamp: $(date)"
+          echo "::endgroup::"
+          # Add notification commands (e.g., Slack, Email)
+      
+      - name: Notify Failure
+        if: ${{ failure() }}
+        run: |
+          echo "::group::❌ Development Deployment Failed"
+          echo "🔷 Branch: ${{ github.ref_name }}"
+          echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Timestamp: $(date)"
+          echo "::endgroup::"
+          # Add notification commands (e.g., Slack, Email)

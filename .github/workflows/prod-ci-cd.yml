@@ -1,0 +1,76 @@
+name: Production CI/CD
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-test:
+    uses: ./.github/workflows/reusable/build.yml
+
+  create-release:
+    needs: build-and-test
+    uses: ./.github/workflows/reusable/create-release.yml
+    with:
+      version: ${{ github.ref_name }}
+
+  docker-build:
+    needs: create-release
+    uses: ./.github/workflows/reusable/docker.yml
+    with:
+      tag: ${{ github.ref_name }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+  deploy-to-production:
+    needs: docker-build
+    uses: ./.github/workflows/reusable/cloud-run-deploy.yml
+    with:
+      app_version: ${{ github.ref_name }}
+      image_name: 'portfolio-builder'
+      environment: 'production'
+      service_name: 'portfolio-builder-prod'
+    secrets:
+      GCP_PROJECT_ID: ${{ secrets.PROD_GCP_PROJECT_ID }}
+      GCP_SA_KEY: ${{ secrets.PROD_GCP_SA_KEY }}
+      GCP_REGION: ${{ secrets.PROD_GCP_REGION }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+
+  notify:
+    needs: [deploy-to-production]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Notify Success
+        if: ${{ success() }}
+        run: |
+          echo "::group::✅ Production Deployment Success"
+          echo "🔷 Version: ${{ github.ref_name }}"
+          echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Timestamp: $(date)"
+          echo "::endgroup::"
+          # Add notification commands (e.g., Slack, Email)
+      
+      - name: Notify Failure
+        if: ${{ failure() }}
+        run: |
+          echo "::group::❌ Production Deployment Failed"
+          echo "🔷 Version: ${{ github.ref_name }}"
+          echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Timestamp: $(date)"
+          echo "::endgroup::"
+          # Add notification commands (e.g., Slack, Email)
+
+  cleanup:
+    needs: [deploy-to-production]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cleanup Temporary Files
+        run: |
+          echo "::group::🧹 Cleanup"
+          echo "Cleaning up temporary files and resources..."
+          # Add cleanup commands if needed
+          echo "::endgroup::"

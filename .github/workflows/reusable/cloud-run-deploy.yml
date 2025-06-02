@@ -1,0 +1,162 @@
+name: Deploy to Cloud Run
+
+on:
+  workflow_call:
+    inputs:
+      app_version:
+        required: true
+        type: string
+      image_name:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+        description: 'Either development or production'
+      service_name:
+        required: true
+        type: string
+        description: 'Name of the Cloud Run service'
+
+    secrets:
+      GCP_PROJECT_ID:
+        required: true
+      GCP_SA_KEY:
+        required: true
+      GCP_REGION:
+        required: true
+      DOCKERHUB_USERNAME:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Deployment Information
+        run: |
+          echo "::group::📋 Deployment Details"
+          echo "🔷 Environment: ${{ inputs.environment }}"
+          echo "🔷 Service Name: ${{ inputs.service_name }}"
+          echo "🔷 Version: ${{ inputs.app_version }}"
+          echo "🔷 Image: ${{ inputs.image_name }}"
+          echo "🔷 Project ID: ${{ secrets.GCP_PROJECT_ID }}"
+          echo "🔷 Region: ${{ secrets.GCP_REGION }}"
+          echo "::endgroup::"
+
+      - name: Validate Environment
+        run: |
+          echo "::group::✅ Environment Validation"
+          if [[ "${{ inputs.environment }}" != "development" && "${{ inputs.environment }}" != "production" ]]; then
+            echo "❌ Invalid environment: ${{ inputs.environment }}"
+            echo "Environment must be either 'development' or 'production'"
+            exit 1
+          fi
+          echo "✅ Environment validation passed"
+          echo "::endgroup::"
+
+      - name: Configure Environment Settings
+        id: config
+        run: |
+          echo "::group::⚙️ Environment Configuration"
+          if [[ "${{ inputs.environment }}" == "production" ]]; then
+            echo "🔵 Setting Production Configuration"
+            echo "MIN_INSTANCES=1" >> $GITHUB_ENV
+            echo "MAX_INSTANCES=10" >> $GITHUB_ENV
+            echo "MEMORY=1Gi" >> $GITHUB_ENV
+            echo "CPU=1" >> $GITHUB_ENV
+          else
+            echo "🔵 Setting Development Configuration"
+            echo "MIN_INSTANCES=0" >> $GITHUB_ENV
+            echo "MAX_INSTANCES=2" >> $GITHUB_ENV
+            echo "MEMORY=512Mi" >> $GITHUB_ENV
+            echo "CPU=1" >> $GITHUB_ENV
+          fi
+          echo "🔷 Min Instances: ${{ env.MIN_INSTANCES }}"
+          echo "🔷 Max Instances: ${{ env.MAX_INSTANCES }}"
+          echo "🔷 Memory: ${{ env.MEMORY }}"
+          echo "🔷 CPU: ${{ env.CPU }}"
+          echo "::endgroup::"
+
+      - name: Setup Google Cloud
+        id: auth
+        run: |
+          echo "::group::🔐 Google Cloud Authentication"
+          echo "Setting up GCP credentials..."
+          echo '${{ secrets.GCP_SA_KEY }}' > gcloud-key.json
+          
+          # Authenticate with Google Cloud
+          gcloud auth activate-service-account --key-file=gcloud-key.json
+          gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+          gcloud config set run/region ${{ secrets.GCP_REGION }}
+          
+          # Verify authentication
+          echo "✅ Authenticated as $(gcloud config get-value account)"
+          echo "✅ Using project: $(gcloud config get-value project)"
+          echo "✅ Region set to: $(gcloud config get-value run/region)"
+          echo "::endgroup::"
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        run: |
+          echo "::group::🚀 Cloud Run Deployment"
+          IMAGE="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.image_name }}:${{ inputs.environment }}-${{ inputs.app_version }}"
+          
+          echo "📦 Deploying image: $IMAGE"
+          echo "🔧 To service: ${{ inputs.service_name }}"
+          
+          DEPLOY_OUTPUT=$(gcloud run deploy ${{ inputs.service_name }} \
+            --image $IMAGE \
+            --platform managed \
+            --allow-unauthenticated \
+            --memory ${{ env.MEMORY }} \
+            --cpu ${{ env.CPU }} \
+            --min-instances ${{ env.MIN_INSTANCES }} \
+            --max-instances ${{ env.MAX_INSTANCES }} \
+            --set-env-vars="SPRING_PROFILES_ACTIVE=${{ inputs.environment }}" \
+            --quiet 2>&1)
+          
+          DEPLOY_STATUS=$?
+          
+          if [ $DEPLOY_STATUS -eq 0 ]; then
+            SERVICE_URL=$(gcloud run services describe ${{ inputs.service_name }} --format='value(status.url)')
+            echo "✅ Deployment successful!"
+            echo "🌐 Service URL: $SERVICE_URL"
+            echo "service_url=$SERVICE_URL" >> $GITHUB_ENV
+          else
+            echo "❌ Deployment failed!"
+            echo "Error output: $DEPLOY_OUTPUT"
+            exit 1
+          fi
+          echo "::endgroup::"
+
+      - name: Verify Deployment
+        id: verify
+        run: |
+          echo "::group::🔍 Deployment Verification"
+          echo "Checking service status..."
+          
+          SERVICE_STATUS=$(gcloud run services describe ${{ inputs.service_name }} \
+            --format='value(status.conditions[0].type)')
+          
+          if [ "$SERVICE_STATUS" = "Ready" ]; then
+            echo "✅ Service is ready and healthy"
+            echo "🔷 Status: $SERVICE_STATUS"
+            echo "🔷 URL: ${{ env.service_url }}"
+          else
+            echo "❌ Service is not ready"
+            echo "🔷 Current Status: $SERVICE_STATUS"
+            exit 1
+          fi
+          echo "::endgroup::"
+
+      - name: Deployment Summary
+        if: always()
+        run: |
+          echo "::group::📋 Final Deployment Summary"
+          echo "🔷 Environment: ${{ inputs.environment }}"
+          echo "🔷 Service: ${{ inputs.service_name }}"
+          echo "🔷 Version: ${{ inputs.app_version }}"
+          echo "🔷 Status: ${{ job.status }}"
+          echo "🔷 URL: ${{ env.service_url }}"
+          echo "🔷 Timestamp: $(date)"
+          echo "::endgroup::"

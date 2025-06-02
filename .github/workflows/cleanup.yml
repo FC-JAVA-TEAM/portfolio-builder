@@ -1,0 +1,95 @@
+name: Cleanup Tasks
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Run at midnight every Sunday
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  cleanup-docker:
+    name: Cleanup Docker Images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          
+      - name: Remove Old Dev Images
+        run: |
+          echo "🧹 Cleaning up old development Docker images..."
+          # Keep only images from last 30 days
+          docker image prune -a --filter "until=720h" --force
+
+  cleanup-artifacts:
+    name: Cleanup Build Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Old Artifacts
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const response = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            const artifacts = response.data.artifacts;
+            const now = new Date();
+            const retentionDays = 7;
+            
+            for (const artifact of artifacts) {
+              const createdAt = new Date(artifact.created_at);
+              const daysOld = Math.floor((now - createdAt) / (1000 * 60 * 60 * 24));
+              
+              if (daysOld > retentionDays) {
+                console.log(`Deleting artifact ${artifact.name} (${daysOld} days old)`);
+                await github.rest.actions.deleteArtifact({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  artifact_id: artifact.id,
+                });
+              }
+            }
+
+  cleanup-branches:
+    name: Cleanup Old Branches
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Delete Old Branches
+        run: |
+          echo "🧹 Cleaning up old feature branches..."
+          # Delete merged feature branches older than 30 days
+          git branch -r --merged | grep 'origin/feature/' | while read branch; do
+            branch_date=$(git log -1 --format=%ct ${branch})
+            current_date=$(date +%s)
+            days_old=$(( ($current_date - $branch_date) / 86400 ))
+            if [ $days_old -gt 30 ]; then
+              branch_name=${branch#origin/}
+              echo "Deleting old branch: $branch_name ($days_old days old)"
+              git push origin --delete $branch_name
+            fi
+          done
+
+  notify:
+    name: Notify Cleanup Status
+    needs: [cleanup-docker, cleanup-artifacts, cleanup-branches]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Notify Success
+        if: ${{ success() }}
+        run: |
+          echo "✅ Cleanup tasks completed successfully"
+          # Add notification commands (e.g., Slack, Email)
+      
+      - name: Notify Failure
+        if: ${{ failure() }}
+        run: |
+          echo "❌ Some cleanup tasks failed"
+          # Add notification commands (e.g., Slack, Email)
