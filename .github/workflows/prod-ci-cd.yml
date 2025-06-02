@@ -4,6 +4,15 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., v1.2.3)'
+        required: true
+      reason:
+        description: 'Reason for manual deployment'
+        required: true
+        default: 'Manual production deployment'
 
 jobs:
   build-and-test:
@@ -11,24 +20,27 @@ jobs:
 
   create-release:
     needs: build-and-test
-    uses: ./.github/workflows/create-release.yml
-    with:
-      version: ${{ github.ref_name }}
-
-  docker-build:
-    needs: create-release
-    uses: ./.github/workflows/docker.yml
-    with:
-      tag: ${{ github.ref_name }}
-    secrets:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
 
   deploy-to-production:
-    needs: docker-build
+    needs: build-and-test
+    if: ${{ always() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
     uses: ./.github/workflows/cloud-run-deploy.yml
     with:
-      app_version: ${{ github.ref_name }}
+      app_version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}
       image_name: 'portfolio-builder'
       environment: 'production'
       service_name: 'portfolio-builder-prod'
@@ -36,10 +48,10 @@ jobs:
       GCP_PROJECT_ID: ${{ secrets.PROD_GCP_PROJECT_ID }}
       GCP_SA_KEY: ${{ secrets.PROD_GCP_SA_KEY }}
       GCP_REGION: ${{ secrets.PROD_GCP_REGION }}
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
   notify:
-    needs: [deploy-to-production]
+    needs: deploy-to-production
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -47,8 +59,10 @@ jobs:
         if: ${{ success() }}
         run: |
           echo "::group::✅ Production Deployment Success"
-          echo "🔷 Version: ${{ github.ref_name }}"
+          echo "🔷 Version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}"
           echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Trigger: ${{ github.event_name == 'push' && 'Tag Push' || 'Manual' }}"
+          echo "🔷 Reason: ${{ github.event_name == 'push' && 'Tag Release' || github.event.inputs.reason }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
           # Add notification commands (e.g., Slack, Email)
@@ -57,14 +71,16 @@ jobs:
         if: ${{ failure() }}
         run: |
           echo "::group::❌ Production Deployment Failed"
-          echo "🔷 Version: ${{ github.ref_name }}"
+          echo "🔷 Version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}"
           echo "🔷 Commit: ${{ github.sha }}"
+          echo "🔷 Trigger: ${{ github.event_name == 'push' && 'Tag Push' || 'Manual' }}"
+          echo "🔷 Reason: ${{ github.event_name == 'push' && 'Tag Release' || github.event.inputs.reason }}"
           echo "🔷 Timestamp: $(date)"
           echo "::endgroup::"
           # Add notification commands (e.g., Slack, Email)
 
   cleanup:
-    needs: [deploy-to-production]
+    needs: [deploy-to-production, notify]
     if: always()
     runs-on: ubuntu-latest
     steps:

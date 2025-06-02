@@ -9,6 +9,12 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual trigger'
+        required: true
+        default: 'Manual deployment'
 
 permissions:
   contents: read

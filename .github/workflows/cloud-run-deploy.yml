@@ -99,7 +99,7 @@ jobs:
         id: deploy
         run: |
           echo "::group::🚀 Cloud Run Deployment"
-          IMAGE="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.image_name }}:${{ inputs.environment }}-${{ inputs.app_version }}"
+          IMAGE="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.image_name }}:${{ github.sha }}"
           
           echo "📦 Deploying image: $IMAGE"
           echo "🔧 To service: ${{ inputs.service_name }}"
