@@ -12,11 +12,11 @@ on:
 
 jobs:
   build-and-test:
-    uses: ./.github/workflows/reusable/build.yml
+    uses: ./.github/workflows/build.yml
 
   docker-build:
     needs: build-and-test
-    uses: ./.github/workflows/reusable/docker.yml
+    uses: ./.github/workflows/docker.yml
     with:
       tag: ${{ github.ref_name }}-${{ github.sha }}
     secrets:
@@ -25,7 +25,7 @@ jobs:
 
   deploy-to-dev:
     needs: docker-build
-    uses: ./.github/workflows/reusable/cloud-run-deploy.yml
+    uses: ./.github/workflows/cloud-run-deploy.yml
     with:
       app_version: ${{ github.sha }}
       image_name: 'portfolio-builder'

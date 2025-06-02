@@ -7,17 +7,17 @@ on:
 
 jobs:
   build-and-test:
-    uses: ./.github/workflows/reusable/build.yml
+    uses: ./.github/workflows/build.yml
 
   create-release:
     needs: build-and-test
-    uses: ./.github/workflows/reusable/create-release.yml
+    uses: ./.github/workflows/create-release.yml
     with:
       version: ${{ github.ref_name }}
 
   docker-build:
     needs: create-release
-    uses: ./.github/workflows/reusable/docker.yml
+    uses: ./.github/workflows/docker.yml
     with:
       tag: ${{ github.ref_name }}
     secrets:
@@ -26,7 +26,7 @@ jobs:
 
   deploy-to-production:
     needs: docker-build
-    uses: ./.github/workflows/reusable/cloud-run-deploy.yml
+    uses: ./.github/workflows/cloud-run-deploy.yml
     with:
       app_version: ${{ github.ref_name }}
       image_name: 'portfolio-builder'
