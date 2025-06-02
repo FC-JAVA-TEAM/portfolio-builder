@@ -48,6 +48,14 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
     }
 
+    // User Registration Exceptions
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
+        logger.error("User registration error: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+    }
+
     // Not Found Exceptions
     @ExceptionHandler({ProfileNotFoundException.class, SectionNotFoundException.class, ResourceNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleNotFoundException(Exception ex) {

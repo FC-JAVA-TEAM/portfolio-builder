@@ -149,7 +149,9 @@ public class AuthServiceImpl implements AuthService {
             logger.debug("Checking if user already exists: {}", authRequest.getEmail());
             if (userRepository.existsByEmail(authRequest.getEmail())) {
                 logger.info("Registration failed: User already exists: {}", authRequest.getEmail());
-                throw new RuntimeException("User already exists");
+                throw new com.flexi.profile.exception.service.auth.UserAlreadyExistsException(
+                    "User already exists with email: " + authRequest.getEmail()
+                );
             }
 
             logger.debug("Creating new user: {}", authRequest.getEmail());
