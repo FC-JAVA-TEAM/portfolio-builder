@@ -24,4 +24,10 @@ public interface ProfileService {
     List<SectionDTO> getSectionsByProfile(Long profileId);
 
     SubSectionDTO createSubSection(Long sectionId, SubSectionDTO subSectionDTO);
+    
+    SubSectionDTO getSubSection(Long sectionId, Long subsectionId);
+    
+    SubSectionDTO updateSubSection(Long sectionId, Long subsectionId, SubSectionDTO subSectionDTO);
+    
+    void deleteSubSection(Long sectionId, Long subsectionId);
 }
