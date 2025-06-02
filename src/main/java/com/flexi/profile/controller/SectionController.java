@@ -118,4 +118,50 @@ public class SectionController {
             throw e;
         }
     }
+
+    @GetMapping("/{sectionId}/subsections/{subsectionId}")
+    public ResponseEntity<SubSectionDTO> getSubSection(
+            @PathVariable Long sectionId,
+            @PathVariable Long subsectionId) {
+        LogUtil.logMethodEntry(logger, "getSubSection", sectionId, subsectionId);
+        try {
+            SubSectionDTO subSection = profileService.getSubSection(sectionId, subsectionId);
+            LogUtil.logMethodExit(logger, "getSubSection", subSection);
+            return ResponseEntity.ok(subSection);
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error fetching subsection", e);
+            throw e;
+        }
+    }
+
+    @PutMapping("/{sectionId}/subsections/{subsectionId}")
+    public ResponseEntity<SubSectionDTO> updateSubSection(
+            @PathVariable Long sectionId,
+            @PathVariable Long subsectionId,
+            @RequestBody SubSectionDTO subSectionDTO) {
+        LogUtil.logMethodEntry(logger, "updateSubSection", sectionId, subsectionId, subSectionDTO);
+        try {
+            SubSectionDTO updatedSubSection = profileService.updateSubSection(sectionId, subsectionId, subSectionDTO);
+            LogUtil.logMethodExit(logger, "updateSubSection", updatedSubSection);
+            return ResponseEntity.ok(updatedSubSection);
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error updating subsection", e);
+            throw e;
+        }
+    }
+
+    @DeleteMapping("/{sectionId}/subsections/{subsectionId}")
+    public ResponseEntity<Void> deleteSubSection(
+            @PathVariable Long sectionId,
+            @PathVariable Long subsectionId) {
+        LogUtil.logMethodEntry(logger, "deleteSubSection", sectionId, subsectionId);
+        try {
+            profileService.deleteSubSection(sectionId, subsectionId);
+            LogUtil.logMethodExit(logger, "deleteSubSection");
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            LogUtil.logError(logger, "Error deleting subsection", e);
+            throw e;
+        }
+    }
 }

@@ -342,6 +342,117 @@ public class ProfileServiceImpl implements ProfileService {
         }
     }
 
+    @Override
+    public SubSectionDTO getSubSection(Long sectionId, Long subsectionId) {
+        LogUtil.logMethodEntry(logger, "getSubSection", sectionId, subsectionId);
+        try {
+            // First verify the section exists
+            Section section = sectionRepository.findById(sectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("Section not found with ID: {}", sectionId);
+                        return new SectionNotFoundException("Section not found with id: " + sectionId);
+                    });
+
+            // Then find the subsection
+            SubSection subSection = subSectionRepository.findById(subsectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("SubSection not found with ID: {}", subsectionId);
+                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                    });
+
+            // Verify the subsection belongs to the specified section
+            if (!subSection.getSection().getId().equals(sectionId)) {
+                logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
+                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+            }
+
+            SubSectionDTO result = convertToDTO(subSection);
+            LogUtil.logMethodExit(logger, "getSubSection", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Error fetching subsection with ID: {} for section: {}", subsectionId, sectionId, e);
+            LogUtil.logError(logger, "Error fetching subsection", e);
+            throw e;
+        }
+    }
+
+    @Override
+    public SubSectionDTO updateSubSection(Long sectionId, Long subsectionId, SubSectionDTO subSectionDTO) {
+        LogUtil.logMethodEntry(logger, "updateSubSection", sectionId, subsectionId, subSectionDTO);
+        try {
+            // First verify the section exists
+            Section section = sectionRepository.findById(sectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("Section not found with ID: {}", sectionId);
+                        return new SectionNotFoundException("Section not found with id: " + sectionId);
+                    });
+
+            // Then find the subsection
+            SubSection subSection = subSectionRepository.findById(subsectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("SubSection not found with ID: {}", subsectionId);
+                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                    });
+
+            // Verify the subsection belongs to the specified section
+            if (!subSection.getSection().getId().equals(sectionId)) {
+                logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
+                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+            }
+
+            // Update the subsection
+            subSection.setTitle(subSectionDTO.getTitle());
+            subSection.setContent(subSectionDTO.getContent());
+
+            SubSection updatedSubSection = subSectionRepository.save(subSection);
+            logger.info("Updated subsection with ID: {}", updatedSubSection.getId());
+
+            SubSectionDTO result = convertToDTO(updatedSubSection);
+            LogUtil.logMethodExit(logger, "updateSubSection", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Error updating subsection with ID: {} for section: {}", subsectionId, sectionId, e);
+            LogUtil.logError(logger, "Error updating subsection", e);
+            throw e;
+        }
+    }
+
+    @Override
+    public void deleteSubSection(Long sectionId, Long subsectionId) {
+        LogUtil.logMethodEntry(logger, "deleteSubSection", sectionId, subsectionId);
+        try {
+            // First verify the section exists
+            Section section = sectionRepository.findById(sectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("Section not found with ID: {}", sectionId);
+                        return new SectionNotFoundException("Section not found with id: " + sectionId);
+                    });
+
+            // Then find the subsection
+            SubSection subSection = subSectionRepository.findById(subsectionId)
+                    .orElseThrow(() -> {
+                        logger.warn("SubSection not found with ID: {}", subsectionId);
+                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                    });
+
+            // Verify the subsection belongs to the specified section
+            if (!subSection.getSection().getId().equals(sectionId)) {
+                logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
+                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+            }
+
+            // Delete the subsection
+            subSectionRepository.delete(subSection);
+            logger.info("Deleted subsection with ID: {}", subsectionId);
+
+            LogUtil.logMethodExit(logger, "deleteSubSection");
+        } catch (Exception e) {
+            logger.error("Error deleting subsection with ID: {} for section: {}", subsectionId, sectionId, e);
+            LogUtil.logError(logger, "Error deleting subsection", e);
+            throw e;
+        }
+    }
+
     private ProfileDTO convertToDTO(Profile profile) {
         LogUtil.logMethodEntry(logger, "convertToDTO", profile);
         ProfileDTO dto = new ProfileDTO();
