@@ -1,7 +1,18 @@
 package com.flexi.profile.service;
 
+import java.time.Instant;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
+import com.flexi.profile.exception.UnauthorizedException;
 import com.flexi.profile.model.Profile;
 import com.flexi.profile.model.RefreshToken;
 import com.flexi.profile.model.User;
@@ -10,19 +21,6 @@ import com.flexi.profile.repository.ProfileRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.security.JwtTokenProvider;
 import com.flexi.profile.util.LogUtil;
-import com.flexi.profile.exception.UnauthorizedException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.servlet.http.HttpServletRequest;
-import java.time.Instant;
-import java.util.List;
 
 @Service
 @Transactional

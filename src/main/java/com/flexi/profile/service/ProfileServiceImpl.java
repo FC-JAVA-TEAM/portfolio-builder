@@ -1,10 +1,21 @@
 package com.flexi.profile.service;
 
-import com.flexi.profile.exception.SectionNotFoundException;
-import com.flexi.profile.exception.profile.ProfileNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.flexi.profile.dto.ProfileDTO;
 import com.flexi.profile.dto.SectionDTO;
 import com.flexi.profile.dto.SubSectionDTO;
+import com.flexi.profile.exception.SectionNotFoundException;
+import com.flexi.profile.exception.profile.ProfileNotFoundException;
+import com.flexi.profile.exception.service.section.InvalidSubSectionException;
+import com.flexi.profile.exception.service.section.SubSectionNotFoundException;
 import com.flexi.profile.model.Profile;
 import com.flexi.profile.model.Section;
 import com.flexi.profile.model.SubSection;
@@ -14,14 +25,6 @@ import com.flexi.profile.repository.SectionRepository;
 import com.flexi.profile.repository.SubSectionRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.util.LogUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional

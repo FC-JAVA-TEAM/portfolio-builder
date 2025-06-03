@@ -5,8 +5,18 @@ public class AuthRequest {
     private String lastName;
     private String email;
     private String password;
+    private String role;
+    
 
-    public String getFirstName() {
+    public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getFirstName() {
         return firstName;
     }
 

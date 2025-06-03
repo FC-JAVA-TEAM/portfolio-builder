@@ -1,11 +1,8 @@
 package com.flexi.profile.exception;
 
-import com.flexi.profile.exception.*;
-import com.flexi.profile.exception.profile.*;
-import com.flexi.profile.exception.section.*;
-import com.flexi.profile.exception.service.auth.*;
-import com.flexi.profile.exception.service.common.*;
-import com.flexi.profile.exception.repository.*;
+import java.util.stream.Collectors;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -13,14 +10,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import javax.validation.ConstraintViolationException;
-import java.util.stream.Collectors;
+import com.flexi.profile.exception.profile.ProfileNotFoundException;
+import com.flexi.profile.exception.repository.DataAccessException;
+import com.flexi.profile.exception.repository.DataIntegrityException;
+import com.flexi.profile.exception.repository.DuplicateKeyException;
+import com.flexi.profile.exception.service.auth.RefreshTokenException;
+import com.flexi.profile.exception.service.auth.TokenExpiredException;
+import com.flexi.profile.exception.service.auth.TokenOperationException;
+import com.flexi.profile.exception.service.auth.TokenValidationException;
+import com.flexi.profile.exception.service.auth.UserAlreadyExistsException;
+import com.flexi.profile.exception.service.common.BusinessLogicException;
+import com.flexi.profile.exception.service.common.ResourceNotFoundException;
+import com.flexi.profile.exception.service.common.ServiceException;
+import com.flexi.profile.exception.service.profile.ProfileAccessDeniedException;
+import com.flexi.profile.exception.service.profile.ProfileCreationException;
+import com.flexi.profile.exception.service.profile.ProfileUpdateException;
+import com.flexi.profile.exception.service.section.InvalidSectionOrderException;
+import com.flexi.profile.exception.service.section.InvalidSubSectionException;
+import com.flexi.profile.exception.service.section.SectionCreationException;
+import com.flexi.profile.exception.service.section.SectionUpdateException;
+import com.flexi.profile.exception.service.section.SubSectionNotFoundException;
+
+import jakarta.validation.ConstraintViolation;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -72,7 +88,7 @@ public class GlobalExceptionHandler {
     }
 
     // Validation Exceptions
-    @ExceptionHandler({MethodArgumentNotValidException.class, ConstraintViolationException.class})
+    @ExceptionHandler({MethodArgumentNotValidException.class, jakarta.validation.ConstraintViolationException.class})
     public ResponseEntity<ErrorResponse> handleValidationException(Exception ex) {
         logger.error("Validation error: {}", ex.getMessage());
         String message = ex instanceof MethodArgumentNotValidException ?

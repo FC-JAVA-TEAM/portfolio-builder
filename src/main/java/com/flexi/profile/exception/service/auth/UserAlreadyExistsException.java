@@ -19,6 +19,11 @@ public class UserAlreadyExistsException extends ServiceException {
         this.email = email;
     }
 
+    public UserAlreadyExistsException( String email) {
+        super(email, DEFAULT_CODE);
+		this.username = "";
+        this.email = email;
+    }
     public UserAlreadyExistsException(String username, String email, String message, Throwable cause) {
         super(message, cause, DEFAULT_CODE);
         this.username = username;
