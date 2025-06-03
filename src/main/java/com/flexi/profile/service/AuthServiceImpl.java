@@ -10,6 +10,7 @@ import com.flexi.profile.repository.ProfileRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.security.JwtTokenProvider;
 import com.flexi.profile.util.LogUtil;
+import com.flexi.profile.exception.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -53,7 +54,7 @@ public class AuthServiceImpl implements AuthService {
             String email = jwtTokenProvider.getEmailFromToken(token);
             logger.debug("Fetching user for email: {}", email);
             User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UnauthorizedException("User not found"));
             logger.debug("Revoking all refresh tokens for user: {}", email);
             refreshTokenService.revokeAllUserTokens(user);
             logger.info("Successfully logged out user: {}", email);
@@ -97,7 +98,7 @@ public class AuthServiceImpl implements AuthService {
                     })
                     .orElseThrow(() -> {
                         logger.warn("Refresh token not found in database: {}", refreshToken);
-                        return new RuntimeException("Refresh token not found in database");
+                        return new UnauthorizedException("Refresh token not found in database");
                     });
             logger.info("Successfully refreshed token for user: {}", response.getUserId());
             LogUtil.logMethodExit(logger, "refreshToken", response);
@@ -114,7 +115,7 @@ public class AuthServiceImpl implements AuthService {
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
             LogUtil.logInfo(logger, "Refresh token expired for user: " + token.getUser().getEmail());
             refreshTokenService.revokeAllUserTokens(token.getUser());
-            throw new RuntimeException("Refresh token was expired. Please make a new signin request");
+            throw new UnauthorizedException("Refresh token was expired. Please make a new signin request");
         }
         LogUtil.logMethodExit(logger, "verifyExpiration", token);
         return token;
@@ -149,7 +150,9 @@ public class AuthServiceImpl implements AuthService {
             logger.debug("Checking if user already exists: {}", authRequest.getEmail());
             if (userRepository.existsByEmail(authRequest.getEmail())) {
                 logger.info("Registration failed: User already exists: {}", authRequest.getEmail());
-                throw new RuntimeException("User already exists");
+                throw new com.flexi.profile.exception.service.auth.UserAlreadyExistsException(
+                    "User already exists with email: " + authRequest.getEmail()
+                );
             }
 
             logger.debug("Creating new user: {}", authRequest.getEmail());
@@ -210,12 +213,12 @@ public class AuthServiceImpl implements AuthService {
             User user = userRepository.findByEmail(authRequest.getEmail())
                 .orElseThrow(() -> {
                     LogUtil.logInfo(logger, "Login failed: User not found: " + authRequest.getEmail());
-                    return new RuntimeException("Invalid credentials");
+                    return new UnauthorizedException("Invalid credentials");
                 });
 
             if (!passwordEncoder.matches(authRequest.getPassword(), user.getPassword())) {
                 LogUtil.logInfo(logger, "Login failed: Invalid password for user: " + authRequest.getEmail());
-                throw new RuntimeException("Invalid credentials");
+                throw new UnauthorizedException("Invalid credentials");
             }
 
             LogUtil.logInfo(logger, "User logged in successfully: " + user.getEmail());
@@ -254,7 +257,7 @@ public class AuthServiceImpl implements AuthService {
             User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> {
                     LogUtil.logWarning(logger, "User not found for authenticated user: " + email);
-                    return new RuntimeException("User not found");
+                    return new UnauthorizedException("User not found");
                 });
 
             boolean isAdmin = isAdmin(user);

@@ -357,13 +357,13 @@ public class ProfileServiceImpl implements ProfileService {
             SubSection subSection = subSectionRepository.findById(subsectionId)
                     .orElseThrow(() -> {
                         logger.warn("SubSection not found with ID: {}", subsectionId);
-                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                        return new SubSectionNotFoundException("SubSection not found with id: " + subsectionId);
                     });
 
             // Verify the subsection belongs to the specified section
             if (!subSection.getSection().getId().equals(sectionId)) {
                 logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
-                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+                throw new InvalidSubSectionException("SubSection " + subsectionId + " does not belong to Section " + sectionId);
             }
 
             SubSectionDTO result = convertToDTO(subSection);
@@ -391,13 +391,13 @@ public class ProfileServiceImpl implements ProfileService {
             SubSection subSection = subSectionRepository.findById(subsectionId)
                     .orElseThrow(() -> {
                         logger.warn("SubSection not found with ID: {}", subsectionId);
-                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                        return new SubSectionNotFoundException("SubSection not found with id: " + subsectionId);
                     });
 
             // Verify the subsection belongs to the specified section
             if (!subSection.getSection().getId().equals(sectionId)) {
                 logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
-                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+                throw new InvalidSubSectionException("SubSection " + subsectionId + " does not belong to Section " + sectionId);
             }
 
             // Update the subsection
@@ -432,13 +432,13 @@ public class ProfileServiceImpl implements ProfileService {
             SubSection subSection = subSectionRepository.findById(subsectionId)
                     .orElseThrow(() -> {
                         logger.warn("SubSection not found with ID: {}", subsectionId);
-                        return new SectionNotFoundException("SubSection not found with id: " + subsectionId);
+                        return new SubSectionNotFoundException("SubSection not found with id: " + subsectionId);
                     });
 
             // Verify the subsection belongs to the specified section
             if (!subSection.getSection().getId().equals(sectionId)) {
                 logger.warn("SubSection {} does not belong to Section {}", subsectionId, sectionId);
-                throw new SectionNotFoundException("SubSection does not belong to the specified section");
+                throw new InvalidSubSectionException("SubSection " + subsectionId + " does not belong to Section " + sectionId);
             }
 
             // Delete the subsection

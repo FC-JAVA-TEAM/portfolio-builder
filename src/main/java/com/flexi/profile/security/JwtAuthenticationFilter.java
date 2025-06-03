@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import com.flexi.profile.exception.UnauthorizedException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -39,8 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 if (tokenBlacklist.isBlacklisted(token)) {
                     logger.info("Token is blacklisted");
                     SecurityContextHolder.clearContext();
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token has been invalidated");
-                    return;
+                    throw new UnauthorizedException("Token has been invalidated");
                 }
                 
                 boolean isValid = jwtTokenProvider.validateToken(token);
@@ -55,8 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception ex) {
             logger.error("Error processing token: {}", ex.getMessage(), ex);
             SecurityContextHolder.clearContext();
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token: " + ex.getMessage());
-            return;
+            throw new UnauthorizedException("Invalid JWT token: " + ex.getMessage());
         }
 
         filterChain.doFilter(request, response);
