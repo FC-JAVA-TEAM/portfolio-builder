@@ -1,5 +1,6 @@
 package com.flexi.profile.exception;
 
+import com.flexi.profile.exception.*;
 import com.flexi.profile.exception.profile.*;
 import com.flexi.profile.exception.section.*;
 import com.flexi.profile.exception.service.auth.*;
@@ -26,7 +27,14 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     // Authentication & Authorization Exceptions
-    @ExceptionHandler({AuthenticationException.class, BadCredentialsException.class})
+    @ExceptionHandler({
+        AuthenticationException.class,
+        BadCredentialsException.class,
+        UnauthorizedException.class,
+        TokenExpiredException.class,
+        TokenValidationException.class,
+        RefreshTokenException.class
+    })
     public ResponseEntity<ErrorResponse> handleAuthenticationException(Exception ex) {
         logger.error("Authentication error: {}", ex.getMessage());
         ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Authentication failed: " + ex.getMessage());
@@ -40,19 +48,11 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.FORBIDDEN);
     }
 
-    // Token Related Exceptions
-    @ExceptionHandler({
-        TokenExpiredException.class, 
-        TokenValidationException.class, 
-        RefreshTokenException.class,
-        TokenOperationException.class
-    })
-    public ResponseEntity<ErrorResponse> handleTokenException(Exception ex) {
-        logger.error("Token error: {}", ex.getMessage());
-        HttpStatus status = ex instanceof TokenOperationException ? 
-            HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.UNAUTHORIZED;
-        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
-        return new ResponseEntity<>(error, status);
+    @ExceptionHandler(TokenOperationException.class)
+    public ResponseEntity<ErrorResponse> handleTokenOperationException(TokenOperationException ex) {
+        logger.error("Token operation error: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Token operation failed: " + ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     // User Registration Exceptions
