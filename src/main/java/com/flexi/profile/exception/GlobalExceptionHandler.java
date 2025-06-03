@@ -41,11 +41,18 @@ public class GlobalExceptionHandler {
     }
 
     // Token Related Exceptions
-    @ExceptionHandler({TokenExpiredException.class, TokenValidationException.class, RefreshTokenException.class})
+    @ExceptionHandler({
+        TokenExpiredException.class, 
+        TokenValidationException.class, 
+        RefreshTokenException.class,
+        TokenOperationException.class
+    })
     public ResponseEntity<ErrorResponse> handleTokenException(Exception ex) {
         logger.error("Token error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), ex.getMessage());
-        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
+        HttpStatus status = ex instanceof TokenOperationException ? 
+            HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.UNAUTHORIZED;
+        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
+        return new ResponseEntity<>(error, status);
     }
 
     // User Registration Exceptions
@@ -102,12 +109,19 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, status);
     }
 
-    // Section Specific Exceptions
-    @ExceptionHandler({SectionCreationException.class, SectionUpdateException.class, InvalidSectionOrderException.class})
+    // Section and SubSection Specific Exceptions
+    @ExceptionHandler({
+        SectionCreationException.class, 
+        SectionUpdateException.class, 
+        InvalidSectionOrderException.class,
+        SubSectionNotFoundException.class,
+        InvalidSubSectionException.class
+    })
     public ResponseEntity<ErrorResponse> handleSectionException(Exception ex) {
-        logger.error("Section operation error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        logger.error("Section/SubSection operation error: {}", ex.getMessage());
+        HttpStatus status = ex instanceof SubSectionNotFoundException ? HttpStatus.NOT_FOUND : HttpStatus.BAD_REQUEST;
+        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
+        return new ResponseEntity<>(error, status);
     }
 
     // Type Mismatch Exception
