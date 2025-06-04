@@ -1,0 +1,215 @@
+name: Java 21 AI Code Review
+
+# Combined triggers for both automatic and manual execution
+on:
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      files_to_review:
+        description: 'Specific files to review (comma-separated, leave empty for all .java files)'
+        required: false
+        type: string
+      review_type:
+        description: 'Type of review to perform'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - quick
+          - security
+      branch:
+        description: 'Branch to review (defaults to current)'
+        required: false
+        type: string
+  
+  # Automatic trigger on PR
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - '**.java'
+      - 'pom.xml'
+      # - 'build.gradle' # Uncomment if using Gradle
+
+jobs:
+  ai-code-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.inputs.branch || github.head_ref || github.ref }}
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'  # Change to 'gradle' if using Gradle
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            **/*.java
+
+      - name: Build project
+        run: mvn clean compile  # Change to './gradlew build' if using Gradle
+
+      - name: Run AI Code Review
+        env:
+          FUELIX_API_KEY: ${{ secrets.FUELIX_API_KEY }}
+          FUELIX_API_URL: 'https://api-beta.fuelix.ai'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create a Python script for AI review
+          cat << 'EOF' > review.py
+          import os
+          import requests
+          import json
+          import sys
+          from github import Github
+          from pathlib import Path
+          
+          def get_files_to_review():
+              # If manually triggered with specific files
+              manual_files = os.environ.get('MANUAL_FILES')
+              if manual_files:
+                  return [f.strip() for f in manual_files.split(',') if f.strip()]
+              
+              # If triggered by PR or no manual files specified
+              changed_files = os.environ.get('CHANGED_FILES', '').split(' ')
+              return [f for f in changed_files if f and f.endswith('.java')]
+          
+          def create_review_comment(file_path, comment, line_number=None):
+              if os.environ.get('PR_NUMBER'):
+                  # For PR reviews
+                  g = Github(os.environ['GITHUB_TOKEN'])
+                  repo = g.get_repo(os.environ['GITHUB_REPOSITORY'])
+                  pr = repo.get_pull(int(os.environ['PR_NUMBER']))
+                  
+                  if line_number:
+                      pr.create_review_comment(
+                          body=comment,
+                          commit_id=pr.get_commits().reversed[0].sha,
+                          path=file_path,
+                          line=line_number
+                      )
+                  else:
+                      pr.create_issue_comment(f"Review for {file_path}:\n\n{comment}")
+              else:
+                  # For manual reviews, print to console
+                  print(f"\n=== Review for {file_path} {'(line ' + str(line_number) + ')' if line_number else ''} ===")
+                  print(comment)
+                  print("=" * 80)
+
+          def main():
+              api_key = os.environ['FUELIX_API_KEY']
+              api_url = os.environ['FUELIX_API_URL']
+              review_type = os.environ.get('REVIEW_TYPE', 'full')
+
+              headers = {
+                  'Authorization': f'Bearer {api_key}',
+                  'Content-Type': 'application/json'
+              }
+
+              files_to_review = get_files_to_review()
+              
+              if not files_to_review:
+                  print("No Java files to review.")
+                  return
+              
+              print(f"Files to review: {files_to_review}")
+              
+              for file in files_to_review:
+                  if not Path(file).exists():
+                      print(f"Warning: File {file} not found")
+                      continue
+                      
+                  print(f"Reviewing file: {file}")
+                  
+                  with open(file, 'r') as f:
+                      code_content = f.read()
+
+                  payload = {
+                      'code': code_content,
+                      'file_name': file,
+                      'language': 'java',
+                      'java_version': '21',
+                      'review_type': review_type,
+                      'review_aspects': [
+                          'code_quality',
+                          'best_practices',
+                          'performance',
+                          'security',
+                          'java21_features'
+                      ]
+                  }
+
+                  try:
+                      response = requests.post(f'{api_url}/code-review', headers=headers, json=payload)
+                      response.raise_for_status()
+                      
+                      review = response.json()
+                      
+                      if review.get('issues'):
+                          for issue in review['issues']:
+                              comment = f"🤖 AI Review Suggestion:\n\n{issue['description']}"
+                              create_review_comment(file, comment, issue.get('line_number'))
+                                  
+                      if review.get('summary'):
+                          summary_comment = f"## 🤖 AI Code Review Summary for {file}\n\n{review['summary']}"
+                          create_review_comment(file, summary_comment)
+                          
+                  except Exception as e:
+                      print(f"Error reviewing {file}: {str(e)}")
+
+          if __name__ == "__main__":
+              main()
+          EOF
+
+          # Install required Python packages
+          pip install requests PyGithub
+
+          # Set environment variables based on trigger type
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            export PR_NUMBER=${{ github.event.pull_request.number }}
+            export CHANGED_FILES="${{ steps.changed-files.outputs.all_changed_files }}"
+          else
+            export MANUAL_FILES="${{ github.event.inputs.files_to_review }}"
+            export REVIEW_TYPE="${{ github.event.inputs.review_type }}"
+          fi
+
+          # Run the review script
+          python review.py
+
+      # Optional: Add static code analysis (only run if specifically requested in manual trigger or always in PR)
+      - name: Run static code analysis
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.review_type == 'full' }}
+        run: |
+          mvn spotbugs:check pmd:check  # For Maven
+          # OR for Gradle:
+          # ./gradlew spotbugsMain pmdMain
+
+      # Optional: Add test coverage check
+      - name: Run tests with coverage
+        if: ${{ github.event_name == 'pull_request' || github.event.inputs.review_type == 'full' }}
+        run: |
+          mvn test jacoco:report
+          # OR for Gradle:
+          # ./gradlew test jacocoTestReport
+
+      # Add a summary of the manual review
+      - name: Create review summary
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "# AI Code Review Summary" >> $GITHUB_STEP_SUMMARY
+          echo "Review completed for the specified files." >> $GITHUB_STEP_SUMMARY
+          echo "Review type: ${{ github.event.inputs.review_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "Branch: ${{ github.event.inputs.branch || 'current' }}" >> $GITHUB_STEP_SUMMARY
