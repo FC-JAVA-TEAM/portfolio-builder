@@ -22,7 +22,7 @@ jobs:
       - name: ✅ Verify repository origin
         run: |
           echo "🔍 Checking repository: ${{ github.repository }}"
-          if [ "${{ github.repository }}" = "FC-JAVA-TEAM/koodo-product" ]; then
+          if [ "${{ github.repository }}" = "FC-JAVA-TEAM/portfolio-builder" ]; then
             echo "✅ Verified correct repository"
             exit 0
           else
