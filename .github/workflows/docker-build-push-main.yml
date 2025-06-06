@@ -1,0 +1,131 @@
+name: Reusable Docker Build/Push
+
+on:
+  workflow_call:
+    inputs:
+      image_name:
+        required: true
+        type: string
+      dockerhub_username:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+      app_version:
+        required: true
+        type: string
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: true
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    outputs:
+      image_tag: ${{ steps.get-tag.outputs.image_tag }}
+      environment: ${{ steps.set-values.outputs.environment }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for tag operations
+      - name: Log Inputs
+        run: |
+          echo "🛠️ Image Name: ${{ inputs.image_name }}"
+          echo "📦 DockerHub Username: ${{ inputs.dockerhub_username }}"
+          echo "🌍 Environment: ${{ inputs.environment }}"
+          echo "🔖 App Version: ${{ inputs.app_version }}"
+
+ #     - name: Download Artifact
+   #     uses: actions/download-artifact@v4
+  #      with:
+    #      name: build-artifacts
+   #       path: .
+
+  #    - name: List Downloaded Files
+  #      run: |
+   #       echo "📁 Downloaded build artifacts:"
+    #      ls -l .
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ inputs.dockerhub_username }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Confirm Docker Login
+        run: |
+          echo "✅ Logged in to Docker Hub as ${{ inputs.dockerhub_username }}"
+
+      - name: Docker Metadata
+        id: metadata
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ inputs.dockerhub_username }}/${{ inputs.image_name }}
+          tags: |
+            type=raw,value=${{ inputs.environment }}-${{ inputs.app_version }}
+      - name: Get Docker Tag
+        id: get-tag
+        run: |
+          TAG=$(echo "${{ steps.metadata.outputs.tags }}" | tr -d '[:space:]')
+          echo "image_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "🏷️ Extracted Docker tag: $TAG"
+      - name: Log Docker Tags
+        run: |
+          echo "🏷️ Docker tag that will be used: ${{ steps.metadata.outputs.tags }}"
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          build-args: |
+            BRANCH_NAME=${{ github.ref_name }}
+            BUILD_ID=${{ github.run_number }}
+            BUILD_DATETIME=${{ steps.build-time.outputs.timestamp }}
+            IMAGE_TAG=${{ steps.metadata.outputs.tags }}
+            ENVIRONMENT=${{ inputs.environment }}
+
+      - name: Generate Build Timestamp
+        id: build-time
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "timestamp=$TIMESTAMP" >> $GITHUB_OUTPUT
+
+      - name: Confirm Image Build & Push
+        run: |
+          echo "🚢 Docker image pushed successfully:"
+          echo "🖼️ Image: docker.io/${{ inputs.dockerhub_username }}/${{ inputs.image_name }}:${{ inputs.environment }}-${{ inputs.app_version }}"
+
+      - name: Create Git Tag (Production Only)
+        if: inputs.environment == 'production'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🏷️ Creating git tag for production release..."
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git fetch --tags
+          
+          TAG_NAME="v${{ inputs.app_version }}"
+          echo "🔖 Tag to create: $TAG_NAME"
+          
+          if [[ ! "$TAG_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::❌ Invalid tag format: $TAG_NAME"
+            exit 1
+          fi
+          
+          if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
+            echo "::warning::⚠️ Tag $TAG_NAME already exists. Skipping creation."
+          else
+            echo "🏷️ Creating and pushing tag $TAG_NAME..."
+            git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
+            git push origin "$TAG_NAME"
+            echo "✅ Git tag $TAG_NAME created and pushed."
+          fi
