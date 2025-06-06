@@ -51,7 +51,7 @@ RUN chown appuser:root /app \
 USER 1001
 
 # Expose the application port
-EXPOSE 2222
+EXPOSE 8080
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
