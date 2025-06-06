@@ -100,7 +100,7 @@ jobs:
       packages: write
     uses: ./.github/workflows/docker-build-push-main.yml
     with:
-      image_name: 'koodo-product'
+      image_name: 'portfolio-builder'
       dockerhub_username: shaikh79
       environment: ${{ needs.build-maven.outputs.validated_environment }}
       app_version: ${{ needs.build-maven.outputs.app_version }}
@@ -113,7 +113,7 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       app_version: ${{ needs.build-maven.outputs.app_version }}
-      image_name: 'koodo-product'
+      image_name: 'portfolio-builder'
       environment: ${{ needs.build-maven.outputs.validated_environment }}
       image_tag: ${{ needs.build-docker.outputs.image_tag }}
     secrets:
