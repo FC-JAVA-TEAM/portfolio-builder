@@ -143,7 +143,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/profiles/public", "/h2-console/**").permitAll()
+                .requestMatchers("/api/auth/**", "/api/profiles/public", "/api/health/**", "/h2-console/**").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
@@ -181,4 +181,3 @@ public class SecurityConfig {
         return source;
     }
 }
-

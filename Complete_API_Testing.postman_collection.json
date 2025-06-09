@@ -1,0 +1,858 @@
+{
+	"info": {
+		"_postman_id": "complete-api-testing-uuid",
+		"name": "Complete API Testing Collection",
+		"description": "Comprehensive collection for testing ALL Profile API endpoints including Role Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/health/ping",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "health", "ping"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"adminToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"adminRefreshToken\", jsonData.refreshToken);",
+									"    pm.environment.set(\"adminUserId\", jsonData.id);",
+									"    console.log(\"Admin token set: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{adminEmail}}\",\n    \"password\": \"{{adminPassword}}\",\n    \"firstName\": \"Admin\",\n    \"lastName\": \"User\",\n    \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"userToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"userRefreshToken\", jsonData.refreshToken);",
+									"    pm.environment.set(\"userId\", jsonData.id);",
+									"    console.log(\"User token set: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register HR User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"hrUserToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"hrUserRefreshToken\", jsonData.refreshToken);",
+									"    pm.environment.set(\"hrUserId\", jsonData.id);",
+									"    console.log(\"HR User token set: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{hrUserEmail}}\",\n    \"password\": \"{{hrUserPassword}}\",\n    \"firstName\": \"HR\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Finance User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"financeUserToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"financeUserRefreshToken\", jsonData.refreshToken);",
+									"    pm.environment.set(\"financeUserId\", jsonData.id);",
+									"    console.log(\"Finance User token set: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{financeUserEmail}}\",\n    \"password\": \"{{financeUserPassword}}\",\n    \"firstName\": \"Finance\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"accessToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+									"    console.log(\"Access token updated: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"adminToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"adminRefreshToken\", jsonData.refreshToken);",
+									"    console.log(\"Admin token updated: \" + jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{adminEmail}}\",\n    \"password\": \"{{adminPassword}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/refresh",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "refresh"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Auth Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/status",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "status"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/logout",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "logout"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Management",
+			"item": [
+				{
+					"name": "Promote User to HR Role (Legacy)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has success field\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('success');",
+									"    pm.expect(jsonData.success).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"User promoted to HR role\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.promotedUser.roles).to.include('ROLE_HR');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{hrUserEmail}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/hr/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "hr", "promote"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Promote User to Finance Role (New)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has success field\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('success');",
+									"    pm.expect(jsonData.success).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"User promoted to Finance role\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.promotedUser.roles).to.include('ROLE_FINANCE');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{financeUserEmail}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/finance/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "finance", "promote"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Invalid Role Promotion (Should Fail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500 (Expected failure)\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"pm.test(\"Error message contains invalid role\", function () {",
+									"    var responseText = pm.response.text();",
+									"    pm.expect(responseText).to.include('Invalid target role');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"targetRole\": \"INVALID_ROLE\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/roles/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "roles", "promote"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile Management",
+			"item": [
+				{
+					"name": "Create Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"profileId\", jsonData.id);",
+									"    console.log(\"Profile ID set: \" + jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Profile\",\n    \"bio\": \"Test Bio\",\n    \"isPublic\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Profiles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Profile\",\n    \"bio\": \"Updated Bio\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section Management",
+			"item": [
+				{
+					"name": "Create Section",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"sectionId\", jsonData.id);",
+									"    console.log(\"Section ID set: \" + jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profileId\": {{profileId}},\n    \"type\": \"ABOUT\",\n    \"title\": \"About Me\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Section",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Section",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"ABOUT\",\n    \"title\": \"Updated About Me\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Section",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sections by Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/profile/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "profile", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reorder Sections",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[1, 2, 3]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/reorder/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "reorder", "{{profileId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subsection Management",
+			"item": [
+				{
+					"name": "Create Subsection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"subsectionId\", jsonData.id);",
+									"    console.log(\"Subsection ID set: \" + jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Subsection Title\",\n    \"content\": \"Subsection Content\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subsection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subsection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Subsection Title\",\n    \"content\": \"Updated Subsection Content\",\n    \"order\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subsection",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -35,6 +35,8 @@ import com.flexi.profile.exception.service.section.InvalidSubSectionException;
 import com.flexi.profile.exception.service.section.SectionCreationException;
 import com.flexi.profile.exception.service.section.SectionUpdateException;
 import com.flexi.profile.exception.service.section.SubSectionNotFoundException;
+import com.flexi.profile.exception.service.hr.UserAlreadyRoleException;
+import com.flexi.profile.exception.service.hr.UserNotEligibleException;
 
 import jakarta.validation.ConstraintViolation;
 
@@ -136,6 +138,15 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleSectionException(Exception ex) {
         logger.error("Section/SubSection operation error: {}", ex.getMessage());
         HttpStatus status = ex instanceof SubSectionNotFoundException ? HttpStatus.NOT_FOUND : HttpStatus.BAD_REQUEST;
+        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
+        return new ResponseEntity<>(error, status);
+    }
+
+    // HR Management Specific Exceptions
+    @ExceptionHandler({UserAlreadyRoleException.class, UserNotEligibleException.class})
+    public ResponseEntity<ErrorResponse> handleHRException(Exception ex) {
+        logger.error("HR management error: {}", ex.getMessage());
+        HttpStatus status = ex instanceof UserAlreadyRoleException ? HttpStatus.CONFLICT : HttpStatus.BAD_REQUEST;
         ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
         return new ResponseEntity<>(error, status);
     }
