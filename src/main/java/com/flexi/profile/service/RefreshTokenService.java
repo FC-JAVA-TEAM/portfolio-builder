@@ -39,7 +39,7 @@ public class RefreshTokenService {
         return createRefreshTokenInFamily(user, "", family);
     }
 
-    public RefreshToken createRefreshToken(String userId, String deviceInfo) {
+    public RefreshToken createRefreshToken(Long userId, String deviceInfo) {
         String family = UUID.randomUUID().toString();
         return createRefreshTokenInFamily(userId, deviceInfo, family);
     }
@@ -60,13 +60,13 @@ public class RefreshTokenService {
         logger.debug("Saving new refresh token to database");
         RefreshToken savedToken = refreshTokenRepository.save(refreshToken);
         logger.info("Created new refresh token for user: {}", user.getEmail());
-        auditService.logTokenAction("CREATE", user.getEmail(), savedToken.getToken(), "Created new refresh token");
+        auditService.logTokenAction("CREATE", user.getId(), savedToken.getId(), "Created new refresh token");
         return savedToken;
     }
 
-    private RefreshToken createRefreshTokenInFamily(String userEmail, String deviceInfo, String family) {
-        User user = userRepository.findByEmail(userEmail)
-            .orElseThrow(() -> new RuntimeException("User not found with email: " + userEmail));
+    private RefreshToken createRefreshTokenInFamily(Long userId, String deviceInfo, String family) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
             
         return createRefreshTokenInFamily(user, deviceInfo, family);
     }
@@ -79,9 +79,9 @@ public class RefreshTokenService {
     public RefreshToken verifyExpiration(RefreshToken token) {
         logger.debug("Verifying expiration for token: {}", token.getToken());
         if (token.getExpiryDate().compareTo(Instant.now()) < 0 || token.isRevoked()) {
-            logger.info("Token expired or revoked for user: {}", token.getUserId());
+            logger.info("Token expired or revoked for user: {}", token.getUser().getId());
             refreshTokenRepository.delete(token);
-            auditService.logTokenAction("EXPIRE", token.getUserId(), token.getToken(), "Token expired or revoked");
+            auditService.logTokenAction("EXPIRE", token.getUser().getId(), token.getId(), "Token expired or revoked");
             throw new RuntimeException("Refresh token was expired or revoked. Please make a new login request");
         }
         logger.debug("Token is valid and not expired");
@@ -97,15 +97,15 @@ public class RefreshTokenService {
         
         User user = oldToken.getUser();
         if (user == null) {
-            logger.debug("User object not found in token, fetching by email: {}", oldToken.getUserId());
-            user = userRepository.findByEmail(oldToken.getUserId())
+            logger.debug("User object not found in token, fetching by id: {}", oldToken.getUser().getId());
+            user = userRepository.findById(oldToken.getUser().getId())
                 .orElseThrow(() -> {
-                    logger.warn("User not found with email: {}", oldToken.getUserId());
-                    return new RuntimeException("User not found with email: " + oldToken.getUserId());
+                    logger.warn("User not found with id: {}", oldToken.getUser().getId());
+                    return new RuntimeException("User not found with id: " + oldToken.getUser().getId());
                 });
         }
         
-        auditService.logTokenAction("ROTATE", user.getEmail(), oldToken.getToken(), "Rotated refresh token");
+        auditService.logTokenAction("ROTATE", user.getId(), oldToken.getId(), "Rotated refresh token");
         
         String family = UUID.randomUUID().toString();
         logger.info("Rotating token for user: {} with new family: {}", user.getEmail(), family);
@@ -113,12 +113,12 @@ public class RefreshTokenService {
     }
 
     @Transactional
-    public void deleteByUserId(String userEmail) {
-        User user = userRepository.findByEmail(userEmail)
-            .orElseThrow(() -> new RuntimeException("User not found with email: " + userEmail));
+    public void deleteByUserId(Long userId) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
         List<RefreshToken> tokens = refreshTokenRepository.findByUser(user);
         refreshTokenRepository.deleteAll(tokens);
-        auditService.logTokenAction("DELETE_ALL", userEmail, null, "Deleted all refresh tokens for user");
+        auditService.logTokenAction("DELETE_ALL", userId, null, "Deleted all refresh tokens for user");
     }
 
     @Transactional
@@ -127,7 +127,7 @@ public class RefreshTokenService {
         refreshToken.ifPresent(rt -> {
             rt.setRevoked(true);
             refreshTokenRepository.save(rt);
-            auditService.logTokenAction("REVOKE", rt.getUserId(), rt.getToken(), "Revoked refresh token");
+            auditService.logTokenAction("REVOKE", rt.getUser().getId(), rt.getId(), "Revoked refresh token");
         });
     }
 
@@ -141,7 +141,7 @@ public class RefreshTokenService {
             logger.debug("Revoking token: {}", token.getToken());
             token.setRevoked(true);
             refreshTokenRepository.save(token);
-            auditService.logTokenAction("REVOKE", user.getEmail(), token.getToken(), "Token revoked during user logout");
+            auditService.logTokenAction("REVOKE", user.getId(), token.getId(), "Token revoked during user logout");
         }
         
         logger.info("Successfully revoked {} tokens for user: {}", userTokens.size(), user.getEmail());
@@ -152,7 +152,7 @@ public class RefreshTokenService {
         logger.debug("Starting cleanup of expired tokens");
         refreshTokenRepository.deleteAllExpiredTokens(Instant.now());
         logger.info("Cleaned up expired tokens");
-        auditService.logTokenAction("CLEANUP", "SYSTEM", null, "Cleaned up expired tokens");
+        auditService.logTokenAction("CLEANUP", 0L, null, "Cleaned up expired tokens");
     }
 
     public boolean isTokenValid(String token) {
@@ -167,7 +167,7 @@ public class RefreshTokenService {
         for (RefreshToken token : allTokens) {
             token.setRevoked(true);
             refreshTokenRepository.save(token);
-            auditService.logTokenAction("REVOKE", token.getUserId(), token.getToken(), "Token revoked in mass revocation");
+            auditService.logTokenAction("REVOKE", token.getUser().getId(), token.getId(), "Token revoked in mass revocation");
         }
     }
 }

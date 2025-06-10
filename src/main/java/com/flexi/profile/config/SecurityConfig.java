@@ -145,6 +145,12 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**", "/api/profiles/public", "/h2-console/**").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/job-postings/**").hasAnyRole("HR", "ADMIN")
+                .requestMatchers("/api/job-applications/jobs/*/apply").hasRole("USER")
+                .requestMatchers("/api/job-applications/**").hasAnyRole("HR", "ADMIN")
+                .requestMatchers("/api/roles/request").hasRole("USER")
+                .requestMatchers("/api/roles/requests/**").hasRole("ADMIN")
+                .requestMatchers("/api/roles/my-requests").hasRole("USER")
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
             )
@@ -181,4 +187,3 @@ public class SecurityConfig {
         return source;
     }
 }
-

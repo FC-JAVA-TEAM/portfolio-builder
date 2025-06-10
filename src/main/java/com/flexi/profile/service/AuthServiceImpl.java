@@ -13,11 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
 import com.flexi.profile.exception.UnauthorizedException;
+import com.flexi.profile.exception.ResourceNotFoundException;
 import com.flexi.profile.model.Profile;
 import com.flexi.profile.model.RefreshToken;
+import com.flexi.profile.model.Role;
 import com.flexi.profile.model.User;
-import com.flexi.profile.model.UserRole;
 import com.flexi.profile.repository.ProfileRepository;
+import com.flexi.profile.repository.RoleRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.security.JwtTokenProvider;
 import com.flexi.profile.util.LogUtil;
@@ -42,6 +44,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     private RefreshTokenService refreshTokenService;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public void logout(String token) {
@@ -120,7 +125,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     private boolean isAdmin(User user) {
-        return user.getRoles().stream().anyMatch(role -> role.getRole().equals("ROLE_ADMIN"));
+        return user.getRoles().stream().anyMatch(role -> role.getName().equals("ROLE_ADMIN"));
     }
 
     @Override
@@ -143,6 +148,11 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse registerUser(AuthRequest authRequest) {
+        return registerUser(authRequest, "ROLE_USER");
+    }
+
+    @Override
+    public AuthResponse registerUser(AuthRequest authRequest, String roleName) {
         LogUtil.logMethodEntry(logger, "registerUser", authRequest);
         try {
             logger.debug("Checking if user already exists: {}", authRequest.getEmail());
@@ -160,9 +170,10 @@ public class AuthServiceImpl implements AuthService {
             user.setFirstName(authRequest.getFirstName());
             user.setLastName(authRequest.getLastName());
             
-            logger.debug("Adding default role to user: {}", authRequest.getEmail());
-            UserRole defaultRole = new UserRole(user, User.DEFAULT_ROLE);
-            user.addRole(defaultRole);
+            logger.debug("Adding role to user: {}", authRequest.getEmail());
+            Role role = roleRepository.findByName(roleName)
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found: " + roleName));
+            user.addRole(role);
             
             user = userRepository.save(user);
             logger.info("Created new user: {}", user.getEmail());

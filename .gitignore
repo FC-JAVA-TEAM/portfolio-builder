@@ -1,3 +1,4 @@
 # Ignore build output directories
 /target/
 bin/
+target/

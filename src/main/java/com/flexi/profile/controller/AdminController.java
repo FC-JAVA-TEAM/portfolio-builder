@@ -26,7 +26,7 @@ public class AdminController {
     private AuditService auditService;
 
 @PostMapping("/tokens/revoke/{userId}")
-public ResponseEntity<?> revokeUserTokens(@PathVariable String userId) {
+public ResponseEntity<?> revokeUserTokens(@PathVariable Long userId) {
     logger.debug("Received request to revoke all tokens for user: {}", userId);
     LogUtil.logMethodEntry(logger, "revokeUserTokens", userId);
     try {
@@ -47,7 +47,7 @@ public ResponseEntity<?> revokeAllTokens() {
     LogUtil.logMethodEntry(logger, "revokeAllTokens");
     try {
         // First, log this administrative action
-        auditService.logTokenAction("REVOKE_ALL", "ADMIN", null, "Admin revoked all tokens in the system");
+        auditService.logTokenAction("REVOKE_ALL", 0L, null, "Admin revoked all tokens in the system");
         LogUtil.logInfo(logger, "Admin initiated revocation of all tokens");
         logger.debug("Initiating system-wide token revocation");
         

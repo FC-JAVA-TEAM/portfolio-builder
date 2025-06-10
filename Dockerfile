@@ -1,5 +1,6 @@
-# Build stage
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+## Build stage
+
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
 # Declare build arguments for the build stage
 ARG BRANCH_NAME
@@ -19,8 +20,9 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Runtime stage
-FROM eclipse-temurin:21-jre-jammy
+## Runtime stage
+
+FROM eclipse-temurin:17-jre-jammy
 
 # Re-declare build arguments for the runtime stage
 ARG BRANCH_NAME

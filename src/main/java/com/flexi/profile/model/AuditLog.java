@@ -20,13 +20,13 @@ public class AuditLog {
     private String action;
     
     @Column(nullable = false)
-    private String userId;
+    private Long userId;
     
     @Column(nullable = false)
     private Instant timestamp;
     
     @Column
-    private String tokenId;
+    private Long tokenId;
     
     @Column
     private String details;
@@ -47,11 +47,11 @@ public class AuditLog {
         this.action = action;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -63,11 +63,11 @@ public class AuditLog {
         this.timestamp = timestamp;
     }
 
-    public String getTokenId() {
+    public Long getTokenId() {
         return tokenId;
     }
 
-    public void setTokenId(String tokenId) {
+    public void setTokenId(Long tokenId) {
         this.tokenId = tokenId;
     }
 
