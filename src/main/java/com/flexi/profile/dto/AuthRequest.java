@@ -1,16 +1,35 @@
 package com.flexi.profile.dto;
 
 public class AuthRequest {
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
+    private String role;
+    
 
-    public String getName() {
-        return name;
+    public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {

@@ -1,26 +1,26 @@
 package com.flexi.profile.dto;
 
 public class SubSectionDTO {
-    private String id;
-    private String sectionId;
+    private Long id;
+    private Long sectionId;
     private String title;
     private String content;
     private int order;
 
     // Getters and setters
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getSectionId() {
+    public Long getSectionId() {
         return sectionId;
     }
 
-    public void setSectionId(String sectionId) {
+    public void setSectionId(Long sectionId) {
         this.sectionId = sectionId;
     }
 

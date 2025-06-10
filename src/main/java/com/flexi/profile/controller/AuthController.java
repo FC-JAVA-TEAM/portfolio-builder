@@ -2,20 +2,21 @@ package com.flexi.profile.controller;
 
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
-import com.flexi.profile.security.TokenBlacklist;
+import com.flexi.profile.model.RefreshToken;
+import com.flexi.profile.model.User;
 import com.flexi.profile.service.AuthService;
-import javax.servlet.http.HttpServletRequest;
+import com.flexi.profile.service.RefreshTokenService;
+import com.flexi.profile.util.LogUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:1111")
 public class AuthController {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
@@ -24,61 +25,66 @@ public class AuthController {
     private AuthService authService;
 
     @Autowired
-    private TokenBlacklist tokenBlacklist;
+    private RefreshTokenService refreshTokenService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody AuthRequest authRequest) {
-        try {
-            AuthResponse response = authService.registerUser(authRequest);
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            logger.error("Error during user registration: ", e);
-            return ResponseEntity.status(500).body("Error during registration: " + e.getMessage());
-        }
+    public ResponseEntity<AuthResponse> registerUser(@RequestBody AuthRequest authRequest) {
+        logger.debug("Received registration request for user: {}", authRequest.getEmail());
+        LogUtil.logMethodEntry(logger, "registerUser", authRequest);
+        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.registerUser(authRequest));
+        logger.info("User registered successfully: {}", authRequest.getEmail());
+        LogUtil.logMethodExit(logger, "registerUser", response);
+        return response;
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> loginUser(@RequestBody AuthRequest authRequest) {
-        AuthResponse response = authService.loginUser(authRequest);
-        return ResponseEntity.ok(response);
+        logger.debug("Received login request for user: {}", authRequest.getEmail());
+        LogUtil.logMethodEntry(logger, "loginUser", authRequest);
+        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.loginUser(authRequest));
+        logger.info("User logged in successfully: {}", authRequest.getEmail());
+        LogUtil.logMethodExit(logger, "loginUser", response);
+        return response;
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponse> refreshToken(@RequestBody TokenRefreshRequest request) {
+        logger.debug("Received token refresh request");
+        LogUtil.logMethodEntry(logger, "refreshToken", request);
+        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.refreshToken(request.getRefreshToken()));
+        logger.info("Token refreshed successfully");
+        LogUtil.logMethodExit(logger, "refreshToken", response);
+        return response;
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String token) {
+        logger.debug("Received logout request");
+        LogUtil.logMethodEntry(logger, "logout", token);
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        authService.logout(token);
+        ResponseEntity<Void> response = ResponseEntity.ok().build();
+        logger.info("User logged out successfully");
+        LogUtil.logMethodExit(logger, "logout", response);
+        return response;
     }
 
     @GetMapping("/status")
     public ResponseEntity<AuthResponse> checkAuthStatus() {
+        logger.debug("Checking authentication status");
+        LogUtil.logMethodEntry(logger, "checkAuthStatus");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        
-        // Check if user is authenticated and not anonymous
-        if (authentication != null && authentication.isAuthenticated() 
-            && !"anonymousUser".equals(authentication.getPrincipal())) {
-            try {
-                AuthResponse response = authService.getCurrentUser(authentication);
-                return ResponseEntity.ok(response);
-            } catch (Exception e) {
-                // Log the error but return 401 to maintain consistency
-                System.err.println("Error getting current user: " + e.getMessage());
-                return ResponseEntity.status(401).build();
-            }
+        ResponseEntity<AuthResponse> response;
+        if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
+            response = ResponseEntity.ok(authService.getCurrentUser(authentication));
+            logger.info("User is authenticated: {}", authentication.getName());
+        } else {
+            response = ResponseEntity.status(401).build();
+            logger.info("User is not authenticated");
         }
-        
-        // Return 401 for unauthenticated or anonymous users
-        return ResponseEntity.status(401).build();
-    }
-
-    @PostMapping("/logout")
-    public ResponseEntity<Void> logout(HttpServletRequest request) {
-        String token = resolveToken(request);
-        if (token != null) {
-            tokenBlacklist.addToBlacklist(token);
-        }
-        SecurityContextHolder.clearContext();
-        return ResponseEntity.ok().build();
-    }
-
-    private String resolveToken(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
+        LogUtil.logMethodExit(logger, "checkAuthStatus", response);
+        return response;
     }
 }

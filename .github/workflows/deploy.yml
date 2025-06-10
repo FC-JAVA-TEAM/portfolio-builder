@@ -1,0 +1,81 @@
+name: Deploy to Cloud Run
+
+on:
+  workflow_call:
+    inputs:
+      app_version:
+        required: true
+        type: string
+      image_name:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+      image_tag:
+        required: true
+        type: string
+
+    secrets:
+      GCP_PROJECT_ID:
+        required: true
+      GCP_SA_KEY:
+        required: true
+      GCP_REGION:
+        required: true
+      DOCKERHUB_USERNAME:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log Deployment Inputs
+        run: |
+          echo "🚀 Starting Cloud Run Deployment"
+          echo "🖼️ Image Name: ${{ inputs.image_name }}"
+          echo "🔖 App Version: ${{ inputs.app_version }}"
+          echo "🌍 Environment: ${{ inputs.environment }}"
+
+      - name: Authenticate to Google Cloud
+        run: |
+          echo "🔐 Authenticating to Google Cloud..."
+          echo '${{ secrets.GCP_SA_KEY }}' > gcloud-key.json
+          gcloud auth activate-service-account --key-file=gcloud-key.json
+          gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+          gcloud config set run/region ${{ secrets.GCP_REGION }}
+          echo "✅ Google Cloud authentication complete."
+
+      - name: Set Cloud Run Service
+        id: set-service
+        run: |
+          if [ "${{ inputs.environment }}" = "production" ]; then
+            SERVICE_NAME="portfolio-builder-prod"
+          elif [ "${{ inputs.environment }}" = "staging" ]; then
+            SERVICE_NAME="portfolio-builder-staging"
+            else
+             SERVICE_NAME="portfolio-builder-dev"
+          fi
+          echo "🔧 Setting service name: $SERVICE_NAME"
+          echo "SERVICE_NAME=$SERVICE_NAME" >> $GITHUB_ENV
+
+      - name: Confirm Deployment Settings
+        run: |
+          echo "🧾 Confirming deployment settings:"
+          echo "📛 Project ID: ${{ secrets.GCP_PROJECT_ID }}"
+          echo "📍 Region: ${{ secrets.GCP_REGION }}"
+          echo "🔧 Service Name: $SERVICE_NAME"
+          echo "🖼️ Image: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.image_name }}:${{ inputs.app_version }}"
+
+      - name: Deploy DockerHub image to Cloud Run
+        run: |
+          IMAGE="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ inputs.image_name }}:${{ inputs.environment }}-${{ inputs.app_version }}"
+          echo "🚀 Deploying image to Cloud Run..."
+          echo "🔁 Image: $IMAGE"
+          echo "⚙️  Service Name: $SERVICE_NAME"
+          gcloud run deploy $SERVICE_NAME \
+            --image $IMAGE \
+            --platform managed \
+            --allow-unauthenticated \
+            --quiet
+          echo "✅ Deployment complete for $SERVICE_NAME"

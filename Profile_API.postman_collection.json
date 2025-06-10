@@ -1,0 +1,633 @@
+{
+	"info": {
+		"_postman_id": "random-uuid",
+		"name": "Profile API",
+		"description": "Collection for testing Profile API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/health/ping",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "health", "ping"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\",\n    \"firstName\": \"Admin\",\n    \"lastName\": \"User\",\n    \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"accessToken\", jsonData.accessToken);",
+									"pm.environment.set(\"refreshToken\", jsonData.refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/refresh",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "refresh"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/logout",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "logout"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Auth Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/status",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "status"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Create Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"profileId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Profile\",\n    \"bio\": \"Test Bio\",\n    \"isPublic\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Profiles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Profile\",\n    \"bio\": \"Updated Bio\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/profiles/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "profiles", "{{profileId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "Create Section",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"sectionId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profileId\": {{profileId}},\n    \"type\": \"ABOUT\",\n    \"title\": \"About Me\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Section",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Section",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"ABOUT\",\n    \"title\": \"Updated About Me\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Section",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reorder Sections",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[1, 2, 3]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/reorder/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "reorder", "{{profileId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sections by Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/profile/{{profileId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "profile", "{{profileId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subsections",
+			"item": [
+				{
+					"name": "Create Subsection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"subsectionId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Subsection Title\",\n    \"content\": \"Subsection Content\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subsection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subsection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Subsection Title\",\n    \"content\": \"Updated Subsection Content\",\n    \"order\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subsection",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sections/{{sectionId}}/subsections/{{subsectionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "sections", "{{sectionId}}", "subsections", "{{subsectionId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Revoke User Tokens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/tokens/revoke/{{userId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "admin", "tokens", "revoke", "{{userId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cleanup Expired Tokens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/tokens/cleanup",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "admin", "tokens", "cleanup"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke All Tokens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/tokens/revoke-all",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "admin", "tokens", "revoke-all"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:2222",
+			"type": "string"
+		}
+	]
+}
