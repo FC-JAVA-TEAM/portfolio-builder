@@ -10,7 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
+
+import com.flexi.profile.model.User;
+import com.flexi.profile.model.Role;
+import com.flexi.profile.repository.UserRepository;
+import com.flexi.profile.exception.ResourceNotFoundException;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -41,6 +47,9 @@ public class JwtTokenProvider {
     @Autowired
     private TokenBlacklist tokenBlacklist;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @PostConstruct
     protected void init() {
         logger.debug("Initializing JWT secret key");
@@ -68,6 +77,14 @@ public class JwtTokenProvider {
         logger.debug("Creating token for user: {} with validity: {}ms", username, validityInMilliseconds);
         Claims claims = Jwts.claims().setSubject(username);
         
+        // Get user's roles from database
+        User user = userRepository.findByEmail(username)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found: " + username));
+        List<String> roles = user.getRoles().stream()
+            .map(Role::getName)
+            .toList();
+        claims.put("roles", roles);
+        
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
@@ -78,7 +95,7 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
         
-        logger.debug("Token created successfully");
+        logger.debug("Token created successfully with roles: {}", roles);
         return token;
     }
 
@@ -115,9 +132,17 @@ public class JwtTokenProvider {
 
     public Authentication getAuthentication(String token) {
         logger.debug("Creating authentication from token");
-        String username = getUsername(token);
-        Authentication auth = new UsernamePasswordAuthenticationToken(username, "", List.of());
-        logger.debug("Authentication created for user: {}", username);
+        Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+        String username = claims.getSubject();
+        
+        @SuppressWarnings("unchecked")
+        List<String> roles = claims.get("roles", List.class);
+        List<SimpleGrantedAuthority> authorities = roles.stream()
+            .map(SimpleGrantedAuthority::new)
+            .toList();
+        
+        Authentication auth = new UsernamePasswordAuthenticationToken(username, "", authorities);
+        logger.debug("Authentication created for user: {} with roles: {}", username, roles);
         return auth;
     }
 

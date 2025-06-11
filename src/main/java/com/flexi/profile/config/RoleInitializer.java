@@ -5,6 +5,7 @@ import com.flexi.profile.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class RoleInitializer implements CommandLineRunner {
@@ -13,6 +14,7 @@ public class RoleInitializer implements CommandLineRunner {
     private RoleRepository roleRepository;
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         initializeRoles();
     }

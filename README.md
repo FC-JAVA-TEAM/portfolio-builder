@@ -255,3 +255,32 @@ sequenceDiagram
    - Resume parsing
    - Document versioning
    - Digital signature support
+
+## Testing with Postman
+
+To facilitate API testing, we've provided Postman collection and environment files:
+
+1. Import `Profile_API.postman_collection.json` into Postman to access all API endpoints.
+2. Import `Profile_API.postman_environment.json` to set up the environment variables.
+
+### Using the Postman Collection
+
+1. Set up the environment:
+   - Open Postman and import both files.
+   - Select the "Local Environment" from the environment dropdown.
+
+2. Authenticate:
+   - Use the "Register User" or "Login User" request in the Auth folder.
+   - The response will contain an `accessToken`. Copy this token.
+
+3. Set the access token:
+   - In the "Local Environment", set the `accessToken` variable with the copied token.
+
+4. Test endpoints:
+   - You can now use all other endpoints in the collection.
+   - The `accessToken` will be automatically included in the requests.
+
+5. Refresh token:
+   - If you get a 401 Unauthorized error, use the "Refresh Token" request to get a new access token.
+
+Remember to update the `baseUrl` in the environment if your API is running on a different port or host.

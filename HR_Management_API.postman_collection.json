@@ -1,0 +1,1204 @@
+{
+  "info": {
+    "_postman_id": "unique-id-here",
+    "name": "HR Management API",
+    "description": "Collection for HR Management System API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"your-refresh-token\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/refresh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "refresh"]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "logout"]
+            }
+          }
+        },
+        {
+          "name": "Check Auth Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "status"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Job Applications",
+      "item": [
+        {
+          "name": "Submit Application (v1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"coverLetter\": \"I am excited to apply...\",\n  \"resumeUrl\": \"https://example.com/resume.pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications/jobs/1/apply",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications", "jobs", "1", "apply"]
+            }
+          }
+        },
+        {
+          "name": "Update Application Status (v1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications/1/status?status=UNDER_REVIEW",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications", "1", "status"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "UNDER_REVIEW"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Applications (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications"]
+            }
+          }
+        },
+        {
+          "name": "Get Application by ID (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Applications by Job Posting (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications/jobs/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications", "jobs", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Applications by Status (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-applications/status/SUBMITTED",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-applications", "status", "SUBMITTED"]
+            }
+          }
+        },
+        {
+          "name": "Submit Application (v2)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"coverLetter\": \"I am excited to apply...\",\n  \"resumeUrl\": \"https://example.com/resume.pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications/jobs/1/apply",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications", "jobs", "1", "apply"]
+            }
+          }
+        },
+        {
+          "name": "Update Application Status (v2)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\"UNDER_REVIEW\""
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications", "1", "status"]
+            }
+          }
+        },
+        {
+          "name": "Get All Applications (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications"]
+            }
+          }
+        },
+        {
+          "name": "Get Application by ID (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Applications by Job Posting (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications/jobs/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications", "jobs", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Applications by Status (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-applications/status/SUBMITTED",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-applications", "status", "SUBMITTED"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Job Postings",
+      "item": [
+        {
+          "name": "Create Job Posting (v1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Software Engineer\",\n  \"description\": \"We are looking for...\",\n  \"requirements\": \"5+ years experience\",\n  \"department\": \"Engineering\",\n  \"location\": \"Remote\",\n  \"employmentType\": \"FULL_TIME\",\n  \"salaryRange\": \"$100,000 - $150,000\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings"]
+            }
+          }
+        },
+        {
+          "name": "Update Job Posting (v1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Software Engineer\",\n  \"description\": \"Updated description...\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Job Posting (v1)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Job Postings (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Posting by ID (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Status (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/status/OPEN",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "status", "OPEN"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Department (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/department/Engineering",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "department", "Engineering"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Employment Type (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/job-postings/employment-type/FULL_TIME",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "job-postings", "employment-type", "FULL_TIME"]
+            }
+          }
+        },
+        {
+          "name": "Create Job Posting (v2)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Software Engineer\",\n  \"description\": \"We are looking for...\",\n  \"requirements\": \"5+ years experience\",\n  \"department\": \"Engineering\",\n  \"location\": \"Remote\",\n  \"employmentType\": \"FULL_TIME\",\n  \"salaryRange\": \"$100,000 - $150,000\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings"]
+            }
+          }
+        },
+        {
+          "name": "Update Job Posting (v2)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Software Engineer\",\n  \"description\": \"Updated description...\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Job Posting (v2)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Job Postings (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Posting by ID (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Status (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/status/OPEN",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "status", "OPEN"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Department (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/department/Engineering",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "department", "Engineering"]
+            }
+          }
+        },
+        {
+          "name": "Get Job Postings by Employment Type (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/job-postings/employment-type/FULL_TIME",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "job-postings", "employment-type", "FULL_TIME"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Roles",
+      "item": [
+        {
+          "name": "Get My Role Requests (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/my-requests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "roles", "my-requests"]
+            }
+          }
+        },
+        {
+          "name": "Request Role (v1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": 1,\n  \"justification\": \"I need HR access to manage job postings\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/request?roleId=1&justification=I need HR access to manage job postings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "roles", "request"],
+              "query": [
+                {
+                  "key": "roleId",
+                  "value": "1"
+                },
+                {
+                  "key": "justification",
+                  "value": "I need HR access to manage job postings"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Pending Role Requests (v1)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/requests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "roles", "requests"]
+            }
+          }
+        },
+        {
+          "name": "Approve Role Request (v1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/requests/1/approve",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "roles", "requests", "1", "approve"]
+            }
+          }
+        },
+        {
+          "name": "Reject Role Request (v1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/requests/1/reject",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "roles", "requests", "1", "reject"]
+            }
+          }
+        },
+        {
+          "name": "Get My Role Requests (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/roles/my-requests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "roles", "my-requests"]
+            }
+          }
+        },
+        {
+          "name": "Request Role (v2)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": 1,\n  \"justification\": \"I need HR access to manage job postings\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/roles/request",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "roles", "request"]
+            }
+          }
+        },
+        {
+          "name": "Get Pending Role Requests (v2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/roles/requests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "roles", "requests"]
+            }
+          }
+        },
+        {
+          "name": "Approve Role Request (v2)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/roles/requests/1/approve",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "roles", "requests", "1", "approve"]
+            }
+          }
+        },
+        {
+          "name": "Reject Role Request (v2)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/roles/requests/1/reject",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "roles", "requests", "1", "reject"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Revoke User Tokens",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/tokens/revoke/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "tokens", "revoke", "1"]
+            }
+          }
+        },
+        {
+          "name": "Revoke All Tokens",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/tokens/revoke-all",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "tokens", "revoke-all"]
+            }
+          }
+        },
+        {
+          "name": "Cleanup Expired Tokens",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/tokens/cleanup",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "tokens", "cleanup"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Create Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"title\": \"Software Engineer\",\n  \"summary\": \"Experienced software engineer...\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles"]
+            }
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"title\": \"Senior Software Engineer\",\n  \"summary\": \"Updated summary...\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Profile",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Profiles by User ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "user", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get My Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/my-profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "my-profiles"]
+            }
+          }
+        },
+        {
+          "name": "Get Public Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/public",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", "public"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Section",
+      "item": [
+        {
+          "name": "Create Section",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Work Experience\",\n  \"order\": 1,\n  \"profileId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/sections",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "sections"]
+            }
+          }
+        },
+        {
+          "name": "Get Section",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/sections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "sections", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Section",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Professional Experience\",\n  \"order\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/sections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "sections", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Section",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/sections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "sections", "1"]
+            }
+          }
+        },
+        {
+          "name": "Reorder Sections",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 3, 2, 4]"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/sections/reorder/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "sections", "reorder", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/health/ping",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health", "ping"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

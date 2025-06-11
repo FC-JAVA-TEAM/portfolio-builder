@@ -2,3 +2,36 @@
 /target/
 bin/
 target/
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.factorypath
+
+# Logs
+logs/
+*.log
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Spring Boot
+application-*.properties
+!application.properties
+!application-test.properties
+
+# Others
+.DS_Store

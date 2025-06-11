@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
+import java.time.Instant;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,6 +35,8 @@ class SectionRepositoryTest {
         testUser.setPassword("password");
         testUser.setFirstName("Test");
         testUser.setLastName("User");
+        testUser.setCreatedAt(Instant.now());
+        testUser.setUpdatedAt(Instant.now());
         entityManager.persist(testUser);
 
         testProfile = new Profile();
@@ -45,16 +48,16 @@ class SectionRepositoryTest {
 
         testSection1 = new Section();
         testSection1.setTitle("Section 1");
-        testSection1.setContent("Content 1");
         testSection1.setProfile(testProfile);
         testSection1.setOrderIndex(0);
+        testSection1.setContent("Content for section 1");
         entityManager.persist(testSection1);
 
         testSection2 = new Section();
         testSection2.setTitle("Section 2");
-        testSection2.setContent("Content 2");
         testSection2.setProfile(testProfile);
         testSection2.setOrderIndex(1);
+        testSection2.setContent("Content for section 2");
         entityManager.persist(testSection2);
 
         entityManager.flush();
