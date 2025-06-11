@@ -171,7 +171,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:1111", "http://localhost:2222"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:1111", "http://localhost:2222","https://react-app-480868035316.us-central1.run.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
