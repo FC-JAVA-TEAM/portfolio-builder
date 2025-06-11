@@ -6,8 +6,7 @@ import com.flexi.profile.model.User;
 import com.flexi.profile.model.JobPosting.JobStatus;
 import com.flexi.profile.repository.JobPostingRepository;
 import com.flexi.profile.repository.UserRepository;
-import com.flexi.profile.exception.ResourceNotFoundException;
-import com.flexi.profile.exception.UnauthorizedException;
+import com.flexi.profile.exception.jobposting.*;
 import com.flexi.profile.mapper.JobPostingMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,10 +28,20 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
 
     @Override
     public JobPostingDTO createJobPosting(JobPostingDTO jobPostingDTO, Long userId) {
-        JobPosting jobPosting = jobPostingMapper.toEntity(jobPostingDTO);
+        // Validate job posting data
+        validateJobPostingData(jobPostingDTO);
+        
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
+        
+        // Check for duplicate job posting
+        if (jobPostingRepository.existsByTitleAndDepartment(jobPostingDTO.getTitle(), jobPostingDTO.getDepartment())) {
+            throw new DuplicateJobPostingException(jobPostingDTO.getTitle(), jobPostingDTO.getDepartment());
+        }
+        
+        JobPosting jobPosting = jobPostingMapper.toEntity(jobPostingDTO);
         jobPosting.setCreatedBy(user);
+        jobPosting.setStatus(JobStatus.DRAFT); // Set initial status to DRAFT
         JobPosting savedJobPosting = jobPostingRepository.save(jobPosting);
         return convertToDTO(savedJobPosting);
     }
@@ -40,10 +49,32 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
     @Override
     public JobPostingDTO updateJobPosting(Long id, JobPostingDTO jobPostingDetails, Long userId) {
         JobPosting jobPosting = jobPostingRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Job posting not found"));
+                .orElseThrow(() -> new JobPostingNotFoundException(id));
 
         if (!jobPosting.getCreatedBy().getId().equals(userId)) {
-            throw new UnauthorizedException("You are not authorized to update this job posting");
+            throw new UnauthorizedJobPostingActionException(userId, id, "update");
+        }
+
+        // If all fields are being updated, validate the complete data
+        if (isCompleteUpdate(jobPostingDetails)) {
+            validateJobPostingData(jobPostingDetails);
+        }
+
+        // Check if status is being updated
+        if (jobPostingDetails.getStatus() != null && jobPostingDetails.getStatus() != jobPosting.getStatus()) {
+            validateStatusTransition(jobPosting.getStatus(), jobPostingDetails.getStatus());
+        }
+
+        // Check for duplicate if title or department is being updated
+        if ((jobPostingDetails.getTitle() != null && !jobPostingDetails.getTitle().equals(jobPosting.getTitle())) ||
+            (jobPostingDetails.getDepartment() != null && !jobPostingDetails.getDepartment().equals(jobPosting.getDepartment()))) {
+            if (jobPostingRepository.existsByTitleAndDepartment(
+                    jobPostingDetails.getTitle() != null ? jobPostingDetails.getTitle() : jobPosting.getTitle(),
+                    jobPostingDetails.getDepartment() != null ? jobPostingDetails.getDepartment() : jobPosting.getDepartment())) {
+                throw new DuplicateJobPostingException(
+                    jobPostingDetails.getTitle() != null ? jobPostingDetails.getTitle() : jobPosting.getTitle(),
+                    jobPostingDetails.getDepartment() != null ? jobPostingDetails.getDepartment() : jobPosting.getDepartment());
+            }
         }
 
         jobPostingMapper.updateEntityFromDTO(jobPostingDetails, jobPosting);
@@ -51,16 +82,59 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
         return convertToDTO(updatedJobPosting);
     }
 
+    private void validateStatusTransition(JobStatus currentStatus, JobStatus newStatus) {
+        // Define valid status transitions
+        switch (currentStatus) {
+            case DRAFT:
+                if (newStatus != JobStatus.OPEN) {
+                    throw new JobPostingStatusException(currentStatus, newStatus);
+                }
+                break;
+            case OPEN:
+                if (newStatus != JobStatus.CLOSED) {
+                    throw new JobPostingStatusException(currentStatus, newStatus);
+                }
+                break;
+            case CLOSED:
+                throw new JobPostingStatusException(currentStatus, "update status");
+            default:
+                throw new JobPostingStatusException("Invalid current status: " + currentStatus);
+        }
+    }
+
     @Override
     public void deleteJobPosting(Long id, Long userId) {
         JobPosting jobPosting = jobPostingRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Job posting not found"));
+                .orElseThrow(() -> new JobPostingNotFoundException(id));
 
         if (!jobPosting.getCreatedBy().getId().equals(userId)) {
-            throw new UnauthorizedException("You are not authorized to delete this job posting");
+            throw new UnauthorizedJobPostingActionException(userId, id, "delete");
+        }
+
+        // Prevent deletion of job postings that are in OPEN status
+        if (jobPosting.getStatus() == JobStatus.OPEN) {
+            throw new JobPostingStatusException(jobPosting.getStatus(), "delete");
         }
 
         jobPostingRepository.delete(jobPosting);
+    }
+
+    private void validateJobPostingData(JobPostingDTO jobPostingDTO) {
+        if (jobPostingDTO.getTitle() == null || jobPostingDTO.getTitle().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("title", "Title cannot be empty");
+        }
+        if (jobPostingDTO.getDepartment() == null || jobPostingDTO.getDepartment().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("department", "Department cannot be empty");
+        }
+        if (jobPostingDTO.getDescription() == null || jobPostingDTO.getDescription().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("description", "Description cannot be empty");
+        }
+        if (jobPostingDTO.getEmploymentType() == null || jobPostingDTO.getEmploymentType().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("employmentType", "Employment type cannot be empty");
+        }
+        if (jobPostingDTO.getLocation() == null || jobPostingDTO.getLocation().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("location", "Location cannot be empty");
+        }
     }
 
     @Override
@@ -73,7 +147,7 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
     @Override
     public JobPostingDTO getJobPostingById(Long id) {
         JobPosting jobPosting = jobPostingRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Job posting not found"));
+                .orElseThrow(() -> new JobPostingNotFoundException(id));
         return convertToDTO(jobPosting);
     }
 
@@ -100,5 +174,14 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
 
     private JobPostingDTO convertToDTO(JobPosting jobPosting) {
         return jobPostingMapper.toDTO(jobPosting);
+    }
+
+    private boolean isCompleteUpdate(JobPostingDTO jobPostingDTO) {
+        return jobPostingDTO.getTitle() != null &&
+               jobPostingDTO.getDepartment() != null &&
+               jobPostingDTO.getDescription() != null &&
+               jobPostingDTO.getEmploymentType() != null &&
+               jobPostingDTO.getLocation() != null &&
+               jobPostingDTO.getStatus() != null;
     }
 }

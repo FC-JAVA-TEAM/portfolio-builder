@@ -12,4 +12,7 @@ public interface JobPostingRepository extends JpaRepository<JobPosting, Long> {
     List<JobPosting> findByDepartment(String department);
     List<JobPosting> findByEmploymentType(String employmentType);
     List<JobPosting> findByCreatedById(Long userId);
+    boolean existsByTitleAndDepartment(String title, String department);
+	//boolean existsByTitleAndDepartment(String title, String department, String employmentType, String location,
+	//		String description, JobStatus status);
 }

@@ -11,6 +11,9 @@ import com.flexi.profile.repository.JobPostingRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.exception.ResourceNotFoundException;
 import com.flexi.profile.exception.UnauthorizedException;
+import com.flexi.profile.exception.jobapplication.*;
+import com.flexi.profile.exception.jobposting.JobPostingNotFoundException;
+import com.flexi.profile.exception.jobposting.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,9 +38,18 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Transactional
     public JobApplicationDTO submitApplication(Long jobId, Long userId, JobApplicationDTO applicationDTO) {
         JobPosting jobPosting = jobPostingRepository.findById(jobId)
-                .orElseThrow(() -> new ResourceNotFoundException("Job posting not found"));
+                .orElseThrow(() -> new JobPostingNotFoundException(jobId));
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
+
+        // Validate application data
+        validateApplicationData(applicationDTO);
+
+        // Check if job posting is closed
+        validateJobPostingStatus(jobPosting);
+
+        // Check for duplicate application
+        checkDuplicateApplication(userId, jobId);
 
         JobApplication application = new JobApplication();
         application.setJobPosting(jobPosting);
@@ -55,14 +67,13 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Transactional
     public JobApplicationDTO updateApplicationStatus(Long id, ApplicationStatus status, Long userId) {
         JobApplication application = jobApplicationRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Job application not found"));
+                .orElseThrow(() -> new JobApplicationNotFoundException(id));
 
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        // Check if user has access to update the application
+        checkApplicationAccess(application, userId);
 
-        if (!hasRole(user, "HR") && !hasRole(user, "ADMIN")) {
-            throw new UnauthorizedException("User is not authorized to update application status");
-        }
+        // Validate the status transition
+        validateStatusTransition(application.getStatus(), status);
 
         application.setStatus(status);
         application.setUpdatedAt(LocalDateTime.now());
@@ -74,7 +85,7 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Override
     public List<JobApplicationDTO> getAllApplications(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
 
         List<JobApplication> applications;
         if (hasRole(user, "HR") || hasRole(user, "ADMIN")) {
@@ -91,14 +102,9 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Override
     public JobApplicationDTO getApplicationById(Long id, Long userId) {
         JobApplication application = jobApplicationRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Job application not found"));
+                .orElseThrow(() -> new JobApplicationNotFoundException(id));
 
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-
-        if (!hasRole(user, "HR") && !hasRole(user, "ADMIN") && !application.getApplicant().getId().equals(userId)) {
-            throw new UnauthorizedException("User is not authorized to view this application");
-        }
+        checkApplicationAccess(application, userId);
 
         return convertToDTO(application);
     }
@@ -106,10 +112,13 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Override
     public List<JobApplicationDTO> getApplicationsByJobPosting(Long jobId, Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
+
+        JobPosting jobPosting = jobPostingRepository.findById(jobId)
+                .orElseThrow(() -> new JobPostingNotFoundException(jobId));
 
         if (!hasRole(user, "HR") && !hasRole(user, "ADMIN")) {
-            throw new UnauthorizedException("User is not authorized to view applications for this job posting");
+            throw new UnauthorizedApplicationAccessException(userId, jobId, "view applications");
         }
 
         List<JobApplication> applications = jobApplicationRepository.findByJobPostingId(jobId);
@@ -121,7 +130,7 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
     @Override
     public List<JobApplicationDTO> getApplicationsByStatus(ApplicationStatus status, Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
 
         List<JobApplication> applications;
         if (hasRole(user, "HR") || hasRole(user, "ADMIN")) {
@@ -133,6 +142,63 @@ public class EnhancedJobApplicationServiceImpl implements EnhancedJobApplication
         return applications.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    private void validateStatusTransition(ApplicationStatus currentStatus, ApplicationStatus newStatus) {
+        // Define valid status transitions
+        switch (currentStatus) {
+            case SUBMITTED:
+                if (newStatus != ApplicationStatus.UNDER_REVIEW) {
+                    throw new InvalidApplicationStatusTransitionException(currentStatus, newStatus);
+                }
+                break;
+            case UNDER_REVIEW:
+                if (newStatus != ApplicationStatus.INTERVIEWED && newStatus != ApplicationStatus.REJECTED) {
+                    throw new InvalidApplicationStatusTransitionException(currentStatus, newStatus);
+                }
+                break;
+            case INTERVIEWED:
+                if (newStatus != ApplicationStatus.ACCEPTED && newStatus != ApplicationStatus.REJECTED) {
+                    throw new InvalidApplicationStatusTransitionException(currentStatus, newStatus);
+                }
+                break;
+            case ACCEPTED:
+            case REJECTED:
+                throw new InvalidApplicationStatusTransitionException(currentStatus, newStatus);
+            default:
+                throw new InvalidApplicationStatusTransitionException(currentStatus, newStatus);
+        }
+    }
+
+    private void validateApplicationData(JobApplicationDTO applicationDTO) {
+        if (applicationDTO.getResumeUrl() == null || applicationDTO.getResumeUrl().trim().isEmpty()) {
+            throw new ApplicationValidationException("resumeUrl", "Resume URL cannot be empty");
+        }
+        if (applicationDTO.getCoverLetter() == null || applicationDTO.getCoverLetter().trim().isEmpty()) {
+            throw new ApplicationValidationException("coverLetter", "Cover letter cannot be empty");
+        }
+    }
+
+    private void checkDuplicateApplication(Long userId, Long jobId) {
+        if (jobApplicationRepository.existsByApplicantIdAndJobPostingId(userId, jobId)) {
+            throw new DuplicateApplicationException(userId, jobId);
+        }
+    }
+
+    private void validateJobPostingStatus(JobPosting jobPosting) {
+        if (jobPosting.getStatus() == JobPosting.JobStatus.CLOSED) {
+            throw new ClosedJobPostingException(jobPosting.getId());
+        }
+    }
+
+    private void checkApplicationAccess(JobApplication application, Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+
+        if (!hasRole(user, "HR") && !hasRole(user, "ADMIN") && 
+            !application.getApplicant().getId().equals(userId)) {
+            throw new UnauthorizedApplicationAccessException(userId, application.getId(), "access");
+        }
     }
 
     private JobApplicationDTO convertToDTO(JobApplication application) {

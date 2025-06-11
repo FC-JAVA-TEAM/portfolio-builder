@@ -10,6 +10,9 @@ import com.flexi.profile.repository.RoleRequestRepository;
 import com.flexi.profile.repository.UserRepository;
 import com.flexi.profile.exception.ResourceNotFoundException;
 import com.flexi.profile.exception.UnauthorizedException;
+import com.flexi.profile.exception.role.RoleRequestNotFoundException;
+import com.flexi.profile.exception.role.UserAlreadyHasRoleException;
+import com.flexi.profile.exception.role.InvalidRequestStatusException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,15 +43,15 @@ public class EnhancedRoleService {
     public RoleRequestDTO requestRole(Long userId, Long roleId, String justification) {
         logger.info("Requesting role. UserId: {}, RoleId: {}", userId, roleId);
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("User with ID %d not found", userId)));
         Role role = roleRepository.findById(roleId)
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found"));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Role with ID %d not found", roleId)));
 
         logger.debug("User and Role found. User: {}, Role: {}", user.getEmail(), role.getName());
 
         if (user.getRoles().contains(role)) {
             logger.warn("User already has the requested role. UserId: {}, RoleId: {}", userId, roleId);
-            throw new UnauthorizedException("User already has this role");
+            throw new UserAlreadyHasRoleException(user.getEmail(), role.getName());
         }
 
         RoleRequest roleRequest = new RoleRequest();
@@ -67,12 +70,12 @@ public class EnhancedRoleService {
     @Transactional
     public RoleRequestDTO approveRoleRequest(Long requestId, Long adminId) {
         RoleRequest request = roleRequestRepository.findById(requestId)
-                .orElseThrow(() -> new ResourceNotFoundException("Role request not found"));
+                .orElseThrow(() -> new RoleRequestNotFoundException(requestId));
         User admin = userRepository.findById(adminId)
-                .orElseThrow(() -> new ResourceNotFoundException("Admin not found"));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Admin with ID %d not found", adminId)));
 
         if (request.getStatus() != RoleRequest.RequestStatus.PENDING) {
-            throw new ResourceNotFoundException("Request is not in pending state");
+            throw new InvalidRequestStatusException(request.getStatus(), "PENDING");
         }
 
         request.approve(admin);
@@ -87,12 +90,12 @@ public class EnhancedRoleService {
     @Transactional
     public RoleRequestDTO rejectRoleRequest(Long requestId, Long adminId) {
         RoleRequest request = roleRequestRepository.findById(requestId)
-                .orElseThrow(() -> new ResourceNotFoundException("Role request not found"));
+                .orElseThrow(() -> new RoleRequestNotFoundException(requestId));
         User admin = userRepository.findById(adminId)
-                .orElseThrow(() -> new ResourceNotFoundException("Admin not found"));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Admin with ID %d not found", adminId)));
 
         if (request.getStatus() != RoleRequest.RequestStatus.PENDING) {
-            throw new UnauthorizedException("Request is not in pending state");
+            throw new InvalidRequestStatusException(request.getStatus(), "PENDING");
         }
 
         request.reject(admin);
