@@ -2,11 +2,12 @@ package com.flexi.profile.controller;
 
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
-import com.flexi.profile.model.RefreshToken;
-import com.flexi.profile.model.User;
-import com.flexi.profile.service.AuthService;
-import com.flexi.profile.service.RefreshTokenService;
+import com.flexi.profile.exception.auth.TokenException;
+import com.flexi.profile.response.ApiResponseDTO;
+import com.flexi.profile.service.EnhancedAuthService;
+import com.flexi.profile.service.EnhancedAuthServiceImpl;
 import com.flexi.profile.util.LogUtil;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,69 +23,61 @@ public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
-    private AuthService authService;
-
-    @Autowired
-    private RefreshTokenService refreshTokenService;
+    private EnhancedAuthServiceImpl authService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> registerUser(@RequestBody AuthRequest authRequest) {
+    public ResponseEntity<ApiResponseDTO<AuthResponse>> registerUser(@Valid @RequestBody AuthRequest authRequest) {
         logger.debug("Received registration request for user: {}", authRequest.getEmail());
         LogUtil.logMethodEntry(logger, "registerUser", authRequest);
-        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.registerUser(authRequest));
-        logger.info("User registered successfully: {}", authRequest.getEmail());
+        ApiResponseDTO<AuthResponse> response = authService.registerUser(authRequest);
         LogUtil.logMethodExit(logger, "registerUser", response);
-        return response;
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> loginUser(@RequestBody AuthRequest authRequest) {
+    public ResponseEntity<ApiResponseDTO<AuthResponse>> loginUser( @RequestBody AuthRequest authRequest) {
         logger.debug("Received login request for user: {}", authRequest.getEmail());
         LogUtil.logMethodEntry(logger, "loginUser", authRequest);
-        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.loginUser(authRequest));
-        logger.info("User logged in successfully: {}", authRequest.getEmail());
+        ApiResponseDTO<AuthResponse> response = authService.loginUser(authRequest);
         LogUtil.logMethodExit(logger, "loginUser", response);
-        return response;
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<AuthResponse> refreshToken(@RequestBody TokenRefreshRequest request) {
+    public ResponseEntity<ApiResponseDTO<AuthResponse>> refreshToken(@Valid @RequestBody TokenRefreshRequest request) {
         logger.debug("Received token refresh request");
         LogUtil.logMethodEntry(logger, "refreshToken", request);
-        ResponseEntity<AuthResponse> response = ResponseEntity.ok(authService.refreshToken(request.getRefreshToken()));
-        logger.info("Token refreshed successfully");
+        ApiResponseDTO<AuthResponse> response = authService.refreshToken(request.getRefreshToken());
         LogUtil.logMethodExit(logger, "refreshToken", response);
-        return response;
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String token) {
+    public ResponseEntity<ApiResponseDTO<Void>> logout(@RequestHeader("Authorization") String token) {
         logger.debug("Received logout request");
         LogUtil.logMethodEntry(logger, "logout", token);
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
         }
-        authService.logout(token);
-        ResponseEntity<Void> response = ResponseEntity.ok().build();
-        logger.info("User logged out successfully");
+        ApiResponseDTO<Void> response = authService.logout(token);
         LogUtil.logMethodExit(logger, "logout", response);
-        return response;
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/status")
-    public ResponseEntity<AuthResponse> checkAuthStatus() {
+    public ResponseEntity<ApiResponseDTO<AuthResponse>> checkAuthStatus() {
         logger.debug("Checking authentication status");
         LogUtil.logMethodEntry(logger, "checkAuthStatus");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        ResponseEntity<AuthResponse> response;
-        if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
-            response = ResponseEntity.ok(authService.getCurrentUser(authentication));
+        try {
+            ApiResponseDTO<AuthResponse> response = authService.getCurrentUser(authentication);
             logger.info("User is authenticated: {}", authentication.getName());
-        } else {
-            response = ResponseEntity.status(401).build();
-            logger.info("User is not authenticated");
+            LogUtil.logMethodExit(logger, "checkAuthStatus", response);
+            return ResponseEntity.ok(response);
+        } catch (TokenException e) {
+            logger.info("User is not authenticated: {}", e.getMessage());
+            LogUtil.logMethodExit(logger, "checkAuthStatus", e.getMessage());
+            return ResponseEntity.ok(ApiResponseDTO.error(e.getMessage()));
         }
-        LogUtil.logMethodExit(logger, "checkAuthStatus", response);
-        return response;
     }
 }

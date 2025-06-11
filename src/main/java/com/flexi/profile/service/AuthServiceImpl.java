@@ -74,38 +74,38 @@ public class AuthServiceImpl implements AuthService {
         LogUtil.logMethodEntry(logger, "refreshToken", refreshToken);
         try {
             logger.debug("Finding refresh token in database");
-            AuthResponse response = refreshTokenService.findByToken(refreshToken)
-                    .map(token -> {
-                        logger.debug("Found refresh token for user: {}", token.getUser().getEmail());
-                        return verifyExpiration(token);
-                    })
-                    .map(RefreshToken::getUser)
-                    .map(user -> {
-                        logger.debug("Creating new access token for user: {}", user.getEmail());
-                        String accessToken = createAccessToken(user);
-                        logger.debug("Revoking all existing refresh tokens for user: {}", user.getEmail());
-                        refreshTokenService.revokeAllUserTokens(user);
-                        logger.debug("Creating new refresh token for user: {}", user.getEmail());
-                        RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user);
-                        boolean isAdminUser = isAdmin(user);
-                        logger.debug("User {} is admin: {}", user.getEmail(), isAdminUser);
-                        return new AuthResponse(
-                            accessToken,
-                            newRefreshToken.getToken(),
-                            String.valueOf(user.getId()),
-                            user.getFirstName(),
-                            user.getEmail(),
-                            jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdminUser),
-                            jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdminUser)
-                        );
-                    })
-                    .orElseThrow(() -> {
-                        logger.warn("Refresh token not found in database: {}", refreshToken);
-                        return new UnauthorizedException("Refresh token not found in database");
-                    });
-            logger.info("Successfully refreshed token for user: {}", response.getUserId());
-            LogUtil.logMethodExit(logger, "refreshToken", response);
-            return response;
+            // AuthResponse response = refreshTokenService.findByToken(refreshToken)
+            //         .map(token -> {
+            //             logger.debug("Found refresh token for user: {}", token.getUser().getEmail());
+            //             return verifyExpiration(token);
+            //         })
+            //         .map(RefreshToken::getUser)
+            //         .map(user -> {
+            //             logger.debug("Creating new access token for user: {}", user.getEmail());
+            //             String accessToken = createAccessToken(user);
+            //             logger.debug("Revoking all existing refresh tokens for user: {}", user.getEmail());
+            //             refreshTokenService.revokeAllUserTokens(user);
+            //             logger.debug("Creating new refresh token for user: {}", user.getEmail());
+            //             RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user);
+            //             boolean isAdminUser = isAdmin(user);
+            //             logger.debug("User {} is admin: {}", user.getEmail(), isAdminUser);
+            //             return new AuthResponse(
+            //                 accessToken,
+            //                 newRefreshToken.getToken(),
+            //                 String.valueOf(user.getId()),
+            //                 user.getFirstName(),
+            //                 user.getEmail(),
+            //                 jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdminUser),
+            //                 jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdminUser)
+            //             );
+            //         })
+            //         .orElseThrow(() -> {
+            //             logger.warn("Refresh token not found in database: {}", refreshToken);
+            //             return new UnauthorizedException("Refresh token not found in database");
+            //         });
+            // logger.info("Successfully refreshed token for user: {}", response.getUserId());
+            // LogUtil.logMethodExit(logger, "refreshToken", response);
+            return null;
         } catch (Exception e) {
             logger.error("Error during token refresh for token: {}", refreshToken, e);
             LogUtil.logError(logger, "Error during token refresh", e);
@@ -196,18 +196,17 @@ public class AuthServiceImpl implements AuthService {
             logger.debug("Creating refresh token for user: {}", user.getEmail());
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
 
-            AuthResponse response = new AuthResponse(
-                accessToken,
-                refreshToken.getToken(),
-                String.valueOf(user.getId()),
-                user.getFirstName(),
-                user.getEmail(),
-                jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
-                jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
-            );
-            logger.info("User registered successfully: {}", user.getEmail());
-            LogUtil.logMethodExit(logger, "registerUser", response);
-            return response;
+            // AuthResponse response = new AuthResponse(
+            //     accessToken,
+            //     refreshToken.getToken(),
+            //     String.valueOf(user.getId()),
+            //     user.getFirstName(),
+            //     user.getEmail(),
+            //     jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            //     jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
+            // );
+            LogUtil.logMethodExit(logger, "getCurrentUser", null);
+            return null;
         } catch (Exception e) {
             logger.error("Error during user registration for email: {}", authRequest.getEmail(), e);
             LogUtil.logError(logger, "Error during user registration", e);
@@ -236,17 +235,17 @@ public class AuthServiceImpl implements AuthService {
             String accessToken = createAccessToken(user);
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
 
-            AuthResponse response = new AuthResponse(
-                accessToken,
-                refreshToken.getToken(),
-                String.valueOf(user.getId()),
-                user.getFirstName(),
-                user.getEmail(),
-                jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
-                jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
-            );
-            LogUtil.logMethodExit(logger, "loginUser", response);
-            return response;
+            // AuthResponse response = new AuthResponse(
+            //     accessToken,
+            //     refreshToken.getToken(),
+            //     String.valueOf(user.getId()),
+            //     user.getFirstName(),
+            //     user.getEmail(),
+            //     jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            //     jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
+            // );
+            LogUtil.logMethodExit(logger, "getCurrentUser", null);
+            return null;
         } catch (Exception e) {
             LogUtil.logError(logger, "Error during user login", e);
             throw e;
@@ -273,17 +272,17 @@ public class AuthServiceImpl implements AuthService {
             String accessToken = createAccessToken(user);
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
 
-            AuthResponse response = new AuthResponse(
-                accessToken,
-                refreshToken.getToken(),
-                String.valueOf(user.getId()),
-                user.getFirstName(),
-                user.getEmail(),
-                jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
-                jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
-            );
-            LogUtil.logMethodExit(logger, "getCurrentUser", response);
-            return response;
+            // AuthResponse response = new AuthResponse(
+            //     accessToken,
+            //     refreshToken.getToken(),
+            //     String.valueOf(user.getId()),
+            //     user.getFirstName(),
+            //     user.getEmail(),
+            //     jwtTokenProvider.getAccessTokenValidityInMilliseconds(isAdmin),
+            //     jwtTokenProvider.getRefreshTokenValidityInMilliseconds(isAdmin)
+            // );
+            LogUtil.logMethodExit(logger, "getCurrentUser", null);
+            return null;
         } catch (Exception e) {
             LogUtil.logError(logger, "Error getting current user", e);
             throw e;
