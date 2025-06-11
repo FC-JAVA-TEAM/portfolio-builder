@@ -6,6 +6,7 @@ import com.flexi.profile.exception.role.RoleRequestNotFoundException;
 import com.flexi.profile.exception.role.UserAlreadyHasRoleException;
 import com.flexi.profile.exception.role.InvalidRequestStatusException;
 import com.flexi.profile.exception.jobposting.*;
+import com.flexi.profile.exception.auth.RegistrationException;
 import com.flexi.profile.exception.jobapplication.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -112,6 +113,27 @@ public class EnhancedExceptionHandler {
 
         ApiResponse<Void> response = ApiResponse.<Void>error()
             .message("User already has role")
+            .error(errorDetails)
+            .requestId(UUID.randomUUID().toString())
+            .timestamp(LocalDateTime.now())
+            .build();
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+
+    @ExceptionHandler(RegistrationException.class)
+    public ResponseEntity<?> handleUserAlreadyExistException(
+            RegistrationException ex, WebRequest request) {
+        ErrorDetails errorDetails = ErrorDetails.builder()
+            .code("USER_ALREADY_EXIST")
+            .message(ex.getMessage())
+            .details("The user already registered with this email")
+            .timestamp(LocalDateTime.now())
+            .build();
+
+        ApiResponse<Void> response = ApiResponse.<Void>error()
+            .message("User already available")
             .error(errorDetails)
             .requestId(UUID.randomUUID().toString())
             .timestamp(LocalDateTime.now())
