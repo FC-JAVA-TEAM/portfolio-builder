@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "role-management-uuid",
+		"name": "Role Management Tests",
+		"description": "Collection for testing Role Management endpoints (HR and Finance promotions)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication Setup",
+			"item": [
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set('adminToken', jsonData.accessToken);",
+									"console.log('Admin logged in successfully');"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "HR Role Management",
+			"item": [
+				{
+					"name": "Promote User to HR - Legacy Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response has success property', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('success');",
+									"    pm.expect(jsonData.success).to.be.true;",
+									"});",
+									"pm.test('Response has HR role', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.promotedUser.roles).to.include('ROLE_HR');",
+									"});",
+									"console.log('HR Promotion (Legacy):', JSON.stringify(pm.response.json(), null, 2));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{testUserEmail}}\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/hr/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "hr", "promote"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Finance Role Management",
+			"item": [
+				{
+					"name": "Promote User to Finance - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response has success property', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('success');",
+									"    pm.expect(jsonData.success).to.be.true;",
+									"});",
+									"pm.test('Response has Finance role', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.promotedUser.roles).to.include('ROLE_FINANCE');",
+									"});",
+									"pm.test('Message mentions Finance', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.include('FINANCE');",
+									"});",
+									"console.log('Finance Promotion:', JSON.stringify(pm.response.json(), null, 2));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{financeUserEmail}}\",\n    \"firstName\": \"Finance\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/finance/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "finance", "promote"]
+						}
+					}
+				},
+				{
+					"name": "Promote User to Finance - User Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test('Response has error message', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.include('not found');",
+									"});",
+									"console.log('Finance Error Response:', JSON.stringify(pm.response.json(), null, 2));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nonexistent@example.com\",\n    \"firstName\": \"Non\",\n    \"lastName\": \"Existent\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/finance/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "finance", "promote"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Role Validation Tests",
+			"item": [
+				{
+					"name": "Promote User - Invalid Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400', function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('Response has error message', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.include('Invalid role');",
+									"});",
+									"console.log('Invalid Role Response:', JSON.stringify(pm.response.json(), null, 2));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{testUserEmail}}\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/invalid/promote",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "invalid", "promote"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
