@@ -24,6 +24,7 @@ import com.flexi.profile.exception.service.auth.TokenExpiredException;
 import com.flexi.profile.exception.service.auth.TokenOperationException;
 import com.flexi.profile.exception.service.auth.TokenValidationException;
 import com.flexi.profile.exception.service.auth.UserAlreadyExistsException;
+import com.flexi.profile.exception.service.ai.AIJobServiceException;
 import com.flexi.profile.exception.service.common.BusinessLogicException;
 import com.flexi.profile.exception.service.common.ResourceNotFoundException;
 import com.flexi.profile.exception.service.common.ServiceException;
@@ -35,8 +36,10 @@ import com.flexi.profile.exception.service.section.InvalidSubSectionException;
 import com.flexi.profile.exception.service.section.SectionCreationException;
 import com.flexi.profile.exception.service.section.SectionUpdateException;
 import com.flexi.profile.exception.service.section.SubSectionNotFoundException;
+import com.flexi.profile.exception.base.ErrorResponse;
 
 import jakarta.validation.ConstraintViolation;
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -53,31 +56,49 @@ public class GlobalExceptionHandler {
     })
     public ResponseEntity<ErrorResponse> handleAuthenticationException(Exception ex) {
         logger.error("Authentication error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Authentication failed: " + ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .error("Authentication Error")
+                .message("Authentication failed: " + ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDeniedException(AccessDeniedException ex) {
         logger.error("Access denied: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.FORBIDDEN.value(), "Access denied: " + ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.FORBIDDEN.value())
+                .error("Access Denied")
+                .message("Access denied: " + ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(TokenOperationException.class)
     public ResponseEntity<ErrorResponse> handleTokenOperationException(TokenOperationException ex) {
         logger.error("Token operation error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Token operation failed: " + ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error("Token Operation Error")
+                .message("Token operation failed: " + ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-    // User Registration Exceptions
 
     // Not Found Exceptions
     @ExceptionHandler({ProfileNotFoundException.class, SectionNotFoundException.class, ResourceNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleNotFoundException(Exception ex) {
         logger.error("Resource not found: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.NOT_FOUND.value())
+                .error("Resource Not Found")
+                .message(ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
@@ -90,15 +111,38 @@ public class GlobalExceptionHandler {
                         .map(error -> error.getField() + ": " + error.getDefaultMessage())
                         .collect(Collectors.joining(", ")) :
                 ex.getMessage();
-        ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Validation failed: " + message);
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error("Validation Error")
+                .message("Validation failed: " + message)
+                .build();
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    // AI Service Exceptions
+    @ExceptionHandler(AIJobServiceException.class)
+    public ResponseEntity<ErrorResponse> handleAIJobServiceException(AIJobServiceException ex) {
+        logger.error("AI service error: {}", ex.getMessage(), ex);
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error("AI Service Error")
+                .message("AI service error: " + ex.getMessage())
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     // Business Logic Exceptions
     @ExceptionHandler({BusinessLogicException.class, ServiceException.class})
     public ResponseEntity<ErrorResponse> handleBusinessLogicException(Exception ex) {
         logger.error("Business logic error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error("Business Logic Error")
+                .message(ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
@@ -106,7 +150,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({DataAccessException.class, DataIntegrityException.class, DuplicateKeyException.class})
     public ResponseEntity<ErrorResponse> handleRepositoryException(Exception ex) {
         logger.error("Repository error: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Database operation failed: " + ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error("Database Error")
+                .message("Database operation failed: " + ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -115,7 +164,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleProfileException(Exception ex) {
         logger.error("Profile operation error: {}", ex.getMessage());
         HttpStatus status = ex instanceof ProfileAccessDeniedException ? HttpStatus.FORBIDDEN : HttpStatus.BAD_REQUEST;
-        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(status.value())
+                .error("Profile Error")
+                .message(ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, status);
     }
 
@@ -130,7 +184,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleSectionException(Exception ex) {
         logger.error("Section/SubSection operation error: {}", ex.getMessage());
         HttpStatus status = ex instanceof SubSectionNotFoundException ? HttpStatus.NOT_FOUND : HttpStatus.BAD_REQUEST;
-        ErrorResponse error = new ErrorResponse(status.value(), ex.getMessage());
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(status.value())
+                .error("Section Error")
+                .message(ex.getMessage())
+                .build();
         return new ResponseEntity<>(error, status);
     }
 
@@ -138,9 +197,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
         logger.error("Type mismatch error: {}", ex.getMessage());
-        String error = String.format("The parameter '%s' of value '%s' could not be converted to type '%s'",
+        String errorMessage = String.format("The parameter '%s' of value '%s' could not be converted to type '%s'",
                 ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName());
-        ErrorResponse response = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), error);
+        ErrorResponse response = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.BAD_REQUEST.value())
+                .error("Type Mismatch")
+                .message(errorMessage)
+                .build();
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
@@ -148,28 +212,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
         logger.error("Unexpected error occurred: ", ex);
-        ErrorResponse error = new ErrorResponse(
-            HttpStatus.INTERNAL_SERVER_ERROR.value(),
-            "An unexpected error occurred. Please contact support if the problem persists."
-        );
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .error("Internal Server Error")
+                .message("An unexpected error occurred. Please contact support if the problem persists.")
+                .build();
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    private static class ErrorResponse {
-        private final int status;
-        private final String message;
-
-        public ErrorResponse(int status, String message) {
-            this.status = status;
-            this.message = message;
-        }
-
-        public int getStatus() {
-            return status;
-        }
-
-        public String getMessage() {
-            return message;
-        }
     }
 }

@@ -2,6 +2,7 @@ package com.flexi.profile.controller;
 
 import com.flexi.profile.dto.AuthRequest;
 import com.flexi.profile.dto.AuthResponse;
+import com.flexi.profile.dto.TokenRefreshRequest;
 import com.flexi.profile.exception.auth.TokenException;
 import com.flexi.profile.response.ApiResponseDTO;
 import com.flexi.profile.service.EnhancedAuthService;
