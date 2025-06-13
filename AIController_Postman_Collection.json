@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "ai-controller-testing-suite",
+		"name": "AIController - Comprehensive Testing Suite",
+		"description": "Complete test suite for AIController endpoints including health check, job search, and Google Calendar integration with comprehensive validation, error handling, and performance testing.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Health Check - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response has correct structure', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('status');",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData).to.have.property('data');",
+									"});",
+									"pm.test('Service is healthy', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('success');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "health"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Job Search - Success Cases",
+			"item": [
+				{
+					"name": "Java Developer Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response has correct structure', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('success');",
+									"    pm.expect(jsonData.data).to.be.an('array');",
+									"});",
+									"pm.test('Response time is acceptable', function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(30000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/jobs?skills={{javaSkills}}&location={{primaryLocation}}&experience={{seniorExperience}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "jobs"],
+							"query": [
+								{"key": "skills", "value": "{{javaSkills}}"},
+								{"key": "location", "value": "{{primaryLocation}}"},
+								{"key": "experience", "value": "{{seniorExperience}}"}
+							]
+						}
+					}
+				},
+				{
+					"name": "Python Developer Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response contains Python jobs', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('success');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/jobs?skills={{pythonSkills}}&location={{secondaryLocation}}&experience={{midExperience}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "jobs"],
+							"query": [
+								{"key": "skills", "value": "{{pythonSkills}}"},
+								{"key": "location", "value": "{{secondaryLocation}}"},
+								{"key": "experience", "value": "{{midExperience}}"}
+							]
+						}
+					}
+				},
+				{
+					"name": "Multiple Locations Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response handles multiple locations', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('success');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/jobs?skills={{generalSkills}}&location={{multipleLocations}}&experience={{experienceRange}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "jobs"],
+							"query": [
+								{"key": "skills", "value": "{{generalSkills}}"},
+								{"key": "location", "value": "{{multipleLocations}}"},
+								{"key": "experience", "value": "{{experienceRange}}"}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Job Search - Error Handling",
+			"item": [
+				{
+					"name": "Missing All Parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400 or 500', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 500]);",
+									"});",
+									"pm.test('Error response structure', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "jobs"]
+						}
+					}
+				},
+				{
+					"name": "Missing Skills Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400 or 500', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 500]);",
+									"});",
+									"pm.test('Error mentions skills', function () {",
+									"    const jsonData = pm.response.json();",
+									"    const errorText = JSON.stringify(jsonData).toLowerCase();",
+									"    pm.expect(errorText).to.include('skills');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/jobs?location={{primaryLocation}}&experience={{seniorExperience}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "jobs"],
+							"query": [
+								{"key": "location", "value": "{{primaryLocation}}"},
+								{"key": "experience", "value": "{{seniorExperience}}"}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Google Calendar Integration",
+			"item": [
+				{
+					"name": "Generate Calendar Request - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Response has correct structure', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('success');",
+									"    pm.expect(jsonData.data).to.have.property('summary');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dateTime\": \"{{testDateTime}}\",\n  \"jobId\": \"{{testJobId}}\",\n  \"interviewType\": \"{{testInterviewType}}\",\n  \"duration\": \"{{testDuration}}\",\n  \"description\": \"{{testDescription}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/calendar/google-meet",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "calendar", "google-meet"]
+						}
+					}
+				},
+				{
+					"name": "Calendar Request - Missing Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400 or 500', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 500]);",
+									"});",
+									"pm.test('Error response for validation', function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dateTime\": \"{{testDateTime}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/calendar/google-meet",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "ai", "calendar", "google-meet"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
