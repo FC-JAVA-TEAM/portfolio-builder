@@ -1,0 +1,574 @@
+[
+  {
+    "id": "1735719223",
+    "date_posted": "2025-06-13T09:18:12.114",
+    "date_created": "2025-06-13T09:55:46.35792",
+    "title": "DevOps",
+    "organization": "Arcot Group",
+    "organization_url": "https://jobs.workable.com/company/677f794b72734f46e29e5600/jobs-at-arcot-group",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Navi Mumbai",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "India"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Navi Mumbai, Maharashtra, India"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/i3uBBsCyQaLFXRnJXKcrHf/devops-in-navi-mumbai-at-arcot-group",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      28.6139
+    ],
+    "lngs_derived": [
+      77.209
+    ],
+    "remote_derived": false,
+    "domain_derived": "arcotgroup.com"
+  },
+  {
+    "id": "1735620625",
+    "date_posted": "2025-06-13T07:47:50.277",
+    "date_created": "2025-06-13T08:57:28.098963",
+    "title": "Senior DevOps Engineer",
+    "organization": "ProArch",
+    "organization_url": "https://jobs.workable.com/company/6511b197f7274823c216f7d5/jobs-at-proarch",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place"
+      }
+    ],
+    "locations_alt_raw": [
+      "Hyderabad, Telangana, India"
+    ],
+    "location_type": "TELECOMMUTE",
+    "location_requirements_raw": [
+      {
+        "@type": "Country",
+        "name": "India"
+      }
+    ],
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/jMZP4PzSemQpZB6mGJGBeC/remote-senior-devops-engineer-in-hyderabad-at-proarch",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/390768/logo",
+    "cities_derived": [
+      "Hyderābād"
+    ],
+    "regions_derived": [
+      "Telangāna"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Hyderābād, Telangāna, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      17.385
+    ],
+    "lngs_derived": [
+      78.4867
+    ],
+    "remote_derived": true,
+    "domain_derived": "proarch.com"
+  },
+  {
+    "id": "1735395096",
+    "date_posted": "2025-06-13T06:32:24.71",
+    "date_created": "2025-06-13T06:56:12.413601",
+    "title": "DevOps Engineer",
+    "organization": "Weekday AI",
+    "organization_url": "https://jobs.workable.com/company/67bcedc84ecf2b94e900e6b2/jobs-at-weekday-ai",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "India"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/mGY42HQm3nDsD8VYZJ7GAQ/devops-engineer-in-pune-at-weekday-ai",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/691818/logo",
+    "cities_derived": [
+      "Pune"
+    ],
+    "regions_derived": [
+      "Mahārāshtra"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Pune, Mahārāshtra, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      18.5203
+    ],
+    "lngs_derived": [
+      73.8567
+    ],
+    "remote_derived": false,
+    "domain_derived": null
+  },
+  {
+    "id": "1735611205",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T08:54:04.041887",
+    "title": "DevOps Software Engineer",
+    "organization": "Roche",
+    "organization_url": "",
+    "date_validthrough": "2025-06-14T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "Pune DIA"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Pune"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://roche.wd3.myworkdayjobs.com/roche-ext/job/Pune/DevOps-Software-Engineer_202505-110964",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "roche.wd3.myworkdayjobs.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Pune"
+    ],
+    "regions_derived": [
+      "Mahārāshtra"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Pune, Mahārāshtra, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      18.5203
+    ],
+    "lngs_derived": [
+      73.8567
+    ],
+    "remote_derived": false,
+    "domain_derived": "roche.com"
+  },
+  {
+    "id": "1735537781",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T08:14:11.348969",
+    "title": "Senior Software Engineer - LoanIQ & Devops",
+    "organization": "Wells Fargo",
+    "organization_url": "",
+    "date_validthrough": "2025-06-18T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "110380-IND-BENGALURU-INTL BLR Twr-1&amp;2 CARNATION"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Bengaluru, India"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs/job/Bengaluru-India/Senior-Software-Engineer---LoanIQ---Devops_R-462235-1",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "wd1.myworkdaysite.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bangalore"
+    ],
+    "regions_derived": [
+      "Karnātaka"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Bangalore, Karnātaka, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      12.9789
+    ],
+    "lngs_derived": [
+      77.5917
+    ],
+    "remote_derived": false,
+    "domain_derived": "wellsfargo.com"
+  },
+  {
+    "id": "1735537607",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T08:14:04.822663",
+    "title": "Senior Software Engineer - LoanIQ & Devops",
+    "organization": "Wells Fargo",
+    "organization_url": "",
+    "date_validthrough": "2025-06-18T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "110380-IND-BENGALURU-INTL BLR Twr-1&amp;2 CARNATION"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Bengaluru, India"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs/job/Bengaluru-India/Senior-Software-Engineer---LoanIQ---Devops_R-462236-1",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "wd1.myworkdaysite.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bangalore"
+    ],
+    "regions_derived": [
+      "Karnātaka"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Bangalore, Karnātaka, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      12.9789
+    ],
+    "lngs_derived": [
+      77.5917
+    ],
+    "remote_derived": false,
+    "domain_derived": "wellsfargo.com"
+  },
+  {
+    "id": "1735537603",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T08:14:04.515589",
+    "title": "Lead Software Engineer - DevOps & LoanIQ",
+    "organization": "Wells Fargo",
+    "organization_url": "",
+    "date_validthrough": "2025-06-18T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "110380-IND-BENGALURU-INTL BLR Twr-1&amp;2 CARNATION"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Bengaluru, India"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs/job/Bengaluru-India/Lead-Software-Engineer---DevOps---LoanIQ_R-462232",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "wd1.myworkdaysite.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bangalore"
+    ],
+    "regions_derived": [
+      "Karnātaka"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Bangalore, Karnātaka, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      12.9789
+    ],
+    "lngs_derived": [
+      77.5917
+    ],
+    "remote_derived": false,
+    "domain_derived": "wellsfargo.com"
+  },
+  {
+    "id": "1734449105",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-12T21:19:12.404348",
+    "title": "TechOps / DevOps Senior Engineer - Senior Manager",
+    "organization": "State Street",
+    "organization_url": "",
+    "date_validthrough": "2025-06-20T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "Hyderabad, India"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Hyderabad, India"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Hyderabad-India/TechOps---DevOps-Senior-Engineer---Senior-Manager_R-773601",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "statestreet.wd1.myworkdayjobs.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Hyderābād"
+    ],
+    "regions_derived": [
+      "Telangāna"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Hyderābād, Telangāna, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      17.385
+    ],
+    "lngs_derived": [
+      78.4867
+    ],
+    "remote_derived": false,
+    "domain_derived": "statestreet.com"
+  },
+  {
+    "id": "1734443847",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-12T21:14:52.53751",
+    "title": "Associate Director - Senior DevOps Engineer",
+    "organization": "S&P Global",
+    "organization_url": "",
+    "date_validthrough": "2025-06-27T00:00:00",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "India",
+          "addressLocality": "IN - BANGALORE PRIMECO UNION CITY"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "IN - BANGALORE PRIMECO UNION CITY",
+      "IN - GURGAON VILLAGE NATHUPUR THE AMBIENCE CORPORATE TOWER II"
+    ],
+    "location_type": "TELECOMMUTE",
+    "location_requirements_raw": [
+      {
+        "@type": "Country",
+        "name": "India"
+      }
+    ],
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://spgi.wd5.myworkdayjobs.com/SPGI_Careers/job/IN---BANGALORE-PRIMECO-UNION-CITY/Associate-Director---Senior-DevOps-Engineer_316783-2",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "spgi.wd5.myworkdayjobs.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      28.6139
+    ],
+    "lngs_derived": [
+      77.209
+    ],
+    "remote_derived": false,
+    "domain_derived": "spglobal.com"
+  },
+  {
+    "id": "1734854716",
+    "date_posted": "2025-06-12T21:46:41",
+    "date_created": "2025-06-13T01:45:12.553379",
+    "title": "Software Engineering Specialist (Java Script, DevOps-Kubernetes/Azure Cloud) (Pune & Gurgaon)",
+    "organization": "Amdocs",
+    "organization_url": "amdocs.com",
+    "date_validthrough": "2025-07-12T21:46:41",
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "MH,IN",
+          "addressCountry": {
+            "@type": "Country",
+            "name": "IN"
+          }
+        }
+      },
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Gurugram",
+          "addressRegion": "HR,IN",
+          "addressCountry": {
+            "@type": "Country",
+            "name": "IN"
+          }
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.amdocs.com/careers/job/563431002896449-software-engineering-specialist-java-script-devops-kubernetes-azure-cloud-pune-gurgaon--india-pune-amdocs-site-",
+    "source_type": "ats",
+    "source": "eightfold",
+    "source_domain": "jobs.amdocs.com",
+    "organization_logo": "",
+    "cities_derived": [
+      "Pune"
+    ],
+    "regions_derived": [
+      "Mahārāshtra"
+    ],
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "Pune, Mahārāshtra, India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      18.5203
+    ],
+    "lngs_derived": [
+      73.8567
+    ],
+    "remote_derived": false,
+    "domain_derived": "amdocs.com"
+  }
+]

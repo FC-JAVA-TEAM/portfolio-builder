@@ -1,35 +1,56 @@
 package com.flexi.profile.dto;
 
-import com.flexi.profile.model.JobPosting.JobStatus;
-import java.time.LocalDateTime;
 import java.time.LocalDate;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
-public class JobPostingDTO {
-    private Long id;
+public class JobPostingResponseDTO {
+    private String id;
+    
+    @NotBlank(message = "Title is required")
     private String title;
+    
+    @NotBlank(message = "Organization is required")
     private String organization;
+    
+    @NotBlank(message = "Description is required")
+    @Size(min = 50, message = "Description must be at least 50 characters")
     private String description;
-    private Set<String> skills;
+    
+    @NotNull(message = "Skills are required")
+    @Size(min = 1, message = "At least one skill is required")
+    private List<String> skills;
+    
+    @NotBlank(message = "Location is required")
     private String locationsDerived;
+    
+    @NotBlank(message = "Type is required")
     private String type;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePosted;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime dateCreated;
+    
     private String source;
     private String sourceDomain;
-    private int rating;
-    private JobStatus status;
-    private String jobLink;
-    private boolean applied;
-    private Long createdBy;
-    private LocalDateTime updatedAt;
+    private Integer rating;
+    private String status;
+    private String job_link;
+    private Boolean applied;
 
     // Getters and setters
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,11 +78,11 @@ public class JobPostingDTO {
         this.description = description;
     }
 
-    public Set<String> getSkills() {
+    public List<String> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<String> skills) {
+    public void setSkills(List<String> skills) {
         this.skills = skills;
     }
 
@@ -113,51 +134,35 @@ public class JobPostingDTO {
         this.sourceDomain = sourceDomain;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
-    public JobStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(JobStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getJobLink() {
-        return jobLink;
+    public String getJob_link() {
+        return job_link;
     }
 
-    public void setJobLink(String jobLink) {
-        this.jobLink = jobLink;
+    public void setJob_link(String job_link) {
+        this.job_link = job_link;
     }
 
-    public boolean isApplied() {
+    public Boolean getApplied() {
         return applied;
     }
 
-    public void setApplied(boolean applied) {
+    public void setApplied(Boolean applied) {
         this.applied = applied;
-    }
-
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }

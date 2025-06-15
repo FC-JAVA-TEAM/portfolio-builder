@@ -23,8 +23,8 @@ public enum ResponseMessage {
     JOB_POSTINGS_RETRIEVED("Job postings retrieved successfully"),
     JOB_POSTING_RETRIEVED("Job posting retrieved successfully"),
     STATUS_JOB_POSTINGS_RETRIEVED("Job postings with status retrieved successfully"),
-    DEPARTMENT_JOB_POSTINGS_RETRIEVED("Job postings for department retrieved successfully"),
-    EMPLOYMENT_TYPE_JOB_POSTINGS_RETRIEVED("Job postings for employment type retrieved successfully");
+    ORGANIZATION_JOB_POSTINGS_RETRIEVED("Job postings for organization retrieved successfully"),
+    TYPE_JOB_POSTINGS_RETRIEVED("Job postings for type retrieved successfully");
 
     private final String message;
 

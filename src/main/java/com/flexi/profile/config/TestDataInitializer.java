@@ -43,7 +43,7 @@ public class TestDataInitializer implements CommandLineRunner {
         // Insert admin user
         createUserIfNotExists("admin@test.com", "Admin", "User", "password", "ROLE_ADMIN", "ROLE_USER");
         // Insert HR user
-        createUserIfNotExists("hr@test.com", "HR", "Manager", "password", "ROLE_HR", "ROLE_USER");
+        createUserIfNotExists("hr@test.com", "HR", "Manager", "password", "ROLE_HR");
         // Insert regular user
         createUserIfNotExists("user@test.com", "Regular", "User", "password", "ROLE_USER");
     }

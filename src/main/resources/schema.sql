@@ -37,14 +37,21 @@ CREATE TABLE user_roles (
 CREATE TABLE job_postings (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    organization VARCHAR(255) NOT NULL,
     description TEXT,
-    department VARCHAR(100),
-    employment_type VARCHAR(50),
-    location VARCHAR(255),
+    locations_derived VARCHAR(255),
+    type VARCHAR(50),
     status VARCHAR(20) NOT NULL,
-    created_by BIGINT NOT NULL,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL,
+    date_posted DATE,
+    source VARCHAR(100),
+    source_domain VARCHAR(255),
+    rating INT DEFAULT 0,
+    job_link TEXT,
+    applied BOOLEAN DEFAULT FALSE,
+    applied BOOLEAN DEFAULT FALSE,
+    created_by BIGINT ,
+    created_at TIMESTAMP ,
+    updated_at TIMESTAMP ,
     FOREIGN KEY (created_by) REFERENCES users(id)
 );
 

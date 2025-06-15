@@ -35,13 +35,13 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
                 .orElseThrow(() -> new UserNotFoundException(userId));
         
         // Check for duplicate job posting
-        if (jobPostingRepository.existsByTitleAndDepartment(jobPostingDTO.getTitle(), jobPostingDTO.getDepartment())) {
-            throw new DuplicateJobPostingException(jobPostingDTO.getTitle(), jobPostingDTO.getDepartment());
+        if (jobPostingRepository.existsByTitleAndOrganization(jobPostingDTO.getTitle(), jobPostingDTO.getOrganization())) {
+            throw new DuplicateJobPostingException(jobPostingDTO.getTitle(), jobPostingDTO.getOrganization());
         }
         
         JobPosting jobPosting = jobPostingMapper.toEntity(jobPostingDTO);
         jobPosting.setCreatedBy(user);
-        jobPosting.setStatus(JobStatus.DRAFT); // Set initial status to DRAFT
+        jobPosting.setStatus(JobStatus.OPEN); // Set initial status to OPEN
         JobPosting savedJobPosting = jobPostingRepository.save(jobPosting);
         return convertToDTO(savedJobPosting);
     }
@@ -65,15 +65,15 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
             validateStatusTransition(jobPosting.getStatus(), jobPostingDetails.getStatus());
         }
 
-        // Check for duplicate if title or department is being updated
+        // Check for duplicate if title or organization is being updated
         if ((jobPostingDetails.getTitle() != null && !jobPostingDetails.getTitle().equals(jobPosting.getTitle())) ||
-            (jobPostingDetails.getDepartment() != null && !jobPostingDetails.getDepartment().equals(jobPosting.getDepartment()))) {
-            if (jobPostingRepository.existsByTitleAndDepartment(
+            (jobPostingDetails.getOrganization() != null && !jobPostingDetails.getOrganization().equals(jobPosting.getOrganization()))) {
+            if (jobPostingRepository.existsByTitleAndOrganization(
                     jobPostingDetails.getTitle() != null ? jobPostingDetails.getTitle() : jobPosting.getTitle(),
-                    jobPostingDetails.getDepartment() != null ? jobPostingDetails.getDepartment() : jobPosting.getDepartment())) {
+                    jobPostingDetails.getOrganization() != null ? jobPostingDetails.getOrganization() : jobPosting.getOrganization())) {
                 throw new DuplicateJobPostingException(
                     jobPostingDetails.getTitle() != null ? jobPostingDetails.getTitle() : jobPosting.getTitle(),
-                    jobPostingDetails.getDepartment() != null ? jobPostingDetails.getDepartment() : jobPosting.getDepartment());
+                    jobPostingDetails.getOrganization() != null ? jobPostingDetails.getOrganization() : jobPosting.getOrganization());
             }
         }
 
@@ -123,17 +123,20 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
         if (jobPostingDTO.getTitle() == null || jobPostingDTO.getTitle().trim().isEmpty()) {
             throw new InvalidJobPostingDataException("title", "Title cannot be empty");
         }
-        if (jobPostingDTO.getDepartment() == null || jobPostingDTO.getDepartment().trim().isEmpty()) {
-            throw new InvalidJobPostingDataException("department", "Department cannot be empty");
+        if (jobPostingDTO.getOrganization() == null || jobPostingDTO.getOrganization().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("organization", "Organization cannot be empty");
         }
         if (jobPostingDTO.getDescription() == null || jobPostingDTO.getDescription().trim().isEmpty()) {
             throw new InvalidJobPostingDataException("description", "Description cannot be empty");
         }
-        if (jobPostingDTO.getEmploymentType() == null || jobPostingDTO.getEmploymentType().trim().isEmpty()) {
-            throw new InvalidJobPostingDataException("employmentType", "Employment type cannot be empty");
+        if (jobPostingDTO.getType() == null || jobPostingDTO.getType().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("type", "Employment type cannot be empty");
         }
-        if (jobPostingDTO.getLocation() == null || jobPostingDTO.getLocation().trim().isEmpty()) {
-            throw new InvalidJobPostingDataException("location", "Location cannot be empty");
+        if (jobPostingDTO.getLocationsDerived() == null || jobPostingDTO.getLocationsDerived().trim().isEmpty()) {
+            throw new InvalidJobPostingDataException("locationsDerived", "Location cannot be empty");
+        }
+        if (jobPostingDTO.getSkills() == null || jobPostingDTO.getSkills().isEmpty()) {
+            throw new InvalidJobPostingDataException("skills", "Skills cannot be empty");
         }
     }
 
@@ -159,18 +162,29 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
     }
 
     @Override
-    public List<JobPostingDTO> getJobPostingsByDepartment(String department) {
-        return jobPostingRepository.findByDepartment(department).stream()
+    public List<JobPostingDTO> getJobPostingsByOrganization(String organization) {
+        return jobPostingRepository.findByOrganization(organization).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<JobPostingDTO> getJobPostingsByEmploymentType(String employmentType) {
-        return jobPostingRepository.findByEmploymentType(employmentType).stream()
+    public List<JobPostingDTO> getJobPostingsByType(String type) {
+        return jobPostingRepository.findByType(type).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
+
+    // Remove these methods as they are no longer needed
+    // @Override
+    // public List<JobPostingDTO> getJobPostingsByDepartment(String department) {
+    //     // Implementation
+    // }
+
+    // @Override
+    // public List<JobPostingDTO> getJobPostingsByEmploymentType(String employmentType) {
+    //     // Implementation
+    // }
 
     private JobPostingDTO convertToDTO(JobPosting jobPosting) {
         return jobPostingMapper.toDTO(jobPosting);
@@ -178,10 +192,11 @@ public class EnhancedJobPostingServiceImpl implements EnhancedJobPostingService 
 
     private boolean isCompleteUpdate(JobPostingDTO jobPostingDTO) {
         return jobPostingDTO.getTitle() != null &&
-               jobPostingDTO.getDepartment() != null &&
+               jobPostingDTO.getOrganization() != null &&
                jobPostingDTO.getDescription() != null &&
-               jobPostingDTO.getEmploymentType() != null &&
-               jobPostingDTO.getLocation() != null &&
+               jobPostingDTO.getType() != null &&
+               jobPostingDTO.getLocationsDerived() != null &&
+               jobPostingDTO.getSkills() != null &&
                jobPostingDTO.getStatus() != null;
     }
 }

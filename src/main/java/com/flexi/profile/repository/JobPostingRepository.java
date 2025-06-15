@@ -4,15 +4,19 @@ import com.flexi.profile.model.JobPosting;
 import com.flexi.profile.model.JobPosting.JobStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface JobPostingRepository extends JpaRepository<JobPosting, Long> {
     List<JobPosting> findByStatus(JobStatus status);
-    List<JobPosting> findByDepartment(String department);
-    List<JobPosting> findByEmploymentType(String employmentType);
+    List<JobPosting> findByOrganization(String organization);
+    List<JobPosting> findByType(String type);
     List<JobPosting> findByCreatedById(Long userId);
-    boolean existsByTitleAndDepartment(String title, String department);
-	//boolean existsByTitleAndDepartment(String title, String department, String employmentType, String location,
-	//		String description, JobStatus status);
+    boolean existsByTitleAndOrganization(String title, String organization);
+    
+    // New methods
+    List<JobPosting> findByLocationsDerivedContaining(String location);
+    List<JobPosting> findBySkillsContaining(String skill);
+    List<JobPosting> findByDatePostedAfter(LocalDate date);
 }

@@ -1,0 +1,558 @@
+[
+  {
+    "id": "1735805224",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T10:46:24.002419",
+    "title": "Senior Lead Java Developer",
+    "organization": "Citi",
+    "organization_url": "",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "United Kingdom",
+          "addressLocality": "60 SYDENHAM ROAD, TITANIC QUARTER BLOCKS A, B, C GATEWAY OFFICES BELFAST"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Belfast  United Kingdom"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://citi.wd5.myworkdayjobs.com/2/job/Belfast--United-Kingdom/Senior-Lead-Java-Developer_25872996-1",
+    "source_type": "ats",
+    "source": "workday",
+    "source_domain": "citi.wd5.myworkdayjobs.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Belfast"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Belfast, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      54.5964
+    ],
+    "lngs_derived": [
+      -5.93
+    ],
+    "remote_derived": false,
+    "domain_derived": "citi.com",
+    "description_text": "About the Role: We are seeking a Senior Java Developer/Lead who could drive technology transformation in the team. This role involves taking ownership of key projects and components throughout the entire Software Development Life Cycle (SDLC). A primary focus will be on design, development & maintenance of components under Price Master Central systems which would require expertise in Java, Spring, SQL, API development, Kafka, Kubernetes, and Cloud technologies. You will guide & mentor team of engineers, providing technical expertise and direction, and ensure adherence to best practices. A strong understanding of system and enterprise architecture is essential. You will collaborate with global and diverse teams, including Business Analysts, Project Management, Production Support, and Infrastructure. Price Master Central is a global reference data management application - responsible for sourcing Securities & Pricing data from market vendors and internal Citi sources and providing it to downstream clients after applying client specific rules. Responsibilities: Deliver assigned development projects within agreed schedule, quality and scope expectations Participate in all stages of the SDLC within an agile Scrum environment Form partnership with technology vendors and gain deep understanding of products Enhance/Re-architect existing components to satisfy new requirements in terms of performance and scalability Provide level 3 (escalation) support for the application Skills & Qualifications: 6-10 years of relevant experience in Apps Development or systems analysis role Extensive experience system analysis and in programming of software applications Experience in managing and implementing successful projects Subject Matter Expert (SME) in at least one area of Applications Development Ability to adjust priorities quickly as circumstances dictate Demonstrated leadership and project management skills Consistently demonstrates clear and concise written and verbal communication Strong command on Java (Core, JDBC, MT, Collections, I/O), Spring Boot, REST, GraphQL web services Sound understanding of SQL/PL-SQL on Oracle DB Extensive working knowledge on container platform based on Kubernetes, Kafka, Redis Experience with Unix commands, shell scripting. Strong understanding of Design patterns and Architectural principles Familiarity with standard data structures and algorithms. Experience using the following tools – JIRA, Harness/uDeploy, Sonarqube, TeamCity, Artifactory, Git (GHE & Bitbucket) Logical thinking, strong analytical and problem-solving skills; innovative and solutions oriented Effective time management skills to manage multiple priorities with flexibility on time zones and timelines Excellent verbal and written communication skills Preferred Skills and Experience: Master’s degree or PHD in relevant field is desirable Experience working with the Scrum methodology Experience designing and implementing microservices Financial services technology experience preferably in reference data domain Physical and logical data modeling Education: Bachelor’s degree/University degree or equivalent experience Master’s degree preferred What we’ll provide you By joining Citi Belfast, you will not only be part of a business casual workplace with a hybrid working model (up to 2 days working at home per week), but also receive a competitive base salary (which is annually reviewed), and enjoy a whole host of additional benefits such as: 27 days annual leave (plus bank holidays) A discretional annual performance related bonus Private Medical Care & Life Insurance Employee Assistance Program Pension Plan Paid Parental Leave Special discounts for employees, family, and friends Access to an array of learning and development resources Visit our Global Benefits page to learn more. Alongside these benefits Citi is committed to ensuring our workplace is where everyone feels comfortable coming to work as their whole self, every day. We want the best talent around the world to be energized to join us, motivated to stay and empowered to thrive. #LI-RH4 ------------------------------------------------------ Job Family Group: Technology ------------------------------------------------------ Job Family: Applications Development ------------------------------------------------------ Time Type: Full time ------------------------------------------------------ Most Relevant Skills Please see the requirements listed above. ------------------------------------------------------ Other Relevant Skills For complementary skills, please see above and/or contact the recruiter. ------------------------------------------------------ Citi is an equal opportunity employer, and qualified candidates will receive consideration without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, disability, status as a protected veteran, or any other characteristic protected by law. If you are a person with a disability and need a reasonable accommodation to use our search tools and/or apply for a career opportunity review Accessibility at Citi. View Citi’s EEO Policy Statement and the Know Your Rights poster. Click here to learn more about careers at Citi."
+  },
+  {
+    "id": "1734700535",
+    "date_posted": "2025-06-12T23:49:23.95",
+    "date_created": "2025-06-12T23:53:23.854506",
+    "title": "Java Developer - Bilingual (English / Korean)",
+    "organization": "Woongjin, Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Irvine",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Irvine, CA, USA"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Contract"
+    ],
+    "url": "https://jobs.smartrecruiters.com/WJCompany/744000064854935-java-developer-bilingual-english-korean-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Irvine"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Irvine, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      33.6772
+    ],
+    "lngs_derived": [
+      -117.7738
+    ],
+    "remote_derived": false,
+    "domain_derived": null,
+    "description_text": "Company DescriptionFor More Open Positions Visit us at:\nhttp://recruiting.woongjininc.com/\nOur Mission\n\nWOONGJIN, Inc. is a rapidly growing team who provides a range of unique, exceptional, and enhanced services to our clients. We have a strong moral code that includes the service of goodness without expectations of reward. We are motivated by the sense of responsibility and servant leadership.Job DescriptionMaintain and troubleshoot existing portal systems.Develop and implement enhancements and updates to the current portal.Analyze business and system requirements and ensure technical feasibility.Design and develop software using Java, Maven, Spring Framework, and Oracle.Collaborate with internal stakeholders and external vendors; provide technical direction and support.Write clean, efficient, and testable code.Ensure quality and stability through code reviews, unit testing, and debugging.Support deployment, integration, and ongoing system reliability.Qualifications5+ years of Java development experienceProficiency with Java, Maven, Spring, and OracleBilingual: Korean and EnglishOnsite work in Irvine, CA is required.Start date expected within 2–3 weeks of final interview. Salary:  $75,000+ (DOE) /yr.Additional InformationAll your information will be kept confidential according to EEO guidelines. *** NO C2C ***"
+  },
+  {
+    "id": "1734574121",
+    "date_posted": "2025-06-12T22:37:55.945",
+    "date_created": "2025-06-12T22:41:05.810838",
+    "title": "Java Developer - Bilingual (English / Korean)",
+    "organization": "Woongjin, Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Irvine",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Irvine, CA, USA"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Contract"
+    ],
+    "url": "https://jobs.smartrecruiters.com/WJCompany/744000064845753-java-developer-bilingual-english-korean-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Irvine"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Irvine, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      33.6772
+    ],
+    "lngs_derived": [
+      -117.7738
+    ],
+    "remote_derived": false,
+    "domain_derived": null,
+    "description_text": "Company DescriptionFor More Open Positions Visit us at:\nhttp://recruiting.woongjininc.com/\nOur Mission\n\nWOONGJIN, Inc. is a rapidly growing team who provides a range of unique, exceptional, and enhanced services to our clients. We have a strong moral code that includes the service of goodness without expectations of reward. We are motivated by the sense of responsibility and servant leadership.Job DescriptionMaintain and troubleshoot existing portal systems.Develop and implement enhancements and updates to the current portal.Analyze business and system requirements and ensure technical feasibility.Design and develop software using Java, Maven, Spring Framework, and Oracle.Collaborate with internal stakeholders and external vendors; provide technical direction and support.Write clean, efficient, and testable code.Ensure quality and stability through code reviews, unit testing, and debugging.Support deployment, integration, and ongoing system reliability.Qualifications5+ years of Java development experienceProficiency with Java, Maven, Spring, and OracleBilingual: Korean and EnglishOnsite work in Irvine, CA is required.Start date expected within 2–3 weeks of final interview. Salary:  $75,000+ (DOE) /yr.Additional InformationAll your information will be kept confidential according to EEO guidelines. *** NO C2C ***"
+  },
+  {
+    "id": "1734146602",
+    "date_posted": "2025-06-12T16:40:42.236",
+    "date_created": "2025-06-12T16:42:46.128535",
+    "title": "Senior Software Engineer I - Wise for Enterprise - Java",
+    "organization": "Wise",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Worship Square, 65 Clifton Street",
+          "addressLocality": "London",
+          "postalCode": "E1 6JJ",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Worship Square, 65 Clifton Street, London, United Kingdom"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Wise/744000064783915-senior-software-engineer-i-wise-for-enterprise-java",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "London"
+    ],
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false,
+    "domain_derived": "wise.com",
+    "description_text": "Company DescriptionWise is a global technology company, building the best way to move and manage the world’s money. Min fees. Max ease. Full speed.Whether people and businesses are sending money to another country, spending abroad, or making and receiving international payments, Wise is on a mission to make their life easier and save them money.As part of our team, you will be helping us create an entirely new network for the world's money. For everyone, everywhere.More about our mission.Job DescriptionAbout the roleWe at Wise Platform(aka Wise for Enterprise) aim to be the infrastructure that powers the world’s money by connecting banks, financial institutions, and enterprises to our next-generation payment solutions. To achieve this we believe we have multiple product teams working on numerous complex products. Our banks and financial institutions vertical teams aim to help banks to leverage Wise’s infrastructure to offer their customers world class payments products through their own channels. We are working at the forefront of innovation, playing a key role in building scalable and robust systems that power our global payment network. The teams in our online platforms vertical teams aim to build the world's best embedded finance platform for our partners. In the team you will be exposed to a wide range of challenges for our partners from being able to frictionlessly onboard their consumer and business customers to seamlessly moving money across borders. Our API Experience team strives to ensure we set the industry standard for seamless financial enterprise integrations with Wise Platform’s API experience. Increase efficiency during development and maintenance of integration with our platform by setting the gold-standard for intuitive, consistent, enterprise-ready APIs.Each team strives to truly understand what our partners need; working hand-in-hand with solutions engineers and business development to create powerful, scalable solutions for major global enterprises and banksHow we workWe operate on a strong belief in automation, programmatic implementation, and reusable design. We’re looking for people who can step back and think holistically about the ecosystem, but also follow through and help implement the design; drawing on the resources across the rest of the global product tribe.We need to sustain this growth by continuously iterating on the services we run, with a focus on availability, security, and ease of use. We’re looking for an engineer with relevant experience who can analyse complex requirements and deliver simple solutions to help our teams achieve our mission with speed and confidence.What will you be working on?Design, develop, and maintain highly scalable services.Producing public facing APIs for others to integrate with. Collaborate with teams across Wise to deliver real impact and expand the functionality we can offer to our partners on our platform.Working closely with other members of the team to solve complex problems.Advocating best practices and code reviews and mentoring junior engineers What do you need?We are fully aware that it is uncommon for a candidate to have all skills required and we fully support everyone in learning new skills with us. So if you have some of those listed below and are eager to learn more we do want to hear from you!Experience in designing, building public API platforms that others integrate with.Strong understanding of Java with experience with Spring bootExperience with microservices and event driven design. Worked with Kafka or similar messaging systemsKnowledge of relational databases. SQL query optimisation and designing schemas is a plusA strong product mindset and sense of ownership to enable you to make the best technical decisions and prioritise your work.Great communication skills to drive projects across teams and be able to communicate complex technical concepts to both technical and non-technical audiences.Able to work independently while still being a good team player.Interested? Find out more:The Wise Tech Stack, 2025 Edition.Scaling our Infrastructure; how we make it workWise Engineering – https://medium.com/wise-engineeringWhat do we offer: Starting salary: £85,000-£105,000 + RSUWise Benefits#LI-AB3 #LI-HybridAdditional InformationFor everyone, everywhere. We're people building money without borders  — without judgement or prejudice, too. We believe teams are strongest when they are diverse, equitable and inclusive.We're proud to have a truly international team, and we celebrate our differences.\nInclusive teams help us live our values and make sure every Wiser feels respected, empowered to contribute towards our mission and able to progress in their careers.If you want to find out more about what it's like to work at Wise visit Wise.Jobs.Keep up to date with life at Wise by following us on LinkedIn and Instagram."
+  },
+  {
+    "id": "1734145822",
+    "date_posted": "2025-06-12T16:38:18.766",
+    "date_created": "2025-06-12T16:42:13.477859",
+    "title": "Software Engineer - Wise for Enterprise - Java",
+    "organization": "Wise",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Worship Square, 65 Clifton Street",
+          "addressLocality": "London",
+          "postalCode": "E1 6JJ",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Worship Square, 65 Clifton Street, London, United Kingdom"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Wise/744000064782647-software-engineer-wise-for-enterprise-java",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "London"
+    ],
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false,
+    "domain_derived": "wise.com",
+    "description_text": "Company DescriptionWise is a global technology company, building the best way to move and manage the world’s money. Min fees. Max ease. Full speed.Whether people and businesses are sending money to another country, spending abroad, or making and receiving international payments, Wise is on a mission to make their life easier and save them money.As part of our team, you will be helping us create an entirely new network for the world's money. For everyone, everywhere.More about our mission. Job DescriptionAbout the role We at Wise Platform(aka Wise for Enterprise) aim to be the infrastructure that powers the world’s money by connecting banks, financial institutions, and enterprises to our next-generation payment solutions. To achieve this we believe we have multiple product teams working on numerous complex products. Our banks and financial institutions vertical teams aim to help banks to leverage Wise’s infrastructure to offer their customers world class payments products through their own channels. We are working at the forefront of innovation, playing a key role in building scalable and robust systems that power our global payment network. The teams in our online platforms vertical teams aim to build the world's best embedded finance platform for our partners. In the team you will be exposed to a wide range of challenges for our partners from being able to frictionlessly onboard their consumer and business customers to seamlessly moving money across borders. Our API Experience team strives to ensure we set the industry standard for seamless financial enterprise integrations with Wise Platform’s API experience. Increase efficiency during development and maintenance of integration with our platform by setting the gold-standard for intuitive, consistent, enterprise-ready APIs.Each team strives to truly understand what our partners need; working hand-in-hand with solutions engineers and business development to create powerful, scalable solutions for major global enterprises and banksHow we workWe operate on a strong belief in automation, programmatic implementation, and reusable design. We’re looking for people who can step back and think holistically about the ecosystem, but also follow through and help implement the design; drawing on the resources across the rest of the global product tribe.We need to sustain this growth by continuously iterating on the services we run, with a focus on availability, security, and ease of use. We’re looking for an engineer with relevant experience who can analyse complex requirements and deliver simple solutions to help our teams achieve our mission with speed and confidence. What will you be working on?Design, develop, and maintain highly scalable services.Producing public facing APIs for others to integrate with. Collaborate with teams across Wise to deliver real impact and expand the functionality we can offer to our partners on our platform.Working closely with other members of the team to solve complex problems.Advocating best practices and code reviews What do you need?We are fully aware that it is uncommon for a candidate to have all skills required and we fully support everyone in learning new skills with us. So if you have some of those listed below and are eager to learn more we do want to hear from you!Experience in designing, building public API platforms that others integrate with.Strong understanding of Java with experience with Spring bootExperience with microservices and event driven design. Worked with Kafka or similar messaging systemsKnowledge of relational databases. SQL query optimisation and designing schemas is a plusA strong product mindset and sense of ownership to enable you to make the best technical decisions and prioritise your work.Great communication skills to drive projects across teams and be able to communicate complex technical concepts to both technical and non-technical audiences.Able to work independently while still being a good team player.Interested? Find out more:The Wise Tech Stack, 2025 Edition.Scaling our Infrastructure; how we make it workWise Engineering – https://medium.com/wise-engineeringWhat do we offer: Starting salary: £65,000-£85,000 + RSUWise Benefits#LI-AB3 #LI-HybridAdditional InformationFor everyone, everywhere. We're people building money without borders  — without judgement or prejudice, too. We believe teams are strongest when they are diverse, equitable and inclusive.We're proud to have a truly international team, and we celebrate our differences.\nInclusive teams help us live our values and make sure every Wiser feels respected, empowered to contribute towards our mission and able to progress in their careers.If you want to find out more about what it's like to work at Wise visit Wise.Jobs.Keep up to date with life at Wise by following us on LinkedIn and Instagram."
+  },
+  {
+    "id": "1734020003",
+    "date_posted": "2025-06-12T15:33:51.405",
+    "date_created": "2025-06-12T15:37:09.56856",
+    "title": "TMS / WMS Developer w/ Java - Bilingual (Korean/English)",
+    "organization": "Woongjin, Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Irvine",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Irvine, CA, USA"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Contract"
+    ],
+    "url": "https://jobs.smartrecruiters.com/WJCompany/744000064767935-tms-wms-developer-w-java-bilingual-korean-english-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Irvine"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Irvine, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      33.6772
+    ],
+    "lngs_derived": [
+      -117.7738
+    ],
+    "remote_derived": false,
+    "domain_derived": null,
+    "description_text": "Company DescriptionFor More Open Positions Visit us at:\nhttp://recruiting.woongjininc.com/***NO C2C***Our MissionWOONGJIN, Inc. is a rapidly growing team who provides a range of unique, exceptional, and enhanced services to our clients.  We have a strong moral code that includes the service of goodness without expectations of reward.  We are motivated by the sense of responsibility and servant leadership.Job DescriptionJob Function/Description:·         Code, test, debug, implement for JAVA Web programs to maintain & enhance existing TMS (Transportation Management System) / WMS (Warehouse Management System)·         Writes specifications for programs of low to moderate complexity·         Manage a Web Application Server and deployment of TM/ WM system·         Monitor application logs & provide basic administrative work·         Provide first tier system support for daily operations of users·         Coordinate & setup interface with various vendors using EDI·         Apply and test software package for TMS during install & upgrade·         Emergency support due to system issuesQualifications ·         Over 2 years of JAVA Web Programming is preferred but entry level is possible to apply ·         JAVA Web (HTML, Java Script, XSLT) programming experiences in Design, Development, Implementation, Testing, and Maintenance·         Experience in Oracle SQL query writing and performance enhancement·         Experience in maintenance of Web Application Server·         Technical expertise in integrating logistics systems with 3rd party applications using EDI·         Bachelor's degree or equivalent combination of education and experience·         Excellent analytical & problem solving skills required for design, creation and testing of programs·         Excellent communication skills to interact with team members, customers and others·         Essential to speak bilingual  (English/Korean) as the support team located in Korea(N-ERP, Sales Portal team)Compensation Range$110,000- $130,000 per year Additional InformationAll your information will be kept confidential according to EEO guidelines. *** NO C2C ***"
+  },
+  {
+    "id": "1734020051",
+    "date_posted": "2025-06-12T15:33:40.338",
+    "date_created": "2025-06-12T15:37:10.967049",
+    "title": "Java Developer - Bilingual (English / Korean)",
+    "organization": "Woongjin, Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Irvine",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Irvine, CA, USA"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Contract"
+    ],
+    "url": "https://jobs.smartrecruiters.com/WJCompany/744000064767728-java-developer-bilingual-english-korean-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Irvine"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Irvine, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      33.6772
+    ],
+    "lngs_derived": [
+      -117.7738
+    ],
+    "remote_derived": false,
+    "domain_derived": null,
+    "description_text": "Company DescriptionFor More Open Positions Visit us at:\nhttp://recruiting.woongjininc.com/\nOur Mission\n\nWOONGJIN, Inc. is a rapidly growing team who provides a range of unique, exceptional, and enhanced services to our clients. We have a strong moral code that includes the service of goodness without expectations of reward. We are motivated by the sense of responsibility and servant leadership.Job DescriptionMaintain and troubleshoot existing portal systems.Develop and implement enhancements and updates to the current portal.Analyze business and system requirements and ensure technical feasibility.Design and develop software using Java, Maven, Spring Framework, and Oracle.Collaborate with internal stakeholders and external vendors; provide technical direction and support.Write clean, efficient, and testable code.Ensure quality and stability through code reviews, unit testing, and debugging.Support deployment, integration, and ongoing system reliability.Qualifications5+ years of Java development experienceProficiency with Java, Maven, Spring, and OracleBilingual: Korean and EnglishOnsite work in Irvine, CA is required.Start date expected within 2–3 weeks of final interview. Salary:  $70,000+ (DOE) /yr.Additional InformationAll your information will be kept confidential according to EEO guidelines. *** NO C2C ***"
+  },
+  {
+    "id": "1733311559",
+    "date_posted": "2025-06-12T09:00:56.1",
+    "date_created": "2025-06-12T09:01:04.590944",
+    "title": "Lead Java Software Engineer",
+    "organization": "Visa",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Belfast",
+          "addressRegion": "UNITED KINGDOM",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Belfast, United Kingdom"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Visa/744000064683665-lead-java-software-engineer",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Belfast"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Belfast, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      54.5964
+    ],
+    "lngs_derived": [
+      -5.93
+    ],
+    "remote_derived": false,
+    "domain_derived": "visa.com",
+    "description_text": "Company DescriptionVisa is a world leader in payments and technology, with over 259 billion payments transactions flowing safely between consumers, merchants, financial institutions, and government entities in more than 200 countries and territories each year. Our mission is to connect the world through the most innovative, convenient, reliable, and secure payments network, enabling individuals, businesses, and economies to thrive while driven by a common purpose – to uplift everyone, everywhere by being the best way to pay and be paid.Make an impact with a purpose-driven industry leader. Join us today and experience Life at Visa.Job DescriptionVisa’s Technology Organization is a community of problem solvers and innovators reshaping the future of commerce.   We operate the world’s most sophisticated processing networks capable of handling more than 65k secure transactions a second across 80M merchants, 15k Financial Institutions, and billions of everyday people.   While working with us you’ll get to work on complex distributed systems and solve massive scale problems centered on new payment flows, business and data solutions, cyber security, and B2C platforms.     The Opportunity: As a Senior Staff Software Engineer leading the Settlement & Offline Processing division in the Acceptance Solutions organization, you will be the driving force behind technological innovation and project execution. You'll spearhead the release strategy, ensuring that every delivery aligns seamlessly with our business strategy, focusing particularly on innovative payment acceptance and integrated commerce management. Setting the gold standard for engineering excellence, your role will be pivotal in architecting, designing, and launching the next generation of enterprise FinTech innovation. Your technical expertise will be the guiding light, illuminating the path to groundbreaking advancements in our field.Essential Functions:Collaborates with Solution or Enterprise Architects to translate architecture into a delivered solution that realizes the vision and purpose.Effectively translates functional and non- functional requirements into an engineered solution.Provides the technical guidance the project needs to meet the wider goals of the org strategy.To be successful in the role, you will be required to have deep knowledge of computer science fundamentals, micro-services, monolithic applications and its related technologies, multi-tiered architecture and specific experience in designing complex solutions for processing 5000+ TPS with 99.999% availability and highly resilient systems.Leads and supports both product and technical discussions about how to apply existing and/or new technology in support of the business.Leverage AI/ML technologies in bringing productivity across the SDLC phases and develop innovative business solutions and products.In addition to the technical skill set and passion for learning new technologies, the candidate will be a self-starter, results-driven, and equipped with excellent verbal and written communication skills to interface with leadership within Visa , external teams & stakeholders.Coach/Mentor others through informal sessions such as brown bags and tech talks.Understands how a project fits into the overall technology roadmap and communicate to the team to help establish buy-in and ownership.Takes ownership and/or leads the engineering responsibility for multiple components in a project.Provides consultative work throughout the project lifecycle to ensure vision and goal of project is realized through delivery.Is able to coordinate engineering activities across the delivery of the project.Works with engineers to ensure they are delivering quality and efficiently against project requirementsSuccessful candidate will have a flair for out-of-box thinking and be passionate about mentoring and coaching junior software engineers. Candidate should also have passion for engineering excellence, reducing TCO and improving TTM.**We do not expect that any single candidate would fulfill all of these characteristics. For instance, we have exciting team members who are really focused on building scalable systems but didn’t work with payments technology or web applications before joining Visa.This is a hybrid position. Expectation of days in office will be confirmed by your Hiring Manager.QualificationsBasic Qualifications: Relevant work experience with a Bachelor’s Degree, Advanced degree (e.g. Masters, MBA, JD, MD) or a PhD, with relevant work experience.Preferred Qualifications: A wealth of hands-on experience and deep knowledge/expertise in software product development of following technologies/frameworks: Java/J2EE, Spring, Hibernate, RDBMS, NoSQL DB, Kafka, VertX, TC Server, Containers based Backend REST APIs Applications.Experience in designing/architectural horizontally scalable, multi-tenant backend application Balances time between active coding related activities, design, coordination, mentoring, project management, and/or leading same. Experience in deployment and distribution lifecycle with automated and scalable CI/CD tools including Jenkins, Maven, Stash is a must.Experience with third-party libraries and APIs. Demonstrated proficiency in troubleshooting, and root-cause analysis in a complex and interconnect systems.Hands-on experience in AI, particularly Generative AI, is highly preferred.A go-getter who is not overwhelmed by new technology, tight timelines, or parallel projects Excellent written and verbal communication skills, interpersonal and presentation skills, and proven ability to influence and communicate effectively Additional InformationVisa is an EEO Employer. Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, sexual orientation, gender identity, disability or protected veteran status. Visa will also consider for employment qualified applicants with criminal histories in a manner consistent with EEOC guidelines and applicable local law."
+  },
+  {
+    "id": "1733505323",
+    "date_posted": "2025-06-12T03:39:33",
+    "date_created": "2025-06-12T10:51:35.662448",
+    "title": "Java Python AWS Software Engineer III",
+    "organization": "Chase- Candidate Experience page",
+    "organization_url": "https://jpmc.fa.oraclecloud.com:443/hcmUI/CandidateExperience/",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": null,
+          "addressRegion": "NY",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full time"
+    ],
+    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1002/job/210630269",
+    "source_type": "ats",
+    "source": "oraclecloud",
+    "source_domain": "jpmc.fa.oraclecloud.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "New York"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "New York, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      42.6664
+    ],
+    "lngs_derived": [
+      -73.7987
+    ],
+    "remote_derived": false,
+    "domain_derived": "chase.com",
+    "description_text": "We have an exciting and rewarding opportunity for you to take your software engineering career to the next level.\nAs a Software Engineer III at JPMorgan Chase within the Consumer & Community Banking - One Chase Experience team, you serve as a seasoned member of an agile team to design and deliver trusted market-leading technology products in a secure, stable, and scalable way. As a senior engineer in the team, you would be acting as the design authority and the mentor to Junior engineers through helping them out with technical issues and enforcing best practices. Furthermore, you would have an opportunity to lead the strategic initiative to migrate the existing app over from the Legacy platform to the modern platform/framework.\nJob responsibilities\nMaintain existing Java microservice/Python batch application and create new microservice/Python batch application base on the business requirements\nConvert batch processes that is built with Java Spark to Python/Python Spark\nExecutes software solutions, design, development, and technical troubleshooting with ability to think beyond routine or conventional approaches to build solutions or break down technical problems\nMove application running on on-premise private cloud to AWS. Provide knowledge transfer on this effort to other engineers so the whole team can support apps running on AWS\nProduces architecture and design artifacts for complex applications while being accountable for ensuring design constraints are met by software code development\nGathers, analyzes, synthesizes, and develops visualizations and reporting from large, diverse data sets in service of continuous improvement of software applications and systems\nProactively identifies hidden problems and patterns in data and uses these insights to drive improvements to coding hygiene and system architecture\nContributes to software engineering communities of practice and events that explore new and emerging technologies\nAdds to team culture of diversity, equity, inclusion, and respect\nConduct code reviews on code changes done by junior engineers and provide feedbacks on the changes needed so that engineers get educated\nRequired qualifications, capabilities, and skills\nFormal training or certification on software engineering concepts and 3+ years applied experience\nHands-on practical experience in system design, application development, testing, and operational stability\nProficient in coding in either Java (Spring Boot) or Python\nExperience in developing, debugging, and maintaining code in a large corporate environment with either Java or Python and database querying languages\nSolid understanding of agile methodologies and CI/CD\nExperience in developing and maintaining scalable microservice or batch application\nDemonstrates proficiency in AWS or any other cloud technology\nWorking knowledge on Kafka or any other event driven framework\nAble to clearly articulate technical topics to the business in concise manner\nCollaborate with other team members as a team and resolve conflicts professionally\nGuide and mentor junior engineers on technical items \nPreferred qualifications, capabilities, and skills\nExperience in Java/Python Spark\nExperience with Cassandra and Aurora Postgre\nExperience with ECS Fargate and AWS Glue\nExperience in integration with Salesforce or Salesforce development\nFamiliarity with modern front-end technologies such as reactj.js\nExperience in Machine Learning Algorithm\nWell versed in Splunk query"
+  },
+  {
+    "id": "1735231762",
+    "date_posted": "2025-06-12T00:00:00",
+    "date_created": "2025-06-13T05:37:52.762898",
+    "title": "Java Developer",
+    "organization": "Novalink Solutions  LLC",
+    "organization_url": "http://www.novalink-solutions.com",
+    "date_validthrough": "2025-07-12T22:23:00",
+    "locations_raw": [
+      {
+        "address": {
+          "addressCountry": "us",
+          "@type": "PostalAddress",
+          "postalCode": "45678",
+          "addressLocality": "Madison",
+          "addressRegion": "WI"
+        },
+        "@type": "Place"
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://novalink-solutions.zohorecruit.com/jobs/Careers/325678000024341590/Java-Developer",
+    "source_type": "ats",
+    "source": "zoho",
+    "source_domain": "novalink-solutions.zohorecruit.com",
+    "organization_logo": "https://recruit.zoho.com/recruit/ViewLogo?digest=tte4GbXAI7Nhrb1k@blBpA--",
+    "cities_derived": [
+      "Madison"
+    ],
+    "regions_derived": [
+      "Wisconsin"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Madison, Wisconsin, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      43.0822
+    ],
+    "lngs_derived": [
+      -89.393
+    ],
+    "remote_derived": false,
+    "domain_derived": "novalink-solutions.com",
+    "description_text": "The ideal candidate will take a lead role in modernizing State of Wisconsin, Department of Transportation web \napplications. Within this modernization effort the candidate will provide technical expertise in migrating\napplications to Spring Boot, upgrading Java versions, updating presentation layer technologies, migrating\napplications to container hosted environments, and provide guidance in the development of a DevSecOps and\nCI/CD development pipeline following industry best practices. We are looking for someone with strong\nexperience in Java, MVC pattern implementation (Struts, Spring), full lifecycle testing, microservice architecture\npatterns, and Agile Scrum project management methodology. Strong candidates should also have experience\nwith container creation and deployment, DevSecOps best practices, and modern presentation layer\ntechnologies.\nCandidates will be responsible for consulting on the design and support of enterprise-wide applications. Solve\ncomplex technical problems. Develop testing methodology and criteria and implement them on automated build\nprocesses. Lead efforts for modernizing Java applications to Spring Boot following industry best practices.\nKnowledge of industry standard patterns for modernization (i.e. lift and shift, strangler, etc.). Consult and\nprovide guidance to teams migrating applications to a containerized hosting environment. Develop application\npresentation layers using modern JavaScript/TypeScript technologies such as Angular or React. Provide\nguidance in developing a roadmap for moving applications toward a microservices architecture.\n\nRequirements\nTop Skills & Years of Experience: \n- Java 5+ years\n- Spring Framework 4+ years\n- Mircoservices 2+ years\n\nNice to have skills:\n- Angular 3+ years\n- DevSecOps Best Practices 3+ years\n- Automated Testing Best Practices 3+ years\n\nAdditional details: \nThe ideal candidate will take a development role in modernizing State of Wisconsin, Department of Transportation web applications. Within this modernization effort the candidate will provide technical expertise in migrating applications to Spring Boot, upgrading Java versions, updating presentation layer technologies, migrating applications to container hosted environments, and provide guidance in the development of a DevSecOps and CI/CD development pipeline following industry best practices. We are looking for someone with strong experience in Java, MVC pattern implementation (Struts, Spring), full lifecycle testing, microservice architecture patterns, and Agile Scrum project management methodology. Strong candidates should also have experience with container creation and deployment, DevSecOps best practices, and modern presentation layer technologies.\n\nCandidates will be responsible for consulting on the design and support of enterprise-wide applications. Solve complex technical problems. Develop testing methodology and criteria and implement them on automated build processes. Modernizing Java applications to Spring Boot following industry best practices. Knowledge of industry standard patterns for modernization (i.e. lift and shift, strangler, etc.). Consult and provide guidance to teams migrating applications to a containerized hosting environment. Develop application presentation layers using modern JavaScript/TypeScript technologies such as Angular or React. Provide guidance in developing a roadmap for moving applications toward a microservices architecture."
+  }
+]

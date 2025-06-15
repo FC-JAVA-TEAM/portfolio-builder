@@ -12,6 +12,6 @@ public interface EnhancedJobPostingService {
     List<JobPostingDTO> getAllJobPostings();
     JobPostingDTO getJobPostingById(Long id);
     List<JobPostingDTO> getJobPostingsByStatus(JobStatus status);
-    List<JobPostingDTO> getJobPostingsByDepartment(String department);
-    List<JobPostingDTO> getJobPostingsByEmploymentType(String employmentType);
+    List<JobPostingDTO> getJobPostingsByOrganization(String organization);
+    List<JobPostingDTO> getJobPostingsByType(String type);
 }

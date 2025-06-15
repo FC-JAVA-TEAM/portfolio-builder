@@ -1,0 +1,5178 @@
+[
+  {
+    "id": "945980795",
+    "date_posted": "2024-10-10T19:51:45",
+    "date_created": "2024-10-10T15:31:23.222651",
+    "title": "Customer Service Representative- Part Time",
+    "organization": "Method Workers' Compensation",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "13810 FNB Parkway",
+          "addressLocality": "Omaha",
+          "addressRegion": "NE",
+          "postalCode": "68154",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2786646",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=11446",
+    "cities_derived": [
+      "Omaha"
+    ],
+    "regions_derived": [
+      "Nebraska"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Omaha, Nebraska, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      41.2627
+    ],
+    "lngs_derived": [
+      -96.0529
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "945904558",
+    "date_posted": "2024-10-10T19:33:33",
+    "date_created": "2024-10-10T15:04:56.069359",
+    "title": "Digital Media Coordinator",
+    "organization": "Connecticut Foodshare Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2 Research Parkway",
+          "addressLocality": "Wallingford",
+          "addressRegion": "CT",
+          "postalCode": "06492",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2785456",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=14300",
+    "cities_derived": [
+      "Wallingford"
+    ],
+    "regions_derived": [
+      "Connecticut"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Wallingford, Connecticut, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      41.4589
+    ],
+    "lngs_derived": [
+      -72.8038
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "945904455",
+    "date_posted": "2024-10-10T19:33:11",
+    "date_created": "2024-10-10T15:04:54.727785",
+    "title": "Creative Director",
+    "organization": "Connecticut Foodshare Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2 Research Parkway",
+          "addressLocality": "Wallingford",
+          "addressRegion": "CT",
+          "postalCode": "06492",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2785495",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=14300",
+    "cities_derived": [
+      "Wallingford"
+    ],
+    "regions_derived": [
+      "Connecticut"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Wallingford, Connecticut, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      41.4589
+    ],
+    "lngs_derived": [
+      -72.8038
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "945904444",
+    "date_posted": "2024-10-10T19:32:26",
+    "date_created": "2024-10-10T15:04:54.324148",
+    "title": "Project Manager",
+    "organization": "Connecticut Foodshare Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2 Research Parkway",
+          "addressLocality": "Wallingford",
+          "addressRegion": "CT",
+          "postalCode": "06492",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2785476",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=14300",
+    "cities_derived": [
+      "Wallingford"
+    ],
+    "regions_derived": [
+      "Connecticut"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Wallingford, Connecticut, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      41.4589
+    ],
+    "lngs_derived": [
+      -72.8038
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "945993742",
+    "date_posted": "2024-10-10T18:06:44",
+    "date_created": "2024-10-10T15:34:53.530691",
+    "title": "ECM Lead Care Manager",
+    "organization": "Bayview Hunters Point Foundation for Community Imp",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1625 Carroll Ave",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94124",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": "{\"@type\":\"MonetaryAmount\",\"currency\":\"USD\",\"value\":{\"@type\":\"QuantitativeValue\",\"minValue\":72000,\"maxValue\":77000,\"unitText\":\"YEAR\"}}",
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2786069",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=18349",
+    "cities_derived": [
+      "San Francisco"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "San Francisco, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      37.7558
+    ],
+    "lngs_derived": [
+      -122.4449
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049239",
+    "date_posted": "2024-10-10T15:56:57.39",
+    "date_created": "2024-10-10T15:57:05.526116",
+    "title": "AFC ENGINEER (SAUDI NATIONAL)",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Riyadh",
+          "addressRegion": "Riyadh Province",
+          "addressCountry": "Saudi Arabia"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019672555-afc-engineer-saudi-national-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Riyadh"
+    ],
+    "regions_derived": [
+      "Ar Riyāḑ"
+    ],
+    "countries_derived": [
+      "Saudi Arabia"
+    ],
+    "locations_derived": [
+      "Riyadh, Ar Riyāḑ, Saudi Arabia"
+    ],
+    "timezones_derived": [
+      "Asia/Riyadh"
+    ],
+    "lats_derived": [
+      24.6333
+    ],
+    "lngs_derived": [
+      46.7167
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049202",
+    "date_posted": "2024-10-10T15:56:52.781",
+    "date_created": "2024-10-10T15:57:04.524083",
+    "title": "JUNIOR CIVIL ENGINEER - UAE NATIONAL",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Abu Dhabi",
+          "addressRegion": "Abu Dhabi",
+          "addressCountry": "United Arab Emirates"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019672535-junior-civil-engineer-uae-national",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Abu Dhabi"
+    ],
+    "regions_derived": [
+      "Abū Z̧aby"
+    ],
+    "countries_derived": [
+      "United Arab Emirates"
+    ],
+    "locations_derived": [
+      "Abu Dhabi, Abū Z̧aby, United Arab Emirates"
+    ],
+    "timezones_derived": [
+      "Asia/Dubai"
+    ],
+    "lats_derived": [
+      24.4667
+    ],
+    "lngs_derived": [
+      54.3667
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049204",
+    "date_posted": "2024-10-10T15:56:48.379",
+    "date_created": "2024-10-10T15:57:04.539265",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "2647 South 24th Street",
+          "addressLocality": "Council Bluffs",
+          "addressRegion": "Iowa",
+          "postalCode": "51501",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019672378-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Council Bluffs"
+    ],
+    "regions_derived": [
+      "Iowa"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Council Bluffs, Iowa, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      41.2369
+    ],
+    "lngs_derived": [
+      -95.8516
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049216",
+    "date_posted": "2024-10-10T15:56:47.959",
+    "date_created": "2024-10-10T15:57:04.908456",
+    "title": "SENIOR CONSULTANT / MANAGER - RISK (NON-BANKING)",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "addressCountry": "United Arab Emirates"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019666523-senior-consultant-manager-risk-non-banking-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Dubai"
+    ],
+    "regions_derived": [
+      "Dubayy"
+    ],
+    "countries_derived": [
+      "United Arab Emirates"
+    ],
+    "locations_derived": [
+      "Dubai, Dubayy, United Arab Emirates"
+    ],
+    "timezones_derived": [
+      "Asia/Dubai"
+    ],
+    "lats_derived": [
+      25.2631
+    ],
+    "lngs_derived": [
+      55.2972
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049220",
+    "date_posted": "2024-10-10T15:56:42.264",
+    "date_created": "2024-10-10T15:57:04.998325",
+    "title": "ASSOCIATE PRINCIPAL STRUCTURAL ENGINEER",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Riyadh",
+          "addressRegion": "Riyadh Province",
+          "addressCountry": "Saudi Arabia"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019672435-associate-principal-structural-engineer",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Riyadh"
+    ],
+    "regions_derived": [
+      "Ar Riyāḑ"
+    ],
+    "countries_derived": [
+      "Saudi Arabia"
+    ],
+    "locations_derived": [
+      "Riyadh, Ar Riyāḑ, Saudi Arabia"
+    ],
+    "timezones_derived": [
+      "Asia/Riyadh"
+    ],
+    "lats_derived": [
+      24.6333
+    ],
+    "lngs_derived": [
+      46.7167
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049243",
+    "date_posted": "2024-10-10T15:56:40.716",
+    "date_created": "2024-10-10T15:57:05.806657",
+    "title": "Senior Consultant",
+    "organization": "Ramboll",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "240 Blackfriars Road",
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "postalCode": "SE1 8NW",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Vollzeit"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Ramboll3/744000019671100-senior-consultant",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049208",
+    "date_posted": "2024-10-10T15:56:40.644",
+    "date_created": "2024-10-10T15:57:04.655194",
+    "title": "Import Operations Manager",
+    "organization": "Expeditors",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "8000 Centre Park Drive",
+          "addressLocality": "Austin",
+          "addressRegion": "Texas",
+          "postalCode": "78754",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Expeditors/744000019672405-import-operations-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Austin"
+    ],
+    "regions_derived": [
+      "Texas"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Austin, Texas, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      30.3005
+    ],
+    "lngs_derived": [
+      -97.7522
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049207",
+    "date_posted": "2024-10-10T15:56:36.574",
+    "date_created": "2024-10-10T15:57:04.651747",
+    "title": "CONTRACT ADMINISTRATION EXPERT",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Riyadh",
+          "addressRegion": "Riyadh Province",
+          "addressCountry": "Saudi Arabia"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019672336-contract-administration-expert",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Riyadh"
+    ],
+    "regions_derived": [
+      "Ar Riyāḑ"
+    ],
+    "countries_derived": [
+      "Saudi Arabia"
+    ],
+    "locations_derived": [
+      "Riyadh, Ar Riyāḑ, Saudi Arabia"
+    ],
+    "timezones_derived": [
+      "Asia/Riyadh"
+    ],
+    "lats_derived": [
+      24.6333
+    ],
+    "lngs_derived": [
+      46.7167
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049212",
+    "date_posted": "2024-10-10T15:56:32.154",
+    "date_created": "2024-10-10T15:57:04.730638",
+    "title": "DESIGN COORDINATOR",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Riyadh",
+          "addressRegion": "Riyadh Province",
+          "addressCountry": "Saudi Arabia"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019670753-design-coordinator",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Riyadh"
+    ],
+    "regions_derived": [
+      "Ar Riyāḑ"
+    ],
+    "countries_derived": [
+      "Saudi Arabia"
+    ],
+    "locations_derived": [
+      "Riyadh, Ar Riyāḑ, Saudi Arabia"
+    ],
+    "timezones_derived": [
+      "Asia/Riyadh"
+    ],
+    "lats_derived": [
+      24.6333
+    ],
+    "lngs_derived": [
+      46.7167
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049201",
+    "date_posted": "2024-10-10T15:56:20.8",
+    "date_created": "2024-10-10T15:57:04.498064",
+    "title": "EMPLOYE COMMERCIAL - rayon liquide (H/F)",
+    "organization": "Groupement Les Mousquetaires",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "58 Rue de Rennes",
+          "addressLocality": "Montauban-de-Bretagne",
+          "addressRegion": "Bretagne",
+          "postalCode": "35360",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GroupementLesMousquetaires/744000019670371-employe-commercial-rayon-liquide-h-f-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Montauban-de-Bretagne"
+    ],
+    "regions_derived": [
+      "Bretagne"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Montauban-de-Bretagne, Bretagne, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.1992
+    ],
+    "lngs_derived": [
+      -2.0481
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049279",
+    "date_posted": "2024-10-10T15:56:13.609",
+    "date_created": "2024-10-10T15:57:06.884819",
+    "title": "Dental Receptionist",
+    "organization": "PortmanDentex",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "15 Main Street",
+          "addressLocality": "Bannockburn",
+          "addressRegion": "Scotland",
+          "postalCode": "FK7 8LZ",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PortmanDentex/744000019670302-dental-receptionist",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bannockburn"
+    ],
+    "regions_derived": [
+      "Stirling"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Bannockburn, Stirling, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      56.09
+    ],
+    "lngs_derived": [
+      -3.91
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049273",
+    "date_posted": "2024-10-10T15:56:12.157",
+    "date_created": "2024-10-10T15:57:06.739694",
+    "title": "Arby's Team Member",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "4032 West Highway 326",
+          "addressLocality": "Ocala",
+          "addressRegion": "Florida",
+          "postalCode": "34482",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019672255-arby-s-team-member",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Ocala"
+    ],
+    "regions_derived": [
+      "Florida"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Ocala, Florida, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      29.178
+    ],
+    "lngs_derived": [
+      -82.1511
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049269",
+    "date_posted": "2024-10-10T15:56:01.604",
+    "date_created": "2024-10-10T15:57:06.66641",
+    "title": "Consultant(e) HR & Transformation Bureau de Lyon",
+    "organization": "Sia Partners",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "3 Rue du Président Carnot",
+          "addressLocality": "Lyon",
+          "addressRegion": "Auvergne-Rhône-Alpes",
+          "postalCode": "69002",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/SiaPartners/744000019668576-consultant-e-hr-transformation-bureau-de-lyon",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Lyon"
+    ],
+    "regions_derived": [
+      "Auvergne-Rhône-Alpes"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Lyon, Auvergne-Rhône-Alpes, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      45.76
+    ],
+    "lngs_derived": [
+      4.84
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049280",
+    "date_posted": "2024-10-10T15:56:01.052",
+    "date_created": "2024-10-10T15:57:06.889343",
+    "title": "Automotive Technician / Mechanic | Up to $120k Annually & Weekends Off | Otsego",
+    "organization": "Christian Brothers Automotive",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Otsego",
+          "addressRegion": "Minnesota",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/ChristianBrothersAutomotive/744000019671857-automotive-technician-mechanic-up-to-120k-annually-weekends-off-otsego",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Otsego"
+    ],
+    "regions_derived": [
+      "Minnesota"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Otsego, Minnesota, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      45.266
+    ],
+    "lngs_derived": [
+      -93.6201
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049298",
+    "date_posted": "2024-10-10T15:55:56.075",
+    "date_created": "2024-10-10T15:57:07.271328",
+    "title": "Fashion Associate (Part time) - Trinity Common",
+    "organization": "Reitmans (Canada) Ltée/Ltd",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "40 Great Lakes Drive",
+          "addressLocality": "Brampton",
+          "addressRegion": "Ontario",
+          "postalCode": "L6R 2K7",
+          "addressCountry": "Canada"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/ReitmansCanadaLteLtd/744000019670101-fashion-associate-part-time-trinity-common",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Brampton"
+    ],
+    "regions_derived": [
+      "Ontario"
+    ],
+    "countries_derived": [
+      "Canada"
+    ],
+    "locations_derived": [
+      "Brampton, Ontario, Canada"
+    ],
+    "timezones_derived": [
+      "America/Toronto"
+    ],
+    "lats_derived": [
+      43.6833
+    ],
+    "lngs_derived": [
+      -79.7667
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049277",
+    "date_posted": "2024-10-10T15:55:51.741",
+    "date_created": "2024-10-10T15:57:06.855271",
+    "title": "Part Time Sales Associate Factory Stores",
+    "organization": "GNC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Georgetown",
+          "addressRegion": "Kentucky",
+          "postalCode": "40324",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GNC/744000019672144-part-time-sales-associate-factory-stores",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Georgetown"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Georgetown, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.2247
+    ],
+    "lngs_derived": [
+      -84.5487
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049281",
+    "date_posted": "2024-10-10T15:55:48.678",
+    "date_created": "2024-10-10T15:57:06.919502",
+    "title": "Compliance Administrator",
+    "organization": "City and County Healthcare Group Ltd",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Newcastle-under-Lyme",
+          "addressRegion": "England",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/CityCountyHealthcareGroupLtd/744000019666518-compliance-administrator",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049294",
+    "date_posted": "2024-10-10T15:55:41.978",
+    "date_created": "2024-10-10T15:57:07.205401",
+    "title": "Deli Baker",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1555 Tommy Webb Drive",
+          "addressLocality": "Meridian",
+          "addressRegion": "Mississippi",
+          "postalCode": "39307",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019672085-deli-baker",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Meridian"
+    ],
+    "regions_derived": [
+      "Mississippi"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Meridian, Mississippi, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      32.3846
+    ],
+    "lngs_derived": [
+      -88.6896
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049305",
+    "date_posted": "2024-10-10T15:55:38.887",
+    "date_created": "2024-10-10T15:57:07.540701",
+    "title": "Rental Sales Agent",
+    "organization": "SIXT",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Rotterdam",
+          "postalCode": "3012 CM",
+          "addressCountry": "Netherlands"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/SIXT/744000019672045-rental-sales-agent",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Rotterdam"
+    ],
+    "regions_derived": [
+      "Zuid-Holland"
+    ],
+    "countries_derived": [
+      "Netherlands"
+    ],
+    "locations_derived": [
+      "Rotterdam, Zuid-Holland, Netherlands"
+    ],
+    "timezones_derived": [
+      "Europe/Amsterdam"
+    ],
+    "lats_derived": [
+      51.9167
+    ],
+    "lngs_derived": [
+      4.5
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049314",
+    "date_posted": "2024-10-10T15:55:14.05",
+    "date_created": "2024-10-10T15:57:07.934019",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "2647 South 24th Street",
+          "addressLocality": "Council Bluffs",
+          "addressRegion": "Iowa",
+          "postalCode": "51501",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019667096-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Council Bluffs"
+    ],
+    "regions_derived": [
+      "Iowa"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Council Bluffs, Iowa, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      41.2369
+    ],
+    "lngs_derived": [
+      -95.8516
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049338",
+    "date_posted": "2024-10-10T15:55:08.172",
+    "date_created": "2024-10-10T15:57:08.876247",
+    "title": "Stage Innovation : Ingénieur Conception / Méthodes",
+    "organization": "ALTEN",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Rennes",
+          "addressRegion": "Brittany",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Stage"
+    ],
+    "url": "https://jobs.smartrecruiters.com/ALTEN/744000019671974-stage-innovation-ingenieur-conception-methodes",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Rennes"
+    ],
+    "regions_derived": [
+      "Bretagne"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Rennes, Bretagne, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.1147
+    ],
+    "lngs_derived": [
+      -1.6794
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049341",
+    "date_posted": "2024-10-10T15:55:06.258",
+    "date_created": "2024-10-10T15:57:08.936235",
+    "title": "Automotive Service Advisor / Writer | Weekends Off |Ducktown",
+    "organization": "Christian Brothers Automotive",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Cumming",
+          "addressRegion": "Georgia",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/ChristianBrothersAutomotive/744000019671945-automotive-service-advisor-writer-weekends-off-ducktown",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Cumming"
+    ],
+    "regions_derived": [
+      "Georgia"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Cumming, Georgia, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      34.2063
+    ],
+    "lngs_derived": [
+      -84.1339
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049335",
+    "date_posted": "2024-10-10T15:54:59.114",
+    "date_created": "2024-10-10T15:57:08.849862",
+    "title": "Coordonnateur(trice) marketing",
+    "organization": "Monville LP",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1041 Rue de Bleury",
+          "addressLocality": "Montréal",
+          "addressRegion": "Québec",
+          "postalCode": "H2Z 1M7",
+          "addressCountry": "Canada"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps plein"
+    ],
+    "url": "https://jobs.smartrecruiters.com/MonvilleLP/744000019669980-coordonnateur-trice-marketing",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Montréal"
+    ],
+    "regions_derived": [
+      "Quebec"
+    ],
+    "countries_derived": [
+      "Canada"
+    ],
+    "locations_derived": [
+      "Montréal, Quebec, Canada"
+    ],
+    "timezones_derived": [
+      "America/Montreal"
+    ],
+    "lats_derived": [
+      45.5089
+    ],
+    "lngs_derived": [
+      -73.5617
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049344",
+    "date_posted": "2024-10-10T15:54:34.325",
+    "date_created": "2024-10-10T15:57:09.113028",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "819 Buck Creek Road",
+          "addressLocality": "Simpsonville",
+          "addressRegion": "Kentucky",
+          "postalCode": "40067",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019664998-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Simpsonville"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Simpsonville, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.2167
+    ],
+    "lngs_derived": [
+      -85.3515
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049358",
+    "date_posted": "2024-10-10T15:54:31.124",
+    "date_created": "2024-10-10T15:57:09.391886",
+    "title": "Chef de projet énergie H/F",
+    "organization": "BOCCARD",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Villeurbanne",
+          "addressRegion": "Auvergne-Rhône-Alpes",
+          "postalCode": "69100",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/BOCCARD/744000019670503-chef-de-projet-energie-h-f",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Villeurbanne"
+    ],
+    "regions_derived": [
+      "Auvergne-Rhône-Alpes"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Villeurbanne, Auvergne-Rhône-Alpes, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      45.7667
+    ],
+    "lngs_derived": [
+      4.8803
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049355",
+    "date_posted": "2024-10-10T15:54:29.572",
+    "date_created": "2024-10-10T15:57:09.33099",
+    "title": "CERTIFIED Ski Instructor - Winter 24-25",
+    "organization": "Aspen Skiing Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Aspen or Snowmass Village",
+          "addressRegion": "Colorado",
+          "postalCode": "81611",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AspenSkiingCompany/744000019670702-certified-ski-instructor-winter-24-25",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Colorado"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Colorado, United States"
+    ],
+    "timezones_derived": [
+      "America/Denver"
+    ],
+    "lats_derived": [
+      39.762
+    ],
+    "lngs_derived": [
+      -104.8758
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049352",
+    "date_posted": "2024-10-10T15:54:22.611",
+    "date_created": "2024-10-10T15:57:09.23577",
+    "title": "Chef de marché bovin lait H/F",
+    "organization": "Lely",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Rue de la Seine",
+          "addressLocality": "Bain-de-Bretagne",
+          "addressRegion": "Bretagne",
+          "postalCode": "35470",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Lely1/744000019664668-chef-de-marche-bovin-lait-h-f",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bain-de-Bretagne"
+    ],
+    "regions_derived": [
+      "Bretagne"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Bain-de-Bretagne, Bretagne, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      47.8422
+    ],
+    "lngs_derived": [
+      -1.6819
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049359",
+    "date_posted": "2024-10-10T15:54:21.137",
+    "date_created": "2024-10-10T15:57:09.40479",
+    "title": "[2024 - 2025] KIPP Gaston Elementary Daily Substitute",
+    "organization": "KIPP",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Gaston",
+          "addressRegion": "North Carolina",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/KIPP/744000019671297--2024-2025-kipp-gaston-elementary-daily-substitute",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Gaston"
+    ],
+    "regions_derived": [
+      "North Carolina"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Gaston, North Carolina, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      36.4965
+    ],
+    "lngs_derived": [
+      -77.6449
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049362",
+    "date_posted": "2024-10-10T15:54:01.261",
+    "date_created": "2024-10-10T15:57:09.462213",
+    "title": "Nursing Assistant Residential Program Coordinator / House Supervisor",
+    "organization": "Dungarvin",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Minneapolis",
+          "addressRegion": "Minnesota",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Dungarvin/744000019669652-nursing-assistant-residential-program-coordinator-house-supervisor",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Minneapolis"
+    ],
+    "regions_derived": [
+      "Minnesota"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Minneapolis, Minnesota, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      44.9635
+    ],
+    "lngs_derived": [
+      -93.2678
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049380",
+    "date_posted": "2024-10-10T15:54:00.775",
+    "date_created": "2024-10-10T15:57:10.518232",
+    "title": "Arby's Team Member",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "2441 South Church Street",
+          "addressLocality": "Murfreesboro",
+          "addressRegion": "Tennessee",
+          "postalCode": "37127",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019671050-arby-s-team-member",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Murfreesboro"
+    ],
+    "regions_derived": [
+      "Tennessee"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Murfreesboro, Tennessee, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      35.849
+    ],
+    "lngs_derived": [
+      -86.4121
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049389",
+    "date_posted": "2024-10-10T15:53:39.91",
+    "date_created": "2024-10-10T15:57:10.972721",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1915  Raccoon Valley Road NorthEast",
+          "addressLocality": "Heiskell",
+          "addressRegion": "Tennessee",
+          "postalCode": "37754-2192",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019671685-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Tennessee"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Tennessee, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      36.1715
+    ],
+    "lngs_derived": [
+      -86.7842
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049403",
+    "date_posted": "2024-10-10T15:53:36.251",
+    "date_created": "2024-10-10T15:57:11.237585",
+    "title": "EMPLOYE COMMERCIAL - secteur BAZAR (H/F)",
+    "organization": "Groupement Les Mousquetaires",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "58 Rue de Rennes",
+          "addressLocality": "Montauban-de-Bretagne",
+          "addressRegion": "Bretagne",
+          "postalCode": "35360",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GroupementLesMousquetaires/744000019671655-employe-commercial-secteur-bazar-h-f-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Montauban-de-Bretagne"
+    ],
+    "regions_derived": [
+      "Bretagne"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Montauban-de-Bretagne, Bretagne, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.1992
+    ],
+    "lngs_derived": [
+      -2.0481
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049388",
+    "date_posted": "2024-10-10T15:53:32.593",
+    "date_created": "2024-10-10T15:57:10.960219",
+    "title": "Nursing Assisant Residential Program Coordinator / House Supervisor",
+    "organization": "Dungarvin",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Minneapolis",
+          "addressRegion": "Minnesota",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Dungarvin/744000019671420-nursing-assisant-residential-program-coordinator-house-supervisor",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Minneapolis"
+    ],
+    "regions_derived": [
+      "Minnesota"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Minneapolis, Minnesota, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      44.9635
+    ],
+    "lngs_derived": [
+      -93.2678
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049399",
+    "date_posted": "2024-10-10T15:53:31.827",
+    "date_created": "2024-10-10T15:57:11.176448",
+    "title": "Part Time Sales Associate The Mall of St. Matthews",
+    "organization": "GNC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Louisville",
+          "addressRegion": "Kentucky",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GNC/744000019671605-part-time-sales-associate-the-mall-of-st-matthews",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Louisville"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Louisville, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.1663
+    ],
+    "lngs_derived": [
+      -85.6485
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049411",
+    "date_posted": "2024-10-10T15:53:15.925",
+    "date_created": "2024-10-10T15:57:11.437899",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Route 1 Box 202",
+          "addressLocality": "Pleasant Hill",
+          "addressRegion": "North Carolina",
+          "postalCode": "27866",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670473-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Pleasant Hill"
+    ],
+    "regions_derived": [
+      "North Carolina"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Pleasant Hill, North Carolina, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      36.258
+    ],
+    "lngs_derived": [
+      -80.8904
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946049412",
+    "date_posted": "2024-10-10T15:53:15.829",
+    "date_created": "2024-10-10T15:57:11.44354",
+    "title": "Picker/Packer2 (Finishing Clerk)",
+    "organization": "RR Donnelley",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Logan",
+          "addressRegion": "Utah",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/RRDonnelley/744000019671398-picker-packer2-finishing-clerk-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Logan"
+    ],
+    "regions_derived": [
+      "Utah"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Logan, Utah, United States"
+    ],
+    "timezones_derived": [
+      "America/Denver"
+    ],
+    "lats_derived": [
+      41.7399
+    ],
+    "lngs_derived": [
+      -111.8422
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041127",
+    "date_posted": "2024-10-10T15:52:47.602",
+    "date_created": "2024-10-10T15:53:05.495166",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1100 Martin Luther King Boulevard",
+          "addressLocality": "West Memphis",
+          "addressRegion": "Arkansas",
+          "postalCode": "72301-3784",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670328-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "West Memphis"
+    ],
+    "regions_derived": [
+      "Arkansas"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "West Memphis, Arkansas, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      35.153
+    ],
+    "lngs_derived": [
+      -90.1996
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041113",
+    "date_posted": "2024-10-10T15:52:39.797",
+    "date_created": "2024-10-10T15:53:04.986915",
+    "title": "Assistant Facility Controller",
+    "organization": "Veolia Environnement SA",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "9131 E 96th Ave",
+          "addressLocality": "Denver, North Metro",
+          "addressRegion": "Colorado",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/VeoliaEnvironnementSA/744000019664872-assistant-facility-controller",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Colorado"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Colorado, United States"
+    ],
+    "timezones_derived": [
+      "America/Denver"
+    ],
+    "lats_derived": [
+      39.762
+    ],
+    "lngs_derived": [
+      -104.8758
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041111",
+    "date_posted": "2024-10-10T15:52:38.434",
+    "date_created": "2024-10-10T15:53:04.956782",
+    "title": "Retail Customer Service (CSM) 17hrs",
+    "organization": "Entain",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "High Street Harlesden",
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "postalCode": "NW10 4SJ",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Entain/744000019668289-retail-customer-service-csm-17hrs",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041125",
+    "date_posted": "2024-10-10T15:52:31.182",
+    "date_created": "2024-10-10T15:53:05.433193",
+    "title": "EMPLOYE COMMERCIAL - secteur BAZAR (H/F)",
+    "organization": "Groupement Les Mousquetaires",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "58 Rue de Rennes",
+          "addressLocality": "Montauban-de-Bretagne",
+          "addressRegion": "Bretagne",
+          "postalCode": "35360",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GroupementLesMousquetaires/744000019664867-employe-commercial-secteur-bazar-h-f-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Montauban-de-Bretagne"
+    ],
+    "regions_derived": [
+      "Bretagne"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Montauban-de-Bretagne, Bretagne, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.1992
+    ],
+    "lngs_derived": [
+      -2.0481
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041126",
+    "date_posted": "2024-10-10T15:52:21.32",
+    "date_created": "2024-10-10T15:53:05.435981",
+    "title": ".NET 8 Systems Analyst/Programmer",
+    "organization": "i360technologies",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Oklahoma City",
+          "addressRegion": "Oklahoma",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/I360technologies/744000019670966--net-8-systems-analyst-programmer",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Oklahoma City"
+    ],
+    "regions_derived": [
+      "Oklahoma"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Oklahoma City, Oklahoma, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      35.4676
+    ],
+    "lngs_derived": [
+      -97.5136
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041129",
+    "date_posted": "2024-10-10T15:52:14.509",
+    "date_created": "2024-10-10T15:53:05.54502",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "2015 West Lucas Street",
+          "addressLocality": "Florence",
+          "addressRegion": "South Carolina",
+          "postalCode": "29501",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019666093-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Florence"
+    ],
+    "regions_derived": [
+      "South Carolina"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Florence, South Carolina, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      34.178
+    ],
+    "lngs_derived": [
+      -79.7898
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041115",
+    "date_posted": "2024-10-10T15:52:10.003",
+    "date_created": "2024-10-10T15:53:05.109756",
+    "title": "Associate Director, Investment PMX Lift",
+    "organization": "Publicis Groupe",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "375 Hudson Street",
+          "addressLocality": "New York",
+          "addressRegion": "New York",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicisGroupe/744000019670208-associate-director-investment-pmx-lift",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "New York"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "New York, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      42.6664
+    ],
+    "lngs_derived": [
+      -73.7987
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041116",
+    "date_posted": "2024-10-10T15:52:09.838",
+    "date_created": "2024-10-10T15:53:05.130569",
+    "title": "Senior Bank Program Manager",
+    "organization": "Wise",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Domain Tower 2, 10025 Alterra Parkway, Floor 23",
+          "addressLocality": "Austin",
+          "postalCode": "78758",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Wise/744000019671066-senior-bank-program-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Austin"
+    ],
+    "regions_derived": [
+      "Texas"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Austin, Texas, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      30.3005
+    ],
+    "lngs_derived": [
+      -97.7522
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041121",
+    "date_posted": "2024-10-10T15:51:49.295",
+    "date_created": "2024-10-10T15:53:05.209305",
+    "title": "Concentrator Check",
+    "organization": "Norco, Inc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1715 Idaho Street",
+          "addressLocality": "Lewiston",
+          "addressRegion": "Idaho",
+          "postalCode": "83501",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/NorcoInc1/744000019670477-concentrator-check",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Lewiston"
+    ],
+    "regions_derived": [
+      "Idaho"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Lewiston, Idaho, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      46.3934
+    ],
+    "lngs_derived": [
+      -116.9933
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041114",
+    "date_posted": "2024-10-10T15:51:46.135",
+    "date_created": "2024-10-10T15:53:05.023081",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "6158 US 223",
+          "addressLocality": "Ottawa Lake",
+          "addressRegion": "Michigan",
+          "postalCode": "49267-8736",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019665766-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Michigan"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Michigan, United States"
+    ],
+    "timezones_derived": [
+      "America/Detroit"
+    ],
+    "lats_derived": [
+      42.7142
+    ],
+    "lngs_derived": [
+      -84.5601
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041178",
+    "date_posted": "2024-10-10T15:51:22.577",
+    "date_created": "2024-10-10T15:53:07.377716",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "4030 East Boyd Road",
+          "addressLocality": "Decatur",
+          "addressRegion": "Illinois",
+          "postalCode": "62521",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019671245-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Decatur"
+    ],
+    "regions_derived": [
+      "Illinois"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Decatur, Illinois, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      39.8557
+    ],
+    "lngs_derived": [
+      -88.9342
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041165",
+    "date_posted": "2024-10-10T15:51:12.437",
+    "date_created": "2024-10-10T15:53:07.06744",
+    "title": "RECEPCIONISTA",
+    "organization": "Accor",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Cancún",
+          "addressRegion": "Quintana Roo",
+          "addressCountry": "Mexico"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "A jornada completa"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Accor/744000019669757-recepcionista",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Cancún"
+    ],
+    "regions_derived": [
+      "Quintana Roo"
+    ],
+    "countries_derived": [
+      "Mexico"
+    ],
+    "locations_derived": [
+      "Cancún, Quintana Roo, Mexico"
+    ],
+    "timezones_derived": [
+      "America/Cancun"
+    ],
+    "lats_derived": [
+      21.1606
+    ],
+    "lngs_derived": [
+      -86.8475
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041164",
+    "date_posted": "2024-10-10T15:51:12.207",
+    "date_created": "2024-10-10T15:53:07.039973",
+    "title": "OPEN CALL HIRING EVENTS - EATALY NJ - JOIN US!",
+    "organization": "Eataly North America",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1200 Morris Turnpike",
+          "addressLocality": "Millburn",
+          "addressRegion": "New Jersey",
+          "postalCode": "07078",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Eataly/744000019671195-open-call-hiring-events-eataly-nj-join-us-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Millburn"
+    ],
+    "regions_derived": [
+      "New Jersey"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Millburn, New Jersey, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.7394
+    ],
+    "lngs_derived": [
+      -74.324
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041170",
+    "date_posted": "2024-10-10T15:51:09.46",
+    "date_created": "2024-10-10T15:53:07.151345",
+    "title": "Bridge Project Design Engineer IV",
+    "organization": "AECOM",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Columbus",
+          "addressRegion": "Ohio",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AECOM2/744000019671155-bridge-project-design-engineer-iv",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Columbus"
+    ],
+    "regions_derived": [
+      "Ohio"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Columbus, Ohio, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      39.9862
+    ],
+    "lngs_derived": [
+      -82.9855
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041640",
+    "date_posted": "2024-10-10T15:51:07.518",
+    "date_created": "2024-10-10T15:53:24.126789",
+    "title": "Peintre industriel - Secteur ferroviaire",
+    "organization": "Segula Technologies",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Levis",
+          "addressRegion": "Québec",
+          "addressCountry": "Canada"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/SegulaTechnologies/744000019671125-peintre-industriel-secteur-ferroviaire",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Lévis"
+    ],
+    "regions_derived": [
+      "Quebec"
+    ],
+    "countries_derived": [
+      "Canada"
+    ],
+    "locations_derived": [
+      "Lévis, Quebec, Canada"
+    ],
+    "timezones_derived": [
+      "America/Montreal"
+    ],
+    "lats_derived": [
+      46.8
+    ],
+    "lngs_derived": [
+      -71.1833
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041189",
+    "date_posted": "2024-10-10T15:51:05.977",
+    "date_created": "2024-10-10T15:53:07.721903",
+    "title": "Strategic Account Manager - IFS Assyst",
+    "organization": "IFS",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Itasca",
+          "addressRegion": "Illinois",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/IFS1/744000019671095-strategic-account-manager-ifs-assyst",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Itasca"
+    ],
+    "regions_derived": [
+      "Illinois"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Itasca, Illinois, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      41.9772
+    ],
+    "lngs_derived": [
+      -88.0183
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041187",
+    "date_posted": "2024-10-10T15:50:41.987",
+    "date_created": "2024-10-10T15:53:07.668349",
+    "title": "Wendy's Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "110 Triport Road",
+          "addressLocality": "Georgetown",
+          "addressRegion": "Kentucky",
+          "postalCode": "40324",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019671055-wendy-s-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Georgetown"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Georgetown, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.2247
+    ],
+    "lngs_derived": [
+      -84.5487
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041188",
+    "date_posted": "2024-10-10T15:50:19.436",
+    "date_created": "2024-10-10T15:53:07.671451",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1100 North Dixie Highway",
+          "addressLocality": "Monroe",
+          "addressRegion": "Michigan",
+          "postalCode": "48162",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019668092-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Monroe"
+    ],
+    "regions_derived": [
+      "Michigan"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Monroe, Michigan, United States"
+    ],
+    "timezones_derived": [
+      "America/Detroit"
+    ],
+    "lats_derived": [
+      41.9155
+    ],
+    "lngs_derived": [
+      -83.3849
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041185",
+    "date_posted": "2024-10-10T15:50:12.355",
+    "date_created": "2024-10-10T15:53:07.654423",
+    "title": "Supervisor, Measurement PMX Lift",
+    "organization": "Publicis Groupe",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "375 Hudson Street",
+          "addressLocality": "New York",
+          "addressRegion": "New York",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicisGroupe/744000019666390-supervisor-measurement-pmx-lift",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "New York"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "New York, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      42.6664
+    ],
+    "lngs_derived": [
+      -73.7987
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041180",
+    "date_posted": "2024-10-10T15:50:08.985",
+    "date_created": "2024-10-10T15:53:07.448247",
+    "title": "Sr Financial Analyst",
+    "organization": "Visa",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Foster City",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Visa/744000019668882-sr-financial-analyst",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Foster City"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Foster City, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      37.5553
+    ],
+    "lngs_derived": [
+      -122.2659
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041209",
+    "date_posted": "2024-10-10T15:50:04.293",
+    "date_created": "2024-10-10T15:53:08.406716",
+    "title": "American Girl Tysons Corner Key Holder- Seasonal",
+    "organization": "Mattel",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "8090L Tysons Corner Center, Space K9L",
+          "addressLocality": "McLean",
+          "addressRegion": "VIRGINIA",
+          "postalCode": "22102",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/MattelInc/744000019667770-american-girl-tysons-corner-key-holder-seasonal",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "McLean"
+    ],
+    "regions_derived": [
+      "Virginia"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "McLean, Virginia, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.9436
+    ],
+    "lngs_derived": [
+      -77.1943
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041229",
+    "date_posted": "2024-10-10T15:49:55.32",
+    "date_created": "2024-10-10T15:53:09.076858",
+    "title": "Direct Support Professional / Driver - Bronx",
+    "organization": "AHRC NYC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "The Bronx",
+          "addressRegion": "New York",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AHRCNYC1/744000019670895-direct-support-professional-driver-bronx",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bronx"
+    ],
+    "regions_derived": [
+      "New York"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Bronx, New York, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.8501
+    ],
+    "lngs_derived": [
+      -73.8662
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041232",
+    "date_posted": "2024-10-10T15:49:55.123",
+    "date_created": "2024-10-10T15:53:09.198228",
+    "title": "Subway Sandwich Artist",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "7680 East State Route 37",
+          "addressLocality": "Sunbury",
+          "addressRegion": "Ohio",
+          "postalCode": "43074-9636",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019669917-subway-sandwich-artist",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Sunbury"
+    ],
+    "regions_derived": [
+      "Ohio"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Sunbury, Ohio, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.2485
+    ],
+    "lngs_derived": [
+      -82.8806
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041233",
+    "date_posted": "2024-10-10T15:49:46.011",
+    "date_created": "2024-10-10T15:53:09.216591",
+    "title": "Caterlink - Catering Assistant",
+    "organization": "WSH Group",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Heathfield Community College, Cade Street, Old Heathfield",
+          "addressLocality": "Heathfield",
+          "addressRegion": "East Sussex",
+          "postalCode": "TN21 8RJ",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/WSHGroup/744000019666806-caterlink-catering-assistant",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Heathfield"
+    ],
+    "regions_derived": [
+      "East Sussex"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Heathfield, East Sussex, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      50.97
+    ],
+    "lngs_derived": [
+      0.26
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041254",
+    "date_posted": "2024-10-10T15:49:36.697",
+    "date_created": "2024-10-10T15:53:09.919847",
+    "title": "Fullstack Software Engineer - AI Integrations (f/m/d)",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019664253-fullstack-software-engineer-ai-integrations-f-m-d-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041251",
+    "date_posted": "2024-10-10T15:49:34.438",
+    "date_created": "2024-10-10T15:53:09.896227",
+    "title": "Part Time Sales Associate Parkside Shopping",
+    "organization": "GNC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Frankfort",
+          "addressRegion": "Kentucky",
+          "postalCode": "40601",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GNC/744000019669890-part-time-sales-associate-parkside-shopping",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Frankfort"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Frankfort, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.1924
+    ],
+    "lngs_derived": [
+      -84.8643
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041243",
+    "date_posted": "2024-10-10T15:49:31.68",
+    "date_created": "2024-10-10T15:53:09.639075",
+    "title": "Fullstack Software Engineer - AI Integrations (f/m/d)",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Berlin",
+          "addressRegion": "Berlin",
+          "addressCountry": "Germany"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019669080-fullstack-software-engineer-ai-integrations-f-m-d-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Berlin"
+    ],
+    "regions_derived": [
+      "Berlin"
+    ],
+    "countries_derived": [
+      "Germany"
+    ],
+    "locations_derived": [
+      "Berlin, Berlin, Germany"
+    ],
+    "timezones_derived": [
+      "Europe/Berlin"
+    ],
+    "lats_derived": [
+      52.52
+    ],
+    "lngs_derived": [
+      13.405
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041255",
+    "date_posted": "2024-10-10T15:49:25.088",
+    "date_created": "2024-10-10T15:53:09.964835",
+    "title": "Arby's Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "2647 South 24th Street",
+          "addressLocality": "Council Bluffs",
+          "addressRegion": "Iowa",
+          "postalCode": "51501",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019665411-arby-s-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Council Bluffs"
+    ],
+    "regions_derived": [
+      "Iowa"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Council Bluffs, Iowa, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      41.2369
+    ],
+    "lngs_derived": [
+      -95.8516
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041244",
+    "date_posted": "2024-10-10T15:49:19.628",
+    "date_created": "2024-10-10T15:53:09.719502",
+    "title": "Manager, (m)PHASIZE",
+    "organization": "Publicis Groupe",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "375 Hudson Street",
+          "addressLocality": "New York",
+          "addressRegion": "New York",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicisGroupe/744000019670724-manager-m-phasize",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "New York"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "New York, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      42.6664
+    ],
+    "lngs_derived": [
+      -73.7987
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041263",
+    "date_posted": "2024-10-10T15:49:12.642",
+    "date_created": "2024-10-10T15:53:10.292595",
+    "title": "Senior Finance Manager",
+    "organization": "AJ Bell",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "AJ Bell Business Solutions",
+          "addressLocality": "Hybrid - WFH/Manchester",
+          "addressRegion": "MANCHESTER",
+          "postalCode": "M5 3EE",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AJBell1/744000019670467-senior-finance-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "Manchester"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Manchester, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      53.4794
+    ],
+    "lngs_derived": [
+      -2.2453
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041269",
+    "date_posted": "2024-10-10T15:49:08.595",
+    "date_created": "2024-10-10T15:53:10.571137",
+    "title": "Lifting Supervisor",
+    "organization": "BESIX",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Dammam",
+          "addressRegion": "Eastern Province",
+          "addressCountry": "Saudi Arabia"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/BESIX/744000019669699-lifting-supervisor",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Ad Dammām"
+    ],
+    "regions_derived": [
+      "Ash Sharqīyah"
+    ],
+    "countries_derived": [
+      "Saudi Arabia"
+    ],
+    "locations_derived": [
+      "Ad Dammām, Ash Sharqīyah, Saudi Arabia"
+    ],
+    "timezones_derived": [
+      "Asia/Riyadh"
+    ],
+    "lats_derived": [
+      26.4333
+    ],
+    "lngs_derived": [
+      50.1
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041302",
+    "date_posted": "2024-10-10T15:49:02.388",
+    "date_created": "2024-10-10T15:53:11.573536",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "4030 East Boyd Road",
+          "addressLocality": "Decatur",
+          "addressRegion": "Illinois",
+          "postalCode": "62521",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670655-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Decatur"
+    ],
+    "regions_derived": [
+      "Illinois"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Decatur, Illinois, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      39.8557
+    ],
+    "lngs_derived": [
+      -88.9342
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041296",
+    "date_posted": "2024-10-10T15:48:56.625",
+    "date_created": "2024-10-10T15:53:11.206796",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "979 State Route 173",
+          "addressLocality": "Bloomsbury",
+          "addressRegion": "New Jersey",
+          "postalCode": "08804-3113",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670595-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bloomsbury"
+    ],
+    "regions_derived": [
+      "New Jersey"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Bloomsbury, New Jersey, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.6537
+    ],
+    "lngs_derived": [
+      -75.084
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041292",
+    "date_posted": "2024-10-10T15:48:53.436",
+    "date_created": "2024-10-10T15:53:11.157463",
+    "title": "Customer Service - Self Storage Manager",
+    "organization": "Public Storage",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Reseda",
+          "addressRegion": "California",
+          "postalCode": "91335",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicStorage/744000019669280-customer-service-self-storage-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      38.5677
+    ],
+    "lngs_derived": [
+      -121.4685
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041313",
+    "date_posted": "2024-10-10T15:48:37.518",
+    "date_created": "2024-10-10T15:53:12.05703",
+    "title": "Customer Service - Self Storage Manager",
+    "organization": "Public Storage",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Reseda",
+          "addressRegion": "California",
+          "postalCode": "91335",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicStorage/744000019665692-customer-service-self-storage-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      38.5677
+    ],
+    "lngs_derived": [
+      -121.4685
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041307",
+    "date_posted": "2024-10-10T15:48:30.846",
+    "date_created": "2024-10-10T15:53:11.792665",
+    "title": "Account Manager",
+    "organization": "Reach plc",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/ReachPlc/744000019670229-account-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041316",
+    "date_posted": "2024-10-10T15:48:25.494",
+    "date_created": "2024-10-10T15:53:12.279613",
+    "title": "Subway Sandwich Artist",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "522 Highway 601 South",
+          "addressLocality": "Lugoff",
+          "addressRegion": "South Carolina",
+          "postalCode": "29078",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019668456-subway-sandwich-artist",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Lugoff"
+    ],
+    "regions_derived": [
+      "South Carolina"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Lugoff, South Carolina, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      34.2113
+    ],
+    "lngs_derived": [
+      -80.6973
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041311",
+    "date_posted": "2024-10-10T15:48:09.949",
+    "date_created": "2024-10-10T15:53:12.019115",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "11570 State Highway FF",
+          "addressLocality": "Joplin",
+          "addressRegion": "Missouri",
+          "postalCode": "64804-7940",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670052-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Joplin"
+    ],
+    "regions_derived": [
+      "Missouri"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Joplin, Missouri, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      37.0757
+    ],
+    "lngs_derived": [
+      -94.5018
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041339",
+    "date_posted": "2024-10-10T15:48:03.175",
+    "date_created": "2024-10-10T15:53:13.29693",
+    "title": "Dock Worker- Dept 364 -Cherry (Swings)",
+    "organization": "Foster Farms",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Fresno",
+          "addressRegion": "California",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/FosterFarms/744000019664963-dock-worker-dept-364-cherry-swings-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Fresno"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Fresno, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      36.783
+    ],
+    "lngs_derived": [
+      -119.7939
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041324",
+    "date_posted": "2024-10-10T15:48:01.241",
+    "date_created": "2024-10-10T15:53:12.856165",
+    "title": "Spécialiste des Opérations (F/H/NB)",
+    "organization": "Ubisoft",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Saint-Mandé",
+          "addressRegion": "Île-de-France",
+          "postalCode": "94160",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Ubisoft2/744000019664248-specialiste-des-operations-f-h-nb-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Saint-Mandé"
+    ],
+    "regions_derived": [
+      "Île-de-France"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Saint-Mandé, Île-de-France, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.8422
+    ],
+    "lngs_derived": [
+      2.4186
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041334",
+    "date_posted": "2024-10-10T15:48:01.131",
+    "date_created": "2024-10-10T15:53:13.092704",
+    "title": "Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "951 Work Street",
+          "addressLocality": "Salinas",
+          "addressRegion": "California",
+          "postalCode": "93901",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019669030-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Salinas"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Salinas, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      36.6883
+    ],
+    "lngs_derived": [
+      -121.6317
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041343",
+    "date_posted": "2024-10-10T15:47:38.411",
+    "date_created": "2024-10-10T15:53:13.575968",
+    "title": "Subway Sandwich Artist",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1100 North Dixie Highway",
+          "addressLocality": "Monroe",
+          "addressRegion": "Michigan",
+          "postalCode": "48162",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670335-subway-sandwich-artist",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Monroe"
+    ],
+    "regions_derived": [
+      "Michigan"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Monroe, Michigan, United States"
+    ],
+    "timezones_derived": [
+      "America/Detroit"
+    ],
+    "lats_derived": [
+      41.9155
+    ],
+    "lngs_derived": [
+      -83.3849
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041337",
+    "date_posted": "2024-10-10T15:47:23.981",
+    "date_created": "2024-10-10T15:53:13.181888",
+    "title": "Premium Brands Intern",
+    "organization": "AccorCorpo",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Issy-les-Moulineaux",
+          "addressRegion": "Île-de-France",
+          "postalCode": "92130",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AccorCorpo/744000019666983-premium-brands-intern",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Issy-les-Moulineaux"
+    ],
+    "regions_derived": [
+      "Île-de-France"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Issy-les-Moulineaux, Île-de-France, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.8239
+    ],
+    "lngs_derived": [
+      2.27
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041347",
+    "date_posted": "2024-10-10T15:47:17.628",
+    "date_created": "2024-10-10T15:53:13.725994",
+    "title": "VENDEDOR/A - 30 hrs",
+    "organization": "JYSK",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Carrer del Cardenal Rossell s/n",
+          "addressLocality": "Palma",
+          "addressRegion": "Islas Baleares",
+          "postalCode": "07007",
+          "addressCountry": "Spain"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "A tiempo parcial"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JYSK/744000019670254-vendedor-a-30-hrs",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Palma"
+    ],
+    "regions_derived": [
+      "Balearic Islands"
+    ],
+    "countries_derived": [
+      "Spain"
+    ],
+    "locations_derived": [
+      "Palma, Balearic Islands, Spain"
+    ],
+    "timezones_derived": [
+      "Europe/Madrid"
+    ],
+    "lats_derived": [
+      39.5667
+    ],
+    "lngs_derived": [
+      2.65
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041359",
+    "date_posted": "2024-10-10T15:47:13.017",
+    "date_created": "2024-10-10T15:53:13.90099",
+    "title": "Customer Service - Self Storage Manager",
+    "organization": "Public Storage",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Reseda",
+          "addressRegion": "California",
+          "postalCode": "91335",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PublicStorage/744000019670224-customer-service-self-storage-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      38.5677
+    ],
+    "lngs_derived": [
+      -121.4685
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041363",
+    "date_posted": "2024-10-10T15:47:12.31",
+    "date_created": "2024-10-10T15:53:14.086838",
+    "title": "Janitorial Maintenance",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "3710 West Carlsbad Highway",
+          "addressLocality": "Hobbs",
+          "addressRegion": "New Mexico",
+          "postalCode": "88240",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019667433-janitorial-maintenance",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Hobbs"
+    ],
+    "regions_derived": [
+      "New Mexico"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Hobbs, New Mexico, United States"
+    ],
+    "timezones_derived": [
+      "America/Denver"
+    ],
+    "lats_derived": [
+      32.7281
+    ],
+    "lngs_derived": [
+      -103.16
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041374",
+    "date_posted": "2024-10-10T15:47:12.028",
+    "date_created": "2024-10-10T15:53:14.36423",
+    "title": "Aide opérateur assainissement H/F",
+    "organization": "Veolia Environnement SA",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1 Bis Rue du Gros Murger",
+          "addressLocality": "Saint-Ouen-l'Aumône",
+          "addressRegion": "Île-de-France",
+          "postalCode": "95310",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/VeoliaEnvironnementSA/744000019670185-aide-operateur-assainissement-h-f",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Saint-Ouen-l’Aumône"
+    ],
+    "regions_derived": [
+      "Île-de-France"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Saint-Ouen-l’Aumône, Île-de-France, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      49.0447
+    ],
+    "lngs_derived": [
+      2.1111
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041375",
+    "date_posted": "2024-10-10T15:47:04.352",
+    "date_created": "2024-10-10T15:53:14.380627",
+    "title": "Subway Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "142 Carbondale Road SW",
+          "addressLocality": "Dalton",
+          "addressRegion": "Georgia",
+          "postalCode": "30721-5301",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019670135-subway-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Dalton"
+    ],
+    "regions_derived": [
+      "Georgia"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Dalton, Georgia, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      34.769
+    ],
+    "lngs_derived": [
+      -84.972
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041388",
+    "date_posted": "2024-10-10T15:47:02.948",
+    "date_created": "2024-10-10T15:53:15.00204",
+    "title": "Investment Manager - Octopus Real Estate",
+    "organization": "Octopus",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "33 Holborn",
+          "addressLocality": "London",
+          "addressRegion": "England",
+          "postalCode": "EC1N 2HT",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Octopus1/744000019670094-investment-manager-octopus-real-estate",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": [
+      "London, City of"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "London, City of, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041384",
+    "date_posted": "2024-10-10T15:47:02.245",
+    "date_created": "2024-10-10T15:53:14.840799",
+    "title": "Inbound Phone Sales Representative",
+    "organization": "A Place For Mom",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Pittsburgh",
+          "addressRegion": "Pennsylvania",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/APlaceForMom1/744000019669841-inbound-phone-sales-representative",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Pittsburgh"
+    ],
+    "regions_derived": [
+      "Pennsylvania"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Pittsburgh, Pennsylvania, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.4397
+    ],
+    "lngs_derived": [
+      -79.9763
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041397",
+    "date_posted": "2024-10-10T15:46:59.474",
+    "date_created": "2024-10-10T15:53:15.438766",
+    "title": "Part Time Sales Associate Fayette Mall",
+    "organization": "GNC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Lexington",
+          "addressRegion": "Kentucky",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/GNC/744000019670054-part-time-sales-associate-fayette-mall",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Lexington"
+    ],
+    "regions_derived": [
+      "Kentucky"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Lexington, Kentucky, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.0423
+    ],
+    "lngs_derived": [
+      -84.4587
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041398",
+    "date_posted": "2024-10-10T15:46:55.963",
+    "date_created": "2024-10-10T15:53:15.512629",
+    "title": "Stagiaire Recrutement",
+    "organization": "Akuo",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "140 Avenue des Champs-Élysées",
+          "addressLocality": "Paris",
+          "addressRegion": "Île-de-France",
+          "postalCode": "75008",
+          "addressCountry": "France"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Temps complet"
+    ],
+    "url": "https://jobs.smartrecruiters.com/Akuo/744000019670034-stagiaire-recrutement",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Paris"
+    ],
+    "regions_derived": [
+      "Île-de-France"
+    ],
+    "countries_derived": [
+      "France"
+    ],
+    "locations_derived": [
+      "Paris, Île-de-France, France"
+    ],
+    "timezones_derived": [
+      "Europe/Paris"
+    ],
+    "lats_derived": [
+      48.8567
+    ],
+    "lngs_derived": [
+      2.3522
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041396",
+    "date_posted": "2024-10-10T15:46:44.046",
+    "date_created": "2024-10-10T15:53:15.411574",
+    "title": "Senior Territory Buyer (Asia Pacific)",
+    "organization": "Abercrombie and Fitch Co.",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Columbus",
+          "addressRegion": "Ohio",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/AbercrombieAndFitchCo/744000019669181-senior-territory-buyer-asia-pacific-",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Columbus"
+    ],
+    "regions_derived": [
+      "Ohio"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Columbus, Ohio, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      39.9862
+    ],
+    "lngs_derived": [
+      -82.9855
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041403",
+    "date_posted": "2024-10-10T15:46:30.779",
+    "date_created": "2024-10-10T15:53:15.656958",
+    "title": "Subway Cashier",
+    "organization": "Pilot Company",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "1555 Tommy Webb Drive",
+          "addressLocality": "Meridian",
+          "addressRegion": "Mississippi",
+          "postalCode": "39307",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/PilotCompany/744000019669955-subway-cashier",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Meridian"
+    ],
+    "regions_derived": [
+      "Mississippi"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Meridian, Mississippi, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      32.3846
+    ],
+    "lngs_derived": [
+      -88.6896
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041405",
+    "date_posted": "2024-10-10T15:46:29.368",
+    "date_created": "2024-10-10T15:53:15.745768",
+    "title": "Host - SpringRidge",
+    "organization": "Senior Resource Group, LLC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "32200 Southwest French Prairie Road",
+          "addressLocality": "Wilsonville",
+          "addressRegion": "Oregon",
+          "postalCode": "97070",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Part-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/SeniorResourceGroupLLC/744000019666698-host-springridge",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Wilsonville"
+    ],
+    "regions_derived": [
+      "Oregon"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Wilsonville, Oregon, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      45.3109
+    ],
+    "lngs_derived": [
+      -122.7702
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041412",
+    "date_posted": "2024-10-10T15:46:29.139",
+    "date_created": "2024-10-10T15:53:16.029428",
+    "title": "Inbound Phone Sales Representative",
+    "organization": "A Place For Mom",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Pittsburgh",
+          "addressRegion": "Pennsylvania",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/APlaceForMom1/744000019665172-inbound-phone-sales-representative",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Pittsburgh"
+    ],
+    "regions_derived": [
+      "Pennsylvania"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Pittsburgh, Pennsylvania, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      40.4397
+    ],
+    "lngs_derived": [
+      -79.9763
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041425",
+    "date_posted": "2024-10-10T15:46:26.84",
+    "date_created": "2024-10-10T15:53:16.459242",
+    "title": "Registered Behavior Technician (RBT) / Behavior Technician",
+    "organization": "Teach Me Personnel LLC",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "3030 Edgewater Dr",
+          "addressLocality": "Sugar Land",
+          "addressRegion": "Texas",
+          "postalCode": "77478",
+          "addressCountry": "United States"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/TeachMePersonnelLLC/744000019667582-registered-behavior-technician-rbt-behavior-technician",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Sugar Land"
+    ],
+    "regions_derived": [
+      "Texas"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Sugar Land, Texas, United States"
+    ],
+    "timezones_derived": [
+      "America/Chicago"
+    ],
+    "lats_derived": [
+      29.5935
+    ],
+    "lngs_derived": [
+      -95.6358
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041421",
+    "date_posted": "2024-10-10T15:46:26.285",
+    "date_created": "2024-10-10T15:53:16.327092",
+    "title": "Archer Developer",
+    "organization": "Jobs for Humanity",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "addressLocality": "Gurugram",
+          "addressRegion": "HARYANA",
+          "addressCountry": "India"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/JobsForHumanity/744000019669686-archer-developer",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "India"
+    ],
+    "locations_derived": [
+      "India"
+    ],
+    "timezones_derived": [
+      "Asia/Kolkata"
+    ],
+    "lats_derived": [
+      28.6139
+    ],
+    "lngs_derived": [
+      77.209
+    ],
+    "remote_derived": false
+  },
+  {
+    "id": "946041419",
+    "date_posted": "2024-10-10T15:46:13.053",
+    "date_created": "2024-10-10T15:53:16.237134",
+    "title": "Credit and Fraud Manager",
+    "organization": "Frasers Group",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "address": {
+          "streetAddress": "Petre Road",
+          "addressLocality": "Clayton-le-Moors",
+          "addressRegion": "England",
+          "postalCode": "BB5",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-time"
+    ],
+    "url": "https://jobs.smartrecruiters.com/FrasersGroup/744000019667612-credit-and-fraud-manager",
+    "source_type": "ats",
+    "source": "smartrecruiters",
+    "source_domain": "jobs.smartrecruiters.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -0.1275
+    ],
+    "remote_derived": false
+  }
+]

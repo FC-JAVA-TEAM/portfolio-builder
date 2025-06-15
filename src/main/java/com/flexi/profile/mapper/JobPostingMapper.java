@@ -16,14 +16,20 @@ public class JobPostingMapper {
         JobPostingDTO dto = new JobPostingDTO();
         dto.setId(jobPosting.getId());
         dto.setTitle(jobPosting.getTitle());
+        dto.setOrganization(jobPosting.getOrganization());
         dto.setDescription(jobPosting.getDescription());
-        dto.setDepartment(jobPosting.getDepartment());
-        dto.setLocation(jobPosting.getLocation());
-        dto.setEmploymentType(jobPosting.getEmploymentType());
-        dto.setRequiredSkills(jobPosting.getRequiredSkills());
+        dto.setSkills(jobPosting.getSkills());
+        dto.setLocationsDerived(jobPosting.getLocationsDerived());
+        dto.setType(jobPosting.getType());
+        dto.setDatePosted(jobPosting.getDatePosted());
+        dto.setDateCreated(jobPosting.getDateCreated());
+        dto.setSource(jobPosting.getSource());
+        dto.setSourceDomain(jobPosting.getSourceDomain());
+        dto.setRating(jobPosting.getRating());
         dto.setStatus(jobPosting.getStatus());
+        dto.setJobLink(jobPosting.getJobLink());
+        dto.setApplied(jobPosting.isApplied());
         dto.setCreatedBy(jobPosting.getCreatedBy() != null ? jobPosting.getCreatedBy().getId() : null);
-        dto.setCreatedAt(jobPosting.getCreatedAt());
         dto.setUpdatedAt(jobPosting.getUpdatedAt());
         return dto;
     }
@@ -35,12 +41,19 @@ public class JobPostingMapper {
 
         JobPosting jobPosting = new JobPosting();
         jobPosting.setTitle(dto.getTitle());
+        jobPosting.setOrganization(dto.getOrganization());
         jobPosting.setDescription(dto.getDescription());
-        jobPosting.setDepartment(dto.getDepartment());
-        jobPosting.setLocation(dto.getLocation());
-        jobPosting.setEmploymentType(dto.getEmploymentType());
-        jobPosting.setRequiredSkills(dto.getRequiredSkills());
+        jobPosting.setSkills(dto.getSkills());
+        jobPosting.setLocationsDerived(dto.getLocationsDerived());
+        jobPosting.setType(dto.getType());
+        jobPosting.setDatePosted(dto.getDatePosted());
+        jobPosting.setDateCreated(dto.getDateCreated());
+        jobPosting.setSource(dto.getSource());
+        jobPosting.setSourceDomain(dto.getSourceDomain());
+        jobPosting.setRating(dto.getRating());
         jobPosting.setStatus(dto.getStatus());
+        jobPosting.setJobLink(dto.getJobLink());
+        jobPosting.setApplied(dto.isApplied());
         return jobPosting;
     }
 
@@ -50,11 +63,18 @@ public class JobPostingMapper {
         }
 
         jobPosting.setTitle(dto.getTitle());
+        jobPosting.setOrganization(dto.getOrganization());
         jobPosting.setDescription(dto.getDescription());
-        jobPosting.setDepartment(dto.getDepartment());
-        jobPosting.setLocation(dto.getLocation());
-        jobPosting.setEmploymentType(dto.getEmploymentType());
-        jobPosting.setRequiredSkills(dto.getRequiredSkills());
+        jobPosting.setSkills(dto.getSkills());
+        jobPosting.setLocationsDerived(dto.getLocationsDerived());
+        jobPosting.setType(dto.getType());
+        jobPosting.setDatePosted(dto.getDatePosted());
+        jobPosting.setDateCreated(dto.getDateCreated());
+        jobPosting.setSource(dto.getSource());
+        jobPosting.setSourceDomain(dto.getSourceDomain());
+        jobPosting.setRating(dto.getRating());
         jobPosting.setStatus(dto.getStatus());
+        jobPosting.setJobLink(dto.getJobLink());
+        jobPosting.setApplied(dto.isApplied());
     }
 }

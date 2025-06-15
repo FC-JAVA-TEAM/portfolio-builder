@@ -48,10 +48,10 @@ public class JobPostingService {
 
         jobPosting.setTitle(jobPostingDetails.getTitle());
         jobPosting.setDescription(jobPostingDetails.getDescription());
-        jobPosting.setDepartment(jobPostingDetails.getDepartment());
-        jobPosting.setEmploymentType(jobPostingDetails.getEmploymentType());
-        jobPosting.setLocation(jobPostingDetails.getLocation());
-        jobPosting.setRequiredSkills(jobPostingDetails.getRequiredSkills());
+        jobPosting.setOrganization(jobPostingDetails.getOrganization());
+        jobPosting.setType(jobPostingDetails.getType());
+        jobPosting.setLocationsDerived(jobPostingDetails.getLocationsDerived());
+        jobPosting.setSkills(jobPostingDetails.getSkills());
         jobPosting.setStatus(jobPostingDetails.getStatus());
 
         return jobPostingRepository.save(jobPosting);
@@ -84,11 +84,19 @@ public class JobPostingService {
         return jobPostingRepository.findByStatus(status);
     }
 
-    public List<JobPosting> getJobPostingsByDepartment(String department) {
-        return jobPostingRepository.findByDepartment(department);
+    public List<JobPosting> getJobPostingsByOrganization(String organization) {
+        return jobPostingRepository.findByOrganization(organization);
     }
 
-    public List<JobPosting> getJobPostingsByEmploymentType(String employmentType) {
-        return jobPostingRepository.findByEmploymentType(employmentType);
+    public List<JobPosting> getJobPostingsByType(String type) {
+        return jobPostingRepository.findByType(type);
+    }
+
+    public List<JobPosting> getJobPostingsByLocation(String location) {
+        return jobPostingRepository.findByLocationsDerivedContaining(location);
+    }
+
+    public List<JobPosting> getJobPostingsBySkill(String skill) {
+        return jobPostingRepository.findBySkillsContaining(skill);
     }
 }

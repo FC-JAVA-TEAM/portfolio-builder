@@ -1,10 +1,13 @@
 package com.flexi.profile.controller;
 
+import com.flexi.profile.dto.JobPostingCreateDTO;
 import com.flexi.profile.dto.JobPostingDTO;
+import com.flexi.profile.dto.JobPostingResponseDTO;
 import com.flexi.profile.model.JobPosting.JobStatus;
 import com.flexi.profile.model.User;
 import com.flexi.profile.response.ApiResponse;
 import com.flexi.profile.response.ResponseMessage;
+import com.flexi.profile.service.EnhancedJobPostingResponseService;
 import com.flexi.profile.service.EnhancedJobPostingService;
 import com.flexi.profile.exception.UnauthorizedException;
 import com.flexi.profile.exception.ResourceNotFoundException;
@@ -14,31 +17,61 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v2/job-postings")
 public class EnhancedJobPostingController {
+    
+    private static final Logger logger = LoggerFactory.getLogger(EnhancedJobPostingController.class);
 
     @Autowired
     private EnhancedJobPostingService jobPostingService;
 
     @Autowired
     private UserRepository userRepository;
+    
+    
+    @Autowired
+    private EnhancedJobPostingResponseService enhancedJobPostingResponseService;
 
+   
     @PostMapping
     @PreAuthorize("hasAnyRole('HR', 'ADMIN')")
-    public ResponseEntity<ApiResponse<JobPostingDTO>> createJobPosting(
-            @RequestBody JobPostingDTO jobPosting,
+    public ResponseEntity<ApiResponse<JobPostingResponseDTO>> createJobPostingAI(
+            @Valid @RequestBody JobPostingResponseDTO jobPostingDTO,
             Authentication authentication) {
         Long userId = getUserIdFromAuthentication(authentication);
-        JobPostingDTO createdJobPosting = jobPostingService.createJobPosting(jobPosting, userId);
+        JobPostingResponseDTO createdJobPosting = enhancedJobPostingResponseService.createJobPosting(jobPostingDTO, userId);
         
-        ApiResponse<JobPostingDTO> response = ApiResponse.<JobPostingDTO>success()
+        ApiResponse<JobPostingResponseDTO> response = ApiResponse.<JobPostingResponseDTO>success()
+            .message("Job posting created successfully")
+            .data(createdJobPosting)
+            .requestId(UUID.randomUUID().toString())
+            .timestamp(LocalDateTime.now())
+            .build();
+            
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/post")
+    @PreAuthorize("hasAnyRole('HR', 'ADMIN')")
+    public ResponseEntity<ApiResponse<JobPostingResponseDTO>> createJobPosting(
+            @Valid @RequestBody JobPostingResponseDTO jobPosting,
+            Authentication authentication) {
+        Long userId = getUserIdFromAuthentication(authentication);
+        JobPostingResponseDTO createdJobPosting = enhancedJobPostingResponseService.createJobPosting(jobPosting, userId);
+        
+        ApiResponse<JobPostingResponseDTO> response = ApiResponse.<JobPostingResponseDTO>success()
             .message(ResponseMessage.JOB_POSTING_CREATED.getMessage())
             .data(createdJobPosting)
             .requestId(UUID.randomUUID().toString())
@@ -50,14 +83,14 @@ public class EnhancedJobPostingController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('HR', 'ADMIN')")
-    public ResponseEntity<ApiResponse<JobPostingDTO>> updateJobPosting(
+    public ResponseEntity<ApiResponse<JobPostingResponseDTO>> updateJobPosting(
             @PathVariable Long id,
-            @RequestBody JobPostingDTO jobPostingDetails,
+            @Valid @RequestBody JobPostingResponseDTO jobPostingDetails,
             Authentication authentication) {
         Long userId = getUserIdFromAuthentication(authentication);
-        JobPostingDTO updatedJobPosting = jobPostingService.updateJobPosting(id, jobPostingDetails, userId);
+        JobPostingResponseDTO updatedJobPosting = enhancedJobPostingResponseService.updateJobPosting(id, jobPostingDetails, userId);
         
-        ApiResponse<JobPostingDTO> response = ApiResponse.<JobPostingDTO>success()
+        ApiResponse<JobPostingResponseDTO> response = ApiResponse.<JobPostingResponseDTO>success()
             .message(ResponseMessage.JOB_POSTING_UPDATED.getMessage())
             .data(updatedJobPosting)
             .requestId(UUID.randomUUID().toString())
@@ -85,10 +118,10 @@ public class EnhancedJobPostingController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<JobPostingDTO>>> getAllJobPostings() {
-        List<JobPostingDTO> jobPostings = jobPostingService.getAllJobPostings();
+    public ResponseEntity<ApiResponse<List<JobPostingResponseDTO>>> getAllJobPostings() {
+        List<JobPostingResponseDTO> jobPostings = enhancedJobPostingResponseService.getAllJobPostingResponses();
         
-        ApiResponse<List<JobPostingDTO>> response = ApiResponse.<List<JobPostingDTO>>success()
+        ApiResponse<List<JobPostingResponseDTO>> response = ApiResponse.<List<JobPostingResponseDTO>>success()
             .message(ResponseMessage.JOB_POSTINGS_RETRIEVED.getMessage())
             .data(jobPostings)
             .requestId(UUID.randomUUID().toString())
@@ -99,10 +132,10 @@ public class EnhancedJobPostingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<JobPostingDTO>> getJobPostingById(@PathVariable Long id) {
-        JobPostingDTO jobPosting = jobPostingService.getJobPostingById(id);
+    public ResponseEntity<ApiResponse<JobPostingResponseDTO>> getJobPostingById(@PathVariable Long id) {
+        JobPostingResponseDTO jobPosting = enhancedJobPostingResponseService.getJobPostingResponseById(id);
         
-        ApiResponse<JobPostingDTO> response = ApiResponse.<JobPostingDTO>success()
+        ApiResponse<JobPostingResponseDTO> response = ApiResponse.<JobPostingResponseDTO>success()
             .message(ResponseMessage.JOB_POSTING_RETRIEVED.getMessage())
             .data(jobPosting)
             .requestId(UUID.randomUUID().toString())
@@ -113,10 +146,12 @@ public class EnhancedJobPostingController {
     }
 
     @GetMapping("/status/{status}")
-    public ResponseEntity<ApiResponse<List<JobPostingDTO>>> getJobPostingsByStatus(@PathVariable JobStatus status) {
-        List<JobPostingDTO> jobPostings = jobPostingService.getJobPostingsByStatus(status);
+    public ResponseEntity<ApiResponse<List<JobPostingResponseDTO>>> getJobPostingsByStatus(@PathVariable JobStatus status) {
+        List<JobPostingResponseDTO> jobPostings = enhancedJobPostingResponseService.getAllJobPostingResponses().stream()
+            .filter(jp -> jp.getStatus().equals(status.toString()))
+            .collect(Collectors.toList());
         
-        ApiResponse<List<JobPostingDTO>> response = ApiResponse.<List<JobPostingDTO>>success()
+        ApiResponse<List<JobPostingResponseDTO>> response = ApiResponse.<List<JobPostingResponseDTO>>success()
             .message(ResponseMessage.STATUS_JOB_POSTINGS_RETRIEVED.getMessage())
             .data(jobPostings)
             .requestId(UUID.randomUUID().toString())
@@ -126,12 +161,14 @@ public class EnhancedJobPostingController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/department/{department}")
-    public ResponseEntity<ApiResponse<List<JobPostingDTO>>> getJobPostingsByDepartment(@PathVariable String department) {
-        List<JobPostingDTO> jobPostings = jobPostingService.getJobPostingsByDepartment(department);
+    @GetMapping("/organization/{organization}")
+    public ResponseEntity<ApiResponse<List<JobPostingResponseDTO>>> getJobPostingsByOrganization(@PathVariable String organization) {
+        List<JobPostingResponseDTO> jobPostings = enhancedJobPostingResponseService.getAllJobPostingResponses().stream()
+            .filter(jp -> jp.getOrganization().equalsIgnoreCase(organization))
+            .collect(Collectors.toList());
         
-        ApiResponse<List<JobPostingDTO>> response = ApiResponse.<List<JobPostingDTO>>success()
-            .message(ResponseMessage.DEPARTMENT_JOB_POSTINGS_RETRIEVED.getMessage())
+        ApiResponse<List<JobPostingResponseDTO>> response = ApiResponse.<List<JobPostingResponseDTO>>success()
+            .message(ResponseMessage.ORGANIZATION_JOB_POSTINGS_RETRIEVED.getMessage())
             .data(jobPostings)
             .requestId(UUID.randomUUID().toString())
             .timestamp(LocalDateTime.now())
@@ -140,12 +177,14 @@ public class EnhancedJobPostingController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/employment-type/{employmentType}")
-    public ResponseEntity<ApiResponse<List<JobPostingDTO>>> getJobPostingsByEmploymentType(@PathVariable String employmentType) {
-        List<JobPostingDTO> jobPostings = jobPostingService.getJobPostingsByEmploymentType(employmentType);
+    @GetMapping("/type/{type}")
+    public ResponseEntity<ApiResponse<List<JobPostingResponseDTO>>> getJobPostingsByType(@PathVariable String type) {
+        List<JobPostingResponseDTO> jobPostings = enhancedJobPostingResponseService.getAllJobPostingResponses().stream()
+            .filter(jp -> jp.getType().equalsIgnoreCase(type))
+            .collect(Collectors.toList());
         
-        ApiResponse<List<JobPostingDTO>> response = ApiResponse.<List<JobPostingDTO>>success()
-            .message(ResponseMessage.EMPLOYMENT_TYPE_JOB_POSTINGS_RETRIEVED.getMessage())
+        ApiResponse<List<JobPostingResponseDTO>> response = ApiResponse.<List<JobPostingResponseDTO>>success()
+            .message(ResponseMessage.TYPE_JOB_POSTINGS_RETRIEVED.getMessage())
             .data(jobPostings)
             .requestId(UUID.randomUUID().toString())
             .timestamp(LocalDateTime.now())
@@ -160,8 +199,12 @@ public class EnhancedJobPostingController {
         }
         
         String username = authentication.getName();
+        logger.debug("Getting user ID for username: {}", username);
+        logger.debug("Authentication principal: {}", authentication.getPrincipal());
+        logger.debug("Authentication authorities: {}", authentication.getAuthorities());
+        
         return userRepository.findByEmail(username)
             .map(User::getId)
-            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+            .orElseThrow(() -> new UnauthorizedException("User not found"));
     }
 }

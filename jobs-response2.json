@@ -1,0 +1,1150 @@
+[
+  {
+    "id": "1734771673",
+    "date_posted": "2025-06-13T04:31:15",
+    "date_created": "2025-06-13T00:41:22.108154",
+    "title": "Senior Data Engineer (Hybrid)",
+    "organization": "Deep Sync",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6720 108th Ave NE",
+          "addressLocality": "Kirkland",
+          "addressRegion": "WA",
+          "postalCode": "98033-7050",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 130000,
+        "maxValue": 160000,
+        "unitText": "YEAR"
+      }
+    },
+    "employment_type": null,
+    "url": "https://recruiting.paylocity.com/Recruiting/Jobs/Details/2931608",
+    "source_type": "ats",
+    "source": "paylocity",
+    "source_domain": "recruiting.paylocity.com",
+    "organization_logo": "https://recruiting.paylocity.com/recruiting/jobs/GetLogoFile?moduleId=21024",
+    "cities_derived": [
+      "Kirkland"
+    ],
+    "regions_derived": [
+      "Washington"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Kirkland, Washington, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      47.697
+    ],
+    "lngs_derived": [
+      -122.2057
+    ],
+    "remote_derived": false,
+    "domain_derived": "deepsync.com",
+    "description_text": "Description\n\nAbout Deep Sync:\n\nDeep Sync is the industry leader in deterministic identity. Leveraging our 35-year foundation of compiling direct mail-grade datasets, Deep Sync develops data-first technologies that power marketing, measurement, AI, and business intelligence for agencies and brands with our fully deterministic identity graph, privacy-first audiences, comprehensive data solutions, and integrations with leading platforms and cloud providers.\n\n\nPosition Overview:\n\nWe are seeking a Senior Data Engineer with a robust background in data engineering to join our team. The ideal candidate will be pivotal in designing, developing, and maintaining our data infrastructure. This role emphasizes not on building machine learning models but on integrating and deploying these models into our data pipelines to enhance our capabilities in advanced analytics and machine learning processes. The successful candidate will contribute expertise to improve and scale our data engineering practices, ensuring the seamless incorporation of machine learning models into our operational workflows.\n\nThe Foundational team supports Deep Sync’s mission critical data processing pipelines, where we ingest vast amounts of data from a large number of data sources, along with our own data to deliver our foundational data products offered to thousands of customers nationwide. The data products your team supports span nationwide consumer, business, student/young adult, new mover/new homeowner, and other data assets for use in analytics, sales, marketing and AI applications.\n\nKey Responsibilities:\n\nData Pipeline Development:\nDesign, implement, and maintain scalable data pipelines to collect, process, and store data from various sources.\nEnsure data quality, accuracy, and consistency throughout the pipeline.\nData Modeling Integration:\nDesign and implement existing data models for predictive analytics, machine learning, and data exploration.\nOptimize data structures and storage to support predictive analytics/machine learning processes.\nData Integration:\nWork closely with cross-functional teams to integrate data from diverse sources, including databases, APIs, and external data providers.\nDevelop and maintain ETL processes to transform and enrich raw data into actionable insights.\nPerformance Tuning:\nMonitor and optimize the performance of data pipelines and databases to meet business requirements.\nIdentify and resolve bottlenecks and performance issues.\nContinuous Learning and mentoring:\nStay up-to-date with the latest advancements in data engineering and data science technologies.\nShare knowledge and mentor junior team members.\nRequirements\n\nExperience:\nRequired: Experience transforming traditional ETL with SSIS to modern Data Engineering tech stack\nTechnical leadership driving projects\n5+ years experience in SQL Query Design, SQL Performance Tuning and Query Optimization\n5+ years of relevant experience in Data Warehouse Design, Data Warehouse Technical Architectures, Development and Implementation\n5+ years of relevant experience in ETL Development, ETL Implementation, Unit Testing, Troubleshooting and Support of ETL Processes\nEnd to end data pipeline build experience\nKnowledge and Skills:\nProficiency in SQL Query Design and Implementation\nStrong Experience with Relational Data Warehouse Systems\nData Warehouse Management Systems\nOptimization by Indexing, Partitioning and Denormalization\nStrong ability to build and optimize data sets end to end, ‘big data’ data pipelines and architecture\nExperience with data security\nProgramming languages: Python, SQL \nBONUS: C# / .NET or Java or JavaScript\nStrong analytical and problem-solving skills\nTech Stack: \nCloud Provider Experience: AWS\nData Storage and Warehousing Analytics Engine \nSnowflake\nAmazon Services \nAWS Glue\nAWS Elastic MapReduce (EMR)\nAWS Lambda\nData Processing and Computation \nApache Spark\nWorkflow & DataOps \nApache Airflow® DAGs (Directed Acyclic Graph) for orchestration\nSQL Services Experience \nSSIS (SQL Server Integration Services)\nBONUS: SSAS (SQL Server Analysis Services)\nBONUS: SSRS (SQL Server Reporting Services\nLocation:\nHybrid to Kirkland, WA ( Tu-Th in office) \n\nBenefits:\nFlexible Time Off and Paid Holidays\nSalary $130,000 - $160,000, commensurate with experience and expertise.\nMedical/Vision/Dental Insurance, Voluntary Life & AD&D Insurance, Short-Term & Long-Term Disability, Critical Illness & Accident Insurance\n401(k) with employer matching\nApplicants must be authorized to work for ANY employer in the U.S. We are unable to sponsor or take over sponsorship of an employment Visa at this time. \n\nPlease Contact:\nHuman Resources\n888-970-7248\nhr@deepsync.com\n\nEqual Opportunity Employer"
+  },
+  {
+    "id": "1735105376",
+    "date_posted": "2025-06-13T00:00:00",
+    "date_created": "2025-06-13T04:20:41.882555",
+    "title": "Senior Data Engineer , GTS Corp",
+    "organization": "Amazon",
+    "organization_url": "https://www.amazon.com",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "United States",
+          "addressLocality": "Bellevue",
+          "addressRegion": "Washington"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "47.61001",
+          "longitude": "-122.1872"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://www.amazon.jobs/en/jobs/3008213",
+    "source_type": "ats",
+    "source": "in-house",
+    "source_domain": "amazon.jobs",
+    "organization_logo": null,
+    "cities_derived": [
+      "Bellevue"
+    ],
+    "regions_derived": [
+      "Washington"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Bellevue, Washington, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      47.5951
+    ],
+    "lngs_derived": [
+      -122.1535
+    ],
+    "remote_derived": false,
+    "domain_derived": "amazon.com",
+    "description_text": "Amazon’s global fulfillment network enables any merchant to ship items that are\nordered on Amazon to any place on earth. There is a complex network of ways in\nwhich items move between vendor locations, Amazon warehouses, and customer\nlocations as well as several intermediate locations through which packages\ntravel before reaching the customer. With a scale of millions of packages, each\nwith different attributes and delivery requirements, what results is a highly\ndense graph of nodes.\n\nWe have built a highly respected software engineering team which is focused on\nsolving complex problems in worldwide transportation using workflows,\noptimization algorithms, and machine learning systems. These are large-scale\ndistributed systems handling millions of packages being shipped through the\nAmazon logistics network.\n\nYou will be working with senior engineers and principals to solve problems of\nscale, improve existing services & build new ones, and work on deep and complex\nalgorithms to improve the experience of our customers globally while optimizing\nnetwork operations. Basic Qualifications: - 5+ years of data engineering\nexperience\n- Experience with data modeling, warehousing and building ETL pipelines\n- Experience with SQL\n- Experience in at least one modern scripting or programming language, such as\nPython, Java, Scala, or NodeJS\n- Experience mentoring team members on best practices Preferred Qualifications:\n- Experience operating large data warehouses\n- Experience with AWS technologies like Redshift, S3, AWS Glue, EMR, Kinesis,\nFireHose, Lambda, and IAM roles and permissions\n\nAmazon is an equal opportunity employer and does not discriminate on the basis\nof protected veteran status, disability, or other legally protected status.\n\nOur inclusive culture empowers Amazonians to deliver the best results for our\ncustomers. If you have a disability and need a workplace accommodation or\nadjustment during the application and hiring process, including support for the\ninterview or onboarding process, please visit\nhttps://amazon.jobs/content/en/how-we-hire/accommodations\n[https://amazon.jobs/content/en/how-we-hire/accommodations] for more\ninformation. If the country/region you’re applying in isn’t listed, please\ncontact your Recruiting Partner.\n\nOur compensation reflects the cost of labor across several US geographic\nmarkets. The base pay for this position ranges from $139,100/year in our lowest\ngeographic market up to $240,500/year in our highest geographic market. Pay is\nbased on a number of factors including market location and may vary depending on\njob-related knowledge, skills, and experience. Amazon is a total compensation\ncompany. Dependent on the position offered, equity, sign-on payments, and other\nforms of compensation may be provided as part of a total compensation package,\nin addition to a full range of medical, financial, and/or other benefits. For\nmore information, please visit\nhttps://www.aboutamazon.com/workplace/employee-benefits\n[https://www.aboutamazon.com/workplace/employee-benefits]. This position will\nremain posted until filled. Applicants should apply via our internal or external\ncareer site."
+  },
+  {
+    "id": "1734602575",
+    "date_posted": "2025-06-12T22:37:37.933",
+    "date_created": "2025-06-12T23:00:18.390359",
+    "title": "Data Engineer II - (Remote - US)",
+    "organization": "Mediavine",
+    "organization_url": "https://jobs.workable.com/company/6493f8b86ebd65e982482696/jobs-at-mediavine",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place"
+      }
+    ],
+    "locations_alt_raw": [
+      "Atlanta, Georgia, United States"
+    ],
+    "location_type": "TELECOMMUTE",
+    "location_requirements_raw": [
+      {
+        "@type": "Country",
+        "name": "United States"
+      }
+    ],
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/eKBbJbPtt8LsenMremXNNt/data-engineer-ii---(remote---us)-in-atlanta-at-mediavine",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/222576/logo",
+    "cities_derived": [
+      "Atlanta"
+    ],
+    "regions_derived": [
+      "Georgia"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Atlanta, Georgia, United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      33.7628
+    ],
+    "lngs_derived": [
+      -84.422
+    ],
+    "remote_derived": true,
+    "domain_derived": "mediavine.com",
+    "description_text": "Mediavine is seeking an experienced Data Engineer to join our engineering team. We are looking for someone who enjoys solving interesting problems and wants to work with a small team of talented engineers on a product used by thousands of publishers. \nAbout Mediavine\nMediavine is a fast-growing advertising management company representing over 10,000 websites in the food, lifestyle, DIY, and entertainment space. Founded by content creators, for content creators, Mediavine is a Top 20 Comscore property, exclusively reaching over 125 million monthly unique visitors. With best-in-class technology and a commitment to traffic quality and brand safety, we ensure optimal performance for our creators.\nMission & Culture\nWe are striving to build an inclusive and diverse team of highly talented individuals that reflect the industries we serve and the world we live in. The unique experiences and perspectives of our team members is encouraged and valued. If you are talented, driven, enjoy the pace of a start-up like environment, let’s talk!\nPosition Title & Overview:\nThe Data & Analytics team consists of data analysts, data engineers and analytics engineers working to build the most effective platform and tools to help uncover opportunities and make decisions with data here at Mediavine. We partner with Product, Support, Ad Operations and other teams within the Engineering department to understand behavior, develop accurate predictors and build solutions that provide the best internal and external experience possible.\nA Data Engineer at Mediavine will help build and maintain our data infrastructure. Building scalable data pipelines, managing transformation processes, and ensuring data quality and security at all steps along the way. This will include writing and maintaining code in Python and SQL, developing on AWS, and selecting and using third-party tools like Rundeck, Metabase, and others to round out the environment. You will be involved in decisions around tool selection and coding standards.\nOur current data engineering toolkit consists of custom Python data pipelines, AWS infrastructure including Kinesis pipelines, Rundeck scheduling, dbt for transformation and Snowflake as our data warehouse platform. We are open to new tools and expect this position to be a part of deciding the direction we take. \nEssential Responsibilities\nCreate data pipelines that make data available for analytic and application use cases\nDevelop self-healing, resilient processes that do not require constant care and feeding to run smoothly\nCreate meaningful data quality notifications with clear actions for interested parties including other internal teams and other members of the data and analytics team\nLead projects from a technical standpoint, creating project Technical Design Documents\nSupport data analysts and analytics engineers ability to meet the needs of the organization\nParticipate in code reviews, understanding coding standards, ensuring test coverage and being aware of best practices\nBuild or implement tooling around data quality, governance and lineage, in the dbt framework and Snowflake but external to that as needed\nProvide next level support when data issues are discovered and communicated by the data analysts\nWork with data analysts and analytics engineers to standardize transformation logic in the dbt layer for consistency and ease of exploration by end users\nEnable analytics engineers and data analysts by providing data modeling guidance, query optimization and aggregation advice\nLocation: \nApplicants must be based in the United States\nYou Have: \n3+ years of experience in a data engineering role\nStrong Python skills (Understands tradeoffs, optimization, etc)\nStrong SQL skills (CTEs, window functions, optimization)\nExperience working in cloud environments (AWS preferred, GCS, Azure)\nAn understanding of how to best structure data to enable internal and external facing analytics\nFamiliarity with calling APIs to retrieve data (Authentication flows, filters, limits, pagination)\nExperience working with DevOps to deploy, scale and monitor data infrastructure\nScheduler experience either traditional or DAG based\nComfortable working with multi-TB cloud data warehouses (Snowflake preferred, Redshift, Big Query)\nExperience with other DBMS systems (Postgres in particular)\nAbility to travel up to approx 15%\n\n\nNice to haves:\nExperience with web analysis such as creating data structure that support product funnels, user behavior, and decision path analysis \nUnderstanding of Snowflake external stages, file formats and snowpipe\nExperience with orchestration tools particularly across different technologies and stacks\nExperience with dbt\nKnowledge of Ad Tech, Google Ad Manager and all of it’s fun quirks (so fun)\nThe ability to make your teammates laugh (it wouldn’t hurt if you were fun to work with is what I’m saying)\nFamiliarity with event tracking systems (NewRelic, Snowplow, etc)\nExperience with one or more major BI tools (Domo, Looker, PowerBI, etc.)\n100% remote \nComprehensive benefits including Health, Dental, Vision and 401k match\nGenerous paid time off \nWellness and Home Office Perks \nUp to 12 weeks of paid Parental Leave \nInclusive Family Forming Benefits \nProfessional development opportunities \nTravel opportunities for teams, our annual All Hands retreat as well as industry events\nMediavine provides equal employment opportunities to applicants and employees. All aspects of employment will be based on merit, competence, performance, and business needs. We do not discriminate on the basis of race, color, religion, marital status, age, national origin, ancestry, physical or mental disability, medical condition, pregnancy, genetic information, gender, sexual orientation, gender identity or expression, veteran status, or any other status protected under federal, state, or local law.\nWe strongly encourage minorities and individuals from underrepresented groups in technology to apply for this position.\nAt Mediavine, base salary is one part of our competitive total compensation and benefits package and is determined using a salary range. Individual compensation varies based on job-related factors, including business needs, experience, level of responsibility and qualifications. The base salary range for this role at the time of posting is $125,000 - $135,000 USD/yr."
+  },
+  {
+    "id": "1734393903",
+    "date_posted": "2025-06-12T20:42:12",
+    "date_created": "2025-06-12T20:43:53.429274",
+    "title": "Spatial Data Engineer II",
+    "organization": "Esri",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "name": "Redlands, CA",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Redlands, CA",
+          "addressCountry": "",
+          "addressLocality": "Redlands, CA"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://www.esri.com/careers/4764217007?gh_jid=4764217007",
+    "source_type": "ats",
+    "source": "greenhouse",
+    "source_domain": "www.esri.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Redlands"
+    ],
+    "regions_derived": [
+      "California"
+    ],
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "Redlands, California, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles"
+    ],
+    "lats_derived": [
+      34.0512
+    ],
+    "lngs_derived": [
+      -117.1712
+    ],
+    "remote_derived": false,
+    "domain_derived": "esri.com",
+    "description_text": "Overview\nEsri’s ArcGIS World Geocoding solutions deliver global search and geocoding capabilities to organizations across the world. Search and geocoding are used in a wide range of applications across the ArcGIS platform such as where to open your retail store, how to best allocate resources for delivering packages, or where is, and how do I get to, my favorite coffee shop?\nAs a Spatial Data Engineer on the geocoding team, you will work with massive spatial data from both commercial and open sources. You’ll be asked to master data specifications, automate processes for acquiring and loading spatial datasets, transform those datasets into normalized data models, and work with product teams to ensure continuous quality improvements driven by the best available content.\nIf you are passionate about data and geospatial technology, join the geocoding team because you can’t have “The Science of Where” if you don’t know where to start!\nResponsibilities\nAnalyze, enhance, prepare and load spatial data into normalized databases on regular intervals\nWrite and maintain Python and SQL scripts for data processing and loading\nEvaluate new data sources for quality and attribution to support product requirements\nReview data specifications and changes, adjust scripts and processes where necessary\nRequirements\n2+ years of experience developing Python scripts or tools\nExperience writing scripts to perform spatial operations, advanced queries, and joins in SQL\nIntermediate to advanced experience working with large, normalized databases\nExperience transforming data from flat to normalized databases\nPrior experience with ETL workflows\nAbility to read data product specifications and translate into database models and tables\nAbility to manage priorities and tasks as needed in a fast-paced work environment\nA keen attention to detail and drive to resolve any issues encountered\nBachelor's in computer science, information systems, GIS, or related field\nRecommended Qualifications\nExperience working with commercial data from data vendors such as Here, TomTom or Infutor\nExperience working with open-source spatial data such as OpenStreetMap, or Tiger/Line\nExperience creating stored procedures for optimizing common tasks and operations\nExperience working with ArcMap, ArcGIS Pro, and ArcGIS geoprocessing\nPrior experience with geocoding, geocoding data, or address data\nKnowledge of Agile software development using Scrum\nPrior experience with software development and release of commercial software product\nPrior experience with ETL workflows\n#LI-EL1\n#LI-Hybrid\nTotal Rewards\nEsri’s competitive total rewards strategy includes industry-leading health and welfare benefits: medical, dental, vision, basic and supplemental life insurance for employees (and their families), 401(k) and profit-sharing programs, minimum accrual of 80 hours of vacation leave, twelve paid holidays throughout the calendar year, and opportunities for personal and professional growth. Base salary is one component of our total rewards strategy. Compensation decisions and the base range for this role take into account many factors including but not limited to skill sets; experience and training; licensure and certifications; and other business and organizational needs.\nA reasonable estimate of the base salary range is\n$76,960—$128,544 USD\nThe Company\nAt Esri, diversity is more than just a word on a map. When employees of different experiences, perspectives, backgrounds, and cultures come together, we are more innovative and ultimately a better place to work. We believe in having a diverse workforce that is unified under our mission of creating positive global change. We understand that diversity, equity, and inclusion is not a destination but an ongoing process. We are committed to the continuation of learning, growing, and changing our workplace so every employee can contribute to their life’s best work. Our commitment to these principles extends to the global communities we serve by creating positive change with GIS technology. For more information on Esri’s Racial Equity and Social Justice initiatives, please visit our website here.\nIf you don’t meet all of the preferred qualifications for this position, we encourage you to still apply!\nEsri is an equal opportunity employer (EOE) and all qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability status, protected veteran status, or any other characteristic protected by law. If you need reasonable accommodation for any part of the employment process, please email askcareers@esri.com and let us know the nature of your request and your contact information. Please note that only those inquiries concerning a request for reasonable accommodation will be responded to from this e-mail address.\nEsri Privacy Esri takes our responsibility to protect your privacy seriously. We are committed to respecting your privacy by providing transparency in how we acquire and use your information, giving you control of your information and preferences, and holding ourselves to the highest national and international standards, including CCPA and GDPR compliance."
+  },
+  {
+    "id": "1734372059",
+    "date_posted": "2025-06-12T18:48:00",
+    "date_created": "2025-06-12T20:30:11.702861",
+    "title": "Member of Technical Staff - Data Engineer",
+    "organization": "Microsoft",
+    "organization_url": "https://www.microsoft.com",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New York, New York, United States"
+        }
+      },
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Redmond, Washington, United States"
+        }
+      },
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mountain View, California, United States"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "Full-Time"
+    ],
+    "url": "https://jobs.careers.microsoft.com/global/en/job/1830378",
+    "source_type": "ats",
+    "source": "in-house",
+    "source_domain": "careers.microsoft.com",
+    "organization_logo": null,
+    "cities_derived": [
+      "Redmond",
+      "Mountain View"
+    ],
+    "regions_derived": [
+      "Washington",
+      "California",
+      "New York"
+    ],
+    "countries_derived": [
+      "United States",
+      "United States",
+      "United States"
+    ],
+    "locations_derived": [
+      "Redmond, Washington, United States",
+      "Mountain View, California, United States",
+      "New York, United States"
+    ],
+    "timezones_derived": [
+      "America/Los_Angeles",
+      "America/Los_Angeles",
+      "America/New_York"
+    ],
+    "lats_derived": [
+      47.6763,
+      37.4001,
+      42.6664
+    ],
+    "lngs_derived": [
+      -122.1169,
+      -122.0796,
+      -73.7987
+    ],
+    "remote_derived": false,
+    "domain_derived": "microsoft.com",
+    "description_text": "As Microsoft continues to push the boundaries of AI, we are on the lookout for\npassionate individuals to work with us on the most interesting and challenging\nAI questions of our time. Our vision is bold and broad — to build systems that\nhave true artificial intelligence across agents, applications, services, and\ninfrastructure. It’s also inclusive: we aim to make AI accessible to all —\nconsumers, businesses, developers — so that everyone can realize its\nbenefits.     \n\n\nMicrosoft AI (MS AI) is seeking an experienced Data Engineer to help build the\nnext wave of capabilities of our personal AI, Copilot. We’re looking for someone\nwho possesses technical prowess, a methodical approach to problem-solving,\nproficiency in data technologies, and a mastery of templating to architect\nsolutions that stand the test of time and who will bring an abundance of\npositive energy, empathy, and kindness to the team every day, in addition to\nbeing highly effective. The right candidate enjoys building world-class consumer\nexperiences and products in a fast-paced environment. The Data Engineering team\nis responsible for building data platforms that support our work in finetuning\nand deploying the core experience of Copilot, while collaborating with our\nProduct Management, Design and AI Research teams.    \n\nMicrosoft’s mission is to empower every person and every organization on the\nplanet to achieve more. As employees we come together with a growth mindset,\ninnovate to empower others, and collaborate to realize our shared goals. Each\nday we build on our values of respect, integrity, and accountability to create a\nculture of inclusion where everyone can thrive at work and beyond.    \n\nBy applying to this U.S. New York, New York OR Mountain View, CA OR Redmond, WA\nposition, you are required to be local to the New York OR San Francisco OR\nSeattle area and in office 3 days a week. "
+  },
+  {
+    "id": "1734390639",
+    "date_posted": "2025-06-12T18:40:51",
+    "date_created": "2025-06-12T20:41:51.657348",
+    "title": "Data Engineer, Chemistry Simulation Platform",
+    "organization": "SandboxAQ",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "name": "Remote, USA",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Remote, USA",
+          "addressCountry": "",
+          "addressLocality": "Remote, USA"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Remote, Canada",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Remote, Canada",
+          "addressCountry": "",
+          "addressLocality": "Remote, Canada"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://www.sandboxaq.com/job-openings?gh_jid=5563844004",
+    "source_type": "ats",
+    "source": "greenhouse",
+    "source_domain": "www.sandboxaq.com",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United States",
+      "Canada"
+    ],
+    "locations_derived": [
+      "United States",
+      "Canada"
+    ],
+    "timezones_derived": [
+      "America/New_York",
+      "America/Montreal"
+    ],
+    "lats_derived": [
+      38.9047,
+      45.4247
+    ],
+    "lngs_derived": [
+      -77.0163,
+      -75.695
+    ],
+    "remote_derived": true,
+    "domain_derived": "sandboxaq.com",
+    "description_text": "About SandboxAQ\nSandboxAQ is a high-growth company delivering AI solutions that address some of the world's greatest challenges. The company’s Large Quantitative Models (LQMs) power advances in life sciences, financial services, navigation, cybersecurity, and other sectors.\n\nWe are a global team that is tech-focused and includes experts in AI, chemistry, cybersecurity, physics, mathematics, medicine, engineering, and other specialties. The company emerged from Alphabet Inc. as an independent, growth capital-backed company in 2022, funded by leading investors and supported by a braintrust of industry leaders. \n\nAt SandboxAQ, we’ve cultivated an environment that encourages creativity, collaboration, and impact. By investing deeply in our people, we’re building a thriving, global workforce poised to tackle the world's epic challenges. Join us to advance your career in pursuit of an inspiring mission, in a community of like-minded people who value entrepreneurialism, ownership, and transformative impact. \nAbout the Role\nSandboxAQ is seeking a generalist software engineer to build infrastructure, development tooling, data pipelines, and data storage systems for AI and simulation in chemistry and life sciences. In this role, you’ll be crucial in developing tools that ingest, process, and serve large amounts of data. You’ll also contribute to improving the developer experience to increase developer velocity.\nYou’ll bring broad experience in data storage and processing technologies, orchestration tools, Python programming, CI/CD, and infrastructure as code. Most importantly, you’ll bring a track record of working in a small, fast-moving software development team, exploring new technologies, and solving problems across an entire software stack.\nWhat You’ll Do\nBuild and operate scalable data pipelines for data ingestions, processing, analytics, and storage. Optimize performance and cost-effectiveness of data pipelines and storage.\nMaintain data warehouse and data lake solutions.\nCollaborate closely with R&D teams to build and operate data tooling to meet project goals.\nIn collaboration with domain experts, design and implement data models for scientific data and APIs to store and manipulate data across file storage, graph databases, and relational databases. \nContribute to the design and implementation of complex, security-sensitive data processing and storage systems with complex tenancy and data isolation requirements.\nCollaborate closely with the product team and internal stakeholders in all phases of software development to validate the solutions you propose and implement.\nIn collaboration with the rest of the engineering team, build and manage infrastructure for SandboxAQ’s simulation and data platform.\nReview code and participate in design and architectural discussions.\nAbout You\n3+ years of experience with Python, with strong knowledge of software design principles.\nUnderstanding of database principles and best practices.\nExperience with large-scale analytic databases. BigQuery preferred.\n2+ years of experience with infrastructure as code management of public cloud providers. Familiar with terraform. GCP preferred.\n2+ years of experience building data pipelines or data processing systems at scale.\nExperience with orchestration tools like Airflow.\nExperience with writing and optimizing database queries, graph database experience is a plus.\nStrong understanding of web and network fundamentals and experience with designing, building, and testing web APIs.\nKnowledge of CI/CD best practices and building CI/CD pipelines.\nExcellent communication and collaboration skills, with the ability to effectively influence a cross-functional team.\nNice to have\nExperience with GraphQL and familiarity with Strawberry or similar.\nExperience with FastAPI.\nExperience with CircleCI.\nThe US base salary range for this full-time position is expected to be $125k - $175k per year. Our salary ranges are determined by role and level. Within the range, individual pay is determined by factors including job-related skills, experience, and relevant education or training. This role may be eligible for annual discretionary bonuses and equity.\nSandboxAQ welcomes all.\nWe are committed to creating an inclusive culture where we have zero tolerance for discrimination. We invest in our employees' personal and professional growth. Once you work with us, you can’t go back to normalcy because great breakthroughs come from great teams and we are the best in AI and quantum technology.\nWe offer competitive salaries, stock options depending on employment type, generous learning opportunities, medical/dental/vision, family planning/fertility, PTO (summer and winter breaks), financial wellness resources, 401(k) plans, and more. \nEqual Employment Opportunity: All qualified applicants will receive consideration regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, or Veteran status.\nAccommodations: We provide reasonable accommodations for individuals with disabilities in job application procedures for open roles. If you need such an accommodation, please let a member of our Recruiting team know."
+  },
+  {
+    "id": "1734309017",
+    "date_posted": "2025-06-12T18:07:27",
+    "date_created": "2025-06-12T19:55:58.468226",
+    "title": "Lead Data Engineer",
+    "organization": "FSAStore.com",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "name": "United States",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "United States",
+          "addressCountry": "",
+          "addressLocality": "United States"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://job-boards.greenhouse.io/fsastorecom/jobs/8027138002",
+    "source_type": "ats",
+    "source": "greenhouse",
+    "source_domain": "job-boards.greenhouse.io",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.9047
+    ],
+    "lngs_derived": [
+      -77.0163
+    ],
+    "remote_derived": false,
+    "domain_derived": "fsastore.com",
+    "description_text": "About Health-E Commerce: \nHere at Health-E Commerce, we are a consumer health and wellness advocate and online retailer headquartered in New York, NY. Since 2010, we have launched direct-to-consumer e-commerce brands aimed at simplifying the U.S. tax-free healthcare market and helping everyday Americans and companies benefit better from workplace benefits, wellness and health spending programs. \nOur portfolio consists of four brands — FSA Store, HSA Store, WellDeserved Health and Caring Mill. Health-e Commerce is an HIG Capital portfolio company. HIG is a leading investment firm with ~$64 billion in AUM and over 125 active portfolio companies. \nAbout the Role: \nHealth-E Commerce is seeking a Lead Data Engineer to drive the evolution of our modern data platform. As a key member of our centralized Data & Analytics team, you will oversee the design, development, and optimization of data pipelines and infrastructure that power analytics, reporting, and machine learning across the organization. \nReporting directly to the SVP of Data Science & Analytics, you will lead a team of Data Engineers and serve as the de facto Lead Data Engineer. You’ll collaborate closely with Analytics Engineers, Data Scientists, and cross-functional stakeholders in Marketing, Sales, Finance, and Product to ensure our data systems are scalable, reliable, and aligned with business goals. \nThis is a high-impact, high-visibility role ideal for a hands-on leader who thrives in a fast-paced environment and is passionate about building data systems that unlock business value. \nSpecific Responsibilities:\nArchitect and scale our data engineering stack, including ETL/ELT pipelines, transformation workflows, and compute infrastructure across cloud platforms. \nLead and mentor a team of Data Engineers, fostering a culture of collaboration, accountability, and continuous learning. \nOwn the ingestion and integration of new data sources, ensuring they are modeled for downstream analytics, reporting, and machine learning use cases. \nPartner with Analytics and Business teams to define requirements and deliver a robust internal data mart that supports self-service reporting and advanced analytics. \nCollaborate with Data Science to deploy and maintain machine learning models in production, including MLOps, monitoring, and governance. \nImplement and enforce data quality, observability, and governance standards across all pipelines and data assets. \nDrive innovation and efficiency by identifying opportunities to improve data architecture, tooling, and team processes. \nSupport strategic initiatives through data-driven insights, ad hoc analysis, and cross-functional collaboration \nWhat you'll need:\nBachelor’s degree in Computer Science, Engineering, Mathematics, or a related field (Master’s preferred). \nMinimum of 5+ years of experience in data engineering, software engineering, or analytics, with a strong track record of technical leadership. \nMinimum of 2+ years of experience managing or mentoring technical teams in an Agile environment. \nDeep expertise in cloud data platforms (e.g., Azure Synapse, Snowflake, BigQuery, Databricks, Microsoft Fabric). \nProficiency in Python and SQL, with experience building scalable data pipelines and transformation workflows. \nHands-on experience with distributed computing frameworks (e.g., Apache Spark, Delta Lake) and large-scale data processing. \nFamiliarity with modern BI tools, especially Power BI, including data modeling and dashboard development. \nExperience supporting machine learning workflows, including MLOps tools like MLflow or Weights & Biases. \nFamiliarity with setting up continuous integration and deployment workflows for data pipelines (e.g., using GitHub Actions, Azure DevOps, or Jenkins). \nExperience with orchestration tools like Apache Airflow, Prefect, or Azure Data Factory for managing complex data workflows. \nProficiency with Git and collaborative development workflows (e.g., pull requests, code reviews). \nUnderstanding of data security best practices preferred, including encryption, access control, and compliance with regulations like HIPAA or GDP \nStrong communication and stakeholder management skills, with the ability to translate business needs into technical solutions. \nA passion for data, curiosity for solving complex problems, and a drive to create business impact through technology. \nAdditional Details:\nAt Health-E Commerce, our goal is to provide an offer that supports growth potential within the role and allows for future salary progression. Final compensation is evaluated on various factors which include but aren’t limited to experience, skills, internal equity among peers, and geographic location. \nCompensation: $150,000 -180,000\nDiscretionary Annual Bonus Eligibility: Up to 15%\nMedical, Dental, Vision, and 401K with a company match\nDependent Care, FSA & HSA accounts\nPaid Parental & Bonding Leave\nFlexible PTO & office closure on all major holidays\nMonthly wellness & internet reimbursements\nProfessional development including certification support & leadership coaching\nMental Health resources\n100% remote within the United States\nMust be able to work EST hours"
+  },
+  {
+    "id": "1734293985",
+    "date_posted": "2025-06-12T17:57:31",
+    "date_created": "2025-06-12T18:09:27.596211",
+    "title": "Data Engineer III - Python, AWS, PostgreSQL",
+    "organization": "GHX",
+    "organization_url": null,
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "name": "Office Location",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Office Location",
+          "addressCountry": "",
+          "addressLocality": "Office Location"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Remote - USA",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Remote - USA",
+          "addressCountry": "",
+          "addressLocality": "Remote - USA"
+        }
+      }
+    ],
+    "locations_alt_raw": null,
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": null,
+    "url": "https://job-boards.greenhouse.io/globalhealthcareexchangeinc/jobs/4575250005",
+    "source_type": "ats",
+    "source": "greenhouse",
+    "source_domain": "job-boards.greenhouse.io",
+    "organization_logo": null,
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.9047
+    ],
+    "lngs_derived": [
+      -77.0163
+    ],
+    "remote_derived": true,
+    "domain_derived": "ghx.com",
+    "description_text": "We are seeking a Data Engineer / Software Engineer III with experience in Python, AWS cloud based solutions, and SQL to join our team. We are looking for someone who also has a strong background in data pipelines, data modeling, and complex data aggregation. The right candidate will have hands-on experience with the Django framework and experience with PostgreSQL databases.\nResponsibilities\nDesign and implement data pipelines using AWS cloud based solutions, Python, and PostgreSQL\nDesign, maintain, and implement Python-based solutions using Django.\nUtilize Django's ORM to efficiently interact with and manage database structures.\nPerform query optimization and rewrite complex SQL queries\nAnalyze and optimize database query performance.\nWrite and maintain unit, integration, and end-to-end tests.\nImplement security best practices to protect applications against vulnerabilities.\nPerform code reviews and help foster a collaborative and growth-oriented team environment.\nQualifications\nBachelor’s degree in computer science, engineering or related degree.\n5+ years of experience in software development. \nExperience maintaining, designing, and implementing Python-based solutions.\nExperience with SQL and PostgreSQL.\nExperience with AWS cloud-based solutions (e.g. EKS, RDS, EC2, SQS, Lambda).\nProficiency in utilizing Django’s ORM to efficiently manage database structures.\nExperience analyzing and optimizing complex SQL queries.\nExperience writing and maintaining unit, integration, and end-to-end tests.\nExperience performing code reviews and mentoring junior developers.\nPreferred Qualifications\nBasic knowledge of health care supply chain.\nBasic knowledge of healthcare data rules and standards (such as HIPPA).\nExperience with CI/CD\nExperience developing, maintaining, and implementing UI using Vue.js, JavaScript, and TypeScript.\nExpected Salary Range: $87,000 - $116,500\nGHX: It's the way you do business in healthcare\nGlobal Healthcare Exchange (GHX) enables better patient care and billions in savings for the healthcare community by maximizing automation, efficiency and accuracy of business processes.\nGHX is a healthcare business and data automation company, empowering healthcare organizations to enable better patient care and maximize industry savings using our world class cloud-based supply chain technology exchange platform, solutions, analytics and services. We bring together healthcare providers and manufacturers and distributors in North America and Europe - who rely on smart, secure healthcare-focused technology and comprehensive data to automate their business processes and make more informed decisions.\nIt is our passion and vision for a more operationally efficient healthcare supply chain, helping organizations reduce - not shift - the cost of doing business, paving the way to delivering patient care more effectively. Together we take more than a billion dollars out of the cost of delivering healthcare every year. GHX is privately owned, operates in the United States, Canada and Europe, and employs more than 1000 people worldwide. Our corporate headquarters is in Colorado, with additional offices in Europe.\nDisclaimer\nGlobal Healthcare Exchange, LLC and its North American subsidiaries (collectively, “GHX”) provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, national origin, sex, sexual orientation, gender identity, religion, age, genetic information, disability, veteran status or any other status protected by applicable law. All qualified applicants will receive consideration for employment without regard to any status protected by applicable law. This EEO policy applies to all terms, conditions, and privileges of employment, including hiring, training and development, promotion, transfer, compensation, benefits, educational assistance, termination, layoffs, social and recreational programs, and retirement.\n\nGHX believes that employees should be provided with a working environment which enables each employee to be productive and to work to the best of his or her ability. We do not condone or tolerate an atmosphere of intimidation or harassment based on race, color, national origin, sex, sexual orientation, gender identity, religion, age, genetic information, disability, veteran status or any other status protected by applicable law. GHX expects and requires the cooperation of all employees in maintaining a discrimination and harassment-free atmosphere. Improper interference with the ability of GHX’s employees to perform their expected job duties is absolutely not tolerated."
+  },
+  {
+    "id": "1734270150",
+    "date_posted": "2025-06-12T17:25:16.206",
+    "date_created": "2025-06-12T17:54:08.214669",
+    "title": "Senior Data Engineer",
+    "organization": "Multi Media LLC",
+    "organization_url": "https://jobs.workable.com/company/63f0121c319c852ea858d692/jobs-at-multi-media-llc",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place"
+      }
+    ],
+    "locations_alt_raw": [
+      "United States"
+    ],
+    "location_type": "TELECOMMUTE",
+    "location_requirements_raw": [
+      {
+        "@type": "Country",
+        "name": "United States"
+      }
+    ],
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/hkW8tmRLPpwFq21gh4tk2j/remote-senior-data-engineer-in-united-states-at-multi-media-llc",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/395832/logo",
+    "cities_derived": null,
+    "regions_derived": null,
+    "countries_derived": [
+      "United States"
+    ],
+    "locations_derived": [
+      "United States"
+    ],
+    "timezones_derived": [
+      "America/New_York"
+    ],
+    "lats_derived": [
+      38.9047
+    ],
+    "lngs_derived": [
+      -77.0163
+    ],
+    "remote_derived": true,
+    "domain_derived": null,
+    "description_text": "About us: Multi Media LLC is a leader in digital innovation, focusing on creating modern products for the content creator community. Our main platform, Chaturbate, is a key player in the adult entertainment industry, bringing billions of people together worldwide. We aim to make Chaturbate the best place for users and creators to interact and connect, offering a safe, creative, and engaging space for everyone.\nWe’re looking for a Senior Data Engineer with a strong infrastructure focus to help us build and operate the foundation of our data platform. In this role, you will bridge data engineering and platform operations, as well as designing systems for ingestion, transformation, and observability at scale. You’ll help define architecture patterns, implement strong data pipelines, and optimize the performance and reliability of our entire data ecosystem. This will be a rewarding opportunity if you are looking for a role where you can make a significant impact on a product with millions of users and petabytes of data.\nWhat you’ll do:\nData Architecture and System Design\nDesign a well-partitioned and clustered data warehouse that minimizes cost while letting analysts self-serve fast queries\nDefine patterns for scalable and efficient data storage, partitioning, and access\nArchitect batch and streaming systems to enable reliable data movement and transformation\nPipeline Development and Maintenance\nBuild and maintain end-to-end ETL/ELT pipelines using tools like Airflow, dbt, and dlthub \nImplement strategies for schema evolution, backfilling, and safe migration\nAutomate ingestion from APIs, event streams, file drops, and third-party sources\nData Quality and Observability\nImplement validation frameworks, anomaly detection, and unit tests across pipelines\nMonitor data health and build resilient processes for issue detection and resolution\nPlatform and Tooling\nContribute to internal tooling, documentation, and engineering standards\nSupport CI/CD workflows for data pipelines and analytics code\nOptimize compute/storage usage and recommend architectural or cost-saving improvements\nWhat you’ll bring\nBS degree in a STEM field\n5-7 years of experience in building batch and streaming data pipelines from various sources end-to-end, including ingestion, processing, and transformation\nYou are fluent in Python and SQL\nKnowledge of data privacy and security best practices (e.g. data masking, PII layering)\nExperience with data orchestration tools like Airflow, Dagster, or Prefect\nFamiliarity with data observability tools like Monte Carlo, Metaplan, or BigEye\nExperience with Semantic modeling and common BI tools (e.g. Looker, Omni, Tableau, Metabase)\nDeep understanding of GCP/AWS cloud infrastructure and offerings (IAM/Compute/Kubernetes/Analytics)\nExperience with Cloud Data Warehouses (Snowflake, BigQuery, Redshift, etc.) and data transformation tools (DBT, SQLMesh)\nHands-on experience with infrastructure as code platforms like Terraform or Pulumi\nBonus Points:\nKnowledge of data governance best practices\nDeep experience with data modeling and database architecture\nWhat You’ll Get:\nFair and competitive base salary\nFully Remote Optional\nHealth, Vision, Dental, and Life Insurance for you and any dependents, with policy premiums covered by the Company\nLong & Short term disability insurance\nUnlimited PTO\nAnnual Year-End Company Closure\nOptional 401k with 5% matching\n12 Paid Holidays\nPaid Lunches in-office, or if Remote, a $125/week stipend via Sharebite\nEmployee Assistance and Employee Recognition Programs\nAnd much more!\nThe Base Salary range for this position is $165,000 to $180,000 USD. This range reflects base salary only and does not include additional compensation or benefits. The range displayed reflects the minimum and maximum range for a new hire across the US for the posted position. A candidate’s specific pay will be determined on a case-by-case basis and may vary based on the candidate’s job-related skills, relevant education, training, experience, certifications, and abilities of the candidate, as well as other factors unique to each candidate.\nMulti Media, LLC is an equal opportunity employer and strives for diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status. We encourage people from underrepresented groups to apply!"
+  },
+  {
+    "id": "1734800402",
+    "date_posted": "2025-06-12T16:03:50.305",
+    "date_created": "2025-06-13T00:59:54.373958",
+    "title": "Graduate Finance Data Engineer",
+    "organization": "Grayce",
+    "organization_url": "https://jobs.workable.com/company/6422a55f12ee3c178274d60b/jobs-at-grayce",
+    "date_validthrough": null,
+    "locations_raw": [
+      {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bridgend",
+          "addressRegion": "Wales",
+          "addressCountry": "United Kingdom"
+        }
+      }
+    ],
+    "locations_alt_raw": [
+      "Bridgend, Wales, United Kingdom"
+    ],
+    "location_type": null,
+    "location_requirements_raw": null,
+    "salary_raw": null,
+    "employment_type": [
+      "FULL_TIME"
+    ],
+    "url": "https://jobs.workable.com/view/9sYRMyyzYbJ6quGk3J4BNj/graduate-finance-data-engineer-in-bridgend-at-grayce",
+    "source_type": "ats",
+    "source": "workable",
+    "source_domain": "jobs.workable.com",
+    "organization_logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/513827/logo",
+    "cities_derived": null,
+    "regions_derived": [
+      "Bridgend"
+    ],
+    "countries_derived": [
+      "United Kingdom"
+    ],
+    "locations_derived": [
+      "Bridgend, United Kingdom"
+    ],
+    "timezones_derived": [
+      "Europe/London"
+    ],
+    "lats_derived": [
+      51.5072
+    ],
+    "lngs_derived": [
+      -3.5784
+    ],
+    "remote_derived": false,
+    "domain_derived": "withgrayce.com",
+    "description_text": "Job Position: Graduate Finance Data Engineer\nLocation: Bridgend, South Wales \nStarting Salary: £25,000 \nApplication Requirements: \nMinimum 2:1 University Degree in Finance, Accounting, Economics or related degree, with a desire to work as a Data Professional within a Finance team.\nKnowledge of Excel, SQL and PowerBI. (Knowledge of Snowflake would be advantageous).\nAwareness of Data Modelling\nRight to work in the UK unsponsored for the duration of the programme. \nCommuting distance of Bridgend and a desire to remain in the area long-term. Must be able to be on site a minimum of three days a week. Relocation support is available for those not living within commuting distance. \n\nGrayce is not on the UK Border Agency's Sponsor Register and is unable to sponsor work visas for international applicants.\n\nAbout Grayce:\nGrayce specialises in driving change and transformation for some of the world’s most ambitious organisations. For over a decade, we've partnered with FTSE 100 and 250 companies to deliver impactful results by developing and deploying high-performing talent in the UK and beyond. \nOur Accelerated Development Programme is designed to launch the careers of recent graduates eager to make an impact. We offer a fast-track route to expertise, allowing you to gain hands-on experience with one of our impressive clients.\nWith your specialism in Data Engineering, you will have a tailored learning development journey bespoke to your role, meaning you are prepared for whatever the day throws at you, whilst learning key skills and gaining industry specific accreditations along the way. \nAbout the Role:\nThis is a fantastic opportunity to join one of our clients who are a global, blue-chip specialist insurance firm, with a rapidly growing team in Bridgend, South Wales. Our client is in need of two Data Engineers to work in their Finance Data & Reporting (FD&R) Product Team. The successful candidate should have a background/degree in Finance, Accounting or Economics and want to build a career as a Data professional within this space. \nDay To Day Responsibilities:\nEngaging with Finance stakeholders, gathering requirements and creating user stories\nBuilding and optimising Power BI reports in line with stakeholder requirements\nQuerying and transforming data from SQL Server and Snowflake\nTransforming data using PowerQuery\nModelling data into STAR schemas\nWhat makes a great Grayce Analyst? \nAnalytical Problem Solving: We're looking for analytical minds that can spot patterns and think creatively. Whether it's dissecting complex issues or finding fresh angles, we highly value critical thinking skills and their application. \nSoft Skills: From effective communication styles to planning, organisation and a learning development mindset, Grayce is committed to building core consultancy skills. Stakeholder and time management are core skills we utilise every day and we look for examples of those through our interview process. \nWhy Grayce? \nOur Analysts are actively involved in major global transformation programmes across diverse industries. \nCompetitive Salary: Starting at £25,000 with potential for significant growth. \nOpportunity: Over the course of 2 years, you'll embark on a journey of continuous learning, gaining industry-accredited qualifications, whilst getting hands-on experience working directly with a prestigious global insurance firm. \nMentoring: Thrive under the guidance of our experienced coaches and Technical Trainers. They’ll be your go-to, offering support, insights, sharing experiences. \nCommunity: Grayce doesn’t just talk about diversity and inclusion; we live and breathe it. Our community is built around an environment that values your unique perspective. \nIndustry Recognition: We help you embark on your journey with fully funded, industry-recognised qualifications designed to maximise your experience and put you in control of your career. \nWellness Support: We are here for you 24/7 with our Employee Assistance Programme, offering confidential assistance ranging from financial and legal support to health and wellbeing. \nJoin Grayce and accelerate your career!"
+  },
+  
+    {
+      "id": 3622325,
+      "slug": "senior-java-developer-3622325",
+      "url": "https://apply.workable.com/j/BB7C4E10C1",
+      "title": "Senior Java Developer",
+      "description": "<p><strong>About Us:</strong></p><p>Our client is an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p>Key Responsibilities:</p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p><strong>Qualifications:</strong></p><ul> <li><strong>Experience:</strong></li> <ul> <li> <strong>6 to 10 years</strong> of professional experience as a Software Engineer.</li> <li>Extensive development experience on the <strong>JVM</strong>, primarily using <strong>Java</strong>.</li> <li>At least <strong>2 years of recent hands-on experience with Kotlin</strong>.</li> </ul> <li><strong>Technical Skills:</strong></li> <ul> <li>Proficiency in <strong>Java</strong> and <strong>Kotlin</strong> programming languages.</li> <li>Strong experience with <strong>Spring Boot</strong> and backend development frameworks.</li> <li>Familiarity with frontend frameworks like <strong>Vaadin</strong> is a plus.</li> <li>Hands-on experience with infrastructure as code tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, or equivalents.</li> </ul> <li><strong>Domain Knowledge:</strong></li> <ul><li>Experience in the <strong>FinTech</strong> sector or traditional banking domains is advantageous.</li></ul> <li><strong>Soft Skills:</strong></li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a <strong>startup environment</strong>—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li><strong>Education:</strong></li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p><strong>Benefits</strong></p><p><strong>What We Offer:</strong></p><ul> <li>Opportunity to be part of a <strong>founding team</strong> and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-23T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622327,
+      "slug": "senior-java-developer-kotlin",
+      "url": "https://apply.workable.com/j/77971050F0",
+      "title": "Senior Java Developer - Kotlin",
+      "description": "<p></p><p>We are an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p><strong>Key Responsibilities:</strong></p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p></p><ul> <li>Experience:</li> <ul> <li>6 to 10 years of professional experience as a Software Engineer.</li> <li>Extensive development experience on the JVM, primarily using Java.</li> <li>At least 2 years of recent hands-on experience with Kotlin.</li> </ul> <li>Technical Skills:</li> <ul> <li>Proficiency in Java and Kotlin programming languages.</li> <li>Strong experience with Spring Boot and backend development frameworks.</li> <li>Familiarity with frontend frameworks like Vaadin is a plus.</li> <li>Hands-on experience with infrastructure as code tools like Pulumi, Terraform, or equivalents.</li> </ul> <li>Domain Knowledge:</li> <ul><li>Experience in the FinTech sector or traditional banking domains is advantageous.</li></ul> <li>Soft Skills:</li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a startup environment—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li>Education:</li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p></p><p><strong>Location: Remote<br>Shift Timing: Australian Shift (Minimum 2 hours overlap required)<br>Industry: FinTech<br>Position Type: Full-Time<br>Payroll Via: Cloudhire</strong></p><p></p><p><strong>Benefits</strong></p><p></p><ul> <li>Opportunity to be part of a founding team and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-25T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622322,
+      "slug": "senior-java-developer-3622322",
+      "url": "https://apply.workable.com/j/00819ADBFD",
+      "title": "Senior Java Developer",
+      "description": "<p><strong>About Us:</strong></p><p>Our client is an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p>Key Responsibilities:</p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p><strong>Qualifications:</strong></p><ul> <li><strong>Experience:</strong></li> <ul> <li> <strong>6 to 10 years</strong> of professional experience as a Software Engineer.</li> <li>Extensive development experience on the <strong>JVM</strong>, primarily using <strong>Java</strong>.</li> <li>At least <strong>2 years of recent hands-on experience with Kotlin</strong>.</li> </ul> <li><strong>Technical Skills:</strong></li> <ul> <li>Proficiency in <strong>Java</strong> and <strong>Kotlin</strong> programming languages.</li> <li>Strong experience with <strong>Spring Boot</strong> and backend development frameworks.</li> <li>Familiarity with frontend frameworks like <strong>Vaadin</strong> is a plus.</li> <li>Hands-on experience with infrastructure as code tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, or equivalents.</li> </ul> <li><strong>Domain Knowledge:</strong></li> <ul><li>Experience in the <strong>FinTech</strong> sector or traditional banking domains is advantageous.</li></ul> <li><strong>Soft Skills:</strong></li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a <strong>startup environment</strong>—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li><strong>Education:</strong></li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p><strong>Benefits</strong></p><p><strong>What We Offer:</strong></p><ul> <li>Opportunity to be part of a <strong>founding team</strong> and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-23T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622323,
+      "slug": "senior-java-developer-3622323",
+      "url": "https://apply.workable.com/j/57A32968C2",
+      "title": "Senior Java Developer",
+      "description": "<p><strong>About Us:</strong></p><p>Our client is an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p>Key Responsibilities:</p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p><strong>Qualifications:</strong></p><ul> <li><strong>Experience:</strong></li> <ul> <li> <strong>6 to 10 years</strong> of professional experience as a Software Engineer.</li> <li>Extensive development experience on the <strong>JVM</strong>, primarily using <strong>Java</strong>.</li> <li>At least <strong>2 years of recent hands-on experience with Kotlin</strong>.</li> </ul> <li><strong>Technical Skills:</strong></li> <ul> <li>Proficiency in <strong>Java</strong> and <strong>Kotlin</strong> programming languages.</li> <li>Strong experience with <strong>Spring Boot</strong> and backend development frameworks.</li> <li>Familiarity with frontend frameworks like <strong>Vaadin</strong> is a plus.</li> <li>Hands-on experience with infrastructure as code tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, or equivalents.</li> </ul> <li><strong>Domain Knowledge:</strong></li> <ul><li>Experience in the <strong>FinTech</strong> sector or traditional banking domains is advantageous.</li></ul> <li><strong>Soft Skills:</strong></li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a <strong>startup environment</strong>—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li><strong>Education:</strong></li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p><strong>Benefits</strong></p><p><strong>What We Offer:</strong></p><ul> <li>Opportunity to be part of a <strong>founding team</strong> and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-23T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622326,
+      "slug": "senior-java-developer-3622326",
+      "url": "https://apply.workable.com/j/15FA2B3083",
+      "title": "Senior Java Developer",
+      "description": "<p><strong>About Us:</strong></p><p>Our client is an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p>Key Responsibilities:</p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p><strong>Qualifications:</strong></p><ul> <li><strong>Experience:</strong></li> <ul> <li> <strong>6 to 10 years</strong> of professional experience as a Software Engineer.</li> <li>Extensive development experience on the <strong>JVM</strong>, primarily using <strong>Java</strong>.</li> <li>At least <strong>2 years of recent hands-on experience with Kotlin</strong>.</li> </ul> <li><strong>Technical Skills:</strong></li> <ul> <li>Proficiency in <strong>Java</strong> and <strong>Kotlin</strong> programming languages.</li> <li>Strong experience with <strong>Spring Boot</strong> and backend development frameworks.</li> <li>Familiarity with frontend frameworks like <strong>Vaadin</strong> is a plus.</li> <li>Hands-on experience with infrastructure as code tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, or equivalents.</li> </ul> <li><strong>Domain Knowledge:</strong></li> <ul><li>Experience in the <strong>FinTech</strong> sector or traditional banking domains is advantageous.</li></ul> <li><strong>Soft Skills:</strong></li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a <strong>startup environment</strong>—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li><strong>Education:</strong></li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p><strong>Benefits</strong></p><p><strong>What We Offer:</strong></p><ul> <li>Opportunity to be part of a <strong>founding team</strong> and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-23T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622352,
+      "slug": "sr-java-developer-with-aws",
+      "url": "https://apply.workable.com/j/4E8F9F512E",
+      "title": "Sr Java developer with AWS",
+      "description": "<p> We are looking for a Full Stack Java Developer with AWS experience in building high-performing, scalable, enterprise-grade applications. You will be part of a talented software team that works on mission-critical applications. Java developer roles and responsibilities include managing Java/Java EE application development while providing expertise in the full software development lifecycle, from concept and design to testing.  </p><p><br></p><p><br></p><h3>Responsibilities</h3><ul> <li>An FSD/FSPE has an end-to-end product mindset - design, implementation, testing, and deployment, and adds an additional skill (s) on top of the traditional front/back-end developer roles.</li> <li>Contribute to all phases of the development lifecycle</li> <li>Design and develop applications using Core Java Design and developer applications using J2EE.</li> <li>Write well-designed, testable, efficient code</li> <li>Ensure designs are in compliance with specifications</li> <li>Prepare and produce releases of software components</li> <li>Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review</li> </ul><p><strong>Requirements</strong></p><p>Stacks : AWS CloudFormation &amp; Java</p><ul> <li>Proven 6+ years of working experience in Java development &amp; AWS</li> <li>Hands on experience in designing and developing applications using Java EE platforms</li> <li>Experience in J2EE design patterns</li> <li>Experience with Cloud AWS</li> <li>Object Oriented analysis and design using common design patterns.</li> <li>Profound insight of Java and JEE internals (Classloading, Memory Management, Transaction management etc)</li> <li>Excellent knowledge of Relational Databases, SQL and ORM technologies (JPA2, Hibernate)</li> <li>Experience in the Spring Framework</li> <li>Experience in developing web applications using at least one popular web framework (JSF, Wicket, GWT, Spring MVC)</li> <li>we extensively leverage Amazon Web Services, GitHub Actions, and AWS CloudFormation.</li> <li>Bachelors Degree in Computer Science or Engineering or related field.</li> </ul><p><strong>Benefits</strong></p><p>CloudHire’s mission is to create a positive and lasting impact in the world. By increasing competitiveness and efficiency in businesses, we believe that we are a catalyst for innovation across a multitude of specialties.</p><p>CloudHire works closely with its team to help you grow as much as we grow, and value your holistic development. Employees who are most successful at CloudHire take initiative, know how to identify problems and provide solutions, and always put the Team first.</p><p><br></p>",
+      "datePosted": "2023-01-13T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "aws",
+        "java",
+        "github",
+        "springframework"
+      ],
+      "categories": [
+        "back-end",
+        "devops",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3622324,
+      "slug": "senior-java-developer-3622324",
+      "url": "https://apply.workable.com/j/1CBDAF170F",
+      "title": "Senior Java Developer",
+      "description": "<p><strong>About Us:</strong></p><p>Our client is an innovative startup at the forefront of FinTech, poised for significant growth. We're building a core product that will revolutionize enterprise solutions in the financial sector. We're seeking a passionate Senior Java Developer with Kotlin experience to join our founding team. If you're excited about working with cutting-edge technology and making a substantial impact in a startup environment, we'd love to hear from you.</p><p>Key Responsibilities:</p><ul> <li>Application Development:</li> <ul> <li>Design, develop, and maintain scalable applications using Java and Kotlin.</li> <li>Utilize frameworks such as Spring Boot, Vaadin, or similar to build robust backend services.</li> </ul> <li>Infrastructure Management:</li> <ul> <li>Contribute to infrastructure setup and management using tools like Pulumi or Terraform.</li> <li>Ensure applications are optimized for performance and scalability.</li> </ul> <li>Technical Leadership:</li> <ul> <li>Participate in architecture and design discussions to influence the technical direction.</li> <li>Collaborate with a small, high-performing team to solve complex technical challenges.</li> </ul> <li>Mentorship:</li> <ul> <li>Provide guidance and mentorship to junior developers as the team expands.</li> <li>Foster a culture of continuous learning and improvement.</li> </ul> <li>Innovation &amp; Improvement:</li> <ul> <li>Stay updated on industry trends, emerging technologies, and best practices.</li> <li>Identify opportunities for process and product improvements.</li> </ul> </ul><p><strong>Requirements</strong></p><p><strong>Qualifications:</strong></p><ul> <li><strong>Experience:</strong></li> <ul> <li> <strong>6 to 10 years</strong> of professional experience as a Software Engineer.</li> <li>Extensive development experience on the <strong>JVM</strong>, primarily using <strong>Java</strong>.</li> <li>At least <strong>2 years of recent hands-on experience with Kotlin</strong>.</li> </ul> <li><strong>Technical Skills:</strong></li> <ul> <li>Proficiency in <strong>Java</strong> and <strong>Kotlin</strong> programming languages.</li> <li>Strong experience with <strong>Spring Boot</strong> and backend development frameworks.</li> <li>Familiarity with frontend frameworks like <strong>Vaadin</strong> is a plus.</li> <li>Hands-on experience with infrastructure as code tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, or equivalents.</li> </ul> <li><strong>Domain Knowledge:</strong></li> <ul><li>Experience in the <strong>FinTech</strong> sector or traditional banking domains is advantageous.</li></ul> <li><strong>Soft Skills:</strong></li> <ul> <li>Excellent problem-solving abilities and attention to detail.</li> <li>Strong communication skills with a team-oriented mindset.</li> <li>Ability to thrive in a <strong>startup environment</strong>—adaptable, proactive, and comfortable with ambiguity.</li> </ul> <li><strong>Education:</strong></li> <ul><li>No formal degree required; we value skills and experience over credentials.</li></ul> </ul><p><strong>Benefits</strong></p><p><strong>What We Offer:</strong></p><ul> <li>Opportunity to be part of a <strong>founding team</strong> and significantly influence the product's direction.</li> <li>A collaborative and innovative work environment.</li> <li>Flexible remote work with alignment to the Australian time zone (minimum 2 hours overlap).</li> <li>Competitive compensation package.</li> </ul>",
+      "datePosted": "2024-11-23T00:00:00+00:00",
+      "dateDeleted": "2025-04-27T13:08:45.071+00:00",
+      "skills": [
+        "java",
+        "kotlin",
+        "springboot"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "CloudHire",
+        "slug": "cloudhire1",
+        "website": "https://cloudhire.ai",
+        "linkedinUrl": "https://www.linkedin.com/company/cloudhire1",
+        "linkedinSize": "11-50",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2020",
+        "linkedinTagline": "Helping Exceptional People Find Global Opportunities",
+        "linkedinIndustry": "Staffing and Recruiting",
+        "linkedinLocations": [
+          "1270 Avenue of the Americas, 7th Floor - 1009, New York, New York 10020, US",
+          "275 New North Road, N1 7AA, Islington, England N1 7AA, GB",
+          "Road No 10, Shaikpet, Telangana 500033, IN"
+        ],
+        "linkedinDescription": "CloudHire bridges the gap between pay and skill globally by enabling businesses to find, hire, pay, and manage the top 1% of global talent.",
+        "linkedinSpecialties": [
+          "Staffing",
+          "Talentsearch",
+          "Outsource",
+          "Contractors",
+          "Hiring",
+          "Interviewing",
+          "Artificial Intelligence",
+          "Recruiting",
+          "Remote Developers",
+          "Sourcing",
+          "Remote Work"
+        ]
+      }
+    },
+    {
+      "id": 3619804,
+      "slug": "java-developer-3619804",
+      "url": "https://apply.workable.com/j/8ADC218104",
+      "title": "Java Developer",
+      "description": "<p>We are looking for a talented Java Developer to help build and maintain scalable, efficient, and secure backend services and applications. As a remote developer, you will collaborate with cross-functional teams to deliver robust software solutions that meet business needs. This role is ideal for a developer who is passionate about coding, problem-solving, and staying updated with the latest trends and technologies.</p><p><strong>Job Responsibilities</strong></p><ul> <li>Design, develop, and maintain Java-based applications and systems.</li> <li>Write clean, maintainable, and efficient code following industry best practices.</li> <li>Participate in the full software development life cycle (SDLC) including planning, development, testing, and deployment.</li> <li>Collaborate with front-end developers, product managers, and other stakeholders to deliver high-quality products.</li> <li>Optimize applications for maximum speed and scalability.</li> <li>Troubleshoot and debug applications to ensure smooth functionality.</li> <li>Ensure adherence to coding standards, security policies, and quality assurance.</li> <li>Stay updated with the latest Java frameworks, libraries, and development tools.</li> </ul><p><strong>Requirements</strong></p><ul> <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field (or equivalent work experience).</li> <li>3+ years of professional Java development experience.</li> <li>Strong knowledge of Java SE/EE.</li> <li>Experience with frameworks such as Spring, Hibernate, or similar.</li> <li>Familiarity with RESTful APIs and microservices architecture.</li> <li>Solid understanding of object-oriented programming (OOP) principles.</li> <li>Proficiency in SQL and experience with relational databases (e.g., MySQL, PostgreSQL).</li> <li>Familiarity with CI/CD pipelines and version control systems such as Git.</li> <li>Experience with cloud platforms like AWS, Azure, or Google Cloud is a plus.</li> <li>Knowledge of containerization tools like Docker or Kubernetes is a plus.</li> </ul><p></p><p><em><strong>Preferred Skills</strong></em></p><ul> <li>Experience with front-end technologies (React, Angular, etc.) is an advantage.</li> <li>Knowledge of Agile/Scrum methodologies.</li> <li>Strong analytical and problem-solving skills.</li> <li>Excellent communication skills and ability to work independently in a remote environment.</li> </ul><p></p><p><strong>Minimum Technical and Work Environment Requirements:</strong></p><ul> <li> <strong>Internet Connection:</strong> </li> <ul> <li> Primary internet connection with a minimum speed of <strong>15 Mbps</strong>. </li> <li> Backup internet connection with at least <strong>10 Mbps</strong>. </li> <li> Backup connection must be capable of supporting work during a power outage. </li> </ul> </ul><p></p><ul> <li> <strong>Primary Device:</strong> </li> <ul> <li> Desktop or laptop equipped with at least: </li> <ul> <li> <strong>Intel Core i5 (8th generation or newer)</strong>, <strong>Intel Core i3 (10th generation or newer)</strong>, <strong>AMD Ryzen 5</strong>, or an equivalent processor. </li> <li> A minimum of <strong>8 GB RAM</strong>. </li> </ul> </ul> </ul><p> </p><ul> <li> <strong>Backup Device:</strong> </li> <ul> <li> Must meet or exceed the performance of an <strong>Intel Core i3</strong> processor. </li> <li> Must be functional during power interruptions. </li> </ul> </ul><p></p><ul> <li> A functioning <strong>webcam</strong>. </li> <li> A <strong>noise-canceling USB headset</strong>. </li> <li> A <strong>quiet, dedicated home office space</strong>. </li> <li> <strong>Peripherals and Workspace:</strong> A <strong>smartphone</strong> for communication and verification purposes. </li> </ul><p><strong>Benefits</strong></p><ul> <li> <strong>Join Our Dynamic Team:</strong> Experience our fun, inclusive, innovative culture that values your unique contributions and supports your professional growth.</li> <li> <strong>Embrace the Opportunities: </strong>Seize daily chances to learn, innovate, and excel. Make a real impact in your field.</li> <li> <strong>Limitless Career Growth: </strong>Unlock a world of possibilities and resources to propel your career forward.</li> <li> <strong>Fast-Paced Thrills:</strong> Thrive in a high-energy, engaging atmosphere. Embrace challenges and reap stimulating rewards.</li> <li> <strong>Flexibility, Your Way:</strong> Embrace the freedom to work from home or any location of your choice. Create your ideal work environment.</li> <li> <strong>Work-Life Balance at Its Best:</strong> Say goodbye to stressful commutes and hello to quality time with loved ones. Achieve a healthy work-life integration to perform at your best.</li> </ul>",
+      "datePosted": "2024-10-15T00:00:00+00:00",
+      "dateDeleted": null,
+      "skills": [
+        "java",
+        "angular",
+        "aws",
+        "azure",
+        "cicd",
+        "docker",
+        "git",
+        "kubernetes",
+        "mysql",
+        "postgresql",
+        "react"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "ph",
+        "in",
+        "pk"
+      ],
+      "company": {
+        "name": "CrewBloom",
+        "slug": "crewbloom",
+        "website": "http://www.crewbloom.com",
+        "linkedinUrl": "https://www.linkedin.com/company/crewbloom",
+        "linkedinSize": "201-500",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2016",
+        "linkedinTagline": "We connect you with the world’s top remote talent to help your business grow.",
+        "linkedinIndustry": "Outsourcing and Offshoring Consulting",
+        "linkedinLocations": [
+          "347 5th Ave Suite 1402, New York, New York 10016, US"
+        ],
+        "linkedinDescription": "We're here to make hiring as easy as placing an order on Amazon.\n\nTo get started, all we need is your job requirements. Next? Wait for candidates to be endorsed and pick the candidates you wish to hire. \n\nWe do all the heavy lifting like sourcing, vetting, and interviewing the applicants. Once you select your next hire, you can try them risk-free for one week. \n\nIt's that easy. \n\nRoles we fill include sales, support, admin, finance, and IT roles that can be done remotely. \n\nTalk to us now to get started! https://bit.ly/42qPHrQ",
+        "linkedinSpecialties": [
+          "Business Development",
+          "Recruitment",
+          "Offshoring",
+          "Outsourcing",
+          "Remote Outsourcing",
+          "Remote Staffing"
+        ]
+      }
+    },
+    {
+      "id": 340959,
+      "slug": "senior-backend-java-developer-india",
+      "url": "https://jobs.lever.co/zimperium/41d77c58-e966-4b74-b6c7-b0ca976bbc21",
+      "title": "Senior Backend Java Developer - India",
+      "description": "<div><span style=\"font-size: 11pt;\">Zimperium® is an industry leader in enterprise mobile security, being the first and only company to provide a complete mobile tcahreat defense system that offers real-time, on device world-class protection against both known and unknown next generation of advanced mobile cyberattacks and malware.</span></div><div><span style=\"font-size: 11pt;\">Our MTD and award-winning machine learning-based engine protects against device, network, phishing and application attacks for IOS, Android and Windows devices, using a non-intrusive approach to always protect privacy of users.</span></div><div><span style=\"font-size: 11pt;\">&nbsp;</span></div><div><span style=\"font-size: 11pt;\">To reinforce our team of experts, we are currently looking for an awesome Senior Java Engineer to keep innovate and develop our world class mobile threat defense solutions.</span></div><div><br></div><div><b>Location:</b> Dallas Based &amp; Surrounding Areas Only (Hybrid - must be able to commute to office 2 - 3x a week)</div><div><span style=\"font-size: 11pt;\">&nbsp;</span></div><div><b style=\"font-size: 11pt;\">Responsibilities:</b></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Codes complex application components based on design specs, while adhering to defined programming standards, structured coding techniques, and development methodologies.</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Decompose problems into clear software and UX design actions</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Write Unit-tested and maintainable code</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Design, develop, debug, while ensuring scalability, performance and security</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Collaborate with cross functional team members to ensure we meet business needs in a timely manner</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Be self organization and a self starter</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Be an innovative and creative problem solver</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Participate in team planning sessions &amp; daily scrum meetings</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Adapt and respond quickly to changing requirements</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Provide deliverables in a timely manner</span></div><div><span style=\"font-size: 11pt;\">&nbsp;</span></div><div><b style=\"font-size: 11pt;\">Requirements:&nbsp;</b></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">7+ years development experience with Python, Java, Restful APIs, Databases, Docker, Git, Kubernetes, and cloud technologies (AWS, GCP, Azure, Oracle Cloud)</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with Java/Kotlin</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with Spring framework</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with Bash and Linux</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience working with CI/CD pipelines</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with message queues (RabbitMQ, Kafka, etc)</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with API security frameworks, token management and user access control including OAuth, JWT, etc.</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Understanding of caching strategies and implementation (Redis, Memcache, etc.)</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience with Java and Spring Boot&nbsp;</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Experience in working in agile environments</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Strong problem solving and troubleshooting skills</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Front end development skills is a plus</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">A team player with a start-up/entrepreneur mindset</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Strong writing and communication skills</span></div><div><span style=\"font-size: 11pt;\">·</span><span style=\"font-size: 7pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size: 11pt;\">Nice to have: Microservices experience</span></div><div><span style=\"font-size: 11pt;\">&nbsp;</span></div><div><b style=\"font-size: 11pt;\">Education:</b></div><div><span style=\"font-size: 11pt;\">A Bachelor’s of Science in Computer Science, Information Systems and/or equivalent work experience.</span></div><div><span style=\"font-size: 11pt;\">&nbsp;</span></div> \n\t\t\t\t\t\t \n\t\t\t\t\t\t<br /> <div><span style=\"font-size: 10.5pt;\">Zimperium, Inc. is a global leader in mobile device and app security, offering real-time, on-device protection against both known and unknown threats on Android, iOS and Chromebook endpoints. The company was founded under the premise that the then current state of mobile security was insufficient to solve the growing mobile security problem. At the time, most mobile security was a port from traditional endpoint security technologies.Zimperium recognized mobile devices had unique characteristics needing a completely new approach. The team set to work to reimagine how to protect mobile devices and developed the award winning, patented z9 machine learning-based engine. </span></div><div><br></div><div><i style=\"font-size: 17px;\">Zimperium is an Equal Opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex including sexual orientation and gender identity, national origin, disability, protected veteran status, or any other characteristic protected by applicable federal, state, or local law.</i></div>",
+      "datePosted": "2024-12-23T18:37:28+00:00",
+      "dateDeleted": "2025-03-07T21:10:10.768+00:00",
+      "skills": [
+        "java",
+        "android",
+        "aws",
+        "azure",
+        "bash",
+        "cicd",
+        "docker",
+        "gcp",
+        "git",
+        "ios",
+        "kotlin",
+        "kubernetes",
+        "linux",
+        "python",
+        "rabbitmq",
+        "redis",
+        "springboot",
+        "springframework",
+        "windows"
+      ],
+      "categories": [
+        "back-end",
+        "software-development",
+        "engineering"
+      ],
+      "employmentTypes": [
+        "fulltime"
+      ],
+      "locationTypes": [
+        "remote"
+      ],
+      "countries": [
+        "in"
+      ],
+      "company": {
+        "name": "Zimperium",
+        "slug": "zimperium",
+        "website": "http://www.zimperium.com",
+        "linkedinUrl": "https://www.linkedin.com/company/zimperium",
+        "linkedinSize": "201-500",
+        "linkedinType": "Privately Held",
+        "linkedinFounded": "2010",
+        "linkedinTagline": "Purpose-Built to Defend Mobile Environments",
+        "linkedinIndustry": "Computer and Network Security",
+        "linkedinLocations": [
+          "4055 Valley View, Dallas, TX 75244, US"
+        ],
+        "linkedinDescription": "Zimperium is the world leader in mobile security. Purpose-built for mobile environments, Zimperium provides unparalleled protection for mobile applications and devices, leveraging AI-driven, autonomous security to counter evolving threats including mobile-targeted phishing (mishing), malware, app vulnerabilities and compromise, as well as zero day threats. As cybercriminals adopt a mobile-first attack strategy, Zimperium helps organizations stay ahead with proactive, unmatched protection of the mobile apps that run your business and the mobile devices relied upon by your employees.  Headquartered in Dallas, Texas, Zimperium is backed by Liberty Strategic Capital and SoftBank.",
+        "linkedinSpecialties": [
+          "Mobile Security",
+          "Mobile Intrusion Prevention System",
+          "Vulnerability Research & Exploitation",
+          "Machine Learning",
+          "Mobile IPS",
+          "Mobile Threat Defense",
+          "Mobile Risk Management",
+          "Mobile Device Management",
+          "Mobile Intrusion Detection System",
+          "Mobile Threat Detection",
+          "Mobile App Security",
+          "App Security"
+        ]
+      }
+    }
+  ]
+  

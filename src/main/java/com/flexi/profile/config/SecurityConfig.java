@@ -144,23 +144,35 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**", "/api/profiles/public", "/h2-console/**", "/api/health/ping").permitAll()
+                .requestMatchers("/api/v2/job-postings").hasAnyRole("HR", "ADMIN")
                 
+                // Admin specific endpoints
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                .requestMatchers("/api/job-postings/**").hasAnyRole("HR", "ADMIN")
-                .requestMatchers("/api/job-applications/jobs/*/apply").hasRole("USER")
-                .requestMatchers("/api/job-applications/**").hasAnyRole("HR", "ADMIN")
-                .requestMatchers("/api/roles/request").hasRole("USER")
                 .requestMatchers("/api/roles/requests/**").hasRole("ADMIN")
-                .requestMatchers("/api/v2/roles/my-requests").hasRole("USER")
-                .requestMatchers("/api/v2/job-applications/jobs/*/apply").hasRole("USER")
+                
+                // HR and Admin endpoints
+                .requestMatchers("/api/job-postings/**").hasAnyRole("HR", "ADMIN")
+                .requestMatchers("/api/job-applications/**").hasAnyRole("HR", "ADMIN")
                 .requestMatchers("/api/v2/job-applications/*/status").hasAnyRole("HR", "ADMIN")
                 .requestMatchers("/api/v2/job-applications/jobs/*").hasAnyRole("HR", "ADMIN")
-                .requestMatchers("/api/v2/job-applications/**").authenticated()
-                .requestMatchers("/api/v2/job-postings").permitAll()
                 .requestMatchers("/api/v2/job-postings/**").hasAnyRole("HR", "ADMIN")
+                
+                // User specific endpoints
+                .requestMatchers("/api/roles/request").hasRole("USER")
+                .requestMatchers("/api/v2/roles/my-requests").hasRole("USER")
+                .requestMatchers("/api/job-applications/jobs/*/apply").hasRole("USER")
+                .requestMatchers("/api/v2/job-applications/jobs/*/apply").hasRole("USER")
+                
+                // Endpoints for HR, Admin, and User
+                .requestMatchers("/api/v2/job-posting-responses").hasAnyRole("HR", "ADMIN", "USER")
+                
+                // General authenticated endpoints
+                .requestMatchers("/api/v2/job-applications/**").authenticated()
                 .requestMatchers("/api/v2/**").authenticated()
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
+                
+                
             )
             .headers(headers -> headers.frameOptions(frame -> frame.disable())) // For H2 console
             .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, tokenBlacklist), UsernamePasswordAuthenticationFilter.class);
@@ -182,16 +194,30 @@ public class SecurityConfig {
     /**
      * CORS configuration bean
      */
+//    @Bean
+//    public CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:1111", "http://localhost:8084"));
+//        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//        configuration.setAllowedHeaders(Arrays.asList("*"));
+//        configuration.setAllowCredentials(true);
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:1111", "http://localhost:2222"));
+        configuration.setAllowedOrigins(Arrays.asList("*")); // Allow all origins
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(true);
-
+        configuration.setAllowCredentials(false); // Must be false when allowedOrigins contains "*"
+        
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 }
